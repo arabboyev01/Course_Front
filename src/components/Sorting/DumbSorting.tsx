@@ -1,6 +1,6 @@
 import {
     LeftSide,
-    RightSide, SearchIcon, SearchInput,
+    RightSide,
     SearchWrapper,
     StyleSorting,
     SubText,
@@ -10,8 +10,7 @@ import {
 import Dropdown from '@/re-usible/Dropdown'
 import React from 'react'
 import { Options } from '@/globalTypes'
-import AnimationComponent from '@/components/animation'
-import SearchJson from '@/AnimationJson/SearchAnimation.json'
+import Search from '@/re-usible/Search'
 
 const DumbSorting: React.FC<Options> = ({options, filters}) => (
     <StyleSorting>
@@ -23,15 +22,12 @@ const DumbSorting: React.FC<Options> = ({options, filters}) => (
             <Times>
                 <Dropdown options={options} firstOption="Options"/>
             </Times>
-            <SearchWrapper>
-                <SearchIcon>
-                    <AnimationComponent animationData={SearchJson}/>
-                </SearchIcon>
-                <SearchInput placeholder="Search Reviews"/>
-            </SearchWrapper>
             <Times>
                 <Dropdown options={filters} firstOption="Filters"/>
             </Times>
+            <SearchWrapper>
+                <Search />
+            </SearchWrapper>
         </RightSide>
     </StyleSorting>
 )

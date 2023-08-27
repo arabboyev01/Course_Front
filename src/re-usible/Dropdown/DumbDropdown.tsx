@@ -1,24 +1,19 @@
-import { DropdownContainer, DropdownHeader, DropdownOptions, DropdownOption } from '@/re-usible/Dropdown/style.dropdown'
 import React from 'react'
 import { DropdownProps } from '@/globalTypes'
 
-const DumbDropdown:React.FC<DropdownProps> = ({isOpen, options, setIsOpen, selectedOption, handleOptionClick}) => (
-    <DropdownContainer onClick={() => setIsOpen(!isOpen)}>
-      <DropdownHeader>
-        {selectedOption}
-      </DropdownHeader>
-      {isOpen && (
-        <DropdownOptions>
-          {options?.map((option) => (
-            <DropdownOption
-              key={option}
-              onClick={() => handleOptionClick(option)}
-            >
-              {option}
-            </DropdownOption>
-          ))}
-        </DropdownOptions>
-      )}
-    </DropdownContainer>
+const DumbDropdown: React.FC<DropdownProps> = ({options, selectedOption, handleOptionClick}) => (
+    <div className="menu-container">
+        <nav>
+            <ul className="menu">
+                <li className="dropdown dropdown-6">{selectedOption}
+                    <ul className="dropdown_menu dropdown_menu--animated dropdown_menu-6">
+                        {options?.map((item: any) =>
+                            <li className="dropdown_item-1" key={item} onClick={() => handleOptionClick(item)}>{item}</li>
+                        )}
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
 )
 export default DumbDropdown

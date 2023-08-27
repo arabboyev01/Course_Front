@@ -7,6 +7,7 @@ export const StyleSorting = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
+  border-bottom: 0.2px solid #727171;
 `
 export const LeftSide = styled.div`
   display: flex;
@@ -33,23 +34,11 @@ export const SubText = styled.p`
 `
 
 export const SearchWrapper = styled.div`
-  height: 40px;
-  background: #fff;
+  height: 38px;
   display: flex;
   align-items: center;
   cursor: pointer;
+  border-radius:5px;
+  margin-top: 8px;
 `;
 
-export const SearchInput = styled.input`
-  width: 200px;
-  height: 40px;
-  border: none;
-`;
-
-export const SearchIcon = styled.div`
-  width: 40px;
-  height: 40px;
-  overflow: hidden;
-  object-fit: contain;
-  cursor: pointer;
-`;
