@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const StyleHeader = styled.div`
   width: 100%;
-  height: 50px;
+  height: 80px;
   background: #fff;
 `
 
 export const HeaderContent = styled.div`
   max-width: 1300px;
   margin: 0 auto;
-  padding: 5px 0;
+  padding: 15px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
