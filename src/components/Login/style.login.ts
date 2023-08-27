@@ -10,7 +10,6 @@ export const StyleLogin = styled.div`
 
 export const LoginWrapper = styled.div`
   width: 400px;
-  height: 600px;
   border: .1px solid #575656;
   display: flex;
   flex-direction: column;
