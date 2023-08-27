@@ -17,7 +17,7 @@ const validate = makeValidate(schema);
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
-const DumbLogin = ({handleLogin}: any) => (
+const DumbLogin = ({handleLogin, loginRoute}: any) => (
     <StyleLogin>
         <LoginWrapper>
             <Title>Login in to account</Title>
@@ -34,7 +34,7 @@ const DumbLogin = ({handleLogin}: any) => (
                         </InputWrapper>
                         <SignUpWrapper>
                             <SignUp>Do not have an account ?</SignUp>
-                            <SignUpLinks>Sign Up</SignUpLinks>
+                            <SignUpLinks onClick={loginRoute}>Sign Up</SignUpLinks>
                         </SignUpWrapper>
                         <InputWrapper>
                             <SubmitButton type="submit">Login</SubmitButton>

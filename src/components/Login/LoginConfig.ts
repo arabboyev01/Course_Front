@@ -14,5 +14,5 @@ export const FOUNDATION_FORM_VALUES = {
 }
 export const schema = Yup.object().shape({
     username: Yup.string().required(`${FOUNDATION_FORM_VALUES.username.label} is required.`),
-    password: Yup.string().email(`Please write valid email.`).required(`${FOUNDATION_FORM_VALUES.password.label} is required.`),
+    password: Yup.string().required(`${FOUNDATION_FORM_VALUES.password.label} is required.`),
 });

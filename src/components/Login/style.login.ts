@@ -92,6 +92,7 @@ export const SignUpLinks = styled.p`
   color: rgba(22, 95, 199);
   font-size: 14px;
   margin-top: 10px;
+  cursor: pointer;
 `
 
 export const Icon = {
