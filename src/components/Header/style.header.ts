@@ -18,8 +18,8 @@ export const HeaderContent = styled.div`
   }
 `
 export const LoginButton = styled.button`
-  width: 80px;
-  height: 30px;
+  width: 100px;
+  height: 40px;
   background: rgb(239, 245, 248);
   border: none;
 

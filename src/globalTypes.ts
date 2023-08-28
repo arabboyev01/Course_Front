@@ -33,3 +33,7 @@ export interface ReviewPropsType {
     ReviewsData?: ReviewType[] | any
     users: usersType[] | null | any
 }
+
+export interface RoutingType {
+    handleRouter: () => void
+}

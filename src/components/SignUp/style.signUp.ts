@@ -5,10 +5,16 @@ export const SignUpWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 600px;
   width: 450px;
   border-radius: 8px;
   border: .1px solid #575656;
+  padding: 30px 0;
+  @media(max-width: 500px){
+    width: 400px;
+  }
+   @media(max-width: 400px){
+    width: 360px;
+  }
 `
 export const SignUpInputs = styled.div`
   display: flex;
@@ -17,6 +23,15 @@ export const SignUpInputs = styled.div`
   gap: 10px;
   margin: 20px 0;
   height: 60px;
+  @media(max-width: 500px){
+   flex-direction: column;
+    width: 380px;
+    height: 100px;
+    justify-content: space-between;
+  }
+  @media(max-width: 400px){
+    width: 350px;
+  }
 `
 
 export const Seperated = styled.div`
