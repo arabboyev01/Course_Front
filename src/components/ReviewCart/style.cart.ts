@@ -7,7 +7,13 @@ export const StyleCart = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
 `
-
+export const Center = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+`
 export const CartWrapper: any = styled.div`
   border-radius: 10px;
   background-color: ${props => props.color ? '#fff' : 'rgb(123, 188, 214)'};

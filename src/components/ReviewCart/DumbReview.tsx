@@ -1,7 +1,7 @@
 import {
     CartDetail, CartFooter,
     CartHeader,
-    CartWrapper, Images,
+    CartWrapper, Center, Images,
     StyleCart, Tags, Text,
     User,
     UserImage,
@@ -12,39 +12,34 @@ import { ReviewPropsType, ReviewType } from '@/globalTypes'
 import userImg from '../../../public/user.svg'
 import { handleUserName } from '@/utils'
 import RatingComponent from '@/re-usible/Rating'
+import MainLoader from '@/re-usible/Loaders/MainLoader'
 
 const DumbReview: React.FC<ReviewPropsType> = ({ReviewsData, users}) => (
     <StyleCart>
-        {ReviewsData?.map(({id, name, groupName, reviewText, imageUrl, grade, tags}: ReviewType) =>
-            <CartWrapper key={id} color={id % 2 !== 0}>
-                <CartHeader>
-                    <User>
-                        <UserImage src={userImg.src}/>
-                        <UserName>@ {handleUserName(id, users)}</UserName>
-                    </User>
-                    <RatingComponent value={grade}/>
-                </CartHeader>
-                <CartDetail>
-                    <Text>{reviewText}</Text>
-                    <Images src={imageUrl.src}/>
-                </CartDetail>
-                <CartFooter>
-                    <Tags>{tags}</Tags>
-                </CartFooter>
-            </CartWrapper>
-        )}
+        {!ReviewsData.length || !users ?
+            <Center>
+                <MainLoader/>
+            </Center> :
+            ReviewsData?.map(({id, name, groupName, reviewText, imageUrl, grade, tags}: ReviewType) =>
+                <CartWrapper key={id} color={id % 2 !== 0}>
+                    <CartHeader>
+                        <User>
+                            <UserImage src={userImg.src}/>
+                            <UserName>@ {handleUserName(id, users)}</UserName>
+                        </User>
+                        <RatingComponent value={grade}/>
+                    </CartHeader>
+                    <CartDetail>
+                        <Text>{reviewText}</Text>
+                        <Images src={imageUrl.src}/>
+                    </CartDetail>
+                    <CartFooter>
+                        <Tags>{tags}</Tags>
+                    </CartFooter>
+                </CartWrapper>
+            )}
     </StyleCart>
 );
 
 export default DumbReview
 
-// < div className = "search-box" >
-//     <button
-// className = "btn-search" > < i
-// className = "fas fa-search" > < /i></
-// button >
-// < input
-// type = "text"
-// className = "input-search"
-// placeholder = "Type to Search..." >
-//     < /div>

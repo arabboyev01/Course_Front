@@ -17,8 +17,7 @@ const ReviewCart = () => {
     }, [])
 
     useEffect(() => {
-        fetchUsers().then(console.log)
-            .catch(err => console.log(err))
+        fetchUsers().then(console.log).catch(err => console.log(err))
     }, [fetchUsers]);
 
     return <DumbReview ReviewsData={ReviewsData} users={users}/>
