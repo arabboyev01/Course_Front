@@ -57,3 +57,15 @@ export interface CounterState {
     value: number
     isAuthorized: boolean
 }
+
+export interface HandleLoginType {
+    handleLogin: (e: LoginUsersType) => any
+    loginRoute: () => void
+    loader: boolean
+}
+
+export interface HandleSignUpTypes {
+    handleSignUp: (values: SignUpUsersTypes) => void
+    signUpRoute: () => void
+    loader: boolean
+}

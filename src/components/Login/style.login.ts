@@ -46,6 +46,11 @@ export const SubmitButton = styled.button`
   color: #fff;
   border: none;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 `
 
 export const Lines = styled.div`

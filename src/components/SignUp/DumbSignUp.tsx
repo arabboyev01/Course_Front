@@ -16,10 +16,13 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import { makeValidate } from 'mui-rff'
 import { schema } from '@/components/SignUp/config'
+import React from 'react'
+import { HandleSignUpTypes } from '@/globalTypes'
+import ButtonLoader from '@/re-usible/Loaders/ButtonLoader'
 
-const validate = makeValidate(schema)
+const validate: any = makeValidate(schema)
 
-const DumbSignUp = ({handleSignUp, signUpRoute}: any) => (
+const DumbSignUp: React.FC<HandleSignUpTypes> = ({handleSignUp, signUpRoute, loader}) => (
     <StyleLogin>
         <SignUpWrapper>
             <Title>Create an account</Title>
@@ -44,7 +47,9 @@ const DumbSignUp = ({handleSignUp, signUpRoute}: any) => (
                             <SignUpLinks onClick={signUpRoute}>Login</SignUpLinks>
                         </LoginWrapper>
                         <Seperated>
-                            <SubmitButton type="submit">Login</SubmitButton>
+                            <SubmitButton type="submit">
+                                {loader ? <ButtonLoader /> : "Sign Up"}
+                            </SubmitButton>
                         </Seperated>
                     </form>
                 )}

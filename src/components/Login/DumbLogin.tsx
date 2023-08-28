@@ -11,13 +11,15 @@ import {
 import { CssTextField } from '@/re-usible/form-style'
 import { Form } from 'react-final-form';
 import { FOUNDATION_FORM_VALUES, schema } from '@/components/Login/LoginConfig'
-import { makeValidate } from 'mui-rff';
-
-const validate = makeValidate(schema);
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import React from 'react'
+import { HandleLoginType } from '@/globalTypes'
+import ButtonLoader from '@/re-usible/Loaders/ButtonLoader'
+import { makeValidate } from 'mui-rff';
+const validate: any = makeValidate(schema);
 
-const DumbLogin = ({handleLogin, loginRoute}: any) => (
+const DumbLogin: React.FC<HandleLoginType> = ({handleLogin, loginRoute, loader}) => (
     <StyleLogin>
         <LoginWrapper>
             <Title>Login in to account</Title>
@@ -37,7 +39,8 @@ const DumbLogin = ({handleLogin, loginRoute}: any) => (
                             <SignUpLinks onClick={loginRoute}>Sign Up</SignUpLinks>
                         </SignUpWrapper>
                         <InputWrapper>
-                            <SubmitButton type="submit">Login</SubmitButton>
+                            <SubmitButton type="submit">
+                                {loader ? <ButtonLoader /> : "Login"}</SubmitButton>
                         </InputWrapper>
                     </form>
                 )}
