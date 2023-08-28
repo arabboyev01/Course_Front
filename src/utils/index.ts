@@ -1,4 +1,5 @@
 import { usersType } from '@/globalTypes'
+import jwt from 'jsonwebtoken';
 
 export const handleUserName = (userId: number, users: usersType | null | any) => {
     if (!users?.length && users == null) {
@@ -13,4 +14,10 @@ export const handleUserName = (userId: number, users: usersType | null | any) =>
         console.log('There is no user with the specified ID');
         return null;
     }
+}
+
+
+export const VerifyToken = (token: any) => {
+    if (jwt.verify(token, 'course_project')) return true
+    else return ('Token verification failed:');
 }

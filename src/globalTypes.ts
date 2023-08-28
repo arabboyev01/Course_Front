@@ -20,6 +20,7 @@ export interface ReviewType {
     userId: number
     tags: string
 }
+
 export interface usersType {
     email: string
     firstName: string
@@ -36,4 +37,22 @@ export interface ReviewPropsType {
 
 export interface RoutingType {
     handleRouter: () => void
+}
+
+export type SignUpUsersTypes = {
+    email: string
+    firstName: string
+    lastname: string
+    username: string
+    password: string
+}
+
+export type LoginUsersType = {
+    username: string
+    password: string
+}
+
+export interface CounterState {
+    value: number
+    isAuthorized: boolean
 }
