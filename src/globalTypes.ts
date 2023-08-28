@@ -37,6 +37,7 @@ export interface ReviewPropsType {
 
 export interface RoutingType {
     handleRouter: () => void
+    Auth: boolean
 }
 
 export type SignUpUsersTypes = {

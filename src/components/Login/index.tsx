@@ -11,11 +11,15 @@ const LoginComponent = () => {
     const router = useRouter();
     const dispatch = useDispatch<AppDispatch>()
 
-    const loginRoute = () => router.push("/sign-up")
+    const loginRoute = () => router.push('/sign-up')
     const handleLogin = (values: LoginUsersType) => {
-        api.Users('api/login', values).then(data => dispatch(setToken(data.token)))
+        api.Users('api/login', values).then(data => {
+            dispatch(setToken(data.token));
+            router.push('/');
+        })
             .catch(err => console.log(err))
     }
+
     return <DumbLogin handleLogin={handleLogin} loginRoute={loginRoute}/>
 }
 export default LoginComponent;

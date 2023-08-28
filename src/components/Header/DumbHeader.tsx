@@ -3,7 +3,7 @@ import Logo from '../../../public/0001-cropped.svg'
 import React from 'react'
 import { RoutingType } from '@/globalTypes'
 
-const DumbHeader: React.FC<RoutingType> = ({handleRouter}) => (
+const DumbHeader: React.FC<RoutingType> = ({handleRouter, Auth}) => (
     <StyleHeader>
         <HeaderContent>
             <LogoImage src={Logo.src} alt="logo"/>

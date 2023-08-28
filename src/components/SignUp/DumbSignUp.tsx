@@ -58,7 +58,6 @@ const DumbSignUp = ({handleSignUp, signUpRoute}: any) => (
             </SocialMediaWrapper>
         </SignUpWrapper>
     </StyleLogin>
-
 );
 
 export default DumbSignUp;
