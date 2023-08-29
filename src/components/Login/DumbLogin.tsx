@@ -17,6 +17,7 @@ import React from 'react'
 import { HandleLoginType } from '@/globalTypes'
 import ButtonLoader from '@/re-usible/Loaders/ButtonLoader'
 import { makeValidate } from 'mui-rff';
+
 const validate: any = makeValidate(schema);
 
 const DumbLogin: React.FC<HandleLoginType> = ({handleLogin, loginRoute, loader}) => (
@@ -40,7 +41,7 @@ const DumbLogin: React.FC<HandleLoginType> = ({handleLogin, loginRoute, loader})
                         </SignUpWrapper>
                         <InputWrapper>
                             <SubmitButton type="submit">
-                                {loader ? <ButtonLoader /> : "Login"}</SubmitButton>
+                                {loader ? <ButtonLoader/> : 'Login'}</SubmitButton>
                         </InputWrapper>
                     </form>
                 )}

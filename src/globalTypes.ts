@@ -56,8 +56,8 @@ export type LoginUsersType = {
 }
 
 export interface CounterState {
-    value: number
     isAuthorized: boolean
+    currentStep: any
 }
 
 export interface HandleLoginType {
@@ -83,4 +83,5 @@ export interface StepperProps {
     setCurrentStep: (e: any) => void
     setComplete: any
     children: ReactNode
+    setChanges: (value: any, steps: string[], setComplete: any, setCurrentStep: any) => void
 }

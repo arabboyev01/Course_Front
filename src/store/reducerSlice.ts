@@ -15,12 +15,17 @@ const reducerSlice = createSlice({
         },
         verifyUser: (state) => {
             const verify = getCookie('authToken')
-           if(verify) state.isAuthorized = true;
+            if (verify) state.isAuthorized = true;
+        },
+        changeStep: (state, action: PayloadAction): void => {
+            if (action) {
+                state.currentStep = action.payload
+            }
         }
     },
 });
 
-export const {setToken, verifyUser} = reducerSlice.actions;
+export const {setToken, verifyUser, changeStep} = reducerSlice.actions;
 
 
 export default reducerSlice.reducer;

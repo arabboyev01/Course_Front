@@ -1,6 +1,6 @@
 import { CounterState } from '@/globalTypes'
 
 export const initialState: CounterState = {
-  value: 0,
-  isAuthorized: false
+  isAuthorized: false,
+  currentStep: 1
 };
