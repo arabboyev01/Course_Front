@@ -1,5 +1,5 @@
-import CreateReviewComponent from "@/components/CreateReviewComponent"
+import ReviewForm from '@/components/ReviewForm'
 export default function CreateReview() {
 
-    return <CreateReviewComponent />
+    return <ReviewForm />
 }
