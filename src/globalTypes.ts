@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export interface DropdownProps {
     options: string[] | undefined
     selectedOption: string | null
@@ -68,4 +70,17 @@ export interface HandleSignUpTypes {
     handleSignUp: (values: SignUpUsersTypes) => void
     signUpRoute: () => void
     loader: boolean
+}
+
+export interface ChildrenProps {
+    children: ReactNode
+}
+
+export interface StepperProps {
+    steps: string[]
+    currentStep: number
+    complete: boolean
+    setCurrentStep: (e: any) => void
+    setComplete: any
+    children: ReactNode
 }
