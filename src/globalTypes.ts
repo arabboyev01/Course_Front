@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 export interface DropdownProps {
     options: string[] | undefined
@@ -74,6 +74,16 @@ export interface HandleSignUpTypes {
 
 export interface ChildrenProps {
     children: ReactNode
+}
+
+export interface ThirdFormTypes {
+    values: string[],
+    inputValue: string,
+    handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void,
+    suggestedTags:any
+    handleTagSelect: (tag: string) => void
+    open: boolean
+    inputClicked: () => void
 }
 
 export interface StepperProps {

@@ -9,7 +9,7 @@ export const StyledFileInput = styled.label`
   border-radius: 8px;
   padding: 8px;
   cursor: pointer;
-  width: 300px;
+  max-width: 350px;
   height: 200px;
   font-weight: 400;
 

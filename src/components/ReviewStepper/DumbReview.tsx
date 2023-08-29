@@ -31,4 +31,4 @@ const DumbReview: React.FC<StepperProps> = ({steps, currentStep, complete, setCo
     </StyleReview>
 )
 
-export default DumbReview
+export default DumbReview;

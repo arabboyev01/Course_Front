@@ -1,14 +1,14 @@
 import { Form } from 'react-final-form'
-import { InputWrapper, SignUp, SignUpLinks, SignUpWrapper, SubmitButton } from '@/components/Login/style.login'
+import { InputWrapper } from '@/components/Login/style.login'
 import { CssTextField } from '@/re-usible/form-style'
-import ButtonLoader from '@/re-usible/Loaders/ButtonLoader'
 import { REVIEW_FORM, schema } from './config'
 import React from 'react'
 import { makeValidate } from 'mui-rff'
 import ImageForm from '@/re-usible/ImageForm'
+import DumbThirdForm from '@/components/ReviewForm/ThirdForm'
 
 const validate: any = makeValidate(schema);
-const Forms = ({handleReview, loader, current}: any) => (
+const Forms = ({handleReview, current}: any) => (
     <Form
         onSubmit={handleReview}
         validate={validate}
@@ -25,6 +25,7 @@ const Forms = ({handleReview, loader, current}: any) => (
                     </>
                 ) : null}
                 {current === 2 ? <ImageForm/> : null}
+                {current === 3 ? <DumbThirdForm /> : null}
             </form>
         )}
     />

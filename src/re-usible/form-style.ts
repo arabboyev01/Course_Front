@@ -1,6 +1,6 @@
 import { styled } from '@mui/material'
 import { TextField } from 'mui-rff'
-export const CssTextField = styled(TextField)(({}) => ({
+export const CssTextField: any = styled(TextField)(({}) => ({
     width: 'cal(100%-10px)',
     height: '40px',
     '& label.Mui-focused': {

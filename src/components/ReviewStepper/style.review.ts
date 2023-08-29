@@ -12,7 +12,7 @@ export const StyleReview = styled.div`
 export const StepsSpace = styled.div`
   display: flex;
   align-items: center;
-  max-width: 500px;
+  max-width: 350px;
   width: 100%;
   justify-content: space-between;
 `
@@ -24,8 +24,8 @@ export const StepsText: any = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   color: #fff;
   font-weight: 700;
@@ -51,7 +51,7 @@ export const StepName = styled.p`
 `
 
 export const Button = styled.button`
-  max-width: 250px;
+  max-width: 350px;
   width: 100%;
   height: 40px;
   background: rgba(22, 95, 199);
