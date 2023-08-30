@@ -22,30 +22,38 @@ const DumbThirdForm:
          suggestedTags,
          handleTagSelect,
          open,
-         inputClicked
-    }) =>
+         handleInputFocus,
+     }) =>
         (
-        <FormWrapper>
-            <SelectedWrapper>
-                {values ? values.map((items: string, i: number) =>
-                    <Selected key={i}>#{items}</Selected>
-                ) : null}
-            </SelectedWrapper>
-            <InputWrapper>
-                    <CssTextField {...REVIEW_FORM.tags} value={inputValue} onChange={handleInputChange} onFocus={inputClicked}/>
-            </InputWrapper>
-            <TagsSuggested>
-                {open ? (
-                    <ListWrapper>
-                        {suggestedTags?.map((tag: string, index: number) => (
-                            <ListItem key={index} onClick={() => handleTagSelect(tag)}>
-                                #{tag}
-                            </ListItem>
-                        ))}
-                    </ListWrapper>
-                ) : null}
-            </TagsSuggested>
-        </FormWrapper>
-    )
+            <FormWrapper>
+                <SelectedWrapper>
+                    {values ? values.map((items: string, i: number) =>
+                        <Selected key={i}>#{items}</Selected>
+                    ) : null}
+                </SelectedWrapper>
+                <InputWrapper
+                >
+                    <CssTextField
+                        {...REVIEW_FORM.tags}
+                        value={inputValue}
+                        onChange={handleInputChange}
+                        id="drops"
+                        autoComplete="off"
+                        onFocus={handleInputFocus}
+                    />
+                </InputWrapper>
+                <TagsSuggested>
+                    {open ? (
+                        <ListWrapper>
+                            {suggestedTags?.map((tag: string) => (
+                                <ListItem onClick={() => handleTagSelect(tag)} key={tag}>
+                                    #{tag}
+                                </ListItem>
+                            ))}
+                        </ListWrapper>
+                    ) : null}
+                </TagsSuggested>
+            </FormWrapper>
+        )
 
 export default DumbThirdForm

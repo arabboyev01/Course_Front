@@ -12,6 +12,7 @@ export const StyledFileInput = styled.label`
   max-width: 350px;
   height: 200px;
   font-weight: 400;
+  color: rgba(0, 0, 0, 0.4);
 
   input[type='file'] {
     display: none;

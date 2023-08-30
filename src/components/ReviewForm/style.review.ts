@@ -5,15 +5,18 @@ export const FormWrapper = styled.div`
 `
 export const TagsSuggested = styled.div`
   position: absolute;
-  top: 110px;
+  top: 60px;
 `
 
 export const SelectedWrapper = styled.div`
+  position: absolute;
   display: flex;
   align-items: center;
   max-width: 350px;
   padding-bottom: 10px;
   gap: 10px;
+  bottom: 50px;
+  overflow: hidden;
 `
 export const Selected = styled.p`
   color: #151414;
@@ -25,7 +28,7 @@ export const ListWrapper = styled.ul`
   max-width: 350px;
   width: 100%;
   min-width: 300px;
-  height: 150px;
+  max-height: 150px;
   list-style: none;
   padding-bottom: -10px;
   background: #fff;

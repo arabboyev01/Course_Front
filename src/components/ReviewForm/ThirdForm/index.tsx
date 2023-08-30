@@ -6,13 +6,12 @@ const ThirdForm = () => {
     const existingTags: string[] = ['react', 'javascript', 'node.js', 'css', 'html'];
 
     const [inputValue, setInputValue] = useState<string>('');
-    const [suggestedTags, setSuggestedTags] = useState<string[]>([]);
+    const [suggestedTags, setSuggestedTags] = useState<string[]>(existingTags);
     const [values, setValues] = useState<any>([])
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
 
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setOpen(true)
         const value = event.target.value;
         setInputValue(value);
 
@@ -23,18 +22,13 @@ const ThirdForm = () => {
         setSuggestedTags(filteredTags);
     };
 
-    const inputClicked = () => {
-        setOpen(true)
-        // console.log("input clicked")
-    }
-
-    console.log(open)
-
-    const handleTagSelect = (tag: string) => {
+    const handleTagSelect = function(tag: string){
         setInputValue(tag);
         setSuggestedTags([]);
-        setValues([...values, suggestedTags[0]])
+        setValues([...values, tag])
     };
+
+    const handleInputFocus = (): void => setOpen(true);
 
     return (
         <DumbThirdForm
@@ -44,9 +38,10 @@ const ThirdForm = () => {
             suggestedTags={suggestedTags}
             handleTagSelect={handleTagSelect}
             open={open}
-            inputClicked={inputClicked}
+            existingTags={existingTags}
+            handleInputFocus={handleInputFocus}
         />
     )
 }
 
-export default ThirdForm
+export default ThirdForm;

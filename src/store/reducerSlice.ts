@@ -21,11 +21,14 @@ const reducerSlice = createSlice({
             if (action) {
                 state.currentStep = action.payload
             }
+        },
+        changeComplete: (state, action: PayloadAction): void => {
+            state.isComplete = action.payload
         }
     },
 });
 
-export const {setToken, verifyUser, changeStep} = reducerSlice.actions;
+export const {setToken, verifyUser, changeStep, changeComplete} = reducerSlice.actions;
 
 
 export default reducerSlice.reducer;

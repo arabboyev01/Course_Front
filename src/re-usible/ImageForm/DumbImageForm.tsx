@@ -10,7 +10,7 @@ const DumbImageForm = ({handleDrop, handleDragOver}: any) => (
         <StyledFileInput
             onDrop={handleDrop}
             onDragOver={handleDragOver}>
-            <CloudUploadIcon/>
+            <CloudUploadIcon style={{fontSize: "2rem", color: "rgba(0, 0, 0, 0.4)"}}/>
             Choose a file or drag it down
             <input type="file"/>
         </StyledFileInput>

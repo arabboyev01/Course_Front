@@ -1,14 +1,7 @@
-import {
-    Button, ChildrenComponent,
-    Step,
-    StepName,
-    StepsSpace,
-    StepsText,
-    StyleReview
-} from '@/components/ReviewStepper/style.review'
 import React from 'react'
 import { StepperProps } from '@/globalTypes'
 import { TiTick } from 'react-icons/ti';
+import { Button, ChildrenComponent, Step, StepName, StepsSpace, StepsText, StyleReview } from '@/components/ReviewStepper/style.review'
 
 const DumbReview: React.FC<StepperProps> = ({steps, currentStep, complete, setComplete, setCurrentStep, children, setChanges}) => (
     <StyleReview>
@@ -25,9 +18,11 @@ const DumbReview: React.FC<StepperProps> = ({steps, currentStep, complete, setCo
         <ChildrenComponent>
             {children}
         </ChildrenComponent>
-        <Button onClick={() => {setChanges(currentStep, steps, setComplete, setCurrentStep)}}>
-            {currentStep === steps.length ? 'Finish' : 'Next'}
-        </Button>
+            {!complete ?
+               <Button onClick={() => {setChanges(currentStep, steps, setComplete, setCurrentStep)}}>
+                  {currentStep === steps.length-1 ? 'Finish' : 'Next'}
+               </Button> : null
+            }
     </StyleReview>
 )
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Forms from '@/components/ReviewForm/Forms'
 import { useSelector } from 'react-redux'
-import { CurrStep } from '@/store/Selector'
+import { CurrStep, IsCompleted } from '@/store/Selector'
 import ReviewStepper from "@/components/ReviewStepper"
 
 const ReviewForm = () => {
@@ -11,10 +11,11 @@ const ReviewForm = () => {
     }
 
     const current = useSelector(CurrStep)
+    const complete = useSelector(IsCompleted)
 
     return (
         <ReviewStepper>
-            <Forms handleReview={handleReview} current={current}/>
+            <Forms handleReview={handleReview} current={current} complete={complete}/>
         </ReviewStepper>
     )
 }

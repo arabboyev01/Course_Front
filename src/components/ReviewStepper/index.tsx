@@ -3,18 +3,19 @@ import React, { useState } from 'react'
 import { ChildrenProps } from '@/globalTypes'
 import { AppDispatch } from '@/store'
 import { useDispatch } from 'react-redux'
-import { changeStep } from '@/store/reducerSlice'
+import { changeStep, changeComplete } from '@/store/reducerSlice'
 
 const ReviewStepper: React.FC<ChildrenProps> = ({children}) => {
 
     const dispatch = useDispatch<AppDispatch>()
-    const steps = ['Customer', 'Shipping', 'Payment', 'Finish'];
-    const [currentStep, setCurrentStep] = useState(1);
-    const [complete, setComplete] = useState(false);
+    const steps = ['About', 'Photo', 'Tags', 'Finish'];
+    const [currentStep, setCurrentStep] = useState(2);
+    const [complete, setComplete] = useState<any>(false);
 
     const setChanges = (curStep: any, steps: string[], setComplete: any, setCurrentStep: any) => {
         currentStep === steps.length ? setComplete(true) : setCurrentStep((prev: any) => prev + 1)
-        return dispatch(changeStep(curStep))
+        dispatch(changeStep(curStep))
+        dispatch(changeComplete(complete))
     }
 
     return (

@@ -58,6 +58,7 @@ export type LoginUsersType = {
 export interface CounterState {
     isAuthorized: boolean
     currentStep: any
+    isComplete: boolean | any
 }
 
 export interface HandleLoginType {
@@ -83,7 +84,8 @@ export interface ThirdFormTypes {
     suggestedTags:any
     handleTagSelect: (tag: string) => void
     open: boolean
-    inputClicked: () => void
+    existingTags: string[]
+    handleInputFocus: () => void
 }
 
 export interface StepperProps {
