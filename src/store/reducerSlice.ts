@@ -22,8 +22,8 @@ const reducerSlice = createSlice({
                 state.currentStep = action.payload
             }
         },
-        changeComplete: (state, action: PayloadAction): void => {
-            state.isComplete = action.payload
+        changeComplete: (state, action: PayloadAction): void => {// @ts-ignore
+            if(action.payload) state.isComplete = true
         }
     },
 });

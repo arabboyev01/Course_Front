@@ -18,10 +18,8 @@ const DumbReview: React.FC<StepperProps> = ({steps, currentStep, complete, setCo
         <ChildrenComponent>
             {children}
         </ChildrenComponent>
-            {!complete ?
-               <Button onClick={() => {setChanges(currentStep, steps, setComplete, setCurrentStep)}}>
-                  {currentStep === steps.length-1 ? 'Finish' : 'Next'}
-               </Button> : null
+            {!complete ? (currentStep !== 4 ? <Button onClick={() => setChanges(currentStep, steps, setComplete, setCurrentStep)}>Next</Button> :
+                <Button type="submit" form="myForm">Submit</Button>) : null
             }
     </StyleReview>
 )

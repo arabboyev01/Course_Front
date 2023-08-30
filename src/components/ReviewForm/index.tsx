@@ -7,7 +7,7 @@ import ReviewStepper from "@/components/ReviewStepper"
 const ReviewForm = () => {
 
     const handleReview = (values: any) => {
-
+        console.log(values)
     }
 
     const current = useSelector(CurrStep)

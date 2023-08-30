@@ -14,8 +14,10 @@ const ReviewStepper: React.FC<ChildrenProps> = ({children}) => {
 
     const setChanges = (curStep: any, steps: string[], setComplete: any, setCurrentStep: any) => {
         currentStep === steps.length ? setComplete(true) : setCurrentStep((prev: any) => prev + 1)
+        if(currentStep == 4) { // @ts-ignore
+            dispatch(changeComplete(true))
+        }
         dispatch(changeStep(curStep))
-        dispatch(changeComplete(complete))
     }
 
     return (
