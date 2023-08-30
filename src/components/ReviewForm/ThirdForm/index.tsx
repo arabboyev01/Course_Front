@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DumbThirdForm from '@/components/ReviewForm/ThirdForm/DumbThirdForm'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '@/store'
+import { handleTags } from '@/store/reducerSlice'
 
 const ThirdForm = () => {
 
     const existingTags: string[] = ['react', 'javascript', 'node.js', 'css', 'html'];
-
+    const dispatch = useDispatch<AppDispatch>()
     const [inputValue, setInputValue] = useState<string>('');
     const [suggestedTags, setSuggestedTags] = useState<string[]>(existingTags);
     const [values, setValues] = useState<any>([])
@@ -27,6 +30,9 @@ const ThirdForm = () => {
         setSuggestedTags([]);
         setValues([...values, tag])
     };
+    useEffect(() => {
+        dispatch(handleTags(values))
+    }, [dispatch, values])
 
     const handleInputFocus = (): void => setOpen(true);
 

@@ -59,6 +59,8 @@ export interface CounterState {
     isAuthorized: boolean
     currentStep: any
     isComplete: boolean | any
+    tags: null| string[]
+    image: any
 }
 
 export interface HandleLoginType {

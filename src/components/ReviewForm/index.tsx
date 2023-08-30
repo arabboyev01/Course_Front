@@ -1,17 +1,20 @@
 import React from 'react'
 import Forms from '@/components/ReviewForm/Forms'
 import { useSelector } from 'react-redux'
-import { CurrStep, IsCompleted } from '@/store/Selector'
+import { CurrStep, image, IsCompleted, tags } from '@/store/Selector'
 import ReviewStepper from "@/components/ReviewStepper"
 
 const ReviewForm = () => {
 
+    const current = useSelector(CurrStep)
+    const complete = useSelector(IsCompleted)
+    const Tags = useSelector(tags)
+    const Image = useSelector(image)
+    console.log(Image);
+
     const handleReview = (values: any) => {
         console.log(values)
     }
-
-    const current = useSelector(CurrStep)
-    const complete = useSelector(IsCompleted)
 
     return (
         <ReviewStepper>
