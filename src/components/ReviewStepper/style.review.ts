@@ -15,6 +15,9 @@ export const StepsSpace = styled.div`
   max-width: 350px;
   width: 100%;
   justify-content: space-between;
+  @media (max-width: 375px) {
+    max-width: 320px;
+  }
 `
 export const ChildrenComponent = styled.div`
   margin: 50px 0;
@@ -63,4 +66,5 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  margin-top: 50px;
 `

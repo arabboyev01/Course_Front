@@ -15,7 +15,8 @@ export const SelectedWrapper = styled.div`
   max-width: 350px;
   padding-bottom: 10px;
   gap: 10px;
-  bottom: 50px;
+  //bottom: 50px;
+  top: -40px;
   overflow: hidden;
 `
 export const Selected = styled.p`

@@ -11,6 +11,7 @@ import {
     TagsSuggested,
     SelectedWrapper
 } from '@/components/ReviewForm/style.review'
+import { Button } from '@/components/ReviewStepper/style.review'
 
 
 const DumbThirdForm:
@@ -53,6 +54,7 @@ const DumbThirdForm:
                         </ListWrapper>
                     ) : null}
                 </TagsSuggested>
+                <Button type="submit" form="myForm">Submit</Button>
             </FormWrapper>
         )
 

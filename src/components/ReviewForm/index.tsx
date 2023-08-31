@@ -3,6 +3,7 @@ import Forms from '@/components/ReviewForm/Forms'
 import { useSelector } from 'react-redux'
 import { CurrStep, image, IsCompleted, tags } from '@/store/Selector'
 import ReviewStepper from "@/components/ReviewStepper"
+import { api } from '@/config'
 
 const ReviewForm = () => {
 
@@ -10,10 +11,10 @@ const ReviewForm = () => {
     const complete = useSelector(IsCompleted)
     const Tags = useSelector(tags)
     const Image = useSelector(image)
-    console.log(Image);
-
+    const grade = 5
     const handleReview = (values: any) => {
-        console.log(values)
+        api.Review("api/review", values, Image, grade, Tags).then((data) => console.log(data))
+            .catch(err => console.log(err))
     }
 
     return (
