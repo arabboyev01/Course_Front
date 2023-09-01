@@ -16,7 +16,7 @@ import MainLoader from '@/re-usible/Loaders/MainLoader'
 
 const DumbReview: React.FC<ReviewPropsType> = ({ReviewsData, users}) => (
     <StyleCart>
-        {!ReviewsData.length || !users ?
+        {!ReviewsData || !users ?
             <Center>
                 <MainLoader/>
             </Center> :

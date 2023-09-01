@@ -1,11 +1,11 @@
 import DumbReview from '@/components/ReviewCart/DumbReview'
-import { ReviewsData } from '@/DumbApi'
 import { useCallback, useEffect, useState } from 'react'
 import { api } from '@/config'
-import { usersType } from '@/globalTypes'
+import { ReviewType, usersType } from '@/globalTypes'
 
 const ReviewCart = () => {
     const [users, setUsers] = useState<usersType | null>(null)
+    const [reviews, setReviews] = useState<ReviewType | null>(null)
 
     const fetchUsers = useCallback(async () => {
         try {
@@ -16,11 +16,21 @@ const ReviewCart = () => {
         }
     }, [])
 
+    const fetchReviews = useCallback(async () => {
+         try {
+            const fetchedUsers = await api.getUsers('api/all-reviews');
+            setReviews(fetchedUsers);
+        } catch (error) {
+            throw error;
+        }
+    }, [])
+
     useEffect(() => {
         fetchUsers().then(console.log).catch(err => console.log(err))
-    }, [fetchUsers]);
+        fetchReviews().then(console.log).catch(err => console.log(err))
+    }, [fetchUsers, fetchReviews]);
 
-    return <DumbReview ReviewsData={ReviewsData} users={users}/>
+    return <DumbReview ReviewsData={reviews} users={users}/>
 }
 
 export default ReviewCart
