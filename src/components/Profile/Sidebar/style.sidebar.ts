@@ -37,7 +37,6 @@ export const MenuIndicator = styled.div`
 `
 
 export const ItemIcon: any = styled.div`
-  //margin-right: 1rem;
   color: ${(props: any) => (props.active ? '#fff' : '#555555')};
 `
 
