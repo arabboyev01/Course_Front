@@ -1,5 +1,5 @@
 import { usersType } from '@/globalTypes'
-import jwt from 'jsonwebtoken';
+import jwt_decode from "jwt-decode";
 
 export const handleUserName = (userId: number, users: usersType | null | any) => {
     if (!users?.length && users == null) {
@@ -18,6 +18,5 @@ export const handleUserName = (userId: number, users: usersType | null | any) =>
 
 
 export const VerifyToken = (token: any) => {
-    if (jwt.verify(token, 'course_project')) return true
-    else return ('Token verification failed:');
+    return jwt_decode(token)
 }

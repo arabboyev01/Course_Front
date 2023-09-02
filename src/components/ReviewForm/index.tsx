@@ -13,6 +13,7 @@ const ReviewForm = () => {
     const Image = useSelector(image)
     const grade = 5
     const handleReview = (values: any) => {
+        console.log(values)
         api.Review("api/review", values, Image, grade, Tags).then((data) => console.log(data))
             .catch(err => console.log(err))
     }

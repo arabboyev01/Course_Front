@@ -59,7 +59,7 @@ export interface CounterState {
     isAuthorized: boolean
     currentStep: any
     isComplete: boolean | any
-    tags: null| string[]
+    tags: null | string[]
     image: any
 }
 
@@ -83,7 +83,7 @@ export interface ThirdFormTypes {
     values: string[],
     inputValue: string,
     handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void,
-    suggestedTags:any
+    suggestedTags: any
     handleTagSelect: (tag: string) => void
     open: boolean
     existingTags: string[]
@@ -98,4 +98,18 @@ export interface StepperProps {
     setComplete: any
     children: ReactNode
     setChanges: (value: any, steps: string[], setComplete: any, setCurrentStep: any) => void
+}
+
+export interface SideBarNavType {
+    id: number
+    display: string,
+    icon: any
+    to: string
+
+}
+
+export interface SidebarProps {
+    activeIndex: number,
+    sidebarNavItems: SideBarNavType[]
+    handleActive: (id: number, router: string) => void
 }

@@ -16,6 +16,7 @@ const SignUpComponent = () => {
     const handleSignUp = (values: SignUpUsersTypes) => {
         setLoader(true)
         api.Users('api/register', values).then(data => {
+            console.log(data)
             dispatch(setToken(data.token))
             router.push('/');
         })

@@ -1,4 +1,5 @@
 import { getCookie } from '@/utils/setCookie'
+import { VerifyToken } from '@/utils'
 
 export class ApiService {
     baseUrl: string
@@ -35,7 +36,8 @@ export class ApiService {
     async Review(endpoint: string, payload: object | any, image: any, grade: number, tags: string[] | null): Promise<any> {
 
         try {
-            const userId = 1
+            const token = getCookie('authToken')
+            const decoded: any = VerifyToken(token)
             const formData: any = new FormData();
             const tagsString = JSON.stringify(tags);
             formData.append('name', payload.name);
@@ -43,9 +45,9 @@ export class ApiService {
             formData.append('reviewText', payload.reviewText);
             formData.append('image', image);
             formData.append('grade', grade);
-            formData.append('userId', userId);
+            formData.append('userId', decoded.userId);
             formData.append('tags', tagsString)
-            const token = getCookie('authToken')
+
             const headers = new Headers();
             headers.append('Authorization', `${token}`);
 

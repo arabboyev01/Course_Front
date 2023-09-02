@@ -17,6 +17,8 @@ const LoginComponent = () => {
     const handleLogin = (values: LoginUsersType) => {
         setLoader(true)
         api.Users('api/login', values).then(data => {
+            if(data?.error) throw new Error
+
             dispatch(setToken(data.token));
             router.push('/');
         })
