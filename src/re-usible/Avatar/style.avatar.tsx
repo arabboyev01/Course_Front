@@ -13,7 +13,19 @@ export const StyleAvatar = styled.div`
   align-items: center;
   border: .1px solid rgba(0, 0, 0, 0.1);
 `
+export const AddReviewButton = styled.button`
+  background: #308efe;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  padding: 0 3rem;
+  cursor: pointer;
 
+  &:hover {
+    background: #000;
+    color: #fff;
+  }
+`
 export const Text = styled.p`
   font-weight: 300;
   color: #333;
