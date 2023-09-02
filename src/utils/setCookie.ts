@@ -21,3 +21,7 @@ export function getCookie(name: string) {
   }
   return null;
 }
+export const removeTokenFromCookie = () => {
+  const pastDate = new Date(0);
+  document.cookie = "authToken=; expires=" + pastDate.toUTCString() + "; path=/";
+}

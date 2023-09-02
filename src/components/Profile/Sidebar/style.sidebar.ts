@@ -24,17 +24,6 @@ export const SidebarMenu = styled.div`
   position: relative;
   padding-top: 1rem;
 `
-export const MenuIndicator = styled.div`
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: calc(100% - 40px);
-  border-radius: 10px;
-  background-color: #308efe;
-  z-index: -1;
-  transform: translateX(-50%);
-  transition: 0.3s ease-in-out;
-`
 
 export const ItemIcon: any = styled.div`
   color: ${(props: any) => (props.active ? '#fff' : '#555555')};
@@ -54,5 +43,7 @@ export const SidebarMenuItem: any = styled.div`
   padding: 1rem 3rem;
   font-weight: 500;
   transition: color 0.3s ease-in-out;
+  cursor: pointer;
   background-color: ${(props: any) => (props.active ? '#308efe' : 'transparent')};
+  
 `;

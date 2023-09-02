@@ -109,7 +109,7 @@ export interface SideBarNavType {
 }
 
 export interface SidebarProps {
-    activeIndex: number,
+    pathname: string ,
     sidebarNavItems: SideBarNavType[]
-    handleActive: (id: number, router: string) => void
+    handleActive: (router: string) => void
 }

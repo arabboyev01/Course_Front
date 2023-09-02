@@ -3,27 +3,25 @@ import { SidebarProps } from '@/globalTypes'
 import {
     ItemIcon,
     ItemText,
-    MenuIndicator,
     Sidebar,
     SidebarLogo,
     SidebarMenu,
     SidebarMenuItem
 } from '@/components/Profile/Sidebar/style.sidebar'
 
-const DumbSidebar: React.FC<SidebarProps> = ({ activeIndex, sidebarNavItems, handleActive}) => (
+const DumbSidebar: React.FC<SidebarProps> = ({ pathname, sidebarNavItems, handleActive}) => (
     <Sidebar>
         <SidebarLogo>Profile</SidebarLogo>
         <SidebarMenu>
-            <MenuIndicator style={{transform: `translateX(-50%) translateY(${activeIndex * activeIndex}px)`}}></MenuIndicator>
-            {sidebarNavItems.map((item: any, index: number) => (
-                <SidebarMenuItem active={activeIndex === index} key={item.id}
-                                 onClick={() => handleActive(item.id, item.to)}
+            {sidebarNavItems.map((item: any) => (
+                <SidebarMenuItem active={item.to === pathname} key={item.id}
+                                 onClick={() => handleActive(item.to)}
                 >
-                    <ItemIcon active={activeIndex === index}>{item.icon}</ItemIcon>
-                    <ItemText active={activeIndex === index}>{item.display}</ItemText>
+                    <ItemIcon active={item.to === pathname}>{item.icon}</ItemIcon>
+                    <ItemText active={item.to === pathname}>{item.display}</ItemText>
                 </SidebarMenuItem>
             ))}
         </SidebarMenu>
     </Sidebar>
 )
-export default DumbSidebar
+export default DumbSidebar;
