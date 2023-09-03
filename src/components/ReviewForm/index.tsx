@@ -16,17 +16,17 @@ const ReviewForm = () => {
     const handleReview = (values: any) => {
         setLoading(true)
         api.Review('api/review', values, Image, grade, Tags).then((data) => {
-            if(!data) throw new Error
-            if (data) alert.success("Review Created")
+            if (Object.keys(data).length === 0) throw new Error
+            else alert.success('Review Created');
         }).catch(err => {
             console.log(err)
-            alert.error("Something went wrong!")
+            alert.error('Something went wrong!')
         }).finally(() => setLoading(false))
     }
 
     return (
         <ReviewStepper>
-            <Forms handleReview={handleReview} current={current} loading={loading} />
+            <Forms handleReview={handleReview} current={current} loading={loading}/>
         </ReviewStepper>
     )
 }
