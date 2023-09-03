@@ -22,9 +22,6 @@ const reducerSlice = createSlice({
                 state.currentStep = action.payload
             }
         },
-        changeComplete: (state, action: PayloadAction): void => {// @ts-ignore
-            if (action.payload) state.isComplete = true
-        },
         handleTags: (state, action: PayloadAction): void => {// @ts-ignore
             if (action?.payload?.length) {// @ts-ignore
                 state.tags = action.payload
@@ -53,7 +50,6 @@ export const {
     setToken,
     verifyUser,
     changeStep,
-    changeComplete,
     handleTags,
     handleImage,
     handleSuccess,

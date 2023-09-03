@@ -29,6 +29,8 @@
     "mui-rff": "^6.2.3",
     "next": "13.4.19",
     "react": "18.2.0",
+    "react-alert": "^7.0.3",
+    "react-alert-template-basic": "^1.0.2",
     "react-dom": "18.2.0",
     "react-final-form": "^6.5.9",
     "react-icons": "^4.10.1",
@@ -37,6 +39,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@types/jsonwebtoken": "^9.0.2"
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/react-alert": "^7.0.2"
   }
 }

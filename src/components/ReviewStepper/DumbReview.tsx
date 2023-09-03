@@ -18,7 +18,7 @@ const DumbReview: React.FC<StepperProps> = ({steps, currentStep, complete, setCo
         <ChildrenComponent>
             {children}
         </ChildrenComponent>
-            {currentStep < 4 ? <Button onClick={() => setChanges(currentStep, steps, setComplete, setCurrentStep)}>Next</Button> : null}
+            {currentStep === 3 && complete ? null : <Button onClick={() => setChanges(currentStep, steps, setComplete, setCurrentStep)}>Next</Button>}
     </StyleReview>
 )
 
