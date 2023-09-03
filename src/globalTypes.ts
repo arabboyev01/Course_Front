@@ -86,8 +86,9 @@ export interface ThirdFormTypes {
     suggestedTags: any
     handleTagSelect: (tag: string) => void
     open: boolean
-    existingTags: string[]
+    existingTags: TagsType[] | null
     handleInputFocus: () => void
+    handleInputBlur: () => void
 }
 
 export interface StepperProps {
@@ -112,4 +113,9 @@ export interface SidebarProps {
     pathname: string ,
     sidebarNavItems: SideBarNavType[]
     handleActive: (router: string) => void
+}
+
+export interface TagsType {
+    id: number
+    name: string
 }

@@ -12,7 +12,7 @@ import {
     SelectedWrapper
 } from '@/components/ReviewForm/style.review'
 import { Button } from '@/components/ReviewStepper/style.review'
-
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
 const DumbThirdForm:
     React.FC<ThirdFormTypes> =
@@ -24,6 +24,7 @@ const DumbThirdForm:
          handleTagSelect,
          open,
          handleInputFocus,
+         handleInputBlur
      }) =>
         (
             <FormWrapper>
@@ -41,18 +42,23 @@ const DumbThirdForm:
                         id="drops"
                         autoComplete="off"
                         onFocus={handleInputFocus}
+                        onBlur={handleInputBlur}
                     />
                 </InputWrapper>
                 <TagsSuggested>
-                    {open ? (
+                    {open && (
                         <ListWrapper>
-                            {suggestedTags?.map((tag: string) => (
-                                <ListItem onClick={() => handleTagSelect(tag)} key={tag}>
-                                    #{tag}
+                            {suggestedTags?.length ? (
+                                suggestedTags.map(({name, id}: any) => (
+                                    <ListItem onMouseDown={() => handleTagSelect(name)} key={id}>{name}</ListItem>
+                                ))
+                            ) : (
+                                <ListItem onMouseDown={() => handleTagSelect(inputValue || '')}>
+                                    {inputValue && <PlaylistAddIcon style={{color: '#555555'}}/>} {inputValue}
                                 </ListItem>
-                            ))}
+                            )}
                         </ListWrapper>
-                    ) : null}
+                    )}
                 </TagsSuggested>
                 <Button type="submit" form="myForm">Submit</Button>
             </FormWrapper>

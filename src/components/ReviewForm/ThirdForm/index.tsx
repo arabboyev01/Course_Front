@@ -3,13 +3,23 @@ import DumbThirdForm from '@/components/ReviewForm/ThirdForm/DumbThirdForm'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/store'
 import { handleTags } from '@/store/reducerSlice'
+import { api } from '@/config'
+import { TagsType } from '@/globalTypes'
 
 const ThirdForm = () => {
 
-    const existingTags: string[] = ['react', 'javascript', 'node.js', 'css', 'html'];
+    const [existingTags, setExistingTags] = useState<TagsType[] | null>(null);
+
+    useEffect(() => {
+        api.getUsers('api/tags').then(data => {
+            setExistingTags(data)
+        }).catch(err => console.log(err))
+    }, [])
+
+
     const dispatch = useDispatch<AppDispatch>()
     const [inputValue, setInputValue] = useState<string>('');
-    const [suggestedTags, setSuggestedTags] = useState<string[]>(existingTags);
+    const [suggestedTags, setSuggestedTags] = useState<object | any>(existingTags);
     const [values, setValues] = useState<any>([])
     const [open, setOpen] = useState(false);
 
@@ -18,15 +28,15 @@ const ThirdForm = () => {
         const value = event.target.value;
         setInputValue(value);
 
-        const filteredTags = existingTags.filter((tag) =>
-            tag.toLowerCase().includes(value.toLowerCase())
+        const filteredTags = existingTags?.filter(({name}: any) =>
+            name.toLowerCase().includes(value.toLowerCase())
         );
 
         setSuggestedTags(filteredTags);
     };
 
-    const handleTagSelect = function(tag: string){
-        setInputValue(tag);
+    const handleTagSelect = function (tag: string) {
+        setInputValue('');
         setSuggestedTags([]);
         setValues([...values, tag])
     };
@@ -35,6 +45,7 @@ const ThirdForm = () => {
     }, [dispatch, values])
 
     const handleInputFocus = (): void => setOpen(true);
+    const handleInputBlur = () => setOpen(false)
 
     return (
         <DumbThirdForm
@@ -46,6 +57,7 @@ const ThirdForm = () => {
             open={open}
             existingTags={existingTags}
             handleInputFocus={handleInputFocus}
+            handleInputBlur={handleInputBlur}
         />
     )
 }

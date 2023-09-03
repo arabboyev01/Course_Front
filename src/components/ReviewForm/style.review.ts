@@ -41,6 +41,8 @@ export const ListWrapper = styled.ul`
 export const ListItem = styled.li`
   cursor: pointer;
   padding: 15px;
+  display: flex;
+  align-items: center;
 
   &:hover {
     background: #ddd;
