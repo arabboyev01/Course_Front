@@ -6,7 +6,7 @@ import { handleTags } from '@/store/reducerSlice'
 import { api } from '@/config'
 import { TagsType } from '@/globalTypes'
 
-const ThirdForm = () => {
+const ThirdForm: React.FC<any> = ({loading}) => {
 
     const [existingTags, setExistingTags] = useState<TagsType[] | null>(null);
 
@@ -58,6 +58,7 @@ const ThirdForm = () => {
             existingTags={existingTags}
             handleInputFocus={handleInputFocus}
             handleInputBlur={handleInputBlur}
+            loading={loading}
         />
     )
 }

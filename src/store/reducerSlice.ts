@@ -23,22 +23,35 @@ const reducerSlice = createSlice({
             }
         },
         changeComplete: (state, action: PayloadAction): void => {// @ts-ignore
-            if(action.payload) state.isComplete = true
+            if (action.payload) state.isComplete = true
         },
         handleTags: (state, action: PayloadAction): void => {// @ts-ignore
-            if(action?.payload?.length){// @ts-ignore
+            if (action?.payload?.length) {// @ts-ignore
                 state.tags = action.payload
             }
         },
         handleImage: (state, action: PayloadAction): void => {// @ts-ignore
-            if(action.payload){
+            if (action.payload) {
                 state.image = action.payload
+            }
+        },
+        handleReviewSuccess: (state, action: PayloadAction): void => {
+            if (action) {// @ts-ignore
+                state.isReviewCreated = action.payload
             }
         }
     },
 });
 
-export const {setToken, verifyUser, changeStep, changeComplete, handleTags, handleImage} = reducerSlice.actions;
+export const {
+    setToken,
+    verifyUser,
+    changeStep,
+    changeComplete,
+    handleTags,
+    handleImage,
+    handleReviewSuccess
+} = reducerSlice.actions;
 
 
 export default reducerSlice.reducer;

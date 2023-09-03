@@ -58,9 +58,9 @@ export type LoginUsersType = {
 export interface CounterState {
     isAuthorized: boolean
     currentStep: any
-    isComplete: boolean | any
     tags: null | string[]
     image: any
+    isReviewCreated: boolean
 }
 
 export interface HandleLoginType {
@@ -89,6 +89,7 @@ export interface ThirdFormTypes {
     existingTags: TagsType[] | null
     handleInputFocus: () => void
     handleInputBlur: () => void
+    loading: boolean
 }
 
 export interface StepperProps {
