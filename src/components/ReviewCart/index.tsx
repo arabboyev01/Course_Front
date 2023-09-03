@@ -2,10 +2,14 @@ import DumbReview from '@/components/ReviewCart/DumbReview'
 import { useCallback, useEffect, useState } from 'react'
 import { api } from '@/config'
 import { ReviewType, usersType } from '@/globalTypes'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '@/store'
+import { lengthReviews } from '@/store/reducerSlice'
 
 const ReviewCart = () => {
     const [users, setUsers] = useState<usersType | null>(null)
     const [reviews, setReviews] = useState<ReviewType | null>(null)
+    const dispatch = useDispatch<AppDispatch>()
 
     const fetchUsers = useCallback(async () => {
         try {
@@ -28,7 +32,10 @@ const ReviewCart = () => {
     useEffect(() => {
         fetchUsers().then(console.log).catch(err => console.log(err))
         fetchReviews().then(console.log).catch(err => console.log(err))
-    }, [fetchUsers, fetchReviews]);
+        if(reviews !== null) { // @ts-ignore
+            dispatch(lengthReviews(reviews?.length))
+        }
+    }, [dispatch, reviews, fetchUsers, fetchReviews]);
 
     return <DumbReview ReviewsData={reviews} users={users}/>
 }

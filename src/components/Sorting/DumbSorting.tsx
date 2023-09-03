@@ -12,11 +12,11 @@ import React from 'react'
 import { Options } from '@/globalTypes'
 import Search from '@/re-usible/Search'
 
-const DumbSorting: React.FC<Options> = ({options, filters}) => (
+const DumbSorting: React.FC<Options> = ({options, filters, totalReview}) => (
     <StyleSorting>
         <LeftSide>
             <Text>All Reviews</Text>
-            <SubText>100 Total</SubText>
+            <SubText>{totalReview} Total</SubText>
         </LeftSide>
         <RightSide>
             <Times>

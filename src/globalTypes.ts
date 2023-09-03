@@ -10,6 +10,7 @@ export interface Options {
     options: string[] | undefined
     firstOption?: string | undefined
     filters?: string[] | undefined
+    totalReview?: number
 }
 
 export interface ReviewType {
