@@ -2,13 +2,13 @@ import React, { ReactNode } from 'react'
 
 export interface DropdownProps {
     options: string[] | undefined
-    selectedOption: string | null
+    selectedOption: string | undefined
     handleOptionClick: (e: string) => void
 }
 
 export interface Options {
     options: string[] | undefined
-    firstOption: string
+    firstOption?: string | undefined
     filters?: string[] | undefined
 }
 
@@ -61,6 +61,7 @@ export interface CounterState {
     tags: null | string[]
     image: any
     isReviewCreated: boolean
+    allReviews: number
 }
 
 export interface HandleLoginType {

@@ -5,5 +5,6 @@ export const initialState: CounterState = {
   currentStep: 1,
   tags: null,
   image: null,
-  isReviewCreated: false
+  isReviewCreated: false,
+  allReviews: 0
 };

@@ -2,10 +2,10 @@ import DumbSorting from '@/components/Sorting/DumbSorting'
 
 const Sorting = () => {
 
-    const options = ['Option 1', 'Option 2', 'Option 3'];
-    const filters = ['Option 1', 'Option 2', 'Option 3'];
+    const options = ['Movie', 'Book', 'Genre'];
+    const filters = ['Option', 'Option', 'Option'];
 
-    return <DumbSorting options={options} filters={filters} firstOption="Options" />
+    return <DumbSorting options={options} filters={filters} />
 }
 
 export default Sorting

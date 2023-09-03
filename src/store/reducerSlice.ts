@@ -35,9 +35,15 @@ const reducerSlice = createSlice({
                 state.image = action.payload
             }
         },
-        handleReviewSuccess: (state, action: PayloadAction): void => {
+        handleSuccess: (state, action: PayloadAction): void => {
             if (action) {// @ts-ignore
                 state.isReviewCreated = action.payload
+            }
+        },
+        lengthReviews: (state, action: PayloadAction) => {
+            // @ts-ignore
+            if(action.payload){
+                state.allReviews = action.payload
             }
         }
     },
@@ -50,7 +56,8 @@ export const {
     changeComplete,
     handleTags,
     handleImage,
-    handleReviewSuccess
+    handleSuccess,
+    lengthReviews
 } = reducerSlice.actions;
 
 

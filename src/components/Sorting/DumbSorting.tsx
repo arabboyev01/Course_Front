@@ -20,7 +20,7 @@ const DumbSorting: React.FC<Options> = ({options, filters}) => (
         </LeftSide>
         <RightSide>
             <Times>
-                <Dropdown options={options} firstOption="Options"/>
+                <Dropdown options={options} firstOption="Types"/>
             </Times>
             <Times>
                 <Dropdown options={filters} firstOption="Filters"/>
