@@ -16,7 +16,7 @@ const ReviewForm = () => {
     const handleReview = (values: any) => {
         setLoading(true)
         api.Review('api/review', values, Image, grade, Tags).then((data) => {
-            console.log(data)
+            if(!data) throw new Error
             if (data) alert.success("Review Created")
         }).catch(err => {
             console.log(err)
