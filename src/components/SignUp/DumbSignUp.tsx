@@ -1,7 +1,7 @@
 import { LoginWrapper, Seperated, SignUpInputs, SignUpWrapper } from '@/components/SignUp/style.signUp'
 import {
     Icon,
-    Line, Lines,
+    Line, Lines, LoginButton,
     Paragraph,
     SignUp,
     SignUpLinks, SocialMediaWrapper,
@@ -58,8 +58,12 @@ const DumbSignUp: React.FC<HandleSignUpTypes> = ({handleSignUp, signUpRoute, loa
                 <Line></Line><Paragraph>or</Paragraph><Line></Line>
             </Lines>
             <SocialMediaWrapper>
-                <GitHubIcon style={Icon} onClick={GithubSign}/>
-                <LinkedInIcon style={Icon}/>
+                <LoginButton onClick={GithubSign}>
+                    <GitHubIcon style={Icon}/> Signup with Github
+                </LoginButton>
+                <LoginButton>
+                    <LinkedInIcon style={Icon}/> Signup with Linkedin
+                </LoginButton>
             </SocialMediaWrapper>
         </SignUpWrapper>
     </StyleLogin>

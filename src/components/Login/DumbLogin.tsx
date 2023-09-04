@@ -2,7 +2,7 @@ import {
     Icon,
     InputWrapper,
     Line,
-    Lines,
+    Lines, LoginButton,
     LoginWrapper, Paragraph, SignUp, SignUpLinks, SignUpWrapper, SocialMediaWrapper,
     StyleLogin,
     SubmitButton,
@@ -50,10 +50,12 @@ const DumbLogin: React.FC<HandleLoginType> = ({handleLogin, loginRoute, loader, 
                 <Line></Line><Paragraph>or</Paragraph><Line></Line>
             </Lines>
             <SocialMediaWrapper>
-                <div onClick={GithubSign}>
-                    <GitHubIcon style={Icon} />
-                </div>
-                <LinkedInIcon style={Icon}/>
+                <LoginButton onClick={GithubSign}>
+                    <GitHubIcon style={Icon}/> Login with Github
+                </LoginButton>
+                <LoginButton>
+                    <LinkedInIcon style={Icon}/> Login with Linkedin
+                </LoginButton>
             </SocialMediaWrapper>
         </LoginWrapper>
     </StyleLogin>

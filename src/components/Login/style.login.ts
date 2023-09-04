@@ -74,10 +74,26 @@ export const Paragraph = styled.p`
 
 export const SocialMediaWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 20px;
   gap: 20px;
+`
+export const LoginButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 350px;
+  height: 35px;
+  border: .1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover{
+    border: .5px solid rgba(0, 0, 0, 0.8);
+  }
 `
 export const SignUpWrapper = styled.div`
   display: flex;
