@@ -20,7 +20,7 @@ import { makeValidate } from 'mui-rff';
 
 const validate: any = makeValidate(schema);
 
-const DumbLogin: React.FC<HandleLoginType> = ({handleLogin, loginRoute, loader}) => (
+const DumbLogin: React.FC<HandleLoginType> = ({handleLogin, loginRoute, loader, GithubSign}) => (
     <StyleLogin>
         <LoginWrapper>
             <Title>Login in to account</Title>
@@ -50,7 +50,9 @@ const DumbLogin: React.FC<HandleLoginType> = ({handleLogin, loginRoute, loader})
                 <Line></Line><Paragraph>or</Paragraph><Line></Line>
             </Lines>
             <SocialMediaWrapper>
-                <GitHubIcon style={Icon}/>
+                <div onClick={GithubSign}>
+                    <GitHubIcon style={Icon} />
+                </div>
                 <LinkedInIcon style={Icon}/>
             </SocialMediaWrapper>
         </LoginWrapper>

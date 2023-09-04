@@ -35,7 +35,7 @@ const ReviewCart = () => {
         if(reviews !== null) { // @ts-ignore
             dispatch(lengthReviews(reviews?.length))
         }
-    }, [dispatch, reviews, fetchUsers, fetchReviews]);
+    }, [fetchUsers, fetchReviews]);
 
     return <DumbReview ReviewsData={reviews} users={users}/>
 }

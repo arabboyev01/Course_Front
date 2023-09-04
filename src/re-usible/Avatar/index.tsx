@@ -10,7 +10,7 @@ const UserAvatar = () => {
     const handleProfile = () => router.push('/profile')
     return (
         <Stack direction="row" spacing={2} style={{position: 'relative', cursor: 'pointer'}}>
-            <AddReviewButton onClick={handleRoute}>Add Review</AddReviewButton>
+            <AddReviewButton onClick={handleRoute}>Create Review</AddReviewButton>
             <Avatar src="/broken-image.jpg" onClick={handleProfile}/>
         </Stack>
     );

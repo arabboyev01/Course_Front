@@ -69,6 +69,7 @@ export interface HandleLoginType {
     handleLogin: (e: LoginUsersType) => any
     loginRoute: () => void
     loader: boolean
+    GithubSign: () => void
 }
 
 export interface HandleSignUpTypes {

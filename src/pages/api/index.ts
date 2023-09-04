@@ -10,7 +10,9 @@ export class ApiService {
 
     async getUsers(endpoint: string): Promise<any> {
         try {
-            const response = await fetch(`${this.baseUrl}/${endpoint}`);
+            const response = await fetch(`${this.baseUrl}/${endpoint}`, {
+                method: "GET"
+            });
 
             return await response.json();
         } catch (error) {

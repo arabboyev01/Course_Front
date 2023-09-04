@@ -11,7 +11,7 @@ export const handleUserName = (userId: number, users: usersType | null | any) =>
     if (foundUser) {
         return foundUser.username;
     } else {
-        console.log('There is no user with the specified ID');
+        // console.log('There is no user with the specified ID');
         return null;
     }
 }
