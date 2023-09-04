@@ -101,4 +101,5 @@ export const SignUpLinks = styled.p`
 
 export const Icon = {
     fontSize: "2rem",
+    cursor: "pointer",
 }

@@ -21,6 +21,20 @@ export class ApiService {
         }
     }
 
+    async ThirdPartAPI(endpoint: string): Promise<any>{
+        try{
+             const response = await fetch(`${this.baseUrl}/${endpoint}`, {
+                method: "GET",
+                 headers: {
+                    "Authorization": `Bearer ${localStorage.getItem('accessToken')}`
+                 }
+            });
+             return response.json();
+        } catch(err){
+
+        }
+    }
+
     async Users(endpoint: string, payload: object): Promise<any> {
         try {
             const response = await fetch(`${this.baseUrl}/${endpoint}`, {

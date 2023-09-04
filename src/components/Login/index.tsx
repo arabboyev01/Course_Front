@@ -5,9 +5,8 @@ import { LoginUsersType } from '@/globalTypes'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/store'
 import { setToken } from '@/store/reducerSlice'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useAlert } from 'react-alert';
-import { AccessToken } from '@/utils/AccessToken'
 
 const LoginComponent = () => {
 
@@ -26,22 +25,13 @@ const LoginComponent = () => {
             router.push('/');
         }).catch(() => {
             alert.error('username or password is wrong!')
-        })
-            .finally(() => setLoader(false))
+        }).finally(() => setLoader(false))
     }
-
 
     const GithubSign = () => {
         const GITHUB_CLIENT_ID = 'aa74f754bd9f3616aaa2';
         window.location.assign(`https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}`)
     }
-
-    useEffect(() => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const codeParams = urlParams.get('code');
-        if(codeParams) AccessToken(codeParams)
-    }, [])
 
     return <DumbLogin handleLogin={handleLogin} loginRoute={loginRoute} loader={loader} GithubSign={GithubSign}/>
 }

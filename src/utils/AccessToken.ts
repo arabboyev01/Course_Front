@@ -7,7 +7,6 @@ export const AccessToken = (codeParams: string | any) => {
     if (codeParams && accessToken === null) {
         api.getUsers(`getAccessToken?code=${codeParams}`)
             .then((res) => {
-                console.log(res);
                 if (res.access_token) {
                     window.localStorage.setItem('accessToken', res.access_token);
                     window.location.href = '/login'
