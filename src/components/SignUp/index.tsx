@@ -21,12 +21,14 @@ const SignUpComponent = () => {
             if(data) alert.success("Account Created")
             dispatch(setToken(data.token))
             router.push('/');
-        })
-            .catch(err => console.log(err))
-            .finally(() => setLoader(false))
+        }).catch(err => console.log(err)).finally(() => setLoader(false))
+    }
+    const GithubSign = () => {
+        const GITHUB_CLIENT_ID = 'aa74f754bd9f3616aaa2';
+        window.location.assign(`https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}`)
     }
 
-    return <DumbSignUp handleSignUp={handleSignUp} signUpRoute={signUpRoute} loader={loader}/>
+    return <DumbSignUp handleSignUp={handleSignUp} signUpRoute={signUpRoute} loader={loader} GithubSign={GithubSign}/>
 }
 
 export default SignUpComponent;

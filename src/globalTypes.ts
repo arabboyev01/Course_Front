@@ -76,6 +76,7 @@ export interface HandleSignUpTypes {
     handleSignUp: (values: SignUpUsersTypes) => void
     signUpRoute: () => void
     loader: boolean
+    GithubSign: () => void
 }
 
 export interface ChildrenProps {

@@ -22,7 +22,7 @@ import ButtonLoader from '@/re-usible/Loaders/ButtonLoader'
 
 const validate: any = makeValidate(schema)
 
-const DumbSignUp: React.FC<HandleSignUpTypes> = ({handleSignUp, signUpRoute, loader}) => (
+const DumbSignUp: React.FC<HandleSignUpTypes> = ({handleSignUp, signUpRoute, loader, GithubSign}) => (
     <StyleLogin>
         <SignUpWrapper>
             <Title>Create an account</Title>
@@ -58,7 +58,7 @@ const DumbSignUp: React.FC<HandleSignUpTypes> = ({handleSignUp, signUpRoute, loa
                 <Line></Line><Paragraph>or</Paragraph><Line></Line>
             </Lines>
             <SocialMediaWrapper>
-                <GitHubIcon style={Icon}/>
+                <GitHubIcon style={Icon} onClick={GithubSign}/>
                 <LinkedInIcon style={Icon}/>
             </SocialMediaWrapper>
         </SignUpWrapper>
