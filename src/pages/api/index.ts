@@ -49,7 +49,7 @@ export class ApiService {
         }
     }
 
-    async Review(endpoint: string, payload: object | any, image: any, grade: number, tags: string[] | null): Promise<any> {
+    async Review(endpoint: string, payload: object | any, image: any, grade: number, tags: string[] | null, groupName: string): Promise<any> {
 
         try {
             const token = getCookie('authToken')
@@ -57,7 +57,7 @@ export class ApiService {
             const formData: any = new FormData();
             const tagsString = JSON.stringify(tags);
             formData.append('name', payload.name);
-            formData.append('groupName', payload.groupName);
+            formData.append('groupName', groupName);
             formData.append('reviewText', payload.reviewText);
             formData.append('image', image);
             formData.append('grade', grade);

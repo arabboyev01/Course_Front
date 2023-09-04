@@ -39,8 +39,13 @@ const reducerSlice = createSlice({
         },
         lengthReviews: (state, action: PayloadAction) => {
             // @ts-ignore
-            if(action.payload){
+            if (action.payload) {
                 state.allReviews = action.payload
+            }
+        },
+        handleGroupName: (state, action: PayloadAction): void => {// @ts-ignore
+            if (action.payload) {
+                state.groupName = action.payload
             }
         }
     },
@@ -53,7 +58,8 @@ export const {
     handleTags,
     handleImage,
     handleSuccess,
-    lengthReviews
+    lengthReviews,
+    handleGroupName
 } = reducerSlice.actions;
 
 

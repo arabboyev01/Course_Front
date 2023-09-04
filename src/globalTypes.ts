@@ -63,6 +63,7 @@ export interface CounterState {
     image: any
     isReviewCreated: boolean
     allReviews: number
+    groupName: string
 }
 
 export interface HandleLoginType {

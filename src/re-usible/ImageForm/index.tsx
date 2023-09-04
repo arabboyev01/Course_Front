@@ -2,13 +2,16 @@ import DumbImageForm from '@/re-usible/ImageForm/DumbImageForm'
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/store'
-import { handleImage } from '@/store/reducerSlice'
+import { handleGroupName, handleImage } from '@/store/reducerSlice'
 
 const ImageForm = () => {
 
     const [image, setImage] = useState<string | null>()
     const dispatch = useDispatch<AppDispatch>()
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState("")
 
+    const groups: string[] = ['Movie', 'Book', 'Games']
     const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
         event.preventDefault();
         const file = event.dataTransfer.files[0];
@@ -40,8 +43,25 @@ const ImageForm = () => {
         dispatch(handleImage(image))
     }, [dispatch, image])
 
-    return <DumbImageForm handleDrop={handleDrop} handleDragOver={handleDragOver}
-                          handleFileInputChange={handleFileInputChange}/>
+    const handleTagSelect = (name: string) => {
+        setValue(name) // @ts-ignore
+        dispatch(handleGroupName(name))
+    }
+
+    const handleInputFocus = (): void => setOpen(true);
+    const handleInputBlur = () => setOpen(false)
+
+    return <DumbImageForm
+        handleDrop={handleDrop}
+        handleDragOver={handleDragOver}
+        handleFileInputChange={handleFileInputChange}
+        handleInputFocus={handleInputFocus}
+        handleInputBlur={handleInputBlur}
+        open={open}
+        groups={groups}
+        handleTagSelect={handleTagSelect}
+        value={value}
+    />
 }
 
 export default ImageForm

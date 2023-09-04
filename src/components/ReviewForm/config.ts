@@ -13,7 +13,7 @@ export const REVIEW_FORM = {
     },
     groupName: {
         name: "groupName",
-        label: "Choose a group name. For example: Movie",
+        label: "Choose a group name",
         required: true
     },
     tags: {

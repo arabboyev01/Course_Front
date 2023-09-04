@@ -18,5 +18,7 @@ export const StyledFileInput = styled.label`
     display: none;
   }
 `;
-
+export const FileWrapper = styled.div`
+  position: relative;
+`
 

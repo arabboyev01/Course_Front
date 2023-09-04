@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Forms from '@/components/ReviewForm/Forms'
 import { useSelector } from 'react-redux'
-import { CurrStep, image, tags } from '@/store/Selector'
+import { CurrStep, groupName, image, tags } from '@/store/Selector'
 import ReviewStepper from '@/components/ReviewStepper'
 import { api } from '@/config'
 import { useAlert } from 'react-alert'
@@ -12,19 +12,19 @@ const ReviewForm = () => {
     const current = useSelector(CurrStep)
     const Tags = useSelector(tags)
     const Image = useSelector(image)
+    const GroupName = useSelector(groupName)
     const router = useRouter()
     const alert = useAlert()
     const grade = 5
     const handleReview = (values: any) => {
         setLoading(true)
-        api.Review('api/review', values, Image, grade, Tags).then((data) => {
+        api.Review('api/review', values, Image, grade, Tags, GroupName).then((data) => {
             if (Object.keys(data).length === 0) throw new Error
             else {
                 alert.success('Review Created');
                 router.push("/")
             }
-        }).catch(err => {
-            console.log(err)
+        }).catch(() => {
             alert.error('Something went wrong!')
         }).finally(() => setLoading(false))
     }
