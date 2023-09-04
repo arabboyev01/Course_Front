@@ -6,6 +6,7 @@ import { useAlert } from 'react-alert'
 import { setToken } from '@/store/reducerSlice'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/store'
+import MainLoader from '@/re-usible/Loaders/MainLoader'
 
 export default function AccessTokenComponent() {
 
@@ -40,7 +41,7 @@ export default function AccessTokenComponent() {
             };
 
             api.Users('api/get-auth', extractedInfo).then(data => {
-                if(data.message === "Internal server error") throw new Error
+                if (data.message === 'Internal server error') throw new Error
                 dispatch(setToken(data.token))
                 if (data) alert.success('Logged In!');
                 router.push('/');
@@ -55,5 +56,14 @@ export default function AccessTokenComponent() {
         handleGithubSign()
     }, [handleGithubSign])
 
-    return <p>You are being redirected</p>
+    return <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '60vh'
+    }}>
+        <p style={{margin: '3rem'}}>You are being redirected</p>
+        <MainLoader/>
+    </div>
 }
