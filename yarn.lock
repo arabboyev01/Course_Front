@@ -1501,6 +1501,11 @@
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
 
+"@react-oauth/google@^0.11.1":
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/@react-oauth/google/-/google-0.11.1.tgz#f937c8d02bd37e3a6be7713b8212e9b9b9b3f914"
+  integrity sha512-tywZisXbsdaRBVbEu0VX6dRbOSL2I6DgY97woq5NMOOOz+xtDsm418vqq+Vx10KMtra3kdHMRMf0hXLWrk2RMg==
+
 "@reduxjs/toolkit@^1.9.5":
   version "1.9.5"
   resolved "https://registry.npmjs.org/@reduxjs/toolkit/-/toolkit-1.9.5.tgz"
@@ -3634,6 +3639,11 @@ react-is@^18.0.0, react-is@^18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
+
+react-linkedin-login-oauth2@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-linkedin-login-oauth2/-/react-linkedin-login-oauth2-2.0.1.tgz#e322245b69f3248bf68273aa0a0deeed2ddf859d"
+  integrity sha512-vlmChbRhLjWZVU/A96I09GcpH3xLFTawQbT/05Dl3kuLVupdaVo7YZf2qrDQmrdfDm4Qj8svX1gkwHkybAMKDg==
 
 react-redux@^8.1.2:
   version "8.1.2"

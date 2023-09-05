@@ -8,6 +8,7 @@ const UserAvatar = () => {
     const router = useRouter();
     const handleRoute = () => router.push('/create-review')
     const handleProfile = () => router.push('/profile')
+
     return (
         <Stack direction="row" spacing={2} style={{position: 'relative', cursor: 'pointer'}}>
             <AddReviewButton onClick={handleRoute}>Create Review</AddReviewButton>

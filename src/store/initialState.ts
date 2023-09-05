@@ -6,6 +6,6 @@ export const initialState: CounterState = {
   tags: null,
   image: null,
   isReviewCreated: false,
-  allReviews: 0,
+  users: null,
   groupName: ""
 };

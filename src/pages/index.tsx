@@ -10,5 +10,6 @@ export default function Home() {
         dispatch(verifyUser())
     }, [dispatch])
 
+
     return <HomeComponent />
 }

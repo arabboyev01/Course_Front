@@ -62,7 +62,7 @@ export interface CounterState {
     tags: null | string[]
     image: any
     isReviewCreated: boolean
-    allReviews: number
+    users: null | usersType
     groupName: string
 }
 
@@ -125,3 +125,21 @@ export interface TagsType {
     id: number
     name: string
 }
+
+export type GoogleLoginResponse = {
+  credential: {
+    googleId: string;
+    imageUrl: string;
+    email: string;
+    familyName: string;
+    givenName: string;
+    name: string;
+  };
+  tokenId: string;
+  accessToken: string;
+  googleAccessToken: string;
+  googleIdToken: string;
+  error: any;
+  onSuccess: any
+  // Other properties may vary based on the package and configuration
+};

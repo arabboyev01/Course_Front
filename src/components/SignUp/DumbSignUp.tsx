@@ -1,6 +1,6 @@
 import { LoginWrapper, Seperated, SignUpInputs, SignUpWrapper } from '@/components/SignUp/style.signUp'
 import {
-    Icon,
+    IconsGithub,
     Line, Lines, LoginButton,
     Paragraph,
     SignUp,
@@ -13,12 +13,12 @@ import { Form } from 'react-final-form'
 import { CssTextField } from '@/re-usible/form-style'
 import { FOUNDATION_FORM_VALUES } from '@/components/SignUp/config'
 import GitHubIcon from '@mui/icons-material/GitHub'
-import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import { makeValidate } from 'mui-rff'
 import { schema } from '@/components/SignUp/config'
 import React from 'react'
 import { HandleSignUpTypes } from '@/globalTypes'
 import ButtonLoader from '@/re-usible/Loaders/ButtonLoader'
+import GoogleButton from '@/re-usible/GoogleButton'
 
 const validate: any = makeValidate(schema)
 
@@ -58,15 +58,12 @@ const DumbSignUp: React.FC<HandleSignUpTypes> = ({handleSignUp, signUpRoute, loa
                 <Line></Line><Paragraph>or</Paragraph><Line></Line>
             </Lines>
             <SocialMediaWrapper>
+                <GoogleButton />
                 <LoginButton onClick={GithubSign}>
-                    <GitHubIcon style={Icon}/> Signup with Github
-                </LoginButton>
-                <LoginButton>
-                    <LinkedInIcon style={Icon}/> Signup with Linkedin
+                   Signup with Github <GitHubIcon style={IconsGithub}/>
                 </LoginButton>
             </SocialMediaWrapper>
         </SignUpWrapper>
     </StyleLogin>
 );
-
 export default DumbSignUp;

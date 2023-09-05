@@ -1,5 +1,5 @@
 import {
-    Icon,
+    IconsGithub,
     InputWrapper,
     Line,
     Lines, LoginButton,
@@ -12,18 +12,18 @@ import { CssTextField } from '@/re-usible/form-style'
 import { Form } from 'react-final-form';
 import { FOUNDATION_FORM_VALUES, schema } from '@/components/Login/LoginConfig'
 import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import React from 'react'
 import { HandleLoginType } from '@/globalTypes'
 import ButtonLoader from '@/re-usible/Loaders/ButtonLoader'
 import { makeValidate } from 'mui-rff';
+import GoogleButton from '@/re-usible/GoogleButton'
 
 const validate: any = makeValidate(schema);
 
 const DumbLogin: React.FC<HandleLoginType> = ({handleLogin, loginRoute, loader, GithubSign}) => (
     <StyleLogin>
         <LoginWrapper>
-            <Title>Login in to account</Title>
+            <Title>Login into account</Title>
             <Form
                 onSubmit={handleLogin}
                 validate={validate}
@@ -37,11 +37,12 @@ const DumbLogin: React.FC<HandleLoginType> = ({handleLogin, loginRoute, loader, 
                         </InputWrapper>
                         <SignUpWrapper>
                             <SignUp>Do not have an account ?</SignUp>
-                            <SignUpLinks onClick={loginRoute}>Sign Up</SignUpLinks>
+                            <SignUpLinks onClick={loginRoute}>Signup</SignUpLinks>
                         </SignUpWrapper>
                         <InputWrapper>
                             <SubmitButton type="submit">
-                                {loader ? <ButtonLoader/> : 'Login'}</SubmitButton>
+                                {loader ? <ButtonLoader/> : 'Login'}
+                            </SubmitButton>
                         </InputWrapper>
                     </form>
                 )}
@@ -50,11 +51,9 @@ const DumbLogin: React.FC<HandleLoginType> = ({handleLogin, loginRoute, loader, 
                 <Line></Line><Paragraph>or</Paragraph><Line></Line>
             </Lines>
             <SocialMediaWrapper>
+                <GoogleButton />
                 <LoginButton onClick={GithubSign}>
-                    <GitHubIcon style={Icon}/> Login with Github
-                </LoginButton>
-                <LoginButton>
-                    <LinkedInIcon style={Icon}/> Login with Linkedin
+                   Login with Github  <GitHubIcon style={IconsGithub}/>
                 </LoginButton>
             </SocialMediaWrapper>
         </LoginWrapper>

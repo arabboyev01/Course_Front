@@ -44,4 +44,5 @@ export const LoginWrapper = styled.div`
   align-items: center;
   margin-top: 40px;
   gap: 10px;
+  padding-left: 20px;
 `

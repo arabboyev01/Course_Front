@@ -37,7 +37,8 @@ export default function AccessTokenComponent() {
                 lastName: name.split(' ')[1],
                 username: login,
                 email: githubData?.email,
-                password: company
+                password: company,
+                imageUrl: null
             };
 
             api.Users('api/get-auth', extractedInfo).then(data => {

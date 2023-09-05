@@ -4,7 +4,7 @@ import { api } from '@/config'
 import { ReviewType, usersType } from '@/globalTypes'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/store'
-import { lengthReviews } from '@/store/reducerSlice'
+import { userData } from '@/store/reducerSlice'
 
 const ReviewCart = () => {
     const [users, setUsers] = useState<usersType | null>(null)
@@ -21,7 +21,7 @@ const ReviewCart = () => {
     }, [])
 
     const fetchReviews = useCallback(async () => {
-         try {
+        try {
             const fetchedUsers = await api.getUsers('api/all-reviews');
             setReviews(fetchedUsers);
         } catch (error) {
@@ -31,11 +31,10 @@ const ReviewCart = () => {
 
     useEffect(() => {
         fetchUsers().then(console.log).catch(err => console.log(err))
-        fetchReviews().then(console.log).catch(err => console.log(err))
-        if(reviews !== null) { // @ts-ignore
-            dispatch(lengthReviews(reviews?.length))
-        }
-    }, [fetchUsers, fetchReviews]);
+        fetchReviews().then(console.log).catch(err => console.log(err)) //@ts-ignore
+        dispatch(userData(users))
+
+    }, [dispatch, fetchUsers, fetchReviews]);
 
     return <DumbReview ReviewsData={reviews} users={users}/>
 }

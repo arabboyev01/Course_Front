@@ -25,8 +25,8 @@ export const LoginWrapper = styled.div`
 `
 
 export const Title = styled.p`
-  font-size: 18px;
-  font-weight: 300;
+  font-size: 22px;
+  font-weight: 400;
 `
 
 export const InputWrapper = styled.div`
@@ -51,6 +51,8 @@ export const SubmitButton = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-weight: 400;
+  font-size: 18px;
 `
 
 export const Lines = styled.div`
@@ -78,19 +80,23 @@ export const SocialMediaWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-  gap: 20px;
+  gap: 10px;
 `
-export const LoginButton = styled.div`
+export const LoginButton = styled.button`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   gap: 10px;
-  width: 350px;
+  width: 240px;
   height: 35px;
   border: .1px solid rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   cursor: pointer;
+  padding-right: 8px;
+  font-weight: 200;
+  background: #fff;
+  font-size: 15px;
   &:hover{
     border: .5px solid rgba(0, 0, 0, 0.8);
   }
@@ -101,6 +107,7 @@ export const SignUpWrapper = styled.div`
   align-items: center;
   margin-top: 40px;
   gap: 10px;
+  padding-left: 20px;
 `
 export const SignUp = styled.p`
   color: #565454;
@@ -115,7 +122,9 @@ export const SignUpLinks = styled.p`
   cursor: pointer;
 `
 
-export const Icon = {
-    fontSize: "2rem",
+export const IconsGithub = {
+    fontSize: "1.5rem",
     cursor: "pointer",
+    color: "#181717",
+    marginLeft: "22px"
 }
