@@ -9,12 +9,14 @@ const ImageForm = () => {
     const [image, setImage] = useState<string | null>()
     const dispatch = useDispatch<AppDispatch>()
     const [open, setOpen] = useState(false);
-    const [value, setValue] = useState("")
+    const [value, setValue] = useState('')
+    const [imageValue, setImageValue] = useState('Choose a file or drag and drop image')
 
     const groups: string[] = ['Movie', 'Book', 'Games']
     const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
         event.preventDefault();
         const file = event.dataTransfer.files[0];
+        setImageValue(file.name)
         const reader = new FileReader();
 
         reader.onload = (e: ProgressEvent<any>) => {
@@ -23,7 +25,9 @@ const ImageForm = () => {
 
         reader.readAsDataURL(file);
     };
-    const handleFileInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleFileInputChange = (event: ChangeEvent<HTMLInputElement>) => { //@ts-ignore
+        const file = event?.target?.files[0];
+        setImageValue(file.name)
         const selectedFile = event.target.files && event.target.files[0];
         if (selectedFile) {
             const reader = new FileReader();
@@ -61,6 +65,7 @@ const ImageForm = () => {
         groups={groups}
         handleTagSelect={handleTagSelect}
         value={value}
+        imageValue={imageValue}
     />
 }
 

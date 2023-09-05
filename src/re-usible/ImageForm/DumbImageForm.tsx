@@ -14,14 +14,15 @@ const DumbImageForm =
          handleInputFocus,
          handleInputBlur,
          open,
-         groups, handleTagSelect, value
+         groups, handleTagSelect, value,
+        imageValue
      }: any) => (
         <React.Fragment>
             <StyledFileInput
                 onDrop={handleDrop}
                 onDragOver={handleDragOver}>
                 <CloudUploadIcon style={{fontSize: '2rem', color: 'rgba(0, 0, 0, 0.4)'}}/>
-                Choose a file or drag it down *
+                {imageValue}*
                 <input type="file" onChange={handleFileInputChange}/>
             </StyledFileInput>
             <FileWrapper>
