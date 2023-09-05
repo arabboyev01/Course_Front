@@ -1,5 +1,6 @@
 import { getCookie } from '@/utils/setCookie'
 import { VerifyToken } from '@/utils'
+import { usersType } from '@/globalTypes'
 
 export class ApiService {
     baseUrl: string
@@ -11,7 +12,7 @@ export class ApiService {
     async getUsers(endpoint: string): Promise<any> {
         try {
             const response = await fetch(`${this.baseUrl}/${endpoint}`, {
-                method: "GET"
+                method: 'GET'
             });
 
             return await response.json();
@@ -21,16 +22,53 @@ export class ApiService {
         }
     }
 
-    async ThirdPartAPI(endpoint: string): Promise<any>{
-        try{
-             const response = await fetch(`${this.baseUrl}/${endpoint}`, {
-                method: "GET",
-                 headers: {
-                    "Authorization": `Bearer ${localStorage.getItem('accessToken')}`
-                 }
+    async ThirdPartAPI(endpoint: string): Promise<any> {
+        try {
+            const response = await fetch(`${this.baseUrl}/${endpoint}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
             });
-             return response.json();
-        } catch(err){
+            return response.json();
+        } catch (err) {
+
+        }
+    }
+
+    async SingleUser(endpoint: string): Promise<any> {
+        try {
+            const response = await fetch(`${this.baseUrl}/${endpoint}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `${getCookie('authToken')}`
+                }
+            });
+            return response.json();
+        } catch (err) {
+
+        }
+    }
+
+    async UpdateUser(endpoint: string, payload: usersType, user: usersType | null): Promise<any> {
+        const params = {
+            username: payload.username || user?.username,
+            firstName: payload.firstName || user?.firstName,
+            lastName: payload.lastName || user?.lastName,
+            email: payload.email || user?.email,
+            password: payload.hashPassword || user?.hashPassword
+        }
+        try {
+            const response = await fetch(`${this.baseUrl}/${endpoint}`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `${getCookie('authToken')}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(params),
+            });
+            return response.json();
+        } catch (err) {
 
         }
     }
@@ -49,7 +87,7 @@ export class ApiService {
         }
     }
 
-    async Review(endpoint: string, payload: object | any, image: any, grade: number, tags: string[] | null, groupName: string): Promise<any> {
+    async Review(endpoint: string, payload: object | any, image: any, tags: string[] | null, groupName: string): Promise<any> {
 
         try {
             const token = getCookie('authToken')
@@ -60,7 +98,6 @@ export class ApiService {
             formData.append('groupName', groupName);
             formData.append('reviewText', payload.reviewText);
             formData.append('image', image);
-            formData.append('grade', grade);
             formData.append('userId', decoded.userId);
             formData.append('tags', tagsString)
 

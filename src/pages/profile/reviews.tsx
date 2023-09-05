@@ -1,11 +1,6 @@
-import Sidebar from '@/components/Profile/Sidebar'
-import ProfileLayout from '@/components/Profile/ProfileLayout'
+import MainContent from '@/components/Profile/MainContent'
 
 export default function Profile() {
 
-    return (
-        <ProfileLayout>
-            <Sidebar/>
-        </ProfileLayout>
-    )
+     return <MainContent />
 }

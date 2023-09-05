@@ -31,6 +31,7 @@ export interface usersType {
     id: number
     lastName: string
     username: string
+    imageUrl?: null| string
 }
 
 export interface ReviewPropsType {

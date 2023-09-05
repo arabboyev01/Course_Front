@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 export const MainWrapper = styled.div`
-  padding: 30px 40px;
+  padding: 30px 40px 50px 40px;
   background: #fff;
   border-radius: 10px;
   margin-left: 20px;
   max-width: 800px;
-
   @media (max-width: 650px) {
     max-width: 430px;
     margin: 20px auto 0 auto;
@@ -53,23 +52,21 @@ export const SingleField = styled.div`
 `;
 
 
-export const AdditionalBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-
-export const Button = styled.button`
-  margin-top: 20px;
+export const Submit = styled.button`
+  margin-top: 25px;
   margin-left: 10px;
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #308efe;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const SaveButton = styled.button`
-  max-width: 250px;
-  height: 64px;
-  margin-top: 30px;
-`;
-
-export const CodeField = styled.div`
-  max-width: 150px;
-`;

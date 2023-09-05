@@ -19,6 +19,7 @@ export const CartWrapper: any = styled.div`
   background-color: ${props => props.color ? '#fff' : 'rgb(123, 188, 214)'};
   padding: 20px;
   color: #333;
+  max-width: 350px;
 `
 export const CartHeader = styled.div`
   display: flex;

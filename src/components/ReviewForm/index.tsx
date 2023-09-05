@@ -15,10 +15,9 @@ const ReviewForm = () => {
     const GroupName = useSelector(groupName)
     const router = useRouter()
     const alert = useAlert()
-    const grade = 5
     const handleReview = (values: any) => {
         setLoading(true)
-        api.Review('api/review', values, Image, grade, Tags, GroupName).then((data) => {
+        api.Review('api/review', values, Image, Tags, GroupName).then((data) => {
             if (Object.keys(data).length === 0) throw new Error
             else {
                 alert.success('Review Created');
