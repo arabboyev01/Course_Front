@@ -35,6 +35,7 @@ export const MainData = styled.div`
 
   @media (max-width: 650px) {
     grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    row-gap: 20px;
   }
 `;
 
@@ -69,4 +70,12 @@ export const Submit = styled.button`
   align-items: center;
   justify-content: center;
 `;
+
+export const AvatarDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`
 

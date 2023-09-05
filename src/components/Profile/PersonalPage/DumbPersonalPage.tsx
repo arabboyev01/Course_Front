@@ -9,17 +9,21 @@ import {
     SingleField,
     Sub,
     SubTitle,
-    Submit,
+    Submit, AvatarDiv,
 } from './main.style'
 import { makeValidate } from 'mui-rff'
 import { schema } from './config'
 import ButtonLoader from '@/re-usible/Loaders/ButtonLoader'
+import Avatar from '@mui/material/Avatar';
+
 const validate: any = makeValidate(schema);
 
 const DumbPersonalPage = ({handleChange, user, loading}: any) => (
     <MainWrapper>
+        <AvatarDiv>
+            <Avatar alt={user?.firstName} src={user?.imageUrl || "/broken-image.jpg"}  sx={{width: 66, height: 66}}/>
+        </AvatarDiv>
         <Title>Personal data</Title>
-
         <Form
             onSubmit={handleChange}
             validate={validate}
@@ -28,7 +32,7 @@ const DumbPersonalPage = ({handleChange, user, loading}: any) => (
                     <MainData>
                         <SingleField>
                             <Sub>{PERSONAL_DATA.firstName.header}</Sub>
-                            <CssTextField {...PERSONAL_DATA.firstName}  placeholder={user?.firstName}/>
+                            <CssTextField {...PERSONAL_DATA.firstName} placeholder={user?.firstName}/>
                         </SingleField>
                         <SingleField>
                             <Sub>{PERSONAL_DATA.lastName.header}</Sub>
@@ -49,10 +53,10 @@ const DumbPersonalPage = ({handleChange, user, loading}: any) => (
                     <MainData>
                         <SingleField>
                             <Sub>{PERSONAL_DATA.hashPassword.header}</Sub>
-                            <CssTextField {...PERSONAL_DATA.hashPassword}  type="password"/>
+                            <CssTextField {...PERSONAL_DATA.hashPassword} type="password"/>
                         </SingleField>
-                         <SingleField>
-                            <Submit type="submit">{loading ? <ButtonLoader /> : "Save"}</Submit>
+                        <SingleField>
+                            <Submit type="submit">{loading ? <ButtonLoader/> : 'Save'}</Submit>
                         </SingleField>
                     </MainData>
                 </form>
