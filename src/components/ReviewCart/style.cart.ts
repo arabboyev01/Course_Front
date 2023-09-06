@@ -31,7 +31,7 @@ export const CartHeader = styled.div`
 export const User = styled.div`
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 `
 
 

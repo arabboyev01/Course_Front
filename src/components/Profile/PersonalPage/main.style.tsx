@@ -4,14 +4,14 @@ export const MainWrapper = styled.div`
   padding: 30px 40px 50px 40px;
   background: #fff;
   border-radius: 10px;
-  margin-left: 20px;
+  margin: 80px 0 0 20px;
   max-width: 800px;
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: .1px solid rgba(0, 0, 0, 0.2);
   @media (max-width: 650px) {
-    max-width: 430px;
     margin: 20px auto 0 auto;
-    padding: 15px;
+    padding: 30px 0 50px 10px;
+    border: none;
   }
 `;
 
@@ -33,7 +33,6 @@ export const MainData = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(346px, 1fr));
   grid-gap: 10px;
-
   @media (max-width: 650px) {
     grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     row-gap: 20px;

@@ -11,7 +11,8 @@ export const Right = styled.div`
   display: flex;
   margin: 0 auto;
   flex-direction: column;
-  justify-content: center;
+  padding-top: 50px;
+  align-items: center;
   @media (max-width: 650px) {
     width: 100%;
   }

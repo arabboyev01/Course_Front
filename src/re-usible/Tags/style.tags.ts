@@ -40,4 +40,5 @@ export const TagsText = styled.p`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  padding: 5px;
 `
