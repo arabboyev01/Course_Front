@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const StyleSorting = styled.div`
   max-width: 1330px;
-  margin: 0 auto;
+  margin: 80px auto 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;

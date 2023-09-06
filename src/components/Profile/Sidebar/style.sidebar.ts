@@ -58,7 +58,7 @@ export const CloseIconStyle = {
 }
 
 export const HamburgerIcon = {
-    position: 'absolute',
+    position: 'fixed',
     left: '50px',
     top: '50px',
     background: '#308efe',

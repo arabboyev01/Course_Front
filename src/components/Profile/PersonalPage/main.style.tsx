@@ -6,6 +6,8 @@ export const MainWrapper = styled.div`
   border-radius: 10px;
   margin-left: 20px;
   max-width: 800px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   @media (max-width: 650px) {
     max-width: 430px;
     margin: 20px auto 0 auto;
@@ -26,7 +28,6 @@ export const SubTitle = styled.h2`
   font-weight: 500;
   margin-top: 50px;
 `;
-
 export const MainData = styled.div`
   margin-top: 30px;
   display: grid;

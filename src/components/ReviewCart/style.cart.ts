@@ -3,9 +3,6 @@ import styled from 'styled-components'
 export const StyleCart = styled.div`
   max-width: 1330px;
   margin: 50px auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
 `
 export const Center = styled.div`
   display: flex;
@@ -14,12 +11,15 @@ export const Center = styled.div`
   justify-content: center;
   height: 50vh;
 `
+export const MainCartWrapper = styled.div`
+  max-width: 880px;
+  width: 100%;
+`
 export const CartWrapper: any = styled.div`
-  border-radius: 10px;
-  background-color: ${props => props.color ? '#fff' : 'rgb(123, 188, 214)'};
+  //background-color: ${props => props.color ? '#fff' : 'rgb(123, 188, 214)'};
   padding: 20px;
   color: #333;
-  max-width: 350px;
+  border-bottom: .5px solid rgba(0, 0, 0, 0.3);
 `
 export const CartHeader = styled.div`
   display: flex;
@@ -32,14 +32,6 @@ export const User = styled.div`
   gap: 20px;
 `
 
-export const UserImage = styled.img`
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: .1px solid #333;
-  object-fit: cover;
-  padding: 2px;
-`
 
 export const UserName = styled.p`
   font-size: 14px;
@@ -49,28 +41,38 @@ export const UserName = styled.p`
 
 export const CartDetail = styled.div`
   margin-top: 25px;
+  padding: 12px 0 ;
+`
+export const ReviewName = styled.h2`
+  font-weight: 500;
 `
 
 export const Text = styled.p`
+  font-size: 1rem;
+  line-height: 1.2rem;
+`
+export const RatingText = styled.p`
+ font-style: italic;
   font-size: 15px;
-  height: 100px;
+  font-weight: 400;
 `
 
 export const Images = styled.img`
-  height: 250px;
-  width: 200px;
   object-fit: cover;
   border-radius: 10px;
-  margin-top: 20px;
+  margin: 20px 0;
   border: .5px solid #333;
 `
 
 export const CartFooter = styled.div`
-  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `
 
 export const Tags = styled.p`
   font-size: 15px;
-  font-style: revert;
   color: rgb(39, 39, 225);
+  margin: 15px 0;
+  font-style: italic;
 `

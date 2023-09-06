@@ -21,7 +21,7 @@ const validate: any = makeValidate(schema);
 const DumbPersonalPage = ({handleChange, user, loading}: any) => (
     <MainWrapper>
         <AvatarDiv>
-            <Avatar alt={user?.firstName} src={user?.imageUrl || "/broken-image.jpg"}  sx={{width: 66, height: 66}}/>
+            <Avatar alt={user?.firstName} src={user?.imageUrl || '/broken-image.jpg'} sx={{width: 66, height: 66}}/>
         </AvatarDiv>
         <Title>Personal data</Title>
         <Form

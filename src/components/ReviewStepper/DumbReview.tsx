@@ -2,9 +2,11 @@ import React from 'react'
 import { StepperProps } from '@/globalTypes'
 import { TiTick } from 'react-icons/ti';
 import { Button, ChildrenComponent, Step, StepName, StepsSpace, StepsText, StyleReview } from '@/components/ReviewStepper/style.review'
+import Header from '@/components/Header'
 
 const DumbReview: React.FC<StepperProps> = ({steps, currentStep, complete, setComplete, setCurrentStep, children, setChanges}) => (
     <StyleReview>
+        <Header />
         <StepsSpace>
             {steps?.map((step: string, i: number) =>
                 <StepsText key={i} currentStep={currentStep} index={i} complete={complete}>

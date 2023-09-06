@@ -1,13 +1,15 @@
 import styled from 'styled-components'
 
 export const Left = styled.div`
-  width: 300px;
+  width: auto;
 `
 
 export const Right = styled.div`
-  width: calc(100% - 300px);
+  max-width: 1000px;
+  width: 100%;
   height: 100vh;
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
   justify-content: center;
   @media (max-width: 650px) {

@@ -20,8 +20,10 @@ export interface ReviewType {
     reviewText: string,
     imageUrl: string | any,
     grade: number,
-    userId: number
-    tags: string
+    userId?: number
+    tags: string[]
+    createdAt: string
+    user: usersType
 }
 
 export interface usersType {
@@ -36,7 +38,6 @@ export interface usersType {
 
 export interface ReviewPropsType {
     ReviewsData?: ReviewType[] | any
-    users: usersType[] | null | any
 }
 
 export interface RoutingType {

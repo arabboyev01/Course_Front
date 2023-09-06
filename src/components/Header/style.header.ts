@@ -4,6 +4,8 @@ export const StyleHeader = styled.div`
   width: 100%;
   height: 80px;
   background: #fff;
+  position: fixed;
+  top: 0;
 `
 
 export const HeaderContent = styled.div`

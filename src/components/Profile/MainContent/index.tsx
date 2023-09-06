@@ -4,6 +4,7 @@ import ProfileLayout from '@/components/Profile/ProfileLayout'
 import { Routes } from '@/components/Profile/MainContent/utils'
 import PersonalData from "@/components/Profile/PersonalPage"
 import { Left, Right } from '@/components/Profile/MainContent/style.main'
+import MyReview from '@/components/Profile/MyReview'
 const MainContent = () => {
     const router = useRouter()
     const { pathname } = router;
@@ -14,7 +15,8 @@ const MainContent = () => {
                 <Sidebar/>
             </Left>
             <Right>
-                {pathname === Routes.main && <PersonalData />}
+                {pathname === Routes.main ? <PersonalData /> : null}
+                {pathname === Routes.review ? <MyReview /> : null}
             </Right>
         </ProfileLayout>
     )
