@@ -3,10 +3,12 @@ import styled from "styled-components";
 export const StyleHeader = styled.div`
   width: 100%;
   height: 80px;
-  background: #fff;
   position: fixed;
   top: 0;
   z-index: 1000;
+  border: .1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  background: #fff;
 `
 
 export const HeaderContent = styled.div`

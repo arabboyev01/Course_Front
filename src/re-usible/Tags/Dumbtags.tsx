@@ -9,9 +9,7 @@ const DumbTags: React.FC<TagsType[] | null | any> = ({existingTags}) => (
         <Subtitle>Featured tags</Subtitle>
         <TagsWrapper>
             {existingTags ? existingTags?.map(({name, id}: TagsType) =>
-             <TagsText key={id}>
-                 #{name}
-             </TagsText>
+             <TagsText key={id}>#{name}</TagsText>
             ) : null}
         </TagsWrapper>
     </StyleTags>

@@ -11,12 +11,13 @@ const ReviewCart = () => {
 
     const fetchReviews = useCallback(async () => {
         try {
-            const fetchedUsers = await api.getUsers('api/all-reviews');
+            const fetchedUsers = await api.getUsers(`api/all-reviews`);
             setReviews(fetchedUsers);
         } catch (error) {
             throw error;
         }
     }, [])
+    console.log(reviews)
 
     useEffect(() => {
         fetchReviews().then(console.log).catch(err => console.log(err))
