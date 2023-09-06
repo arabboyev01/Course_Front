@@ -46,8 +46,8 @@ export const CartDetail = styled.div`
   padding: 12px 0 
 `
 export const ReviewName = styled.h2`
-  font-weight: 500;
-  color: #5b5858;
+  font-weight: 800;
+  color: #000;
   margin: 12px 0;
 `
 

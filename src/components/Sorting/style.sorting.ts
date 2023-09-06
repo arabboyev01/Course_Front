@@ -28,8 +28,9 @@ export const Times = styled.div`
 `
 
 export const SubText = styled.p`
-  font-size: 14px;
-  color: rgb(190, 198, 200);
+  font-size: 15px;
+  color: #8f8f8f;
+  font-weight: 800;
 `
 
 export const SearchWrapper = styled.div`

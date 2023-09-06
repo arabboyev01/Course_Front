@@ -66,6 +66,7 @@ export interface CounterState {
     isReviewCreated: boolean
     users: null | usersType
     groupName: string
+    reviewLength: number
 }
 
 export interface HandleLoginType {

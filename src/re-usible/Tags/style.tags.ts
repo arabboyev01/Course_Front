@@ -8,16 +8,16 @@ export const StyleTags = styled.div`
   }
 `
 export const Subtitle = styled.h5`
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: #8f8f8f;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #000;
 `
 
 export const Text = styled.p`
   margin: 12px 0;
   font-size: 15px;
   line-height: 16px;
-  font-weight: 300;
+  font-weight: 400;
   color: #8f8f8f;
 `
 
@@ -31,8 +31,8 @@ export const TagsWrapper = styled.div`
 `
 
 export const TagsText = styled.p`
-  font-size: 14px;
-  font-weight: 300;
+  font-size: 15px;
+  font-weight: 400;
   color: #8f8f8f;
   border: .2px solid rgba(0, 0, 0, 0.3);
   display: flex;

@@ -6,11 +6,11 @@ import Tags from '@/re-usible/Tags'
 
 const DumbHome = () => (
     <HomeStyle>
-        <Header />
-        <Sorting />
+        <Header/>
+        <Sorting/>
         <BodyWrapper>
-             <ReviewCart />
-            <Tags />
+            <ReviewCart/>
+            <Tags/>
         </BodyWrapper>
     </HomeStyle>
 )

@@ -7,5 +7,6 @@ export const initialState: CounterState = {
   image: null,
   isReviewCreated: false,
   users: null,
-  groupName: ""
+  groupName: "",
+  reviewLength: 0
 };
