@@ -6,6 +6,7 @@ export const StyleHeader = styled.div`
   background: #fff;
   position: fixed;
   top: 0;
+  z-index: 1000;
 `
 
 export const HeaderContent = styled.div`

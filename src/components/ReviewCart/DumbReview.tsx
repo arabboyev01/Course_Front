@@ -18,13 +18,13 @@ const DumbReview: React.FC<ReviewPropsType> = ({ReviewsData}) => (
             <MainCartWrapper>
 
                 {ReviewsData?.map(({id, name, groupName, reviewText, imageUrl, grade, tags, user}: ReviewType) =>
-                    <CartWrapper key={id} color={id % 2 !== 0}>
+                    <CartWrapper key={id}>
                         <Images src={imageUrl.src} alt="images" />
                         <ReviewName>{name}</ReviewName>
                         <CartHeader>
                             <User>
                                 <Avatar src={user?.imageUrl || "/broken-image.jpg"} />
-                                <UserName>@ {user?.username}</UserName>
+                                <UserName>@{user?.username}</UserName>
                             </User>
                             <User>
                                 <RatingText>({grade}.0)</RatingText>

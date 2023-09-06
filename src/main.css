@@ -17,7 +17,11 @@ body {
     height: fit-content;
     position: relative;
 }
-
+  @media(max-width: 820px){
+   .search-box {
+       width: 100%;
+   }
+  }
 .input-search {
     height: 50px;
     width: 50px;

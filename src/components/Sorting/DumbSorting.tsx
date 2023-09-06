@@ -4,7 +4,6 @@ import {
     SearchWrapper,
     StyleSorting,
     SubText,
-    Text,
     Times
 } from '@/components/Sorting/style.sorting'
 import Dropdown from '@/re-usible/Dropdown'
@@ -15,8 +14,7 @@ import Search from '@/re-usible/Search'
 const DumbSorting: React.FC<Options> = ({options, filters, totalReview}) => (
     <StyleSorting>
         <LeftSide>
-            <Text>All Reviews</Text>
-            <SubText>{totalReview} Total</SubText>
+            <SubText>{totalReview} Total reviews</SubText>
         </LeftSide>
         <RightSide>
             <Times>

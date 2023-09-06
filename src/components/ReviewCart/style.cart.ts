@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
 export const StyleCart = styled.div`
-  max-width: 1330px;
-  margin: 50px auto;
+  max-width: 880px;
+  margin: 0 auto;
+  @media(max-width: 820px){
+    max-width: 900px;
+  }
 `
 export const Center = styled.div`
   display: flex;
@@ -16,7 +19,6 @@ export const MainCartWrapper = styled.div`
   width: 100%;
 `
 export const CartWrapper: any = styled.div`
-  //background-color: ${props => props.color ? '#fff' : 'rgb(123, 188, 214)'};
   padding: 20px;
   color: #333;
   border-bottom: .5px solid rgba(0, 0, 0, 0.3);
@@ -41,15 +43,18 @@ export const UserName = styled.p`
 
 export const CartDetail = styled.div`
   margin-top: 25px;
-  padding: 12px 0 ;
+  padding: 12px 0 
 `
 export const ReviewName = styled.h2`
   font-weight: 500;
+  color: #5b5858;
+  margin: 12px 0;
 `
 
 export const Text = styled.p`
   font-size: 1rem;
   line-height: 1.2rem;
+  color: #8f8f8f;
 `
 export const RatingText = styled.p`
  font-style: italic;
