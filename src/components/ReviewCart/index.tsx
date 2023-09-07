@@ -11,7 +11,6 @@ const ReviewCart = () => {
     const selectedTags = useSelector(selectTags)
     const selectedTagsString = JSON.stringify(selectedTags)
 
-
     const fetchReviews = useCallback(async () => {
         setLoading(true)
         try {

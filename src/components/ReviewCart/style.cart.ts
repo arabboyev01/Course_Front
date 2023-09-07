@@ -82,3 +82,19 @@ export const Tags = styled.p`
   margin: 15px 0;
   font-style: italic;
 `
+
+export const ReadMoreButton = styled.button`
+ background: transparent;
+  border: none;
+  color: orangered;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  transition: transform 1s ease;
+  &:hover {
+    color: #000;
+    gap: 5px;
+  }
+`

@@ -1,7 +1,7 @@
 import {
     CartDetail, CartFooter,
     CartHeader,
-    CartWrapper, Center, Images, MainCartWrapper, RatingText, ReviewName,
+    CartWrapper, Center, Images, MainCartWrapper, RatingText, ReadMoreButton, ReviewName,
     StyleCart, Tags, Text,
     User,
     UserName
@@ -11,7 +11,7 @@ import { ReviewPropsType, ReviewType } from '@/globalTypes'
 import RatingComponent from '@/re-usible/Rating'
 import MainLoader from '@/re-usible/Loaders/MainLoader'
 import Avatar from '@mui/material/Avatar'
-
+import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 const DumbReview: React.FC<ReviewPropsType> = ({ReviewsData, loading}) => (
     <StyleCart>
         {!ReviewsData || loading ? (<Center><MainLoader/></Center>) :
@@ -39,6 +39,7 @@ const DumbReview: React.FC<ReviewPropsType> = ({ReviewsData, loading}) => (
                                 <Tags key={id}>#{name}</Tags>
                             )}
                         </CartFooter>
+                        <ReadMoreButton>Read more <TrendingFlatIcon /> </ReadMoreButton>
                     </CartWrapper>
                 )}
             </MainCartWrapper>

@@ -17,15 +17,15 @@ const DumbSorting: React.FC<Options> = ({options, filters, totalReview}) => (
             <SubText>{totalReview} Total reviews</SubText>
         </LeftSide>
         <RightSide>
+            <SearchWrapper>
+                <Search />
+            </SearchWrapper>
             <Times>
                 <Dropdown options={options} firstOption="Types"/>
             </Times>
             <Times>
                 <Dropdown options={filters} firstOption="Filters"/>
             </Times>
-            <SearchWrapper>
-                <Search />
-            </SearchWrapper>
         </RightSide>
     </StyleSorting>
 )
