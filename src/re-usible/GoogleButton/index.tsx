@@ -32,7 +32,7 @@ const GoogleLoginButton = () => {
             api.Users('api/get-auth', extractedData).then(data => {
                 if (data.message === 'Internal server error') throw new Error
                 if (data?.error) throw new Error
-                if (data) alert.success('Account Created')
+                if (data) alert.success('Logged in')
                 dispatch(setToken(data.token))
                 router.push('/');
             }).catch(() => alert.error('username or password is wrong!'))

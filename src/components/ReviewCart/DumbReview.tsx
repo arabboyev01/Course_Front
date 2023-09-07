@@ -12,9 +12,9 @@ import RatingComponent from '@/re-usible/Rating'
 import MainLoader from '@/re-usible/Loaders/MainLoader'
 import Avatar from '@mui/material/Avatar'
 
-const DumbReview: React.FC<ReviewPropsType> = ({ReviewsData}) => (
+const DumbReview: React.FC<ReviewPropsType> = ({ReviewsData, loading}) => (
     <StyleCart>
-        {!ReviewsData ? (<Center><MainLoader/></Center>) :
+        {!ReviewsData || loading ? (<Center><MainLoader/></Center>) :
             <MainCartWrapper>
 
                 {ReviewsData?.map(({id, name, groupName, reviewText, imageUrl, grade, tags, user}: ReviewType) =>

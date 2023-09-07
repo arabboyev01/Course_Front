@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const StyleCart = styled.div`
   max-width: 880px;
+  width: 90%;
   margin: 0 auto;
   @media(max-width: 820px){
     max-width: 900px;

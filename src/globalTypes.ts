@@ -38,6 +38,7 @@ export interface usersType {
 
 export interface ReviewPropsType {
     ReviewsData?: ReviewType[] | any
+    loading: boolean
 }
 
 export interface RoutingType {
@@ -67,6 +68,7 @@ export interface CounterState {
     users: null | usersType
     groupName: string
     reviewLength: number
+    selectedTags: string[] | null
 }
 
 export interface HandleLoginType {

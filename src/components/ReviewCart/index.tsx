@@ -2,29 +2,33 @@ import DumbReview from '@/components/ReviewCart/DumbReview'
 import { useCallback, useEffect, useState } from 'react'
 import { api } from '@/config'
 import { ReviewType } from '@/globalTypes'
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from '@/store'
+import { useSelector } from 'react-redux'
+import { selectTags } from '@/store/Selector'
 
 const ReviewCart = () => {
     const [reviews, setReviews] = useState<ReviewType | null>(null)
-    const dispatch = useDispatch<AppDispatch>()
+    const [loading, setLoading] = useState(false)
+    const selectedTags = useSelector(selectTags)
+    const selectedTagsString = JSON.stringify(selectedTags)
+
 
     const fetchReviews = useCallback(async () => {
+        setLoading(true)
         try {
-            const fetchedUsers = await api.getUsers(`api/all-reviews`);
+            const fetchedUsers = await api.getUsers(`api/all-reviews?selectedTags=${selectedTagsString}`);
             setReviews(fetchedUsers);
+            setLoading(false)
         } catch (error) {
             throw error;
         }
-    }, [])
-    console.log(reviews)
+    }, [selectedTagsString])
 
     useEffect(() => {
         fetchReviews().then(console.log).catch(err => console.log(err))
-    }, [fetchReviews, dispatch]);
+    }, [fetchReviews]);
 
 
-    return <DumbReview ReviewsData={reviews} />
+    return <DumbReview ReviewsData={reviews} loading={loading}/>
 }
 
 export default ReviewCart;

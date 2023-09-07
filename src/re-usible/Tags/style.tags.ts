@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const StyleTags = styled.div`
   max-width: 450px;
@@ -30,11 +30,18 @@ export const TagsWrapper = styled.div`
 
 `
 
-export const TagsText = styled.p`
+export const TagsText: any = styled.p`
   font-size: 15px;
   font-weight: 400;
   color: #8f8f8f;
-  border: .2px solid rgba(0, 0, 0, 0.3);
+  border: 0.2px solid rgba(0, 0, 0, 0.3);
+
+  ${({ active }: any) =>
+    active &&
+    css`
+      border: 0.2px solid blue;
+      color: blue;
+    `}
   display: flex;
   flex-direction: column;
   align-items: center;

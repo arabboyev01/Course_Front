@@ -47,6 +47,9 @@ const reducerSlice = createSlice({
             if (action.payload) {
                 state.groupName = action.payload
             }
+        },
+        handleSelectedTags: (state, action: PayloadAction | any): void => {
+            state.selectedTags = action.payload
         }
     },
 });
@@ -59,7 +62,8 @@ export const {
     handleImage,
     handleSuccess,
     userData,
-    handleGroupName
+    handleGroupName,
+    handleSelectedTags
 } = reducerSlice.actions;
 
 

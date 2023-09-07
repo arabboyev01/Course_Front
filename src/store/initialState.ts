@@ -8,5 +8,6 @@ export const initialState: CounterState = {
   isReviewCreated: false,
   users: null,
   groupName: "",
-  reviewLength: 0
+  reviewLength: 0,
+  selectedTags: null
 };
