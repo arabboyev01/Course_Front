@@ -12,7 +12,8 @@ import RatingComponent from '@/re-usible/Rating'
 import MainLoader from '@/re-usible/Loaders/MainLoader'
 import Avatar from '@mui/material/Avatar'
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
-const DumbReview: React.FC<ReviewPropsType> = ({ReviewsData, loading}) => (
+import PaginationRounded from '@/re-usible/Pagination'
+const DumbReview: React.FC<ReviewPropsType> = ({ReviewsData, loading, count, handlePaginateData}) => (
     <StyleCart>
         {!ReviewsData || loading ? (<Center><MainLoader/></Center>) :
             <MainCartWrapper>
@@ -44,6 +45,7 @@ const DumbReview: React.FC<ReviewPropsType> = ({ReviewsData, loading}) => (
                 )}
             </MainCartWrapper>
         }
+        <PaginationRounded count={count} handlePaginateData={handlePaginateData} />
     </StyleCart>
 );
 

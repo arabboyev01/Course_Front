@@ -39,6 +39,8 @@ export interface usersType {
 export interface ReviewPropsType {
     ReviewsData?: ReviewType[] | any
     loading: boolean
+    count: number
+    handlePaginateData: (e: any) => void
 }
 
 export interface RoutingType {

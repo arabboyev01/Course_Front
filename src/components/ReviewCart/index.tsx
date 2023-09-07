@@ -4,6 +4,7 @@ import { api } from '@/config'
 import { ReviewType } from '@/globalTypes'
 import { useSelector } from 'react-redux'
 import { selectTags } from '@/store/Selector'
+import { quantity } from '@/components/ReviewCart/utils'
 
 const ReviewCart = () => {
     const [reviews, setReviews] = useState<ReviewType | null>(null)
@@ -26,8 +27,19 @@ const ReviewCart = () => {
         fetchReviews().then(console.log).catch(err => console.log(err))
     }, [fetchReviews]);
 
+    const count = quantity(reviews)
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(5);
 
-    return <DumbReview ReviewsData={reviews} loading={loading}/>
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const slicedReview = Array.isArray(reviews) ? reviews.slice(indexOfFirstPost, indexOfLastPost) : null
+    const handlePaginateData = (number: any) => {
+        setCurrentPage(number)
+    }
+
+
+    return <DumbReview ReviewsData={slicedReview} loading={loading} count={count} handlePaginateData={handlePaginateData} />
 }
 
 export default ReviewCart;
