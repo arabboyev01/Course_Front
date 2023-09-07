@@ -39,8 +39,8 @@ export const TagsText: any = styled.p`
   ${({ active }: any) =>
     active &&
     css`
-      border: 0.2px solid blue;
-      color: blue;
+      border: 0.2px solid #308efe;
+      color: #308efe;
     `}
   display: flex;
   flex-direction: column;
