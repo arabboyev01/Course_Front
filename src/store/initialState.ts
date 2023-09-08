@@ -5,7 +5,6 @@ export const initialState: CounterState = {
   currentStep: 1,
   tags: null,
   image: null,
-  isReviewCreated: false,
   users: null,
   groupName: "",
   reviewLength: 0,

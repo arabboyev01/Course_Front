@@ -1,5 +1,4 @@
 import { BodyWrapper, HomeStyle } from '@/components/Home/home.style'
-import Header from '@/components/Header'
 import Sorting from '@/components/Sorting'
 import ReviewCart from '@/components/ReviewCart'
 import Tags from '@/re-usible/Tags'
@@ -9,7 +8,6 @@ import { ReviewType } from '@/globalTypes'
 
 const DumbHome:React.FC<ReviewType[] | null | any> = ({reviews}) => (
     <HomeStyle>
-        <Header/>
         <Swiper reviews={reviews}/>
         <Sorting/>
         <BodyWrapper>

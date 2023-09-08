@@ -22,31 +22,23 @@ const reducerSlice = createSlice({
                 state.currentStep = action.payload
             }
         },
-        handleTags: (state, action: PayloadAction): void => {// @ts-ignore
-            if (action?.payload?.length) {// @ts-ignore
+        handleTags: (state: any, action: PayloadAction | any): void => {
+            if (action?.payload?.length) {
                 state.tags = action.payload
             }
         },
-        handleImage: (state, action: PayloadAction): void => {// @ts-ignore
+        handleImage: (state: any, action: PayloadAction | any): void => {
             if (action.payload) {
                 state.image = action.payload
             }
         },
-        handleSuccess: (state, action: PayloadAction): void => {
-            if (action) {// @ts-ignore
-                state.isReviewCreated = action.payload
+        reviewDataLength: (state, action: any) => {
+            if (action.payload) {
+                state.reviewLength = action.payload
             }
         },
-        userData: (state, action: any) => {
-            // @ts-ignore
-            if (action.payload) {
-                state.users = action.payload
-            }
-        },
-        handleGroupName: (state, action: PayloadAction): void => {// @ts-ignore
-            if (action.payload) {
+        handleGroupName: (state: any, action: PayloadAction): void => {
                 state.groupName = action.payload
-            }
         },
         handleSelectedTags: (state, action: PayloadAction | any): void => {
             state.selectedTags = action.payload
@@ -60,8 +52,7 @@ export const {
     changeStep,
     handleTags,
     handleImage,
-    handleSuccess,
-    userData,
+    reviewDataLength,
     handleGroupName,
     handleSelectedTags
 } = reducerSlice.actions;

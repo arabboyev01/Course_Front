@@ -9,8 +9,9 @@ const Header = () => {
     const router = useRouter();
     const Auth = useSelector(Authorized);
     const handleRouter = () => router.push("/login");
+    const handleMain = () => router.push("/")
 
-    return <DumbHeader handleRouter={handleRouter} Auth={Auth} />
+    return <DumbHeader handleRouter={handleRouter} Auth={Auth} handleMain={handleMain} />
 }
 
 export default Header;

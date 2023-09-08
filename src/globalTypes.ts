@@ -41,11 +41,13 @@ export interface ReviewPropsType {
     loading: boolean
     count: number
     handlePaginateData: (e: any) => void
+    navigateSinglePage: (id: number) => void
 }
 
 export interface RoutingType {
     handleRouter: () => void
     Auth: boolean
+    handleMain: () => void
 }
 
 export type SignUpUsersTypes = {
@@ -66,7 +68,6 @@ export interface CounterState {
     currentStep: any
     tags: null | string[]
     image: any
-    isReviewCreated: boolean
     users: null | usersType
     groupName: string
     reviewLength: number

@@ -22,6 +22,11 @@ export const HeaderContent = styled.div`
     margin: 0 10px;
   }
 `
+export const Aligned = styled.div`
+ display: flex;
+  align-items: center;
+  gap: 20px;
+`
 export const LoginButton = styled.button`
   width: 100px;
   height: 40px;
@@ -39,4 +44,5 @@ export const LogoImage = styled.img`
   width: 40px;
   height: 40px;
   object-fit: contain;
+  cursor: pointer;
 `

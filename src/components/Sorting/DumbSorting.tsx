@@ -1,7 +1,6 @@
 import {
     LeftSide,
     RightSide,
-    SearchWrapper,
     StyleSorting,
     SubText,
     Times
@@ -9,7 +8,6 @@ import {
 import Dropdown from '@/re-usible/Dropdown'
 import React from 'react'
 import { Options } from '@/globalTypes'
-import Search from '@/re-usible/Search'
 
 const DumbSorting: React.FC<Options> = ({options, filters, totalReview}) => (
     <StyleSorting>
@@ -17,9 +15,6 @@ const DumbSorting: React.FC<Options> = ({options, filters, totalReview}) => (
             <SubText>{totalReview} Total reviews</SubText>
         </LeftSide>
         <RightSide>
-            <SearchWrapper>
-                <Search />
-            </SearchWrapper>
             <Times>
                 <Dropdown options={options} firstOption="Types"/>
             </Times>

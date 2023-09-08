@@ -8,7 +8,7 @@ import { handleSelectedTags } from '@/store/reducerSlice'
 
 const Tags = () => {
     const [existingTags, setExistingTags] = useState<TagsType[] | null>(null);
-    const [selectedTags, setSelectedTags] = useState<string[]>([])
+    const [selectedTags, setSelectedTags] = useState<string[] | any>([])
     const dispatch = useDispatch<AppDispatch>()
 
     useEffect(() => {
@@ -18,12 +18,12 @@ const Tags = () => {
     }, [])
     const handleSelect = (value: string) => {
         if (selectedTags?.includes(value)) {
-            setSelectedTags(selectedTags.filter(tag => tag !== value));// @ts-ignore
+            setSelectedTags(selectedTags.filter((tag: any) => tag !== value));
             return;
         }
         setSelectedTags([...selectedTags, value])
     }
-    useEffect(() => {// @ts-ignore
+    useEffect(() => {
         dispatch(handleSelectedTags(selectedTags))
     }, [dispatch, selectedTags])
 

@@ -4,8 +4,10 @@ import { ChildrenProps } from '@/globalTypes'
 
 const ProfileLayout: React.FC<ChildrenProps> = ({children}) => {
 
-    return <ProfileWrapper>
-        {children}
-    </ProfileWrapper>
+    return (
+        <ProfileWrapper>
+            {children}
+        </ProfileWrapper>
+    )
 }
 export default ProfileLayout

@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app'
 import store from '@/store'
 import '@/main.css'
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import Layout from '@/components/Layout'
 
 const options = {
     timeout: 5000,
@@ -21,7 +22,9 @@ export default function App({Component, pageProps}: AppProps) {
         <GoogleOAuthProvider clientId="915688630240-ncpe3p2ifr0uirapiige1406j3lp0g5b.apps.googleusercontent.com">
             <ReduxProvider store={store}>
                 <AlertProvider template={AlertTemplate} {...options}>
-                    <Component {...pageProps} />
+                    <Layout>
+                        <Component {...pageProps} />
+                    </Layout>
                 </AlertProvider>
             </ReduxProvider>
         </GoogleOAuthProvider>

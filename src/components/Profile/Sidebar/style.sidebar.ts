@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Sidebar: any = styled.div`
   position: fixed;
-  top: 0;
+  top: 80px;
   left: 0;
   height: 100vh;
   width: ${(props: any) => (props.open ? '300px' : '0')};
@@ -10,6 +10,7 @@ export const Sidebar: any = styled.div`
   overflow-y: auto;
   z-index: 100;
   transition: left 0.3s ease, right 0.3s ease; 
+  border-right: .5px solid rgba(0, 0, 0, 0.3);
 `
 
 export const SidebarLogo = styled.div`

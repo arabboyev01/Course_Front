@@ -13,18 +13,25 @@ import MainLoader from '@/re-usible/Loaders/MainLoader'
 import Avatar from '@mui/material/Avatar'
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import PaginationRounded from '@/re-usible/Pagination'
-const DumbReview: React.FC<ReviewPropsType> = ({ReviewsData, loading, count, handlePaginateData}) => (
+
+const DumbReview: React.FC<ReviewPropsType> = ({
+                                                   ReviewsData,
+                                                   loading,
+                                                   count,
+                                                   handlePaginateData,
+                                                   navigateSinglePage
+                                               }) => (
     <StyleCart>
         {!ReviewsData || loading ? (<Center><MainLoader/></Center>) :
             <MainCartWrapper>
 
                 {ReviewsData?.map(({id, name, groupName, reviewText, imageUrl, grade, tags, user}: ReviewType) =>
                     <CartWrapper key={id}>
-                        <Images src={imageUrl.src} alt="images" />
+                        <Images src={imageUrl.src} alt="images"/>
                         <ReviewName>{name}</ReviewName>
                         <CartHeader>
                             <User>
-                                <Avatar src={user?.imageUrl || "/broken-image.jpg"} />
+                                <Avatar src={user?.imageUrl || '/broken-image.jpg'}/>
                                 <UserName>@{user?.username}</UserName>
                             </User>
                             <User>
@@ -36,16 +43,20 @@ const DumbReview: React.FC<ReviewPropsType> = ({ReviewsData, loading, count, han
                             <Text>{reviewText}</Text>
                         </CartDetail>
                         <CartFooter>
-                            {tags.map(({name, id}: any ) =>
+                            {tags.map(({name, id}: any) =>
                                 <Tags key={id}>#{name}</Tags>
                             )}
                         </CartFooter>
-                        <ReadMoreButton>Read more <TrendingFlatIcon /> </ReadMoreButton>
+                        <ReadMoreButton
+                            onClick={() => navigateSinglePage(id)}
+                        >
+                            Read more<TrendingFlatIcon/>
+                        </ReadMoreButton>
                     </CartWrapper>
                 )}
             </MainCartWrapper>
         }
-        <PaginationRounded count={count} handlePaginateData={handlePaginateData} />
+        <PaginationRounded count={count} handlePaginateData={handlePaginateData}/>
     </StyleCart>
 );
 

@@ -33,18 +33,3 @@ export const SubText = styled.p`
   font-weight: 800;
 `
 
-export const SearchWrapper = styled.div`
-  height: 38px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  border-radius:5px;
-  margin-top: 8px;
-  @media(max-width: 820px){
-    position: absolute;
-    z-index: 100;
-    right: 10px;
-    top: 200px;
-  }
-`;
-
