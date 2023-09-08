@@ -4,9 +4,18 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { SlideStyle, StyleSwiper, SwiperStyle } from '@/re-usible/Swiper/style.swiper'
+import {
+    Description,
+    Group,
+    MoreButton,
+    SlideStyle,
+    StyleSwiper,
+    SwiperStyle,
+    Text
+} from '@/re-usible/Swiper/style.swiper'
+import RatingComponent from '@/re-usible/Rating'
 
-const SwiperComponent = ({reviews}: any) => {
+const SwiperComponent = ({reviews, handleSingleRoute}: any) => {
 
     return (
         <StyleSwiper>
@@ -25,8 +34,15 @@ const SwiperComponent = ({reviews}: any) => {
                 className="mySwiper"
                 style={SwiperStyle}
             >
-                {reviews?.map(({name, id}: any) =>
-                <SwiperSlide style={SlideStyle} key={id}>{name}</SwiperSlide>
+                {reviews?.slice(0,3).map(({name, id, grade, reviewText, groupName}: any) =>
+                <SwiperSlide style={SlideStyle} key={id}>
+                    <RatingComponent value={grade} size="large"/>
+                    <Text>{name}</Text>
+                    <Description>{reviewText.substring(0, 200)}...
+                      <MoreButton onClick={() => handleSingleRoute(id)}> read more</MoreButton>
+                    </Description>
+                    <Group>{groupName}</Group>
+                </SwiperSlide>
                 )}
             </Swiper>
         </StyleSwiper>

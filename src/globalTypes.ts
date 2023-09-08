@@ -2,8 +2,9 @@ import React, { ReactNode } from 'react'
 
 export interface DropdownProps {
     options: string[] | undefined
-    selectedOption: string | undefined
+    selectedOption: string | undefined | any
     handleOptionClick: (e: string) => void
+    firstOption: any
 }
 
 export interface Options {

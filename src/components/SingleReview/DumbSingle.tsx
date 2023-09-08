@@ -1,6 +1,15 @@
-import { CenterDiv, StyleSingle } from '@/components/SingleReview/style.single'
+import {
+    CenterDiv, Date,
+    Description,
+    MainImage,
+    MainWrapper, RatingText, RatingWrapper,
+    StyleSingle,
+    Text
+} from '@/components/SingleReview/style.single'
 import React from 'react'
 import MainLoader from '@/re-usible/Loaders/MainLoader'
+import RatingGiven from '@/re-usible/Rating/Rated'
+import { formatted } from '@/re-usible/FormattedDate'
 
 const DumbSingle = ({single}: any) => (
     <StyleSingle>
@@ -8,7 +17,17 @@ const DumbSingle = ({single}: any) => (
             <CenterDiv>
                 <MainLoader/>
             </CenterDiv> :
-            <h1>This is single user</h1>}
+            <MainWrapper>
+                <MainImage image={single.imageUrl}></MainImage>
+                <RatingWrapper>
+                    <RatingGiven id={single.id}/>
+                    <RatingText>Rate (0)</RatingText>
+                </RatingWrapper>
+                <Date>{formatted(single.createdAt)}</Date>
+                <Text>{single.name}</Text>
+                <Description>{single.reviewText}</Description>
+            </MainWrapper>
+        }
     </StyleSingle>
 )
 

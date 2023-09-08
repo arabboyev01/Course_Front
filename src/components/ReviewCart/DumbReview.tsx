@@ -36,7 +36,7 @@ const DumbReview: React.FC<ReviewPropsType> = ({
                             </User>
                             <User>
                                 <RatingText>({grade}.0)</RatingText>
-                                <RatingComponent value={grade}/>
+                                <RatingComponent value={grade} size="small"/>
                             </User>
                         </CartHeader>
                         <CartDetail>

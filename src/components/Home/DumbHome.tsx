@@ -6,9 +6,9 @@ import Swiper from '@/re-usible/Swiper'
 import React from 'react'
 import { ReviewType } from '@/globalTypes'
 
-const DumbHome:React.FC<ReviewType[] | null | any> = ({reviews}) => (
+const DumbHome:React.FC<ReviewType[] | null | any> = ({reviews, handleSingleRoute}) => (
     <HomeStyle>
-        <Swiper reviews={reviews}/>
+        <Swiper reviews={reviews} handleSingleRoute={handleSingleRoute}/>
         <Sorting/>
         <BodyWrapper>
             <ReviewCart/>
