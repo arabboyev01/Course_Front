@@ -8,10 +8,11 @@ const Home = () => {
     const [reviews, setReviews] = useState<ReviewType[] | null>(null)
     let selectedTagsString: any = [];
     const i = JSON.stringify(selectedTagsString)
+    let groupName: null = null;
     useEffect(() => {
-        api.getUsers(`api/all-reviews?selectedTags=${i}`).then(data => setReviews(data))
+        api.getUsers(`api/all-reviews?selectedTags=${i}&groupName${groupName}`).then(data => setReviews(data))
             .catch(err => console.log(err))
-    }, [i])
+    }, [i, groupName])
 
     return <DumbHome reviews={reviews}/>
 }

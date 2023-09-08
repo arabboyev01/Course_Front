@@ -3,34 +3,34 @@ import { useCallback, useEffect, useState } from 'react'
 import { api } from '@/config'
 import { ReviewType } from '@/globalTypes'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectTags } from '@/store/Selector'
+import { filterGroup, selectTags } from '@/store/Selector'
 import { quantity } from '@/components/ReviewCart/utils'
 import { useRouter } from 'next/router'
 import { AppDispatch } from '@/store'
 import { reviewDataLength } from '@/store/reducerSlice'
 
 const ReviewCart = () => {
+
+    const router = useRouter()
+    const dispatch = useDispatch<AppDispatch>()
     const [reviews, setReviews] = useState<ReviewType | null>(null)
     const [loading, setLoading] = useState(false)
     const selectedTags = useSelector(selectTags)
+    const filteredGroup = useSelector(filterGroup);
+
     const selectedTagsString = JSON.stringify(selectedTags)
-    const router = useRouter()
-    const dispatch = useDispatch<AppDispatch>()
-    const navigateSinglePage = (id: number) => {
-      router.push(`/single-review/${id}`)
-    }
 
     const fetchReviews = useCallback(async () => {
         setLoading(true)
         try {
-            const fetchedUsers = await api.getUsers(`api/all-reviews?selectedTags=${selectedTagsString}`);
+            const fetchedUsers = await api.getUsers(`api/all-reviews?selectedTags=${selectedTagsString}&groupName=${filteredGroup}`);
             setReviews(fetchedUsers);
             setLoading(false)
             dispatch(reviewDataLength(fetchedUsers?.length))
         } catch (error) {
             throw error;
         }
-    }, [selectedTagsString, dispatch])
+    }, [selectedTagsString, dispatch, filteredGroup])
 
     useEffect(() => {
         fetchReviews().then(console.log).catch(err => console.log(err))
@@ -43,10 +43,8 @@ const ReviewCart = () => {
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const slicedReview = Array.isArray(reviews) ? reviews.slice(indexOfFirstPost, indexOfLastPost) : null
-    const handlePaginateData = (number: any) => {
-        setCurrentPage(number)
-    }
-
+    const handlePaginateData = (number: any) => setCurrentPage(number)
+     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
 
     return <DumbReview
         ReviewsData={slicedReview}

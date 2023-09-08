@@ -72,6 +72,7 @@ export interface CounterState {
     groupName: string
     reviewLength: number
     selectedTags: string[] | null
+    filterGroup: string | null
 }
 
 export interface HandleLoginType {

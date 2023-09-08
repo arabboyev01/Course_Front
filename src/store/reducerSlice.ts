@@ -42,6 +42,9 @@ const reducerSlice = createSlice({
         },
         handleSelectedTags: (state, action: PayloadAction | any): void => {
             state.selectedTags = action.payload
+        },
+        handleFilterGroup: (state: any, action:PayloadAction): void => {
+            state.filterGroup = action.payload
         }
     },
 });
@@ -54,7 +57,8 @@ export const {
     handleImage,
     reviewDataLength,
     handleGroupName,
-    handleSelectedTags
+    handleSelectedTags,
+    handleFilterGroup
 } = reducerSlice.actions;
 
 
