@@ -1,7 +1,7 @@
 import {
     CartDetail, CartFooter,
     CartHeader,
-    CartWrapper, Center, Images, MainCartWrapper, RatingText, ReadMoreButton, ReviewName,
+    CartWrapper, Center, HeaderWrapper, Images, MainCartWrapper, RatingText, ReadMoreButton, ReviewName,
     StyleCart, Tags, Text,
     User,
     UserName
@@ -13,52 +13,58 @@ import MainLoader from '@/re-usible/Loaders/MainLoader'
 import Avatar from '@mui/material/Avatar'
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import PaginationRounded from '@/re-usible/Pagination'
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
-const DumbReview: React.FC<ReviewPropsType> = ({
-                                                   ReviewsData,
-                                                   loading,
-                                                   count,
-                                                   handlePaginateData,
-                                                   navigateSinglePage
-                                               }) => (
-    <StyleCart>
-        {!ReviewsData || loading ? (<Center><MainLoader/></Center>) :
-            <MainCartWrapper>
+const DumbReview: React.FC<ReviewPropsType> =
+    ({
+         ReviewsData,
+         loading,
+         count,
+         handlePaginateData,
+         navigateSinglePage
+     }) => (
+        <StyleCart>
+            {!ReviewsData || loading ? (<Center><MainLoader/></Center>) :
+                <MainCartWrapper>
 
-                {ReviewsData?.map(({id, name, groupName, reviewText, imageUrl, grade, tags, user}: ReviewType) =>
-                    <CartWrapper key={id}>
-                        <Images src={imageUrl.src} alt="images"/>
-                        <ReviewName>{name}</ReviewName>
-                        <CartHeader>
-                            <User>
-                                <Avatar src={user?.imageUrl || '/broken-image.jpg'}/>
-                                <UserName>@{user?.username}</UserName>
-                            </User>
-                            <User>
-                                <RatingText>({grade}.0)</RatingText>
-                                <RatingComponent value={grade} size="small"/>
-                            </User>
-                        </CartHeader>
-                        <CartDetail>
-                            <Text>{reviewText}</Text>
-                        </CartDetail>
-                        <CartFooter>
-                            {tags.map(({name, id}: any) =>
-                                <Tags key={id}>#{name}</Tags>
-                            )}
-                        </CartFooter>
-                        <ReadMoreButton
-                            onClick={() => navigateSinglePage(id)}
-                        >
-                            Read more<TrendingFlatIcon/>
-                        </ReadMoreButton>
-                    </CartWrapper>
-                )}
-            </MainCartWrapper>
-        }
-        <PaginationRounded count={count} handlePaginateData={handlePaginateData}/>
-    </StyleCart>
-);
+                    {ReviewsData?.map(({id, name, groupName, reviewText, imageUrl, grade, tags, user}: ReviewType) =>
+                        <CartWrapper key={id}>
+                            <HeaderWrapper>
+                                <div></div>
+                                <ThumbUpIcon />
+                            </HeaderWrapper>
+                            <Images src={imageUrl.src} alt="images"/>
+                            <ReviewName>{name}</ReviewName>
+                            <CartHeader>
+                                <User>
+                                    <Avatar src={user?.imageUrl || '/broken-image.jpg'}/>
+                                    <UserName>@{user?.username}</UserName>
+                                </User>
+                                <User>
+                                    <RatingText>({grade}.0)</RatingText>
+                                    <RatingComponent value={grade} size="small"/>
+                                </User>
+                            </CartHeader>
+                            <CartDetail>
+                                <Text>{reviewText}</Text>
+                            </CartDetail>
+                            <CartFooter>
+                                {tags.map(({name, id}: any) =>
+                                    <Tags key={id}>#{name}</Tags>
+                                )}
+                            </CartFooter>
+                            <ReadMoreButton
+                                onClick={() => navigateSinglePage(id)}
+                            >
+                                Read more<TrendingFlatIcon/>
+                            </ReadMoreButton>
+                        </CartWrapper>
+                    )}
+                </MainCartWrapper>
+            }
+            <PaginationRounded count={count} handlePaginateData={handlePaginateData}/>
+        </StyleCart>
+    );
 
 export default DumbReview
 

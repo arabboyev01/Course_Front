@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const StyleSingle = styled.div`
   max-width: 1330px;
   margin: 80px auto;
+  @media(max-width: 1330px){
+    margin: 80px 20px;
+  }
 `
 
 export const CenterDiv = styled.div`
@@ -48,4 +51,5 @@ export const Date = styled.div`
 export const RatingText = styled.p`
   font-weight: 800;
   line-height: 20px;
+  font-style: italic;
 `

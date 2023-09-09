@@ -19,6 +19,11 @@ export const MainCartWrapper = styled.div`
   max-width: 880px;
   width: 100%;
 `
+export const HeaderWrapper = styled.div`
+ display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
 export const CartWrapper: any = styled.div`
   padding: 20px;
   color: #333;
@@ -68,6 +73,8 @@ export const Images = styled.img`
   border-radius: 10px;
   margin: 20px 0;
   border: .5px solid #333;
+  max-width: 880px;
+  height: 400px;
 `
 
 export const CartFooter = styled.div`

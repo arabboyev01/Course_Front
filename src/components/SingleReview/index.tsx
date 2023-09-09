@@ -3,18 +3,19 @@ import { useEffect, useState } from 'react'
 import { api } from '@/config'
 import { useRouter } from 'next/router'
 import { ReviewType } from '@/globalTypes'
+import { isObjectEmpty } from '@/utils'
 
 const SingleReview = () => {
-    const [single, setSingle] = useState<null | ReviewType>(null)
+    const [single, setSingle] = useState<ReviewType | null>(null)
     const router = useRouter();
-    const {id}: any = router.query;
-    const parsedId = parseInt(id);
 
     useEffect(() => {
-        api.getUsers(`api/single-review?id=${parsedId}`).then((data) => setSingle(data))
-            .catch(err => console.log(err))
-    }, [parsedId])
-    console.log(single)
+        if(!isObjectEmpty(router.query)){
+            const {id}: any = router.query;
+            api.getUsers(`api/single-review?id=${id}`).then((data) => setSingle(data))
+                .catch(err => console.log(err))
+        }
+    }, [router.query])
 
     return <DumbSingle single={single}/>
 }

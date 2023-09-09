@@ -44,7 +44,7 @@ const ReviewCart = () => {
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const slicedReview = Array.isArray(reviews) ? reviews.slice(indexOfFirstPost, indexOfLastPost) : null
     const handlePaginateData = (number: any) => setCurrentPage(number)
-     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
+    const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
 
     return <DumbReview
         ReviewsData={slicedReview}
