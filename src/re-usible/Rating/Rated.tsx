@@ -8,7 +8,8 @@ export default function BasicRating({reviewId, userId, grade}: number | any) {
 
     const handleRating = (newVal: any) => {
         setValue(newVal);
-        api.PostLikesGrades('api/grade-rate', userId, reviewId, newVal)
+        const payload = {userId, reviewId, newVal}
+        api.Users('api/grade-rate', payload)
             .then(data => console.log(data))
             .catch(err => console.log(err))
     }

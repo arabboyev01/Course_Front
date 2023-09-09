@@ -21,17 +21,20 @@ const DumbReview: React.FC<ReviewPropsType> =
          loading,
          count,
          handlePaginateData,
-         navigateSinglePage
+         navigateSinglePage,
+         handleLikeReq,
      }) => (
         <StyleCart>
             {!ReviewsData || loading ? (<Center><MainLoader/></Center>) :
                 <MainCartWrapper>
 
-                    {ReviewsData?.map(({id, name, groupName, reviewText, imageUrl, grade, tags, user}: ReviewType) =>
+                    {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, likes}: ReviewType) =>
                         <CartWrapper key={id}>
                             <HeaderWrapper>
                                 <div></div>
-                                <ThumbUpIcon />
+                                <ThumbUpIcon onClick={() => handleLikeReq(user.id, id)}
+                                 style={{...(likes[0]?.reviewId === id ? { color: "#308efe" } : {color: "#8f8f8f" }), cursor: "pointer"}}
+                                />
                             </HeaderWrapper>
                             <Images src={imageUrl.src} alt="images"/>
                             <ReviewName>{name}</ReviewName>

@@ -114,16 +114,4 @@ export class ApiService {
         }
     }
 
-    async PostLikesGrades(endpoint: string, userId: number, reviewId: number, rating: number): Promise<any> {
-        try {
-            const response = await fetch(`${this.baseUrl}/${endpoint}`, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({userId, reviewId, rating}),
-            })
-            return response.json()
-        } catch (err) {
-            throw err
-        }
-    }
 }

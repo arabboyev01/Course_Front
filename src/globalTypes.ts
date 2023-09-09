@@ -25,6 +25,7 @@ export interface ReviewType {
     tags: string[]
     createdAt: string
     user: usersType
+    likes: any
 }
 
 export interface usersType {
@@ -43,6 +44,7 @@ export interface ReviewPropsType {
     count: number
     handlePaginateData: (e: any) => void
     navigateSinglePage: (id: number) => void
+    handleLikeReq: (userId: number, reviewId: number) => void
 }
 
 export interface RoutingType {

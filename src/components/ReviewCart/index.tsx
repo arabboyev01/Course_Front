@@ -17,6 +17,7 @@ const ReviewCart = () => {
     const [loading, setLoading] = useState(false)
     const selectedTags = useSelector(selectTags)
     const filteredGroup = useSelector(filterGroup);
+    const [isLoad, setLoad] = useState(false)
 
     const selectedTagsString = JSON.stringify(selectedTags)
 
@@ -30,7 +31,7 @@ const ReviewCart = () => {
         } catch (error) {
             throw error;
         }
-    }, [selectedTagsString, dispatch, filteredGroup])
+    }, [selectedTagsString, dispatch, filteredGroup, isLoad])
 
     useEffect(() => {
         fetchReviews().then(console.log).catch(err => console.log(err))
@@ -46,12 +47,21 @@ const ReviewCart = () => {
     const handlePaginateData = (number: any) => setCurrentPage(number)
     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
 
+    const handleLikeReq = (userId: number, reviewId: number) => {
+        setLoad(true)
+        const payload = {userId, reviewId}
+        api.Users("api/likes", payload).then(() => setLoad(false))
+            .catch(err => console.log(err))
+    }
+
+    console.log(reviews)
     return <DumbReview
         ReviewsData={slicedReview}
         loading={loading}
         count={count}
         handlePaginateData={handlePaginateData}
         navigateSinglePage={navigateSinglePage}
+        handleLikeReq={handleLikeReq}
     />
 }
 
