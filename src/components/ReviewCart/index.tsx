@@ -48,13 +48,11 @@ const ReviewCart = () => {
     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
 
     const handleLikeReq = (userId: number, reviewId: number) => {
-        setLoad(true)
         const payload = {userId, reviewId}
-        api.Users("api/likes", payload).then(() => setLoad(false))
+        api.Users("api/likes", payload).then(() => setLoad(true))
             .catch(err => console.log(err))
     }
 
-    console.log(reviews)
     return <DumbReview
         ReviewsData={slicedReview}
         loading={loading}
