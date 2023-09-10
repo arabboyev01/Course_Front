@@ -4,14 +4,14 @@ import Rating from '@mui/material/Rating';
 import { api } from '@/config'
 import { useAlert } from 'react-alert'
 
-export default function BasicRating({reviewId, userId, grade}: number | any) {
+export default function BasicRating({reviewId, grade}: number | any) {
     const [value, setValue] = React.useState<number | any>(grade);
+
     const alert = useAlert();
-    const handleRating = (newVal: any) => {
-        setValue(newVal);
-        const payload = {userId, reviewId, newVal}
-        api.Users('api/grade-rate', payload)
-            .then(() => {
+    const handleRating = (rating: any) => {
+        setValue(rating);
+        const payload = { reviewId, rating}
+        api.PostAuth('api/grade-rate', payload).then(() => {
                 alert.info('Thank you for rating!')
             }).catch(err => console.log(err))
     }

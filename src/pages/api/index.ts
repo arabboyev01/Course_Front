@@ -45,7 +45,7 @@ export class ApiService {
             });
             return response.json();
         } catch (err) {
-
+            throw err
         }
     }
 
@@ -111,6 +111,22 @@ export class ApiService {
             return await response.json();
         } catch (err) {
             throw err
+        }
+    }
+     async PostAuth(endpoint: string, payload: object): Promise<any> {
+        try {
+            const response = await fetch(`${this.baseUrl}/${endpoint}`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `${getCookie('authToken')}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload),
+            });
+
+            return await response.json();
+        } catch (err) {
+            console.log(err)
         }
     }
 

@@ -8,6 +8,7 @@ import { quantity } from '@/components/ReviewCart/utils'
 import { useRouter } from 'next/router'
 import { AppDispatch } from '@/store'
 import { reviewDataLength } from '@/store/reducerSlice'
+import * as React from 'react'
 
 const ReviewCart = () => {
 
@@ -47,11 +48,15 @@ const ReviewCart = () => {
     const handlePaginateData = (number: any) => setCurrentPage(number)
     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
 
-    const handleLikeReq = (userId: number, reviewId: number) => {
-        const payload = {userId, reviewId}
-        api.Users("api/likes", payload).then(() => setLoad(true))
+    const handleLikeReq = (reviewId: number) => {
+        const payload = {reviewId}
+        api.PostAuth("api/likes", payload).then((data) =>{
+            console.log(data)
+            setLoad(true)
+        })
             .catch(err => console.log(err))
     }
+    console.log(reviews)
 
     return <DumbReview
         ReviewsData={slicedReview}

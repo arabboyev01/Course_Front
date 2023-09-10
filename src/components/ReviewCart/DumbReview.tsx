@@ -33,7 +33,7 @@ const DumbReview: React.FC<ReviewPropsType> =
                             <HeaderWrapper>
                                 <div></div>
                                 <ThumbUpIcon onClick={() => handleLikeReq(user.id, id)}
-                                 style={{...(likes[0]?.reviewId === id ? { color: "#308efe" } : {color: "#8f8f8f" }), cursor: "pointer"}}
+                                 style={{...(likes[0]?.userId === user?.id ? { color: "#308efe" } : {color: "#8f8f8f" }), cursor: "pointer"}}
                                 />
                             </HeaderWrapper>
                             <Images src={imageUrl.src} alt="images"/>
