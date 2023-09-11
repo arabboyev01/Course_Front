@@ -156,5 +156,11 @@ export type GoogleLoginResponse = {
   googleIdToken: string;
   error: any;
   onSuccess: any
-  // Other properties may vary based on the package and configuration
 };
+
+export interface CommentsType {
+    postComment: (values: object, form: any) => void
+    user: usersType
+    comments: any
+}
+

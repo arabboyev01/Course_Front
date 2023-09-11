@@ -16,6 +16,7 @@ const SingleReview = () => {
                 .catch(err => console.log(err))
         }
     }, [router.query])
+    console.log(single)
 
     return <DumbSingle single={single}/>
 }

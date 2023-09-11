@@ -10,6 +10,7 @@ import React from 'react'
 import MainLoader from '@/re-usible/Loaders/MainLoader'
 import RatingGiven from '@/re-usible/Rating/Rated'
 import { formatted } from '@/re-usible/FormattedDate'
+import Comments from '@/re-usible/Comments'
 
 const DumbSingle = ({single}: any) => (
     <StyleSingle>
@@ -28,6 +29,7 @@ const DumbSingle = ({single}: any) => (
                 <Description>{single.reviewText}</Description>
             </MainWrapper>
         }
+        <Comments reviewId={single?.id} comments={single?.comments}/>
     </StyleSingle>
 )
 

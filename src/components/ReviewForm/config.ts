@@ -21,6 +21,10 @@ export const REVIEW_FORM = {
         label: "Choose tags",
         required: true
     },
+    comment: {
+        name: "text",
+        label: "Leave a comment",
+    }
 }
 // export const schema = Yup.object().shape({
 //     name: Yup.string().required(`${REVIEW_FORM.name.label} is required.`),
