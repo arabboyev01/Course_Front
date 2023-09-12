@@ -11,6 +11,7 @@ const MyReview = () => {
             setReview(data)
         }).catch(err => console.log(err))
     }, []);
+    console.log(review)
 
     return <DumbReview ReviewsData={review}/>
 }

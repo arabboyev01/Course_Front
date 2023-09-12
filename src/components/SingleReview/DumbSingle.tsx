@@ -14,22 +14,22 @@ import Comments from '@/re-usible/Comments'
 
 const DumbSingle = ({single}: any) => (
     <StyleSingle>
-        {single === null ?
+        {single === null || single === undefined ?
             <CenterDiv>
                 <MainLoader/>
             </CenterDiv> :
             <MainWrapper>
-                <MainImage image={single.imageUrl}></MainImage>
+                <MainImage image={single?.imageUrl}></MainImage>
                 <RatingWrapper>
-                    <RatingGiven reviewId={single?.id} grade={single.grade}/>
-                    <RatingText>({single.grade},0)</RatingText>
+                    <RatingGiven reviewId={single?.id} grade={single?.grade}/>
+                    <RatingText>({single?.grade},0)</RatingText>
                 </RatingWrapper>
-                <Date>{formatted(single.createdAt)}</Date>
-                <Text>{single.name}</Text>
-                <Description>{single.reviewText}</Description>
+                <Date>{formatted(single?.createdAt)}</Date>
+                <Text>{single?.name}</Text>
+                <Description>{single?.reviewText}</Description>
             </MainWrapper>
         }
-        <Comments reviewId={single?.id} comments={single?.comments}/>
+        <Comments reviewId={single?.id} />
     </StyleSingle>
 )
 

@@ -11,8 +11,9 @@ export const StyleComment = styled.div`
 `
 
 export const InputWrapper = styled.div`
- display: flex;
+  display: flex;
   align-items: center;
+  margin-bottom: 80px;
   gap: 25px;
 `
 
@@ -31,21 +32,31 @@ export const sendStyle = {
 }
 
 export const CommentWrapper = styled.div`
-  height: 300px;
+  height: auto;
   display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
-  margin: 80px 0 0 50px;
-  row-gap: 10px;
+  flex-direction: row;
+  gap: 10px;
 `
 export const SingleComment = styled.div`
-  padding: 20px 20px;
-  display: flex;
   align-items: center;
   gap: 25px;
-   border: 1px solid rgba(0, 0, 0, 0.1);
-  width: 80%;
-  border-radius: 20px;
+  width: 50%;
+  height: auto;
 `
 export const CommentText = styled.p`
+  font-weight: 500;
+  padding: 15px 0;
+`
+
+export const UsernameText = styled.p`
+  color: orangered;
+  font-weight: 900;
+  font-style: italic;
+`
+
+export const Dates = styled.p`
+ font-weight: 300;
+  font-style: italic;
+  font-size: 14px;
+  color: #8f8f8f;
 `

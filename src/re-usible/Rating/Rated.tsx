@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import { api } from '@/config'
 import { useAlert } from 'react-alert'
+import { userValidation } from '@/utils/errors'
 
 export default function BasicRating({reviewId, grade}: number | any) {
     const [value, setValue] = React.useState<number | any>(grade);
@@ -11,9 +12,10 @@ export default function BasicRating({reviewId, grade}: number | any) {
     const handleRating = (rating: any) => {
         setValue(rating);
         const payload = { reviewId, rating}
-        api.PostAuth('api/grade-rate', payload).then(() => {
+        api.PostAuth('api/grade-rate', payload).then((res) => {
+            if(res === userValidation.validationUserId) throw new Error
                 alert.info('Thank you for rating!')
-            }).catch(err => console.log(err))
+            }).catch(() => alert.info("Please login"))
     }
 
     return (

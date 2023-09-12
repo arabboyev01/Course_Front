@@ -15,7 +15,7 @@ import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import PaginationRounded from '@/re-usible/Pagination'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
-const DumbReview: React.FC<ReviewPropsType> =
+const DumbReview: React.FC<ReviewPropsType | any> =
     ({
          ReviewsData,
          loading,
@@ -27,13 +27,12 @@ const DumbReview: React.FC<ReviewPropsType> =
         <StyleCart>
             {!ReviewsData || loading ? (<Center><MainLoader/></Center>) :
                 <MainCartWrapper>
-
                     {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, likes}: ReviewType) =>
                         <CartWrapper key={id}>
                             <HeaderWrapper>
                                 <div></div>
-                                <ThumbUpIcon onClick={() => handleLikeReq(user.id, id)}
-                                 style={{...(likes[0]?.userId === user?.id ? { color: "#308efe" } : {color: "#8f8f8f" }), cursor: "pointer"}}
+                                <ThumbUpIcon onClick={() => handleLikeReq(id)}
+                                             // style={{color: isLiked ? '#308efe' : '#8f8f8f', cursor: 'pointer'}}
                                 />
                             </HeaderWrapper>
                             <Images src={imageUrl.src} alt="images"/>

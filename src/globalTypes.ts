@@ -40,11 +40,11 @@ export interface usersType {
 
 export interface ReviewPropsType {
     ReviewsData?: ReviewType[] | any
-    loading: boolean
-    count: number
-    handlePaginateData: (e: any) => void
-    navigateSinglePage: (id: number) => void
-    handleLikeReq: (userId: number, reviewId: number) => void
+    loading?: boolean
+    count?: number
+    handlePaginateData?: (e: any) => void
+    navigateSinglePage?: (id: number) => void
+    handleLikeReq: (reviewId: number) => void
 }
 
 export interface RoutingType {
@@ -160,7 +160,6 @@ export type GoogleLoginResponse = {
 
 export interface CommentsType {
     postComment: (values: object, form: any) => void
-    user: usersType
     comments: any
 }
 

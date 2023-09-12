@@ -9,6 +9,8 @@ import { useRouter } from 'next/router'
 import { AppDispatch } from '@/store'
 import { reviewDataLength } from '@/store/reducerSlice'
 import * as React from 'react'
+import { userValidation } from '@/utils/errors'
+import { useAlert } from 'react-alert'
 
 const ReviewCart = () => {
 
@@ -19,6 +21,7 @@ const ReviewCart = () => {
     const selectedTags = useSelector(selectTags)
     const filteredGroup = useSelector(filterGroup);
     const [isLoad, setLoad] = useState(false)
+    const alert = useAlert();
 
     const selectedTagsString = JSON.stringify(selectedTags)
 
@@ -48,13 +51,12 @@ const ReviewCart = () => {
     const handlePaginateData = (number: any) => setCurrentPage(number)
     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
 
-    const handleLikeReq = (reviewId: number) => {
+    const handleLikeReq = (reviewId: number ) => {
         const payload = {reviewId}
-        api.PostAuth("api/likes", payload).then((data) =>{
-            console.log(data)
+        api.PostAuth("api/likes", payload).then((res) =>{
+            if(res === userValidation.validationUserId) throw new Error
             setLoad(true)
-        })
-            .catch(err => console.log(err))
+        }).catch(() => alert.info("Please login"))
     }
     console.log(reviews)
 
