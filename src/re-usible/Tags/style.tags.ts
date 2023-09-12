@@ -24,7 +24,7 @@ export const Text = styled.p`
 export const TagsWrapper = styled.div`
   margin: 20px 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-gap: 10px;
   max-width: 400px;
 

@@ -53,3 +53,13 @@ export const RatingText = styled.p`
   line-height: 20px;
   font-style: italic;
 `
+export const TagsWrapper = styled.div`
+ max-width: 800px;
+  display: flex;
+  align-items: center;gap: 20px;
+  margin: 20px 0;
+`
+export const Tags = styled.div`
+  border: .1px solid rgba(0, 0, 0, 0.3);
+  padding: 2px 5px;
+`

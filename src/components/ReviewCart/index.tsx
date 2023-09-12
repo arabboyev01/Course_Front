@@ -58,7 +58,6 @@ const ReviewCart = () => {
             setLoad(true)
         }).catch(() => alert.info("Please login"))
     }
-    console.log(reviews)
 
     return <DumbReview
         ReviewsData={slicedReview}

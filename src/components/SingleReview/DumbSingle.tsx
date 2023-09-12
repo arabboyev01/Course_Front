@@ -3,7 +3,7 @@ import {
     Description,
     MainImage,
     MainWrapper, RatingText, RatingWrapper,
-    StyleSingle,
+    StyleSingle, Tags, TagsWrapper,
     Text
 } from '@/components/SingleReview/style.single'
 import React from 'react'
@@ -27,9 +27,14 @@ const DumbSingle = ({single}: any) => (
                 <Date>{formatted(single?.createdAt)}</Date>
                 <Text>{single?.name}</Text>
                 <Description>{single?.reviewText}</Description>
+                <TagsWrapper>
+                    {single.tags.map((data: any) =>
+                        <Tags key={data.id}>#{data.name}</Tags>
+                    )}
+                </TagsWrapper>
             </MainWrapper>
         }
-        <Comments reviewId={single?.id} />
+        <Comments reviewId={single?.id}/>
     </StyleSingle>
 )
 

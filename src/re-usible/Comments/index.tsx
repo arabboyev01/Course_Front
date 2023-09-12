@@ -11,16 +11,18 @@ const Comments: React.FC<any> = ({reviewId}) => {
     const [data, setData] = useState()
 
     useEffect(() => {
-        api.getUsers(`api/all-comments`).then((data) => {
-            setData(data)
-        }).catch(err => console.log(err))
-    }, [])
+        if (reviewId !== undefined) {
+            api.getUsers(`api/all-comments?reviewId=${reviewId}`).then((data) => {
+                setData(data)
+            }).catch(err => console.log(err))
+        }
+    }, [reviewId])
 
     const postComment = (values: object | any, form: any) => {
         const text = values.text
         const payload = {reviewId, text}
         api.PostAuth('api/comments', payload).then((data) => {
-            if(data?.name === userValidation.prsimaValidationError) throw new Error
+            if (data?.name === userValidation.prsimaValidationError) throw new Error
             if (!isObjectEmpty(data)) {
                 alert.success('You have commented')
             }

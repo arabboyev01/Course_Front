@@ -20,12 +20,6 @@ const DumbComment: React.FC<CommentsType> = ({postComment, comments}) => (
             onSubmit={postComment}
             render={({handleSubmit}) => (
                 <form onSubmit={handleSubmit} noValidate>
-                    <InputWrapper>
-                        <CssTextField {...REVIEW_FORM.comment} multiline minRows={2} maxRows={6}/>
-                        <CommentButton type="submit">
-                            <SendIcon style={sendStyle}/>
-                        </CommentButton>
-                    </InputWrapper>
                     {comments?.length ? comments.map((comment: any) =>
                         <CommentWrapper key={comment.id}>
                             <Avatar src={comment?.user?.imageUrl || '/broken-image.jpg'}/>
@@ -35,7 +29,13 @@ const DumbComment: React.FC<CommentsType> = ({postComment, comments}) => (
                                 <CommentText>{comment?.text}</CommentText>
                             </SingleComment>
                         </CommentWrapper>
-                    ) : null}
+                    ) : "No comment"}
+                    <InputWrapper>
+                        <CssTextField {...REVIEW_FORM.comment} multiline minRows={2} maxRows={6}/>
+                        <CommentButton type="submit">
+                            <SendIcon style={sendStyle}/>
+                        </CommentButton>
+                    </InputWrapper>
                 </form>
             )}
         />
