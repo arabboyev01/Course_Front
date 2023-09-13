@@ -11,7 +11,7 @@ const DumbTags: React.FC<TagsType[] | null | any> = ({existingTags, handleSelect
         <TagsWrapper>
             {existingTags ? existingTags?.map(({name, id}: TagsType) =>// @ts-ignore
                 <TagsText active={selectedTags.includes(name)} key={id}
-                          onClick={() => handleSelectedTags(name)}>#{name}</TagsText>
+                          onClick={() => handleSelectedTags(name)}>#{name.substring(0, 10)}</TagsText>
             ) : null}
         </TagsWrapper>
     </StyleTags>

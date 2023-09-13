@@ -27,6 +27,7 @@ export const Text = styled.h2`
   color: #333333;
   font-style: italic;
   text-align: start;
+  max-width: 800px;
 `
 export const Description = styled.div`
  margin: 12px 0;
@@ -50,6 +51,6 @@ export const MoreButton = styled.button`
 export const Group = styled.div`
   font-size: 16px;
   font-weight: 300;
-  color: #722205;
+  color: white;
   margin-top: 12px;
 `

@@ -36,6 +36,7 @@ export const CommentWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
+  margin-top: 20px;
 `
 export const SingleComment = styled.div`
   align-items: center;
@@ -45,11 +46,13 @@ export const SingleComment = styled.div`
 `
 export const CommentText = styled.p`
   font-weight: 500;
-  padding: 15px 0;
+  padding: 15px;
+  border: .1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
 `
 
 export const UsernameText = styled.p`
-  color: orangered;
+  color: #333;
   font-weight: 900;
   font-style: italic;
 `

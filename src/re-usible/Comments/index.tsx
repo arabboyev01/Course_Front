@@ -8,7 +8,8 @@ import { userValidation } from '@/utils/errors'
 const Comments: React.FC<any> = ({reviewId}) => {
 
     const alert = useAlert();
-    const [data, setData] = useState()
+    const [data, setData] = useState([])
+    const [load, setLoad] = useState(false)
 
     useEffect(() => {
         if (reviewId !== undefined) {
@@ -16,17 +17,18 @@ const Comments: React.FC<any> = ({reviewId}) => {
                 setData(data)
             }).catch(err => console.log(err))
         }
-    }, [reviewId])
+    }, [reviewId, load])
 
     const postComment = (values: object | any, form: any) => {
         const text = values.text
         const payload = {reviewId, text}
         api.PostAuth('api/comments', payload).then((data) => {
+            console.log(data)
             if (data?.name === userValidation.prsimaValidationError) throw new Error
-            if (!isObjectEmpty(data)) {
+            if (!isObjectEmpty(data) && data?.id) {
                 alert.success('You have commented')
+                setLoad(!load)
             }
-            throw new Error
         }).catch(() => alert.error('Please sign in'))
         form.reset();
     }

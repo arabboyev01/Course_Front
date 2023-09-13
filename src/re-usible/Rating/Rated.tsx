@@ -14,7 +14,7 @@ export default function BasicRating({reviewId, grade}: number | any) {
         const payload = { reviewId, rating}
         api.PostAuth('api/grade-rate', payload).then((res) => {
             if(res === userValidation.validationUserId) throw new Error
-                alert.info('Thank you for rating!')
+                alert.info('Thank you for rate!')
             }).catch(() => alert.info("Please login"))
     }
 

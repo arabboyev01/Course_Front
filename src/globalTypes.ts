@@ -163,3 +163,15 @@ export interface CommentsType {
     comments: any
 }
 
+export interface PropsSearch  {
+    inputValue: string
+    handleDirect: (id: number) => void
+}
+
+export interface PropsDumbSearch {
+    active: string,
+    makeActive: (propertyName: any, value: string) => void
+    inputValue: string
+    searchData: ReviewType[] | null
+    handleDirect: (id: number) => void
+}

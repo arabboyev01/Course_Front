@@ -36,11 +36,11 @@ const SwiperComponent = ({reviews, handleSingleRoute}: any) => {
             >
                 {reviews?.slice(0,3).map(({name, id, grade, reviewText, groupName}: any) =>
                 <SwiperSlide style={SlideStyle} key={id}>
-                    <RatingComponent value={grade} size="large"/>
                     <Text>{name}</Text>
-                    <Description>{reviewText.substring(0, 200)}...
+                    <Description>{reviewText.substring(0, 180)}...
                       <MoreButton onClick={() => handleSingleRoute(id)}> read more</MoreButton>
                     </Description>
+                    <RatingComponent value={grade} size="middle"/>
                     <Group>{groupName}</Group>
                 </SwiperSlide>
                 )}

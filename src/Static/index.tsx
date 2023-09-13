@@ -30,3 +30,18 @@ export const sidebarNavItems: SideBarNavType[] = [
         to: '/',
     }
 ]
+
+export const searchTitles = [
+        {
+            name: "Name",
+            value: "name",
+        },
+        {
+            name: "Group name",
+            value: "groupName",
+        },
+        {
+            name: "latest",
+            value: "latest",
+        },
+    ]
