@@ -23,13 +23,20 @@ const SearchSuggested: React.FC<PropsSearch> = ({inputValue, handleDirect}) => {
         handleSearch()
     }, [handleSearch])
 
-
     const makeActive = (propertyName: any, value: string) => {
         setActive(propertyName);
         setValue((prevState) => ({...prevState, [active]: ''}));
         setValue((prevState) => ({...prevState, [propertyName]: value}));
     }
 
-    return <DumbSearch active={active} makeActive={makeActive} inputValue={inputValue} searchData={searchData} handleDirect={handleDirect}/>
+    return (
+        <DumbSearch
+            active={active}
+            makeActive={makeActive}
+            inputValue={inputValue}
+            searchData={searchData}
+            handleDirect={handleDirect}
+        />
+    )
 }
-export default SearchSuggested
+export default SearchSuggested;

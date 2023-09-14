@@ -5,10 +5,12 @@ import Tags from '@/re-usible/Tags'
 import Swiper from '@/re-usible/Swiper'
 import React from 'react'
 import { ReviewType } from '@/globalTypes'
+import Hero from '@/components/Hero'
 
 const DumbHome:React.FC<ReviewType[] | null | any> = ({reviews, handleSingleRoute}) => (
     <HomeStyle>
-        <Swiper reviews={reviews} handleSingleRoute={handleSingleRoute}/>
+        {/*<Swiper reviews={reviews} handleSingleRoute={handleSingleRoute}/>*/}
+        <Hero />
         <Sorting/>
         <BodyWrapper>
             <ReviewCart/>

@@ -15,28 +15,14 @@ const ImageForm = () => {
     const groups: string[] = ['Movie', 'Book', 'Games']
     const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
         event.preventDefault();
-        const file = event.dataTransfer.files[0];
+        const file: any = event.dataTransfer.files[0];
         setImageValue(file.name)
-        const reader = new FileReader();
-
-        reader.onload = (e: ProgressEvent<any>) => {
-            setImage(e.target.result);
-        };
-
-        reader.readAsDataURL(file);
+        setImage(file)
     };
     const handleFileInputChange = (event: ChangeEvent<HTMLInputElement>) => { //@ts-ignore
-        const file = event?.target?.files[0];
+        const file: any = event?.target?.files[0];
         setImageValue(file.name)
-        const selectedFile = event.target.files && event.target.files[0];
-        if (selectedFile) {
-            const reader = new FileReader();
-            reader.onload = (e: any) => {
-                const base64Data = e.target.result;
-                setImage(base64Data);
-            };
-            reader.readAsDataURL(selectedFile);
-        }
+        setImage(file)
     };
 
     const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {

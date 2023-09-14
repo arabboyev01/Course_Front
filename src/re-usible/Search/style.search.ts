@@ -4,20 +4,21 @@ export const SearchWrapper = styled.div`
  position: relative;
 `
 export const StyleSearch = styled.div`
-  max-width: 800px;
+  max-width: 400px;
   width: 100%;
   background: #fff;
   z-index: 1000;
   position: absolute;
   left: 0;
-  top: 50px;
+  top: 80px;
 `
 
 export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   gap: 20px;
+  padding-left: 10px;
   border-bottom: .2px solid rgba(0, 0, 0, 0.3);
 `
 

@@ -2,7 +2,7 @@ import { styled } from '@mui/material'
 import { TextField } from 'mui-rff'
 export const CssTextField: any = styled(TextField)(({}) => ({
     width: 'cal(100%-10px)',
-    height: '40px',
+    height: '35px',
     '& label.Mui-focused': {
         color: 'rgba(0, 0, 0, 0.4)',
     },

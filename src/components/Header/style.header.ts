@@ -28,10 +28,14 @@ export const Aligned = styled.div`
   gap: 20px;
 `
 export const LoginButton = styled.button`
-  width: 100px;
+  width: 150px;
   height: 40px;
-  background: rgb(239, 245, 248);
+  background: rgb(62, 40, 222);
   border: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 5px;
 
   &:hover {
     background: #000;

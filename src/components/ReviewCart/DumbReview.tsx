@@ -35,7 +35,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                              // style={{color: isLiked ? '#308efe' : '#8f8f8f', cursor: 'pointer'}}
                                 />
                             </HeaderWrapper>
-                            <Images src={imageUrl.src} alt="images"/>
+                            <Images src={imageUrl} alt="images"/>
                             <ReviewName>{name}</ReviewName>
                             <CartHeader>
                                 <User>

@@ -10,17 +10,8 @@ export const StyleSwiper = styled.div`
 export const SwiperStyle = {
     width: '100%',
     height: '100%',
-    background: "#8f8f8f",
 }
-export const SlideStyle: any = {
-    width: '100%',
-    height: '100%',
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "start",
-    paddingLeft: "80px",
-}
+
 export const Text = styled.h2`
   margin-top: 20px;
   font-weight: 400;
@@ -53,4 +44,5 @@ export const Group = styled.div`
   font-weight: 300;
   color: white;
   margin-top: 12px;
+  background: #000;
 `

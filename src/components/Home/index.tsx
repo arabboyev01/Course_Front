@@ -13,7 +13,7 @@ const Home = () => {
     let groupName: null = null;
 
     useEffect(() => {
-        api.getUsers(`api/all-reviews?selectedTags=${i}&groupName${groupName}`).then(data => setReviews(data))
+        api.getUsers(`api/all-reviews?selectedTags=${i}&groupName${groupName}`).then(data => setReviews(data.reverse()))
             .catch(err => console.log(err))
     }, [i, groupName])
 

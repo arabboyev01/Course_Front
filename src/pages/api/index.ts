@@ -87,7 +87,6 @@ export class ApiService {
     }
 
     async Review(endpoint: string, payload: object | any, image: any, tags: string[] | null, groupName: string): Promise<any> {
-
         try {
             const token = getCookie('authToken')
             const decoded: any = VerifyToken(token)

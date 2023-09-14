@@ -29,7 +29,7 @@ const ReviewCart = () => {
         setLoading(true)
         try {
             const fetchedUsers = await api.getUsers(`api/all-reviews?selectedTags=${selectedTagsString}&groupName=${filteredGroup}`);
-            setReviews(fetchedUsers);
+            setReviews(fetchedUsers.reverse());
             setLoading(false)
             dispatch(reviewDataLength(fetchedUsers?.length))
         } catch (error) {

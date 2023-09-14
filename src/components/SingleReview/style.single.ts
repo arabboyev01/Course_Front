@@ -23,10 +23,13 @@ export const MainWrapper = styled.div`
 export const MainImage: any = styled.div`
   max-width: 1050px;
   height: 350px;
-  background-image: url(${(props: any) => props.imageUrl});
+  background-image: ${(props: any) => `url(${props.image})`};
   border: .1px solid rgba(0, 0, 0, 0.3);
   object-fit: cover;
   margin: 12px 0;
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px;
 `
 
 export const RatingWrapper = styled.div`

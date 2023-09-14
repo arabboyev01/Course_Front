@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const StyleCart = styled.div`
   max-width: 880px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   @media(max-width: 820px){
     max-width: 900px;
@@ -27,7 +27,10 @@ export const HeaderWrapper = styled.div`
 export const CartWrapper: any = styled.div`
   padding: 20px;
   color: #333;
-  border-bottom: .5px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  @media(max-width: 650px){
+    padding: 5px;
+  }
 `
 export const CartHeader = styled.div`
   display: flex;
@@ -60,6 +63,7 @@ export const ReviewName = styled.h2`
 export const Text = styled.p`
   font-size: 1rem;
   line-height: 1.2rem;
+  font-weight: 900;
   color: #8f8f8f;
 `
 export const RatingText = styled.p`
@@ -70,11 +74,12 @@ export const RatingText = styled.p`
 
 export const Images = styled.img`
   object-fit: cover;
-  border-radius: 10px;
   margin: 20px 0;
   border: .5px solid #333;
   max-width: 880px;
+  width: 100%;
   height: 400px;
+  border-radius: 8px;
 `
 
 export const CartFooter = styled.div`
