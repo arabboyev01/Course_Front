@@ -5,10 +5,10 @@ import MainLoader from '@/re-usible/Loaders/MainLoader'
 import RatingComponent from '@/re-usible/Rating'
 import { formatted } from '@/re-usible/FormattedDate'
 
-const DumbSlicer: React.FC<ReviewType[] | null | any> = ({reviews}) => (
+const DumbSlicer: React.FC<ReviewType[] | null | any> = ({reviews, handleDirect}) => (
     <SliderStyled>
         {reviews || reviews !== null ? reviews?.map(({id, name, imageUrl, grade, createdAt}: ReviewType) =>
-            <SliderCart key={id}>
+            <SliderCart key={id} onClick={() => handleDirect(id)}>
                 <Images src={imageUrl} alt="images"/>
                 <Content>
                     <Time>{formatted(createdAt)}</Time>

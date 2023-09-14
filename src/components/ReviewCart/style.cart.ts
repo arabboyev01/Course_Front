@@ -74,8 +74,8 @@ export const ReviewName = styled.h2`
 
 export const Text = styled.p`
   font-size: 1rem;
-  line-height: 1.2rem;
-  font-weight: 900;
+  line-height: 1.3rem;
+  font-weight: 400;
   color: #8f8f8f;
 `
 export const RatingText = styled.p`

@@ -4,6 +4,7 @@ import Header from '@/components/Header'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/store'
 import { verifyUser } from '@/store/reducerSlice'
+import Footer from '@/re-usible/Footer'
 
 const Layout:React.FC<ChildrenProps> = ({children}) => {
 
@@ -17,6 +18,7 @@ const Layout:React.FC<ChildrenProps> = ({children}) => {
         <React.Fragment>
             <Header />
             {children}
+            <Footer />
         </React.Fragment>
     )
 }

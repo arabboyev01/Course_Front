@@ -42,7 +42,7 @@ export const InputWrapper = styled.div`
 export const SubmitButton = styled.button`
   width: 100%;
   height: 40px;
-  background: rgba(22, 95, 199);
+  background: rgb(62, 40, 222);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -116,7 +116,7 @@ export const SignUp = styled.p`
   padding-top: 10px;
 `
 export const SignUpLinks = styled.p`
-  color: rgba(22, 95, 199);
+  color: rgb(62, 40, 222);
   font-size: 14px;
   margin-top: 10px;
   cursor: pointer;

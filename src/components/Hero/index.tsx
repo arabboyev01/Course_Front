@@ -29,6 +29,7 @@ const Hero = () => {
             .catch(err => console.log(err))
     }, [i, groupName])
 
+
     return <DumbHero
         inputValue={inputValue}
         handleDirect={handleDirect}

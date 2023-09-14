@@ -37,7 +37,7 @@ const DumbHero: React.FC<HeroProps> = ({inputValue, handleDirect, handleSearchVa
                 <Description> <DoneIcon /> Join us today</Description>
             </News>
         </ContentWrapper>
-        <DumbSlicer reviews={reviews}/>
+        <DumbSlicer reviews={reviews} handleDirect={handleDirect}/>
     </StyleHero>
 )
 
