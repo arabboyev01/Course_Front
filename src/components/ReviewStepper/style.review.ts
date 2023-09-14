@@ -32,9 +32,9 @@ export const StepsText: any = styled.div`
   border-radius: 50%;
   color: #fff;
   font-weight: 700;
-  background: rgb(14, 111, 187);
+  background: rgb(62, 40, 222);
   ${(props: any) => props.currentStep <= props.index + 1  && `
-    background: rgb(14, 111, 187);
+    background: rgb(62, 40, 222);
   `}
 
   ${(props: any) => (props.index + 1 < props.currentStep || props.complete) && `
@@ -57,7 +57,7 @@ export const Button = styled.button`
   max-width: 350px;
   width: 100%;
   height: 40px;
-  background: rgba(22, 95, 199);
+  background: rgb(62, 40, 222);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -67,4 +67,6 @@ export const Button = styled.button`
   justify-content: center;
   cursor: pointer;
   margin-top: 50px;
+  font-size: 18px;
+  font-weight: 400;
 `
