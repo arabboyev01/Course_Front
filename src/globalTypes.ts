@@ -175,3 +175,26 @@ export interface PropsDumbSearch {
     searchData: ReviewType[] | null
     handleDirect: (id: number) => void
 }
+export interface HeroProps {
+    inputValue: string,
+    handleDirect: (id: number) => void,
+    handleSearchValue: (values: any) => void,
+    handleOnchange: (e: string) => void,
+    reviews: ReviewType[] | null
+}
+
+export interface FadeProps {
+  children: React.ReactElement;
+  in?: boolean;
+  onClick?: any;
+  onEnter?: (node: HTMLElement, isAppearing: boolean) => void;
+  onExited?: (node: HTMLElement, isAppearing: boolean) => void;
+  ownerState?: any;
+}
+export interface ModalProps {
+    handleClose: () => void,
+    open: boolean
+    selectedFile: any
+    handleFileChange: (e: any) => void
+    handleUploadImage: () => void
+}

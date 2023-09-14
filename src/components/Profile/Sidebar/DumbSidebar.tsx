@@ -28,9 +28,7 @@ const DumbSidebar: React.FC<SidebarProps>
             <CloseIcon onClick={handleClose} sx={CloseIconStyle}/>
             <SidebarMenu>
                 {sidebarNavItems.map((item: any) => (
-                    <SidebarMenuItem active={item.to === pathname} key={item.id}
-                                     onClick={() => handleActive(item.to)}
-                    >
+                    <SidebarMenuItem active={item.to === pathname} key={item.id} onClick={() => handleActive(item.to)}>
                         <ItemIcon active={item.to === pathname}>{item.icon}</ItemIcon>
                         <ItemText active={item.to === pathname}>{item.display}</ItemText>
                     </SidebarMenuItem>

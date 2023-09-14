@@ -4,13 +4,13 @@ export const MainWrapper = styled.div`
   padding: 30px 40px 50px 40px;
   background: #fff;
   border-radius: 10px;
-  margin: 80px 0 0 20px;
+  margin: 50px 0 0 20px;
   max-width: 800px;
   width: 100%;
   border: .1px solid rgba(0, 0, 0, 0.2);
   @media (max-width: 650px) {
     margin: 20px auto 0 auto;
-    padding: 30px 0 50px 10px;
+    padding: 30px 0 0 10px;
     border: none;
   }
 `;
@@ -34,7 +34,7 @@ export const MainData = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(346px, 1fr));
   grid-gap: 10px;
   @media (max-width: 650px) {
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     row-gap: 20px;
   }
 `;
@@ -50,6 +50,10 @@ export const Sub = styled.p`
 
 export const SingleField = styled.div`
   max-width: 346px;
+  @media(max-width: 650px){
+    max-width: 400px;
+    margin: 0 15px 0 0;
+  }
 `;
 
 
@@ -61,10 +65,10 @@ export const Submit = styled.button`
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  background: #308efe;
+  background: rgb(62, 40, 222);
   color: #fff;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,4 +82,21 @@ export const AvatarDiv = styled.div`
   justify-content: center;
   width: 100%;
 `
+export const EditDiv = styled.div`
+ margin-left: 50px;
+  margin-top: -20px;
+  width: 28px;
+  height: 28px;
+  background: #000;
+  border-radius: 50%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+`
+export const EditIcons = {
+   color: "#ddd",
+    fontSize: "16px"
+}
 

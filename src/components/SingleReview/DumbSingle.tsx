@@ -20,11 +20,11 @@ const DumbSingle = ({single}: any) => (
             </CenterDiv> :
             <MainWrapper>
                 <MainImage image={single?.imageUrl}></MainImage>
+                <Date>{formatted(single?.createdAt)}</Date>
                 <RatingWrapper>
                     <RatingGiven reviewId={single?.id} grade={single?.grade}/>
                     <RatingText>({single?.grade},0)</RatingText>
                 </RatingWrapper>
-                <Date>{formatted(single?.createdAt)}</Date>
                 <Text>{single?.name}</Text>
                 <Description>{single?.reviewText}</Description>
                 <TagsWrapper>

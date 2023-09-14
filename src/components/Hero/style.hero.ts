@@ -5,6 +5,7 @@ export const StyleHero = styled.div`
   background-image: url("https://landingfoliocom.imgix.net/store/collection/clarity-blog/images/hero/5/grid-pattern.png");
   background-size: contain;
   background-position: center;
+  overflow: hidden;
 `
 
 export const ContentWrapper = styled.div`
@@ -34,6 +35,7 @@ export const Description = styled.p`
   display: flex;
   align-items: center;
   gap: 10px;
+  text-align: center;
 `
 
 export const InputWrapper = styled.div`

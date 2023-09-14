@@ -2,6 +2,11 @@ import React from 'react'
 import { PERSONAL_DATA } from './config'
 import { Form } from 'react-final-form';
 import { CssTextField } from '@/re-usible/form-style'
+import { makeValidate } from 'mui-rff'
+import { schema } from './config'
+import ButtonLoader from '@/re-usible/Loaders/ButtonLoader'
+import Avatar from '@mui/material/Avatar';
+import EditIcon from '@mui/icons-material/Edit';
 import {
     MainWrapper,
     Title,
@@ -9,19 +14,23 @@ import {
     SingleField,
     Sub,
     SubTitle,
-    Submit, AvatarDiv,
+    Submit,
+    AvatarDiv,
+    EditIcons,
+    EditDiv,
 } from './main.style'
-import { makeValidate } from 'mui-rff'
-import { schema } from './config'
-import ButtonLoader from '@/re-usible/Loaders/ButtonLoader'
-import Avatar from '@mui/material/Avatar';
+import SpringModal from '@/re-usible/Modal'
 
 const validate: any = makeValidate(schema);
 
-const DumbPersonalPage = ({handleChange, user, loading}: any) => (
+const DumbPersonalPage = ({handleChange, user, loading, open, setOpen}: any) => (
     <MainWrapper>
         <AvatarDiv>
             <Avatar alt={user?.firstName} src={user?.imageUrl || '/broken-image.jpg'} sx={{width: 66, height: 66}}/>
+            <EditDiv>
+                <EditIcon sx={EditIcons} onClick={() => setOpen(true)}/>
+            </EditDiv>
+            <SpringModal open={open} setOpen={setOpen}/>
         </AvatarDiv>
         <Title>Personal data</Title>
         <Form

@@ -13,11 +13,13 @@ import React from 'react'
 import { Form } from 'react-final-form'
 import DoneIcon from '@mui/icons-material/Done';
 import SearchSuggested from '@/re-usible/Search/SearchSuggested'
-const DumbHero = ({inputValue, handleDirect, handleSearchValue, handleOnchange}: any) => (
+import DumbSlicer from '@/components/Hero/DumbSlicer'
+import { HeroProps } from '@/globalTypes'
+const DumbHero: React.FC<HeroProps> = ({inputValue, handleDirect, handleSearchValue, handleOnchange, reviews}) => (
     <StyleHero>
         <ContentWrapper>
-            <MainText>Helping developers to get their dream job</MainText>
-            <Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula massa in enim luctus. Rutrum arcu.</Description>
+            <MainText>Helping people to share their experience </MainText>
+            <Description>This platform is created to share some topics and theme about Book, Movie or News and you can rate the every post.</Description>
             <InputWrapper>
                 <Form
                     onSubmit={handleSearchValue}
@@ -35,6 +37,7 @@ const DumbHero = ({inputValue, handleDirect, handleSearchValue, handleOnchange}:
                 <Description> <DoneIcon /> Join us today</Description>
             </News>
         </ContentWrapper>
+        <DumbSlicer reviews={reviews}/>
     </StyleHero>
 )
 

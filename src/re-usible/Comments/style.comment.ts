@@ -4,10 +4,9 @@ export const StyleComment = styled.div`
   max-width: 800px;
   height: auto;
   border-top: 2px solid rgba(0, 0, 0, 0.2);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   border-radius: 0;
   padding: 20px 0;
-  margin: 25px 0;
+  margin: 100px 0 25px 0;
 `
 
 export const InputWrapper = styled.div`
@@ -36,30 +35,32 @@ export const CommentWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
-  margin-top: 20px;
+  margin: 40px 0;
 `
 export const SingleComment = styled.div`
   align-items: center;
   gap: 25px;
   width: 50%;
   height: auto;
+  background: rgb(224, 238, 255);
+  border-radius: 8px;
 `
 export const CommentText = styled.p`
-  font-weight: 500;
-  padding: 15px;
-  border: .1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+  font-weight: 700;
+  padding: 20px 10px 10px 10px;
 `
 
 export const UsernameText = styled.p`
-  color: #333;
+  color: #000;
   font-weight: 900;
   font-style: italic;
+  padding: 10px 0 0 10px;
 `
 
 export const Dates = styled.p`
- font-weight: 300;
   font-style: italic;
   font-size: 14px;
+  font-weight: 600;
   color: #8f8f8f;
+  padding-left: 10px;
 `

@@ -2,7 +2,7 @@ import {
     CartDetail, CartFooter,
     CartHeader,
     CartWrapper, Center, HeaderWrapper, Images, MainCartWrapper, RatingText, ReadMoreButton, ReviewName,
-    StyleCart, Tags, Text,
+    StyleCart, Tags, Text, Time,
     User,
     UserName
 } from '@/components/ReviewCart/style.cart'
@@ -11,9 +11,10 @@ import { ReviewPropsType, ReviewType } from '@/globalTypes'
 import RatingComponent from '@/re-usible/Rating'
 import MainLoader from '@/re-usible/Loaders/MainLoader'
 import Avatar from '@mui/material/Avatar'
-import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import PaginationRounded from '@/re-usible/Pagination'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import { formatted } from '@/re-usible/FormattedDate'
 
 const DumbReview: React.FC<ReviewPropsType | any> =
     ({
@@ -27,7 +28,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
         <StyleCart>
             {!ReviewsData || loading ? (<Center><MainLoader/></Center>) :
                 <MainCartWrapper>
-                    {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, likes}: ReviewType) =>
+                    {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, createdAt}: ReviewType) =>
                         <CartWrapper key={id}>
                             <HeaderWrapper>
                                 <div></div>
@@ -36,17 +37,18 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                 />
                             </HeaderWrapper>
                             <Images src={imageUrl} alt="images"/>
-                            <ReviewName>{name}</ReviewName>
+                            <Time>{formatted(createdAt)}</Time>
                             <CartHeader>
                                 <User>
                                     <Avatar src={user?.imageUrl || '/broken-image.jpg'}/>
                                     <UserName>@{user?.username}</UserName>
                                 </User>
                                 <User>
-                                    <RatingText>({grade}.0)</RatingText>
                                     <RatingComponent value={grade} size="small"/>
+                                    <RatingText>({grade}.0)</RatingText>
                                 </User>
                             </CartHeader>
+                            <ReviewName>{name}</ReviewName>
                             <CartDetail>
                                 <Text>{reviewText}</Text>
                             </CartDetail>
@@ -55,10 +57,8 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                     <Tags key={id}>#{name}</Tags>
                                 )}
                             </CartFooter>
-                            <ReadMoreButton
-                                onClick={() => navigateSinglePage(id)}
-                            >
-                                Read more<TrendingFlatIcon/>
+                            <ReadMoreButton onClick={() => navigateSinglePage(id)}>
+                                Read more <KeyboardDoubleArrowRightIcon/>
                             </ReadMoreButton>
                         </CartWrapper>
                     )}

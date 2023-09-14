@@ -130,4 +130,23 @@ export class ApiService {
         }
     }
 
+     async UpdateUserImage(endpoint: string, image: any): Promise<any> {
+        try {
+            const token = getCookie('authToken')
+            const formData: any = new FormData();
+            formData.append('image', image);
+
+            const headers = new Headers();
+            headers.append('Authorization', `${token}`);
+
+            const response = await fetch(`${this.baseUrl}/${endpoint}`, {
+                method: 'PUT',
+                body: formData,
+                headers: headers
+            });
+            return await response.json();
+        } catch (err) {
+            throw err
+        }
+    }
 }

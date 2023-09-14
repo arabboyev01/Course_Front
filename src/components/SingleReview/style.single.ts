@@ -36,10 +36,12 @@ export const RatingWrapper = styled.div`
  display: flex;
   align-items: center;
   gap: 10px;
+  margin: 12px 0;
 `
 export const Text = styled.h2`
+  max-width: 600px;
   font-weight: 800;
-  margin: 12px 0;
+  margin: 24px 0;
 `
 
 export const Description = styled.p`
