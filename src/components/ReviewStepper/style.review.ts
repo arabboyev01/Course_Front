@@ -6,13 +6,13 @@ export const StyleReview = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   height: 100vh;
 `
 export const StepsSpace = styled.div`
   display: flex;
   align-items: center;
-  max-width: 350px;
+  max-width: 330px;
   width: 100%;
   justify-content: space-between;
   @media (max-width: 375px) {
@@ -20,7 +20,7 @@ export const StepsSpace = styled.div`
   }
 `
 export const ChildrenComponent = styled.div`
-  margin: 50px 0;
+  margin: 30px 0;
 `
 export const StepsText: any = styled.div`
   display: flex;
@@ -50,14 +50,14 @@ export const StepName = styled.p`
   font-size: 15px;
   margin-top: 10px;
   color: #000;
-  font-weight: 300;
+  font-weight: 400;
 `
 
 export const Button = styled.button`
   max-width: 350px;
   width: 100%;
   height: 40px;
-  background: rgb(62, 40, 222);
+  background: ${(props: any) => props.disabled ? '#333' : 'rgb(62, 40, 222)'};
   color: #fff;
   border: none;
   border-radius: 8px;

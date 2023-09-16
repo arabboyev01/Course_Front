@@ -1,11 +1,3 @@
-import {
-    CartDetail, CartFooter,
-    CartHeader,
-    CartWrapper, Center, HeaderWrapper, Images, MainCartWrapper, RatingText, ReadMoreButton, ReviewName,
-    StyleCart, Tags, Text, Time,
-    User,
-    UserName
-} from '@/components/ReviewCart/style.cart'
 import React from 'react'
 import { ReviewPropsType, ReviewType } from '@/globalTypes'
 import RatingComponent from '@/re-usible/Rating'
@@ -15,6 +7,14 @@ import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArro
 import PaginationRounded from '@/re-usible/Pagination'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { formatted } from '@/re-usible/FormattedDate'
+import {
+    CartDetail, CartFooter,
+    CartHeader,
+    CartWrapper, Center, HeaderWrapper, Images, MainCartWrapper, RatingText, ReadMoreButton, ReviewName,
+    StyleCart, Tags, Text, Time,
+    User,
+    UserName
+} from '@/components/ReviewCart/style.cart'
 
 const DumbReview: React.FC<ReviewPropsType | any> =
     ({

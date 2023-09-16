@@ -1,32 +1,14 @@
 import DumbReview from '@/components/ReviewStepper/DumbReview'
-import React, { useState } from 'react'
-import { ChildrenProps } from '@/globalTypes'
-import { AppDispatch } from '@/store'
-import { useDispatch } from 'react-redux'
-import { changeStep } from '@/store/reducerSlice'
+import React from 'react'
+import { ReviewFormTypes } from '@/globalTypes'
 
-const ReviewStepper: React.FC<ChildrenProps> = ({children}) => {
-
-    const dispatch = useDispatch<AppDispatch>()
-    const steps = ['About', 'Photo', 'Tags'];
-    const [currentStep, setCurrentStep] = useState(2);
-    const [complete, setComplete] = useState<any>(false);
-
-    const setChanges = (curStep: any, steps: string[], setComplete: any, setCurrentStep: any) => {
-        currentStep === steps.length ? setComplete(true) : setCurrentStep((prev: any) => prev + 1)
-        dispatch(changeStep(curStep))
-    }
+const ReviewStepper: React.FC<ReviewFormTypes> = ({children, currentStep}) => {
 
     return (
-        <DumbReview
-            steps={steps}
-            currentStep={currentStep}
-            complete={complete}
-            setComplete={setComplete}
-            setCurrentStep={setCurrentStep}
-            setChanges={setChanges}
-        >
-            {children}
+        <DumbReview currentStep={currentStep}>
+            <React.Fragment>
+                {children}
+            </React.Fragment>
         </DumbReview>
     )
 }

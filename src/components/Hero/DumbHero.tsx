@@ -1,6 +1,6 @@
 import {
     ContentWrapper,
-    Description,
+    Description, DoneIconStyle,
     Forms,
     InputWrapper,
     MainText,
@@ -19,7 +19,7 @@ const DumbHero: React.FC<HeroProps> = ({inputValue, handleDirect, handleSearchVa
     <StyleHero>
         <ContentWrapper>
             <MainText>Helping people to share their experience </MainText>
-            <Description>This platform is created to share some topics and theme about Book, Movie or News and you can rate the every post.</Description>
+            <Description>This platform is created to share some topics and theme about Book, Movie or News and you can rate or leave a comment to the every post.</Description>
             <InputWrapper>
                 <Form
                     onSubmit={handleSearchValue}
@@ -33,8 +33,8 @@ const DumbHero: React.FC<HeroProps> = ({inputValue, handleDirect, handleSearchVa
                 {inputValue ? <SearchSuggested inputValue={inputValue} handleDirect={handleDirect} /> : null}
             </InputWrapper>
             <News>
-                <Description><DoneIcon /> Weekly new reviews</Description>
-                <Description> <DoneIcon /> Join us today</Description>
+                <Description><DoneIcon sx={DoneIconStyle}/> Weekly new reviews</Description>
+                <Description> <DoneIcon sx={DoneIconStyle}/> Join us today</Description>
             </News>
         </ContentWrapper>
         <DumbSlicer reviews={reviews} handleDirect={handleDirect}/>

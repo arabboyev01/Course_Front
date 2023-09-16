@@ -68,7 +68,6 @@ export type LoginUsersType = {
 
 export interface CounterState {
     isAuthorized: boolean
-    currentStep: any
     tags: null | string[]
     image: any
     users: null | usersType
@@ -96,6 +95,11 @@ export interface ChildrenProps {
     children: ReactNode
 }
 
+export interface ReviewFormTypes {
+    children: ReactNode,
+    currentStep: number
+}
+
 export interface ThirdFormTypes {
     values: string[],
     inputValue: string,
@@ -106,17 +110,11 @@ export interface ThirdFormTypes {
     existingTags: TagsType[] | null
     handleInputFocus: () => void
     handleInputBlur: () => void
-    loading: boolean
 }
 
 export interface StepperProps {
-    steps: string[]
-    currentStep: number
-    complete: boolean
-    setCurrentStep: (e: any) => void
-    setComplete: any
     children: ReactNode
-    setChanges: (value: any, steps: string[], setComplete: any, setCurrentStep: any) => void
+    currentStep: number
 }
 
 export interface SideBarNavType {

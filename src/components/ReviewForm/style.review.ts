@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
+export const FormStyle = styled.div`
+  height: auto;
+`
 export const FormWrapper = styled.div`
- position: relative;
+position: relative;
 `
 export const TagsSuggested = styled.div`
   position: absolute;
@@ -49,4 +52,13 @@ export const ListItem = styled.li`
     border-radius: 8px;
   }
 `
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+`
+
+
 

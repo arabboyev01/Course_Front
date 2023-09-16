@@ -9,7 +9,7 @@ import { api } from '@/config'
 
 const UserAvatar = () => {
     const router = useRouter();
-    const handleRoute = () => router.push('/create-review')
+    const handleRoute = () => router.push('/review-creation/1')
     const handleProfile = () => router.push('/profile')
     const [user, setUser] = useState<usersType | null>(null);
 

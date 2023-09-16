@@ -11,9 +11,7 @@ import {
     TagsSuggested,
     SelectedWrapper
 } from '@/components/ReviewForm/style.review'
-import { Button } from '@/components/ReviewStepper/style.review'
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
-import ButtonLoader from '@/re-usible/Loaders/ButtonLoader'
 
 const DumbThirdForm:
     React.FC<ThirdFormTypes> =
@@ -25,8 +23,7 @@ const DumbThirdForm:
          handleTagSelect,
          open,
          handleInputFocus,
-         handleInputBlur,
-         loading
+         handleInputBlur
      }) =>
         (
             <FormWrapper>
@@ -62,7 +59,6 @@ const DumbThirdForm:
                         </ListWrapper>
                     )}
                 </TagsSuggested>
-                <Button type="submit" form="myForm">{loading ? <ButtonLoader/> : 'Submit'}</Button>
             </FormWrapper>
         )
 

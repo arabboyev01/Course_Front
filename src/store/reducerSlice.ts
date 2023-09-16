@@ -17,11 +17,6 @@ const reducerSlice = createSlice({
             const verify = getCookie('authToken')
             if (verify) state.isAuthorized = true;
         },
-        changeStep: (state, action: PayloadAction): void => {
-            if (action) {
-                state.currentStep = action.payload
-            }
-        },
         handleTags: (state: any, action: PayloadAction | any): void => {
             if (action?.payload?.length) {
                 state.tags = action.payload
@@ -45,14 +40,13 @@ const reducerSlice = createSlice({
         },
         handleFilterGroup: (state: any, action:PayloadAction): void => {
             state.filterGroup = action.payload
-        }
+        },
     },
 });
 
 export const {
     setToken,
     verifyUser,
-    changeStep,
     handleTags,
     handleImage,
     reviewDataLength,

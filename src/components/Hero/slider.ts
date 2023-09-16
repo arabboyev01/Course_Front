@@ -64,7 +64,7 @@ export const Content = styled.div`
 `
 
 export const Title = styled.h3`
-
+  font-weight: 500;
 `
 
 export const Time = styled.p`

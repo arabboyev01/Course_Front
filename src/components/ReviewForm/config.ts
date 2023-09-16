@@ -1,4 +1,4 @@
-// import * as Yup from 'yup';
+import * as Yup from 'yup';
 export const REVIEW_FORM = {
     name: {
         name: 'name',
@@ -6,7 +6,7 @@ export const REVIEW_FORM = {
         required: true
     },
 
-    text: {
+    reviewText: {
         name: 'reviewText',
         label: 'What is review about',
         required: true
@@ -26,8 +26,7 @@ export const REVIEW_FORM = {
         label: "Leave a comment",
     }
 }
-// export const schema = Yup.object().shape({
-//     name: Yup.string().required(`${REVIEW_FORM.name.label} is required.`),
-//     text: Yup.string().required(`${REVIEW_FORM.text.label} is required.`),
-//     groupName: Yup.string().required(`${REVIEW_FORM.groupName.label} is required.`),
-// });
+export const schema = Yup.object().shape({
+    name: Yup.string().required(`${REVIEW_FORM.name.label} is required.`),
+    reviewText: Yup.string().required(`${REVIEW_FORM.reviewText.label} is required.`),
+});

@@ -5,7 +5,7 @@ export const StyleFooter = styled.div`
   flex-direction: column;
   align-items: center;
   border-top: .5px solid rgba(0, 0, 0, 0.3);
-  padding: 20px 0;
+  padding: 10px 0;
 `
 
 export const IconsWrapper = styled.div`
@@ -16,7 +16,7 @@ export const IconsWrapper = styled.div`
 
 export const Copyright = styled.h4`
   margin: 20px 0;
-  font-weight: 700;
+  font-weight: 400;
 `
 
 

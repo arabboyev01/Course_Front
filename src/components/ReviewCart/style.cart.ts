@@ -64,10 +64,10 @@ export const CartDetail = styled.div`
 export const Time = styled.p`
   font-size: 14px;
   color: #8f8f8f;
-  font-weight: 600;
+  font-weight: 400;
 `
 export const ReviewName = styled.h2`
-  font-weight: 800;
+  font-weight: 500;
   color: #000;
   margin: 12px 0;
 `

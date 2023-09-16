@@ -22,7 +22,7 @@ export const ContentWrapper = styled.div`
 
 export const MainText = styled.h1`
   text-align: center;
-  font-weight: 900;
+  font-weight: 500;
   max-width: 500px;
   @media(max-width: 1330px){
     font-size: 28px;
@@ -38,6 +38,9 @@ export const Description = styled.p`
   text-align: center;
 `
 
+export const DoneIconStyle = {
+    color: "green"
+}
 export const InputWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -68,6 +71,11 @@ export const SubmitButton = styled.button`
   color: #fff;
   width: 200px;
   border-radius: 8px;
+  cursor: pointer;
+  
+  &:hover{
+    background: #000;
+  }
 `
 export const News = styled.div`
   display: flex;
@@ -76,5 +84,9 @@ export const News = styled.div`
   max-width: 400px;
   width: 100%;
   margin-top: 40px;
-  gap: 20px;
+  gap: 15px;
+  
+  @media(max-width: 650px){
+    gap: 10px;
+  }
 `

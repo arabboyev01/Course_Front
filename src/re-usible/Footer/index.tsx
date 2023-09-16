@@ -1,17 +1,16 @@
-import { Copyright, icon, IconsWrapper, StyleFooter } from '@/re-usible/Footer/style.footer'
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import { Copyright, IconsWrapper, StyleFooter } from '@/re-usible/Footer/style.footer'
+import { Icons } from '@/Static'
+import { useRouter } from 'next/router'
 const Footer = () => {
+    const router = useRouter();
+    const handleDirect = (link: string) => router.push(link)
 
     return (
         <StyleFooter>
             <IconsWrapper>
-                <LinkedInIcon sx={icon}/>
-                <GitHubIcon sx={icon}/>
-                <InstagramIcon sx={icon}/>
-                <TwitterIcon sx={icon}/>
+                {Icons.map((Icon: any) =>
+                  <div key={Icon.link} onClick={() => handleDirect(Icon.link)}>{Icon.icon}</div>
+                )}
             </IconsWrapper>
             <Copyright>© Copyright 2023, All Rights Reserved</Copyright>
         </StyleFooter>
