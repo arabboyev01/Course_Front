@@ -17,8 +17,7 @@ const PersonalPage = () => {
 
     const handleChange = (values: any) => {
         setLoading(true)
-        api.UpdateUser("api/update-user", values, user).then((data) => {
-            console.log(data)
+        api.UpdateUser("api/update-user", values, user).then(() => {
             alert.success("Data updated")
         }).catch(() => alert.error("Something went wrong")).finally(() => setLoading(false))
     }

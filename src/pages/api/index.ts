@@ -112,7 +112,8 @@ export class ApiService {
             throw err
         }
     }
-     async PostAuth(endpoint: string, payload: object): Promise<any> {
+
+    async PostAuth(endpoint: string, payload: object): Promise<any> {
         const token = getCookie('authToken')
         try {
             const response = await fetch(`${this.baseUrl}/${endpoint}`, {
@@ -130,11 +131,12 @@ export class ApiService {
         }
     }
 
-     async UpdateUserImage(endpoint: string, image: any): Promise<any> {
+    async UpdateUserImage(endpoint: string, image: any, reviewId: number|null): Promise<any> {
         try {
             const token = getCookie('authToken')
             const formData: any = new FormData();
             formData.append('image', image);
+            formData.append('reviewId', reviewId)
 
             const headers = new Headers();
             headers.append('Authorization', `${token}`);
@@ -145,6 +147,23 @@ export class ApiService {
                 headers: headers
             });
             return await response.json();
+        } catch (err) {
+            throw err
+        }
+    }
+
+    async DeleteMethod(endpoint: string, payload: object): Promise<any> {
+        try {
+            const response = await fetch(`${this.baseUrl}/${endpoint}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `${getCookie('authToken')}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload),
+            });
+
+            return await response.json()
         } catch (err) {
             throw err
         }

@@ -22,6 +22,40 @@ export const MainCartWrapper = styled.div`
     padding-bottom: 20px;
   }
 `
+
+export const ControlButton = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+`
+export const Likes = styled.div`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    background: #ddd;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+`
+export const Dots: any = styled.div`
+  width: 35px;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    background: #ddd;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+`
 export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;

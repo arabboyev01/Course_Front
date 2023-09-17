@@ -1,7 +1,7 @@
 import React from 'react'
 import { SidebarProps } from '@/globalTypes'
 import {
-    CloseIconStyle, HamburgerIcon,
+    CloseIconStyle, HamburgerIcon, IconHover,
     ItemIcon,
     ItemText,
     Sidebar,
@@ -25,12 +25,14 @@ const DumbSidebar: React.FC<SidebarProps>
         <MenuIcon sx={HamburgerIcon} onClick={handleOpen}/>
         <Sidebar open={open}>
             <SidebarLogo>Profile</SidebarLogo>
-            <CloseIcon onClick={handleClose} sx={CloseIconStyle}/>
+            <IconHover>
+                <CloseIcon onClick={handleClose} sx={CloseIconStyle}/>
+            </IconHover>
             <SidebarMenu>
                 {sidebarNavItems.map((item: any) => (
                     <SidebarMenuItem active={item.to === pathname} key={item.id} onClick={() => handleActive(item.to)}>
                         <ItemIcon active={item.to === pathname}>{item.icon}</ItemIcon>
-                        <ItemText active={item.to === pathname}>{item.display}</ItemText>
+                        <ItemText logout={item.display === "Log-out"} active={item.to === pathname}>{item.display}</ItemText>
                     </SidebarMenuItem>
                 ))}
             </SidebarMenu>

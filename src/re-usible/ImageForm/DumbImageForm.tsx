@@ -1,23 +1,10 @@
 import React from 'react'
-import { FileWrapper, StyledFileInput } from '@/re-usible/ImageForm/style.foms'
+import { ImageFormStyle, InputSpace, StyledFileInput } from '@/re-usible/ImageForm/style.foms'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { CssTextField } from '@/re-usible/form-style'
-import { REVIEW_FORM } from '@/components/ReviewForm/config'
-import { InputWrapper } from '@/components/Login/style.login'
-import { ListItem, ListWrapper, TagsSuggested } from '@/components/ReviewForm/style.review'
+import InputLists from '@/re-usible/InputLists/GroupList'
 
-const DumbImageForm =
-    ({
-         handleDrop,
-         handleDragOver,
-         handleFileInputChange,
-         handleInputFocus,
-         handleInputBlur,
-         open,
-         groups, handleTagSelect, value,
-        imageValue
-     }: any) => (
-        <React.Fragment>
+const DumbImageForm: React.FC<any> = ({handleDrop, handleDragOver, handleFileInputChange, imageValue}) => (
+        <ImageFormStyle>
             <StyledFileInput
                 onDrop={handleDrop}
                 onDragOver={handleDragOver}>
@@ -25,26 +12,10 @@ const DumbImageForm =
                 {imageValue}*
                 <input type="file" onChange={handleFileInputChange}/>
             </StyledFileInput>
-            <FileWrapper>
-                <InputWrapper>
-                    <CssTextField
-                        {...REVIEW_FORM.groupName}
-                        onFocus={handleInputFocus}
-                        onBlur={handleInputBlur}
-                        value={value}
-                    />
-                </InputWrapper>
-                <TagsSuggested>
-                    {open && (
-                        <ListWrapper>
-                            {groups.map((name: string) => (
-                                <ListItem onMouseDown={() => handleTagSelect(name)} key={name}>{name}</ListItem>
-                            ))}
-                        </ListWrapper>
-                    )}
-                </TagsSuggested>
-            </FileWrapper>
-        </React.Fragment>
+            <InputSpace>
+                <InputLists/>
+            </InputSpace>
+        </ImageFormStyle>
     )
 
 export default DumbImageForm

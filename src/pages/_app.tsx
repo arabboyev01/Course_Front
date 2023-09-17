@@ -13,7 +13,8 @@ const options = {
     transition: transitions.SCALE,
     containerStyle: {
         maxWidth: '350px'
-    }
+    },
+    zIndex: 1001
 };
 
 export default function App({Component, pageProps}: AppProps) {

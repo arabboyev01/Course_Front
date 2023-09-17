@@ -14,9 +14,9 @@ const Sidebar = () => {
     const handleActive = (route: string) => {
         if (route === '/') {
             removeTokenFromCookie();
-            alert.info("Logged out");
+            alert.info("Logged out")
         }
-        router.push(route)
+         router.replace(route)
     }
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false)

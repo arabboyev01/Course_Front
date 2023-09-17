@@ -52,7 +52,7 @@ export const {
     reviewDataLength,
     handleGroupName,
     handleSelectedTags,
-    handleFilterGroup
+    handleFilterGroup,
 } = reducerSlice.actions;
 
 

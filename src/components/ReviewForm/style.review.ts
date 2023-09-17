@@ -9,6 +9,8 @@ position: relative;
 export const TagsSuggested = styled.div`
   position: absolute;
   top: 60px;
+  background: #fff;
+  z-index: 100;
 `
 
 export const SelectedWrapper = styled.div`

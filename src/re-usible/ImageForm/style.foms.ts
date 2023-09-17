@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+export const ImageFormStyle = styled.div`
+  width: 350px;
+`
 export const StyledFileInput = styled.label`
   display: flex;
   flex-direction: column;
@@ -13,6 +16,7 @@ export const StyledFileInput = styled.label`
   height: 200px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.4);
+  width: 100%;
 
   input[type='file'] {
     display: none;
@@ -20,5 +24,9 @@ export const StyledFileInput = styled.label`
 `;
 export const FileWrapper = styled.div`
   position: relative;
+  background: #fff;
+  width: 100%;
 `
-
+export const InputSpace = styled.div`
+ margin: 20px 0;
+`

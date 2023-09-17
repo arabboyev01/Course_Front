@@ -25,7 +25,6 @@ const ReviewForm = () => {
     const setChanges = (id: number) => {
         router.replace(`/review-creation/${id}`)
     }
-    console.log(id)
 
     return (
         <ReviewStepper currentStep={id}>

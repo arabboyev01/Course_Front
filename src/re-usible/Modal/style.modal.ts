@@ -23,12 +23,10 @@ export const UploadContainer = styled.div`
   margin: 30px 0;
 `;
 
-// Create a styled component for the file input
 export const FileInput = styled.input`
   display: none;
 `;
 
-// Create a styled component for the custom upload button
 export const UploadButton = styled.label`
   background-color: #3498db;
   color: #fff;
@@ -36,13 +34,16 @@ export const UploadButton = styled.label`
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background-color: #2980b9;
   }
 `;
 
-// Create a styled component for displaying the selected file name
 export const FileName = styled.div`
   margin-top: 10px;
   text-align: center;

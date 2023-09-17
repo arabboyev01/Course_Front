@@ -195,4 +195,11 @@ export interface ModalProps {
     selectedFile: any
     handleFileChange: (e: any) => void
     handleUploadImage: () => void
+    loader: boolean
+}
+
+export interface PopoverProp {
+    anchorEl: any,
+    setAnchorEl: any
+    setId: (id: number) => void
 }

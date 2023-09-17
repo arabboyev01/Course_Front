@@ -10,7 +10,6 @@ export const Sidebar: any = styled.div`
   overflow-y: auto;
   z-index: 100;
   transition: left 0.3s ease, right 0.3s ease; 
-  //border-right: .5px solid rgba(0, 0, 0, 0.3);
 `
 
 export const SidebarLogo = styled.div`
@@ -37,7 +36,8 @@ export const ItemText: any = styled.p`
   align-items: center;
   padding: 1rem;
   font-weight: 700;
-  color: ${(props: any) => (props.active ? '#fff' : '#555555')};
+  color: #555555;
+  color: ${(props: any) => (props.active ? '#fff' : props.logout && '#bf0000')};
   transition: color 0.3s ease-in-out;
   font-size: 17px;
 `
@@ -50,14 +50,34 @@ export const SidebarMenuItem: any = styled.div`
   cursor: pointer;
   background-color: ${(props: any) => (props.active ? 'rgb(62, 40, 222)' : 'transparent')};
 
+  &:hover {
+    background: #ddd;
+    color: #000;
+  }
 `;
 
 export const CloseIconStyle = {
-    position: 'absolute',
-    left: '250px',
-    top: '50px',
-    cursor: "pointer",
+    fontWeight: 900,
+    fontSize: "2rem"
 }
+
+export const IconHover = styled.div`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 250px;
+  top: 40px;
+
+  &:hover {
+    background: #ddd;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+`
 
 export const HamburgerIcon = {
     position: 'fixed',

@@ -8,13 +8,28 @@ import PaginationRounded from '@/re-usible/Pagination'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { formatted } from '@/re-usible/FormattedDate'
 import {
-    CartDetail, CartFooter,
+    CartDetail,
+    CartFooter,
     CartHeader,
-    CartWrapper, Center, HeaderWrapper, Images, MainCartWrapper, RatingText, ReadMoreButton, ReviewName,
-    StyleCart, Tags, Text, Time,
+    CartWrapper,
+    Center,
+    ControlButton,
+    Dots,
+    HeaderWrapper,
+    Images, Likes,
+    MainCartWrapper,
+    RatingText,
+    ReadMoreButton,
+    ReviewName,
+    StyleCart,
+    Tags,
+    Text,
+    Time,
     User,
     UserName
 } from '@/components/ReviewCart/style.cart'
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import BasicPopover from '@/re-usible/Popover'
 
 const DumbReview: React.FC<ReviewPropsType | any> =
     ({
@@ -24,6 +39,10 @@ const DumbReview: React.FC<ReviewPropsType | any> =
          handlePaginateData,
          navigateSinglePage,
          handleLikeReq,
+         anchorEl,
+         handleClick,
+         setAnchorEl,
+         setId,checkId
      }) => (
         <StyleCart>
             {!ReviewsData || loading ? (<Center><MainLoader/></Center>) :
@@ -32,9 +51,15 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                         <CartWrapper key={id}>
                             <HeaderWrapper>
                                 <div></div>
-                                <ThumbUpIcon onClick={() => handleLikeReq(id)}
-                                             // style={{color: isLiked ? '#308efe' : '#8f8f8f', cursor: 'pointer'}}
-                                />
+                                <ControlButton>
+                                    <Likes onClick={() => handleLikeReq(id)}>
+                                        <ThumbUpIcon/>
+                                    </Likes>
+                                    <Dots onClick={() => checkId(id)}>
+                                        <MoreVertIcon onClick={handleClick} />
+                                        <BasicPopover anchorEl={anchorEl} setAnchorEl={setAnchorEl} setId={setId}/>
+                                    </Dots>
+                                </ControlButton>
                             </HeaderWrapper>
                             <Images src={imageUrl} alt="images"/>
                             <Time>{formatted(createdAt)}</Time>
@@ -64,7 +89,9 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                     )}
                 </MainCartWrapper>
             }
-            <PaginationRounded count={count} handlePaginateData={handlePaginateData}/>
+            {loading ? null :
+                <PaginationRounded count={count} handlePaginateData={handlePaginateData}/>
+            }
         </StyleCart>
     );
 

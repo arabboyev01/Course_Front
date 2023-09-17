@@ -7,7 +7,7 @@ export const StyleReview = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
-  height: 100vh;
+  height: 88vh;
 `
 export const StepsSpace = styled.div`
   display: flex;

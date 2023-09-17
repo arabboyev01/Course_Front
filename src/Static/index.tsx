@@ -12,25 +12,25 @@ export const sidebarNavItems: SideBarNavType[] = [
     {
         id: 0,
         display: 'Profile',
-        icon: <AccountCircleIcon/>,
+        icon: <AccountCircleIcon />,
         to: '/profile',
     },
     {
         id: 1,
         display: 'Reviews',
-        icon: <RateReviewIcon/>,
+        icon: <RateReviewIcon />,
         to: '/profile/reviews',
     },
     {
         id: 2,
         display: 'My Favorites',
-        icon: <FavoriteIcon/>,
+        icon: <FavoriteIcon />,
         to: '/profile/favorites',
     },
     {
         id: 3,
         display: 'Log-out',
-        icon: <LogoutIcon/>,
+        icon: <LogoutIcon style={{color: "#bf0000", fontWeight: 900}}/>,
         to: '/',
     }
 ]
@@ -70,3 +70,5 @@ export const Icons = [
 ]
 
 export const steps = ['About', 'Photo', 'Tags'];
+
+export const groups: string[] = ['Movie', 'Book', 'Games']
