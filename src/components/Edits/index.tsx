@@ -27,7 +27,7 @@ const Edits = () => {
     const handleChanges = (values: object) => {
         setLoader(true)
     }
-
+    console.log(singleReview)
     return (
         <DumbEdit
             singleReview={singleReview}

@@ -11,7 +11,7 @@ import {
     EditDiv,
     ImageWrapper,
     InputWrapper,
-    Inputs, MultiRow
+    Inputs, MultiRow, Span
 } from '@/components/Edits/style.edit'
 import SpringModal from '@/re-usible/Modal'
 import InputLists from '@/re-usible/InputLists/GroupList'
@@ -36,19 +36,24 @@ const DumbEdit: React.FC<any> = ({singleReview, setOpen, open, handleChanges, lo
                         render={({handleSubmit}) => (
                             <form onSubmit={handleSubmit} noValidate>
                                 <Inputs>
-                                    <CssTextField {...MODAL_REVIEW_DATA.reviewName} />
+                                    <Span>{MODAL_REVIEW_DATA.reviewName.span}</Span>
+                                    <CssTextField {...MODAL_REVIEW_DATA.reviewName} placeholder={singleReview?.name}/>
                                 </Inputs>
                                 <MultiRow>
-                                    <CssTextField {...MODAL_REVIEW_DATA.reviewText} multiline minRows={4} maxRows={6}/>
+                                    <Span>{MODAL_REVIEW_DATA.reviewText.span}</Span>
+                                    <CssTextField {...MODAL_REVIEW_DATA.reviewText} placeholder={singleReview.reviewText} multiline minRows={4} maxRows={6}/>
                                 </MultiRow>
                                 <Inputs>
-                                    <CssTextField {...MODAL_REVIEW_DATA.tags}/>
-                                </Inputs>
+                                    <Span>{MODAL_REVIEW_DATA.group.span}</Span>
                                 <InputLists/>
-                                <ThirdForm/>
+                                </Inputs>
+                                <Inputs>
+                                     <Span>{MODAL_REVIEW_DATA.tags.span}</Span>
+                                     <ThirdForm/>
+                                </Inputs>
                                 <Inputs>
                                     <SubmitButton type="submit">
-                                        {loader ? <ButtonLoader/> : 'Login'}
+                                        {loader ? <ButtonLoader/> : 'Update'}
                                     </SubmitButton>
                                 </Inputs>
                             </form>

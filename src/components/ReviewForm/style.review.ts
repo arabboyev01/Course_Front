@@ -18,9 +18,9 @@ export const SelectedWrapper = styled.div`
   display: flex;
   align-items: center;
   max-width: 350px;
-  padding-bottom: 10px;
+  padding: 10px 0;
   gap: 10px;
-  //bottom: 50px;
+  background: #fff;
   top: -40px;
   overflow: hidden;
 `

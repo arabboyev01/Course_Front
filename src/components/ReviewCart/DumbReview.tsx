@@ -24,12 +24,13 @@ import {
     StyleCart,
     Tags,
     Text,
-    Time,
+    Time, TotalLike,
     User,
     UserName
 } from '@/components/ReviewCart/style.cart'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import BasicPopover from '@/re-usible/Popover'
+import { handleLikes } from '@/utils/handleLikes'
 
 const DumbReview: React.FC<ReviewPropsType | any> =
     ({
@@ -42,7 +43,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
          anchorEl,
          handleClick,
          setAnchorEl,
-         setId,checkId
+         setId, checkId, likes
      }) => (
         <StyleCart>
             {!ReviewsData || loading ? (<Center><MainLoader/></Center>) :
@@ -53,10 +54,12 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                 <div></div>
                                 <ControlButton>
                                     <Likes onClick={() => handleLikeReq(id)}>
-                                        <ThumbUpIcon/>
+                                        {/*<TotalLike>{likes?.likes?.length}</TotalLike>*/}
+                                        <ThumbUpIcon// @ts-ignore
+                                            style={{color: handleLikes(likes) ? 'blue' : '#8f8f8f'}}/>
                                     </Likes>
                                     <Dots onClick={() => checkId(id)}>
-                                        <MoreVertIcon onClick={handleClick} />
+                                        <MoreVertIcon onClick={handleClick}/>
                                         <BasicPopover anchorEl={anchorEl} setAnchorEl={setAnchorEl} setId={setId}/>
                                     </Dots>
                                 </ControlButton>

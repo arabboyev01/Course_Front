@@ -42,6 +42,10 @@ export const Likes = styled.div`
     cursor: pointer;
   }
 `
+
+export const TotalLike = styled.p`
+
+`
 export const Dots: any = styled.div`
   width: 35px;
   height: 35px;

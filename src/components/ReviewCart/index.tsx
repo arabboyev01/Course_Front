@@ -20,10 +20,14 @@ const ReviewCart = () => {
     const [loading, setLoading] = useState(false)
     const selectedTags = useSelector(selectTags)
     const filteredGroup = useSelector(filterGroup);
-    const [isLoad, setLoad] = useState(false)
     const alert = useAlert();
 
     const selectedTagsString = JSON.stringify(selectedTags)
+    const [likes, setLikes] = useState(null)
+    useEffect(() => {
+        api.getUsers('api/like-credentials').then(data => setLikes(data))
+            .catch(err => console.log(err))
+    }, [])
 
     const fetchReviews = useCallback(async () => {
         setLoading(true)
@@ -35,7 +39,7 @@ const ReviewCart = () => {
         } catch (error) {
             throw error;
         }
-    }, [selectedTagsString, dispatch, filteredGroup, isLoad])
+    }, [selectedTagsString, dispatch, filteredGroup])
 
     useEffect(() => {
         fetchReviews().then(console.log).catch(err => console.log(err))
@@ -56,9 +60,9 @@ const ReviewCart = () => {
         api.PostAuth("api/likes", payload).then((res) =>{
             console.log(res)
             if(res === userValidation.validationUserId) throw new Error
-            setLoad(true)
         }).catch(() => alert.info("Please login"))
     }
+    console.log(likes)
 
     return <DumbReview
         ReviewsData={slicedReview}
@@ -67,6 +71,7 @@ const ReviewCart = () => {
         handlePaginateData={handlePaginateData}
         navigateSinglePage={navigateSinglePage}
         handleLikeReq={handleLikeReq}
+        likes={likes}
     />
 }
 

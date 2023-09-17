@@ -1,14 +1,16 @@
 export const MODAL_REVIEW_DATA = {
     reviewName: {
         name: 'reviewName',
-        label: 'Review name',
+        span: 'Your review name'
     },
     reviewText: {
         name: 'reviewText',
-        label: 'Review Text',
+        span: 'Your review text'
+    },
+    group: {
+        span: 'Your review group name'
     },
     tags: {
-        name: 'tags',
-        label: 'Tags',
+        span: 'Your review tags'
     },
 }
