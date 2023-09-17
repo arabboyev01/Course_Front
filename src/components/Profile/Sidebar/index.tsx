@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import DumbSidebar from '@/components/Profile/Sidebar/DumbSidebar'
 import { removeTokenFromCookie } from '@/utils/setCookie'
-import { sidebarNavItems } from '@/Static'
 import { useAlert } from 'react-alert'
 import { useState } from 'react'
 
@@ -23,7 +22,6 @@ const Sidebar = () => {
 
     return <DumbSidebar
         pathname={pathname}
-        sidebarNavItems={sidebarNavItems}
         handleActive={handleActive}
         handleOpen={handleOpen}
         handleClose={handleClose}

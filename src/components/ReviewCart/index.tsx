@@ -54,6 +54,7 @@ const ReviewCart = () => {
     const handleLikeReq = (reviewId: number ) => {
         const payload = {reviewId}
         api.PostAuth("api/likes", payload).then((res) =>{
+            console.log(res)
             if(res === userValidation.validationUserId) throw new Error
             setLoad(true)
         }).catch(() => alert.info("Please login"))

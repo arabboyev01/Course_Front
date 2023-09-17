@@ -127,7 +127,6 @@ export interface SideBarNavType {
 
 export interface SidebarProps {
     pathname: string ,
-    sidebarNavItems: SideBarNavType[]
     handleActive: (router: string) => void
     handleOpen: () => void
     handleClose: () => void

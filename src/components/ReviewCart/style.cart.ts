@@ -143,11 +143,9 @@ export const Tags = styled.p`
 `
 
 export const ReadMoreButton = styled.button`
-  background: #bf0000;
+  background: transparent;
   border: none;
-  color: #dddddd;
-  width: 150px;
-  height: 35px;
+  color: #8f8f8f;
   cursor: pointer;
   font-size: 16px;
   font-weight: 300;

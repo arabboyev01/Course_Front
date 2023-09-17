@@ -1,5 +1,5 @@
 import React from 'react'
-import { SidebarProps } from '@/globalTypes'
+import { SideBarNavType, SidebarProps } from '@/globalTypes'
 import {
     CloseIconStyle, HamburgerIcon, IconHover,
     ItemIcon,
@@ -11,11 +11,11 @@ import {
 } from '@/components/Profile/Sidebar/style.sidebar'
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
+import { sidebarNavItems } from '@/Static'
 
 const DumbSidebar: React.FC<SidebarProps>
     = ({
            pathname,
-           sidebarNavItems,
            handleActive,
            handleOpen,
            handleClose,
@@ -29,7 +29,7 @@ const DumbSidebar: React.FC<SidebarProps>
                 <CloseIcon onClick={handleClose} sx={CloseIconStyle}/>
             </IconHover>
             <SidebarMenu>
-                {sidebarNavItems.map((item: any) => (
+                {sidebarNavItems.map((item: SideBarNavType) => (
                     <SidebarMenuItem active={item.to === pathname} key={item.id} onClick={() => handleActive(item.to)}>
                         <ItemIcon active={item.to === pathname}>{item.icon}</ItemIcon>
                         <ItemText logout={item.display === "Log-out"} active={item.to === pathname}>{item.display}</ItemText>

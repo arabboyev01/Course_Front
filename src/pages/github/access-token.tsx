@@ -42,6 +42,7 @@ export default function AccessTokenComponent() {
             };
 
             api.Users('api/get-auth', extractedInfo).then(data => {
+                console.log("sign", data.token)
                 if (data.message === 'Internal server error') throw new Error
                 dispatch(setToken(data.token))
                 if (data) alert.success('Logged In!');
@@ -62,7 +63,7 @@ export default function AccessTokenComponent() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '60vh'
+        height: '80vh'
     }}>
         <p style={{margin: '3rem'}}>You are being redirected</p>
         <MainLoader/>

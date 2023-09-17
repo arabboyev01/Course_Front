@@ -8,6 +8,7 @@ import { icon } from '@/re-usible/Footer/style.footer'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import TwitterIcon from '@mui/icons-material/Twitter'
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 export const sidebarNavItems: SideBarNavType[] = [
     {
         id: 0,
@@ -29,6 +30,12 @@ export const sidebarNavItems: SideBarNavType[] = [
     },
     {
         id: 3,
+        display: 'Switch Account',
+        icon: <ManageAccountsIcon />,
+        to: '/login',
+    },
+    {
+        id: 4,
         display: 'Log-out',
         icon: <LogoutIcon style={{color: "#bf0000", fontWeight: 900}}/>,
         to: '/',
