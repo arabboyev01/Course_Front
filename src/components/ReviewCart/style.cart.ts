@@ -143,7 +143,7 @@ export const Tags = styled.p`
   color: rgb(39, 39, 225);
   margin: 15px 0;
   font-style: italic;
-  font-weight: 700;
+  font-weight: 600;
 `
 
 export const ReadMoreButton = styled.button`

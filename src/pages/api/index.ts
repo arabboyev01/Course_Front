@@ -168,4 +168,20 @@ export class ApiService {
             throw err
         }
     }
+
+    async updateReview(endpoint: string, payload: object): Promise<any> {
+        try {
+            const response = await fetch(`${this.baseUrl}/${endpoint}`, {
+                method: 'PUT',
+                 headers: {
+                    'Authorization': `${getCookie('authToken')}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload),
+            });
+            return await response.json();
+        } catch (err) {
+            throw err
+        }
+    }
 }

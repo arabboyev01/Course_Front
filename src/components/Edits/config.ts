@@ -1,6 +1,6 @@
 export const MODAL_REVIEW_DATA = {
-    reviewName: {
-        name: 'reviewName',
+    name: {
+        name: 'name',
         span: 'Your review name'
     },
     reviewText: {

@@ -6,7 +6,9 @@ import { ReviewType } from '@/globalTypes'
 import { api } from '@/config'
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { groupName } from '@/store/Selector'
+import { groupName, tags } from '@/store/Selector'
+import { handleChanges } from '@/components/Edits/utils'
+import { useAlert } from 'react-alert'
 
 const Edits = () => {
 
@@ -14,7 +16,9 @@ const Edits = () => {
     const router = useRouter();
     const [open, setOpen] = useState(false)
     const [loader, setLoader] = useState(false)
-    const GroupName = useSelector(groupName)
+    const group_name = useSelector(groupName)
+    const tag = useSelector(tags)
+    const alert = useAlert();
 
     useEffect(() => {
         if (!isObjectEmpty(router.query)) {
@@ -24,16 +28,16 @@ const Edits = () => {
         }
     }, [router.query])
 
-    const handleChanges = (values: object) => {
-        setLoader(true)
+    const handleReviewChanges = (values: object|any) => {
+        handleChanges(values, setLoader, singleReview, group_name, tag, alert)
     }
-    console.log(singleReview)
+
     return (
         <DumbEdit
             singleReview={singleReview}
             setOpen={setOpen}
             open={open}
-            handleChanges={handleChanges}
+            handleChanges={handleReviewChanges}
             loader={loader}
         />
     )

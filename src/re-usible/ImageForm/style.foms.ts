@@ -17,6 +17,8 @@ export const StyledFileInput = styled.label`
   font-weight: 400;
   color: rgba(0, 0, 0, 0.4);
   width: 100%;
+  background-size: cover;
+  background-position: center center;
 
   input[type='file'] {
     display: none;

@@ -36,8 +36,8 @@ const DumbEdit: React.FC<any> = ({singleReview, setOpen, open, handleChanges, lo
                         render={({handleSubmit}) => (
                             <form onSubmit={handleSubmit} noValidate>
                                 <Inputs>
-                                    <Span>{MODAL_REVIEW_DATA.reviewName.span}</Span>
-                                    <CssTextField {...MODAL_REVIEW_DATA.reviewName} placeholder={singleReview?.name}/>
+                                    <Span>{MODAL_REVIEW_DATA.name.span}</Span>
+                                    <CssTextField {...MODAL_REVIEW_DATA.name} placeholder={singleReview?.name}/>
                                 </Inputs>
                                 <MultiRow>
                                     <Span>{MODAL_REVIEW_DATA.reviewText.span}</Span>
