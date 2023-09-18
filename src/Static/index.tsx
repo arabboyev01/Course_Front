@@ -8,6 +8,7 @@ import InstagramIcon from '@mui/icons-material/Instagram'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import GroupIcon from '@mui/icons-material/Group';
+import { GridColDef } from '@mui/x-data-grid'
 
 export function generateSidebarNavItems(userRole: string | null) {
     const commonItems = [
@@ -90,3 +91,11 @@ export const Icons = [
 export const steps = ['About', 'Photo', 'Tags'];
 
 export const groups: string[] = ['Movie', 'Book', 'Games']
+
+export const usersTableColumns: GridColDef[] = [
+    {field: 'id', headerName: 'ID', width: 70},
+    {field: 'firstName', headerName: 'First name', width: 130},
+    {field: 'lastName', headerName: 'Last name', width: 130},
+    {field: 'username', headerName: 'Username', width: 180},
+    {field: 'userType', headerName: 'User Type', width: 180},
+];
