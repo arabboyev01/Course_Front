@@ -62,7 +62,7 @@ const ReviewCart = () => {
             if(res === userValidation.validationUserId) throw new Error
         }).catch(() => alert.info("Please login"))
     }
-    console.log(likes)
+    console.log(reviews)
 
     return <DumbReview
         ReviewsData={slicedReview}

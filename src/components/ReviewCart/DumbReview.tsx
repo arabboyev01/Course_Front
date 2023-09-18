@@ -73,7 +73,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                 </User>
                                 <User>
                                     <RatingComponent value={grade} size="small"/>
-                                    <RatingText>({grade}.0)</RatingText>
+                                    <RatingText>({grade})</RatingText>
                                 </User>
                             </CartHeader>
                             <ReviewName>{name}</ReviewName>
@@ -81,7 +81,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                 <Text>{reviewText}</Text>
                             </CartDetail>
                             <CartFooter>
-                                {tags.map(({name, id}: any) =>
+                                {tags?.map(({name, id}: any) =>
                                     <Tags key={id}>#{name}</Tags>
                                 )}
                             </CartFooter>

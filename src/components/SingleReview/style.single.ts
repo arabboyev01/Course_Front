@@ -22,7 +22,8 @@ export const MainWrapper = styled.div`
 
 export const MainImage: any = styled.div`
   max-width: 1050px;
-  height: 350px;
+  min-height: 450px;
+  max-height: 550px;
   background-image: ${(props: any) => `url(${props.image})`};
   border: .1px solid rgba(0, 0, 0, 0.3);
   object-fit: cover;

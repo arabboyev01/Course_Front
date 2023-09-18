@@ -11,16 +11,8 @@ import {
 } from '@/components/Profile/Sidebar/style.sidebar'
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
-import { sidebarNavItems } from '@/Static'
-
 const DumbSidebar: React.FC<SidebarProps>
-    = ({
-           pathname,
-           handleActive,
-           handleOpen,
-           handleClose,
-           open
-       }) => (
+    = ({pathname, handleActive, handleOpen, handleClose, open, sidebarDumb}) => (
     <React.Fragment>
         <MenuIcon sx={HamburgerIcon} onClick={handleOpen}/>
         <Sidebar open={open}>
@@ -29,10 +21,10 @@ const DumbSidebar: React.FC<SidebarProps>
                 <CloseIcon onClick={handleClose} sx={CloseIconStyle}/>
             </IconHover>
             <SidebarMenu>
-                {sidebarNavItems.map((item: SideBarNavType) => (
+                {sidebarDumb.map((item: SideBarNavType) => (
                     <SidebarMenuItem active={item.to === pathname} key={item.id} onClick={() => handleActive(item.to)}>
                         <ItemIcon active={item.to === pathname}>{item.icon}</ItemIcon>
-                        <ItemText logout={item.display === "Log-out"} active={item.to === pathname}>{item.display}</ItemText>
+                        <ItemText logout={item.display === 'Log-out'} active={item.to === pathname}>{item.display}</ItemText>
                     </SidebarMenuItem>
                 ))}
             </SidebarMenu>

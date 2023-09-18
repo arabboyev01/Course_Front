@@ -36,6 +36,7 @@ export interface usersType {
     lastName: string
     username: string
     imageUrl?: null| string
+    userType: string
 }
 
 export interface ReviewPropsType {
@@ -75,6 +76,7 @@ export interface CounterState {
     reviewLength: number
     selectedTags: string[] | null
     filterGroup: string | null
+    singleUser: usersType | null
 }
 
 export interface HandleLoginType {
@@ -131,6 +133,7 @@ export interface SidebarProps {
     handleOpen: () => void
     handleClose: () => void
     open: boolean
+    sidebarDumb: any
 }
 
 export interface TagsType {

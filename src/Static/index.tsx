@@ -1,7 +1,5 @@
-import { SideBarNavType } from '@/globalTypes'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import RateReviewIcon from '@mui/icons-material/RateReview'
-import FavoriteIcon from '@mui/icons-material/Favorite'
 import LogoutIcon from '@mui/icons-material/Logout'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import { icon } from '@/re-usible/Footer/style.footer'
@@ -9,38 +7,51 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-export const sidebarNavItems: SideBarNavType[] = [
-    {
-        id: 0,
-        display: 'Profile',
-        icon: <AccountCircleIcon />,
-        to: '/profile',
-    },
-    {
-        id: 1,
-        display: 'Reviews',
-        icon: <RateReviewIcon />,
-        to: '/profile/reviews',
-    },
-    {
-        id: 2,
-        display: 'My Favorites',
-        icon: <FavoriteIcon />,
-        to: '/profile/favorites',
-    },
-    {
-        id: 3,
-        display: 'Switch Account',
-        icon: <ManageAccountsIcon />,
-        to: '/login',
-    },
-    {
-        id: 4,
-        display: 'Log-out',
-        icon: <LogoutIcon style={{color: "#bf0000", fontWeight: 900}}/>,
-        to: '/',
+import GroupIcon from '@mui/icons-material/Group';
+
+export function generateSidebarNavItems(userRole: string | null) {
+    const commonItems = [
+        {
+            id: 0,
+            display: 'Profile',
+            icon: <AccountCircleIcon/>,
+            to: '/profile',
+        },
+        {
+            id: 1,
+            display: 'Reviews',
+            icon: <RateReviewIcon/>,
+            to: '/profile/reviews',
+        },
+        {
+            id: 3,
+            display: `Switch to ${userRole === 'ADMIN' ? 'User' : "Admin"}`,
+            icon: <ManageAccountsIcon/>,
+            to: '/login',
+        },
+
+    ];
+
+    const sidebarNavItems = [...commonItems,
+        {
+            id: 4,
+            display: 'Log-out',
+            icon: <LogoutIcon style={{color: '#bf0000', fontWeight: 900}}/>,
+            to: '/',
+        },
+    ];
+
+    if (userRole === 'ADMIN') {
+        sidebarNavItems.splice(3, 0, {
+            id: 3,
+            display: `Users`,
+            icon: <GroupIcon/>,
+            to: '/profile/users',
+        });
     }
-]
+
+    return sidebarNavItems;
+}
 
 export const searchTitles = [
     {
