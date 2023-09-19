@@ -1,4 +1,5 @@
 export const userValidation = {
     validationUserId: "please_login_first",
-    prsimaValidationError: "PrismaClientValidationError"
+    prsimaValidationError: "PrismaClientValidationError",
+    unAuthorizedUser: "Unauthorized user"
 }

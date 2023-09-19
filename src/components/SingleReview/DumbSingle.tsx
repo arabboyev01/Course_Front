@@ -11,9 +11,11 @@ import MainLoader from '@/re-usible/Loaders/MainLoader'
 import RatingGiven from '@/re-usible/Rating/Rated'
 import { formatted } from '@/re-usible/FormattedDate'
 import Comments from '@/re-usible/Comments'
+import SubHero from '@/re-usible/SubHero'
 
 const DumbSingle = ({single}: any) => (
     <StyleSingle>
+        {/*<SubHero />*/}
         {single === null || single === undefined ?
             <CenterDiv>
                 <MainLoader/>

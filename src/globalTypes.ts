@@ -176,10 +176,7 @@ export interface PropsDumbSearch {
     handleDirect: (id: number) => void
 }
 export interface HeroProps {
-    inputValue: string,
     handleDirect: (id: number) => void,
-    handleSearchValue: (values: any) => void,
-    handleOnchange: (e: string) => void,
     reviews: ReviewType[] | null
 }
 

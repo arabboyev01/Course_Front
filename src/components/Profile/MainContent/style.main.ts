@@ -18,4 +18,8 @@ export const Right = styled.div`
   @media (max-width: 650px) {
     width: 100%;
   }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `

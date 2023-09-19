@@ -9,6 +9,7 @@ import TwitterIcon from '@mui/icons-material/Twitter'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import GroupIcon from '@mui/icons-material/Group';
 import { GridColDef } from '@mui/x-data-grid'
+import { CustomInputCell, renderImageCell } from '@/components/Profile/Users/TableImage'
 
 export function generateSidebarNavItems(userRole: string | null) {
     const commonItems = [
@@ -26,7 +27,7 @@ export function generateSidebarNavItems(userRole: string | null) {
         },
         {
             id: 3,
-            display: `Switch to ${userRole === 'ADMIN' ? 'User' : "Admin"}`,
+            display: `Switch to ${userRole === 'ADMIN' ? 'User' : 'Admin'}`,
             icon: <ManageAccountsIcon/>,
             to: '/login',
         },
@@ -43,7 +44,7 @@ export function generateSidebarNavItems(userRole: string | null) {
     ];
 
     if (userRole === 'ADMIN') {
-        sidebarNavItems.splice(3, 0, {
+        sidebarNavItems.splice(2, 0, {
             id: 3,
             display: `Users`,
             icon: <GroupIcon/>,
@@ -94,8 +95,9 @@ export const groups: string[] = ['Movie', 'Book', 'Games']
 
 export const usersTableColumns: GridColDef[] = [
     {field: 'id', headerName: 'ID', width: 70},
+    {field: 'imageUrl', headerName: 'Image', width: 150, renderCell: renderImageCell},
     {field: 'firstName', headerName: 'First name', width: 130},
     {field: 'lastName', headerName: 'Last name', width: 130},
     {field: 'username', headerName: 'Username', width: 180},
-    {field: 'userType', headerName: 'User Type', width: 180},
+    {field: 'userType', headerName: 'User Type', width: 180, editable: true}
 ];

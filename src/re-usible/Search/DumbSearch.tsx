@@ -9,16 +9,15 @@ const DumbSearch: React.FC<PropsDumbSearch> = ({active, makeActive, inputValue, 
     <StyleSearch>
         <TitleWrapper>
             {searchData !== null ? searchTitles.map((res: any) =>
-                <Title key={res} active={active === res.value}
-                       onClick={() => makeActive(res.value, inputValue)}>{res.name}</Title>
+                <Title key={res} active={active === res.value} onClick={() => makeActive(res.value, inputValue)}>{res.name}</Title>
             ) : null}
         </TitleWrapper>
         <SingleReview>
-            {searchData || searchData !== null ? searchData?.map(({id, name, groupName}: any) =>
+            {searchData || searchData !== null ? searchData.length ? searchData?.map(({id, name, groupName}: any) =>
                     <ReviewItem key={id} onClick={() => handleDirect(id)}>
-                        <ReviewName>{highlightSearchTerm(inputValue, name)}</ReviewName>
+                        <ReviewName>{highlightSearchTerm(inputValue, name.substring(0, 60))}...</ReviewName>
                         <GroupName>{groupName}</GroupName>
-                    </ReviewItem>)
+                    </ReviewItem>) : <p style={{margin: "20px", textAlign: "center"}}>No option</p>
                 :
                 (<LoaderWrapper>
                     <MainLoader/>

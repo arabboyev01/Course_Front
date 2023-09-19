@@ -1,39 +1,22 @@
-import {
-    ContentWrapper,
-    Description, DoneIconStyle,
-    Forms,
-    InputWrapper,
-    MainText,
-    News,
-    StyleHero, SubmitButton
-} from '@/components/Hero/style.hero'
-import { FOUNDATION_FORM_VALUES } from '@/components/Login/LoginConfig'
-import { CssTextField } from '@/re-usible/form-style'
 import React from 'react'
-import { Form } from 'react-final-form'
 import DoneIcon from '@mui/icons-material/Done';
-import SearchSuggested from '@/re-usible/Search/SearchSuggested'
 import DumbSlicer from '@/components/Hero/DumbSlicer'
 import { HeroProps } from '@/globalTypes'
-const DumbHero: React.FC<HeroProps> = ({inputValue, handleDirect, handleSearchValue, handleOnchange, reviews}) => (
+import { ContentWrapper, Description, DoneIconStyle, InputWrapper, MainText, News, StyleHero, } from '@/components/Hero/style.hero'
+import SearchFiled from '@/re-usible/SearchFiled'
+
+const DumbHero: React.FC<HeroProps> = ({ handleDirect, reviews}) => (
     <StyleHero>
         <ContentWrapper>
             <MainText>Helping people to share their experience </MainText>
-            <Description>This platform is created to share some topics and theme about Book, Movie or News and you can rate or leave a comment to the every post.</Description>
+            <Description>This platform is created to share some topics and theme about Book, Movie or News and you can
+                rate or leave a comment to the every post.
+            </Description>
             <InputWrapper>
-                <Form
-                    onSubmit={handleSearchValue}
-                    render={({handleSubmit}) => (
-                        <Forms onSubmit={handleSubmit} noValidate >
-                            <CssTextField {...FOUNDATION_FORM_VALUES.search} onChange={(e: any) => handleOnchange(e.target.value)}/>
-                            <SubmitButton type="submit">Search Now</SubmitButton>
-                        </Forms>
-                    )}
-                />
-                {inputValue ? <SearchSuggested inputValue={inputValue} handleDirect={handleDirect} /> : null}
+                <SearchFiled />
             </InputWrapper>
             <News>
-                <Description><DoneIcon sx={DoneIconStyle}/> Weekly new reviews</Description>
+                <Description><DoneIcon sx={DoneIconStyle}/> Daily new reviews</Description>
                 <Description> <DoneIcon sx={DoneIconStyle}/> Join us today</Description>
             </News>
         </ContentWrapper>

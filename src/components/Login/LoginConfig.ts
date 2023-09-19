@@ -11,11 +11,6 @@ export const FOUNDATION_FORM_VALUES = {
         label: 'Password',
         required: true
     },
-
-    search: {
-        name: "search",
-        label: "type here to search..."
-    }
 }
 export const schema = Yup.object().shape({
     username: Yup.string().required(`${FOUNDATION_FORM_VALUES.username.label} is required.`),

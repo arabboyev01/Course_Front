@@ -44,38 +44,10 @@ export const DoneIconStyle = {
 export const InputWrapper = styled.div`
   display: flex;
   align-items: center;
-  max-width: 500px;
+  max-width: 550px;
   width: 100%;
   margin-top: 40px;
   position: relative;
-`
-
-export const Forms = styled.form`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  @media(max-width: 620px){
-    flex-direction: column;
-  }
-`
-
-export const SubmitButton = styled.button`
-  height: 50px;
-  border: none;
-  font-size: 16px;
-  font-weight: 500;
-  margin-top: 20px;
-  padding: 10px 5px;
-  background: rgb(62, 40, 222);
-  color: #fff;
-  width: 200px;
-  border-radius: 8px;
-  cursor: pointer;
-  
-  &:hover{
-    background: #000;
-  }
 `
 export const News = styled.div`
   display: flex;

@@ -14,10 +14,10 @@ const SearchSuggested: React.FC<PropsSearch> = ({inputValue, handleDirect}) => {
     });
 
     const handleSearch = useCallback(() => {
-        api.getUsers(`api/reviews/advanced-search?name=${value.name}&&groupName=${value.groupName}&&tags=${value.latest}`)
+        api.getUsers(`api/reviews/advanced-search?name=${inputValue}&&groupName=${value.groupName}&&tags=${value.latest}`)
             .then((res) => setSearchData(res))
             .catch(err => console.log(err))
-    }, [value])
+    }, [value, inputValue])
 
     useEffect(() => {
         handleSearch()
