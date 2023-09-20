@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Forms from '@/components/ReviewForm/Forms'
 import { useSelector } from 'react-redux'
-import { groupName, image, tags } from '@/store/Selector'
+import { adminUserId, groupName, image, tags } from '@/store/Selector'
 import ReviewStepper from '@/components/ReviewStepper'
 import { useAlert } from 'react-alert'
 import { useRouter } from 'next/router'
@@ -15,11 +15,12 @@ const ReviewForm = () => {
     const Tags = useSelector(tags)
     const Image = useSelector(image)
     const GroupName = useSelector(groupName)
+    const userId = useSelector(adminUserId)
 
     const { id }: any = router.query
 
     const handlePostReview = (values: any) => {
-        handleReview(values, setLoading, Tags, GroupName, router, alert, Image)
+        handleReview(values, setLoading, Tags, GroupName, router, alert, Image, userId)
     }
 
     const setChanges = (id: number) => {

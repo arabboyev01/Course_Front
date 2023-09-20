@@ -13,7 +13,7 @@ import { formatted } from '@/re-usible/FormattedDate'
 import Comments from '@/re-usible/Comments'
 import SubHero from '@/re-usible/SubHero'
 
-const DumbSingle = ({single}: any) => (
+const DumbSingle: React.FC<any> = ({single}) => (
     <StyleSingle>
         {/*<SubHero />*/}
         {single === null || single === undefined ?
@@ -25,12 +25,12 @@ const DumbSingle = ({single}: any) => (
                 <Date>{formatted(single?.createdAt)}</Date>
                 <RatingWrapper>
                     <RatingGiven reviewId={single?.id} grade={single?.grade}/>
-                    <RatingText>({single?.grade},0)</RatingText>
+                    <RatingText>({single?.grade})</RatingText>
                 </RatingWrapper>
                 <Text>{single?.name}</Text>
                 <Description>{single?.reviewText}</Description>
                 <TagsWrapper>
-                    {single.tags.map((data: any) =>
+                    {single?.tags?.map((data: any) =>
                         <Tags key={data.id}>#{data.name}</Tags>
                     )}
                 </TagsWrapper>

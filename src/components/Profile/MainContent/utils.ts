@@ -1,6 +1,6 @@
 export const Routes = {
     main: "/profile",
-    favorites: "/profile/favorites",
     review: "/profile/reviews",
-    users: '/profile/users'
+    users: '/profile/users',
+    favorites: "/profile/single-user-like"
 }

@@ -26,6 +26,7 @@ export interface ReviewType {
     createdAt: string
     user: usersType
     likes: any
+    isLiked: boolean
 }
 
 export interface usersType {
@@ -77,6 +78,7 @@ export interface CounterState {
     selectedTags: string[] | null
     filterGroup: string | null
     singleUser: usersType | null
+    userId: null | number
 }
 
 export interface HandleLoginType {
@@ -109,9 +111,9 @@ export interface ThirdFormTypes {
     suggestedTags: any
     handleTagSelect: (tag: string) => void
     open: boolean
-    existingTags: TagsType[] | null
     handleInputFocus: () => void
     handleInputBlur: () => void
+    userType: boolean
 }
 
 export interface StepperProps {

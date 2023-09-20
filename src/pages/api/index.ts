@@ -1,5 +1,4 @@
 import { getCookie } from '@/utils/setCookie'
-import { VerifyToken } from '@/utils'
 import { usersType } from '@/globalTypes'
 
 export class ApiService {
@@ -86,21 +85,20 @@ export class ApiService {
         }
     }
 
-    async Review(endpoint: string, payload: object | any, image: any, tags: string[] | null, groupName: string): Promise<any> {
+    async Review(endpoint: string, payload: object | any, image: any, tags: string[] | null, groupName: string, userId: number|null): Promise<any> {
+        console.log(userId)
         try {
-            const token = getCookie('authToken')
-            const decoded: any = VerifyToken(token)
             const formData: any = new FormData();
             const tagsString = JSON.stringify(tags);
             formData.append('name', payload.name);
             formData.append('groupName', groupName);
             formData.append('reviewText', payload.reviewText);
             formData.append('image', image);
-            formData.append('userId', decoded.userId);
             formData.append('tags', tagsString)
+            formData.append('userId', userId)
 
             const headers = new Headers();
-            headers.append('Authorization', `${token}`);
+            headers.append('Authorization', `${getCookie('authToken')}`);
 
             const response = await fetch(`${this.baseUrl}/${endpoint}`, {
                 method: 'POST',

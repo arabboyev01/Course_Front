@@ -43,25 +43,26 @@ const DumbReview: React.FC<ReviewPropsType | any> =
          anchorEl,
          handleClick,
          setAnchorEl,
-         setId, checkId, likes
+         setId, checkId, edit
      }) => (
         <StyleCart>
             {!ReviewsData || loading ? (<Center><MainLoader/></Center>) :
                 <MainCartWrapper>
-                    {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, createdAt}: ReviewType) =>
+                    {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, createdAt, isLiked}: ReviewType) =>
                         <CartWrapper key={id}>
                             <HeaderWrapper>
                                 <div></div>
                                 <ControlButton>
                                     <Likes onClick={() => handleLikeReq(id)}>
                                         {/*<TotalLike>{likes?.likes?.length}</TotalLike>*/}
-                                        <ThumbUpIcon// @ts-ignore
-                                            style={{color: handleLikes(likes) ? 'blue' : '#8f8f8f'}}/>
+                                        <ThumbUpIcon style={{color: isLiked ? 'blue' : '#8f8f8f'}}/>
                                     </Likes>
+                                    {edit ?
                                     <Dots onClick={() => checkId(id)}>
                                         <MoreVertIcon onClick={handleClick}/>
                                         <BasicPopover anchorEl={anchorEl} setAnchorEl={setAnchorEl} setId={setId}/>
-                                    </Dots>
+                                    </Dots> : null
+                                    }
                                 </ControlButton>
                             </HeaderWrapper>
                             <Images src={imageUrl} alt="images"/>
@@ -92,7 +93,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                     )}
                 </MainCartWrapper>
             }
-            {loading ? null :
+            {ReviewsData === null ? null :
                 <PaginationRounded count={count} handlePaginateData={handlePaginateData}/>
             }
         </StyleCart>

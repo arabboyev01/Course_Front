@@ -23,17 +23,12 @@ const ReviewCart = () => {
     const alert = useAlert();
 
     const selectedTagsString = JSON.stringify(selectedTags)
-    const [likes, setLikes] = useState(null)
-    useEffect(() => {
-        api.getUsers('api/like-credentials').then(data => setLikes(data))
-            .catch(err => console.log(err))
-    }, [])
 
     const fetchReviews = useCallback(async () => {
         setLoading(true)
         try {
             const fetchedUsers = await api.getUsers(`api/all-reviews?selectedTags=${selectedTagsString}&groupName=${filteredGroup}`);
-            setReviews(fetchedUsers.reverse());
+            setReviews(fetchedUsers);
             setLoading(false)
             dispatch(reviewDataLength(fetchedUsers?.length))
         } catch (error) {
@@ -57,7 +52,7 @@ const ReviewCart = () => {
 
     const handleLikeReq = (reviewId: number ) => {
         const payload = {reviewId}
-        api.PostAuth("api/likes", payload).then((res) =>{
+        api.PostAuth("api/likes", payload).then((res) => {
             console.log(res)
             if(res === userValidation.validationUserId) throw new Error
         }).catch(() => alert.info("Please login"))
@@ -70,7 +65,6 @@ const ReviewCart = () => {
         handlePaginateData={handlePaginateData}
         navigateSinglePage={navigateSinglePage}
         handleLikeReq={handleLikeReq}
-        likes={likes}
     />
 }
 

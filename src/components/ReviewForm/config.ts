@@ -13,18 +13,22 @@ export const REVIEW_FORM = {
     },
     groupName: {
         name: "groupName",
-        label: "Choose a group name",
+        label: "Select a group name",
         required: true
     },
     tags: {
         name: "tags",
-        label: "Choose tags",
+        label: "Select tags",
         required: true
     },
     comment: {
         name: "text",
         label: "Leave a comment",
-    }
+    },
+    users: {
+        name: "users",
+        label: "Select a user name as a creator",
+    },
 }
 export const schema = Yup.object().shape({
     name: Yup.string().required(`${REVIEW_FORM.name.label} is required.`),

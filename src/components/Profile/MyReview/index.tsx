@@ -4,6 +4,7 @@ import DumbReview from '@/components/ReviewCart/DumbReview'
 import { ReviewType } from '@/globalTypes'
 import * as React from 'react'
 import { useRouter } from 'next/router'
+import { quantity } from '@/components/ReviewCart/utils'
 
 const MyReview = () => {
 
@@ -18,6 +19,15 @@ const MyReview = () => {
         router.push(`/edit-review/${id}`)
     }
 
+    const count = quantity(review)
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(5);
+
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const slicedReview = Array.isArray(review) ? review.slice(indexOfFirstPost, indexOfLastPost) : null
+    const handlePaginateData = (number: any) => setCurrentPage(number)
+
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
     };
@@ -28,16 +38,21 @@ const MyReview = () => {
             setReview(data)
         }).catch(err => console.log(err)).finally(() => setLoading(false))
     }, []);
+    const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
 
 
     return <DumbReview
-        ReviewsData={review}
+        ReviewsData={slicedReview}
         anchorEl={anchorEl}
         handleClick={handleClick}
         setAnchorEl={setAnchorEl}
         loading={loading}
         setId={setId}
         checkId={checkId}
+        edit={true}
+        navigateSinglePage={navigateSinglePage}
+        count={count}
+        handlePaginateData={handlePaginateData}
     />
 }
 

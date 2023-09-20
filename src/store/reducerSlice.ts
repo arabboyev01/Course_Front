@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { initialState } from '@/store/initialState'
-import { setCookie, getCookie } from '@/utils/setCookie'
+import { setCookie, getCookie, removeTokenFromCookie } from '@/utils/setCookie'
 
 const reducerSlice = createSlice({
     name: 'counter',
@@ -15,7 +15,11 @@ const reducerSlice = createSlice({
         },
         verifyUser: (state) => {
             const verify = getCookie('authToken')
-            if (verify) state.isAuthorized = true;
+            if (verify) state.isAuthorized = !state.isAuthorized;
+        },
+        logOut: (state) => {
+            removeTokenFromCookie();
+            state.isAuthorized = false;
         },
         handleTags: (state: any, action: PayloadAction | any): void => {
             if (action?.payload?.length) {
@@ -43,6 +47,9 @@ const reducerSlice = createSlice({
         },
         singleUser: (state: any, action:PayloadAction): void => {
             state.singleUser = action.payload
+        },
+        getUserId: (state: any, action: PayloadAction|any): void => {
+             state.userId = action.payload
         }
     },
 });
@@ -50,13 +57,15 @@ const reducerSlice = createSlice({
 export const {
     setToken,
     verifyUser,
+    logOut,
     handleTags,
     handleImage,
     reviewDataLength,
     handleGroupName,
     handleSelectedTags,
     handleFilterGroup,
-    singleUser
+    singleUser,
+    getUserId
 } = reducerSlice.actions;
 
 

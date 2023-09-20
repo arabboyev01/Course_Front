@@ -1,27 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import DumbThirdForm from '@/components/ReviewForm/ThirdForm/DumbThirdForm'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from '@/store'
 import { handleTags } from '@/store/reducerSlice'
 import { api } from '@/config'
 import { TagsType } from '@/globalTypes'
+import { SingleUser } from '@/store/Selector'
+import { user } from '@/utils/errors'
 
 const ThirdForm: React.FC = () => {
 
     const [existingTags, setExistingTags] = useState<TagsType[] | null>(null);
 
-    useEffect(() => {
-        api.getUsers('api/tags').then(data => {
-            setExistingTags(data)
-        }).catch(err => console.log(err))
-    }, [])
-
-
     const dispatch = useDispatch<AppDispatch>()
     const [inputValue, setInputValue] = useState<string>('');
-    const [suggestedTags, setSuggestedTags] = useState<object | any>(existingTags);
+    const [suggestedTags, setSuggestedTags] = useState<any>(existingTags);
     const [values, setValues] = useState<any>([])
     const [open, setOpen] = useState(false);
+    const singleUser = useSelector(SingleUser)
 
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,8 +40,15 @@ const ThirdForm: React.FC = () => {
         dispatch(handleTags(values))
     }, [dispatch, values])
 
-    const handleInputFocus = (): void => setOpen(true);
+    const handleInputFocus = (): void => {
+        setOpen(true);
+        api.getUsers('api/tags').then(data => {
+            setExistingTags(data)
+            setSuggestedTags(data)
+        }).catch(err => console.log(err))
+    }
     const handleInputBlur = () => setOpen(false)
+    const userType = singleUser?.userType === user.isAdmin
 
     return (
         <DumbThirdForm
@@ -55,9 +58,9 @@ const ThirdForm: React.FC = () => {
             suggestedTags={suggestedTags}
             handleTagSelect={handleTagSelect}
             open={open}
-            existingTags={existingTags}
             handleInputFocus={handleInputFocus}
             handleInputBlur={handleInputBlur}
+            userType={userType}
         />
     )
 }

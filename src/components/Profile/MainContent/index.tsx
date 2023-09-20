@@ -6,6 +6,7 @@ import PersonalData from '@/components/Profile/PersonalPage'
 import { Left, Right } from '@/components/Profile/MainContent/style.main'
 import MyReview from '@/components/Profile/MyReview'
 import Users from '@/components/Profile/Users'
+import Favorites from '@/components/Profile/Favorites'
 
 const MainContent = () => {
     const router = useRouter()
@@ -20,6 +21,7 @@ const MainContent = () => {
                 {pathname === Routes.main && <PersonalData/>}
                 {pathname === Routes.review && <MyReview/>}
                 {pathname === Routes.users && <Users/>}
+                {pathname === Routes.favorites && <Favorites />}
             </Right>
         </ProfileLayout>
     )

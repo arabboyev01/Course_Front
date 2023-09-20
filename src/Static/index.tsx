@@ -10,6 +10,7 @@ import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import GroupIcon from '@mui/icons-material/Group';
 import { GridColDef } from '@mui/x-data-grid'
 import { CustomInputCell, renderImageCell } from '@/components/Profile/Users/TableImage'
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 export function generateSidebarNavItems(userRole: string | null) {
     const commonItems = [
@@ -24,6 +25,12 @@ export function generateSidebarNavItems(userRole: string | null) {
             display: 'Reviews',
             icon: <RateReviewIcon/>,
             to: '/profile/reviews',
+        },
+        {
+            id: 2,
+            display: `My favorites`,
+            icon: <ThumbUpIcon/>,
+            to: '/profile/single-user-like',
         },
         {
             id: 3,

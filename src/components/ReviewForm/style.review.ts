@@ -13,6 +13,10 @@ export const TagsSuggested = styled.div`
   z-index: 100;
 `
 
+export const Divider = styled.div`
+  margin-top: 50px;
+`
+
 export const SelectedWrapper = styled.div`
   position: absolute;
   display: flex;
@@ -43,18 +47,37 @@ export const ListWrapper = styled.ul`
   overflow-y: scroll;
 `
 
+export const Center = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
 export const ListItem = styled.li`
   cursor: pointer;
   padding: 15px;
   display: flex;
   align-items: center;
+  
+  &:hover {
+    background: #ddd;
+    border-radius: 8px;
+  }
+`
+export const GroupList = styled.li`
+  cursor: pointer;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   &:hover {
     background: #ddd;
     border-radius: 8px;
   }
 `
-
 export const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;

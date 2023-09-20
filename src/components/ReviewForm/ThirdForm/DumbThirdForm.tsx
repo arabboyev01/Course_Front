@@ -9,9 +9,11 @@ import {
     ListWrapper,
     Selected,
     TagsSuggested,
-    SelectedWrapper
+    SelectedWrapper, Divider, Center
 } from '@/components/ReviewForm/style.review'
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
+import UsersList from '@/re-usible/InputLists/UsersList'
+import MainLoader from '@/re-usible/Loaders/MainLoader'
 
 const DumbThirdForm:
     React.FC<ThirdFormTypes> =
@@ -23,7 +25,8 @@ const DumbThirdForm:
          handleTagSelect,
          open,
          handleInputFocus,
-         handleInputBlur
+         handleInputBlur,
+         userType,
      }) =>
         (
             <FormWrapper>
@@ -42,12 +45,13 @@ const DumbThirdForm:
                         autoComplete="off"
                         onFocus={handleInputFocus}
                         onBlur={handleInputBlur}
+                        autocomplete="off"
                     />
                 </InputWrapper>
                 <TagsSuggested>
                     {open && (
                         <ListWrapper>
-                            {suggestedTags?.length ? (
+                            {suggestedTags === null ? <Center><MainLoader /></Center> : suggestedTags?.length ? (
                                 suggestedTags.map(({name, id}: any) => (
                                     <ListItem onMouseDown={() => handleTagSelect(name)} key={id}>#{name}</ListItem>
                                 ))
@@ -59,6 +63,7 @@ const DumbThirdForm:
                         </ListWrapper>
                     )}
                 </TagsSuggested>
+                {userType ? <Divider><UsersList/></Divider> : null}
             </FormWrapper>
         )
 

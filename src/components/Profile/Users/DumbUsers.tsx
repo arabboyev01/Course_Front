@@ -8,7 +8,7 @@ import { userValidation } from '@/utils/errors'
 const DumbUsers: React.FC<any> = ({rows, handleSelectionChange}) => (
     <StyleUser>
         <TableWrapper>
-            {rows === null ? <Center><MainLoader/></Center> :
+            {!rows.length ? <Center><MainLoader/></Center> :
                 rows === userValidation.unAuthorizedUser ? <Center>You do&apos;nt have a permission</Center> :
                 <DataGrid
                     rows={rows}

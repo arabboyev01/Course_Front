@@ -16,5 +16,5 @@ export const Center = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 70vh;
+  height: 50vh;
 `

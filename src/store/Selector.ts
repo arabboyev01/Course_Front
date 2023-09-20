@@ -8,3 +8,4 @@ export const groupName = (state: RootState) => state.counter.groupName
 export const selectTags = (state: RootState) => state.counter.selectedTags
 export const filterGroup = (state: RootState) => state.counter.filterGroup
 export const SingleUser = (state: RootState) => state.counter.singleUser
+export const adminUserId = (state: RootState) => state.counter.userId
