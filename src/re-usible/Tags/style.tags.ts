@@ -19,6 +19,7 @@ export const Text = styled.p`
   line-height: 16px;
   font-weight: 400;
   color: #8f8f8f;
+  width: 95%;
 `
 
 export const TagsWrapper = styled.div`
@@ -36,16 +37,20 @@ export const TagsText: any = styled.p`
   color: #8f8f8f;
   border: 0.2px solid rgba(0, 0, 0, 0.3);
 
-  ${({ active }: any) =>
-    active &&
-    css`
-      border: 0.2px solid #308efe;
-      color: #308efe;
-    `}
+  ${({active}: any) =>
+      active &&
+      css`
+        border: 0.2px solid #308efe;
+        color: #308efe;
+      `}
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   padding: 5px;
+  
+  &:hover {
+    border: 0.2px solid #333;
+  }
 `

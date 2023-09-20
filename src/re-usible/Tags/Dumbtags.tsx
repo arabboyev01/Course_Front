@@ -1,12 +1,12 @@
 import React from 'react'
 import { StyleTags, Subtitle, TagsText, TagsWrapper, Text } from '@/re-usible/Tags/style.tags'
 import { TagsType } from '@/globalTypes'
+import { MainInformation } from '@/utils/errors'
 
 const DumbTags: React.FC<TagsType[] | null | any> = ({existingTags, handleSelectedTags, selectedTags}) => (
     <StyleTags>
         <Subtitle>About</Subtitle>
-        <Text>An awesome star-rating movie review Tumblr theme made by Impetus Themes. Go ahead! Start a film review
-            blog today!</Text>
+        <Text>{MainInformation.aboutText}</Text>
         <Subtitle>Featured tags</Subtitle>
         <TagsWrapper>
             {existingTags ? existingTags?.map(({name, id}: TagsType) =>// @ts-ignore
