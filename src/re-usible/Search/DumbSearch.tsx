@@ -2,7 +2,17 @@ import { searchTitles } from '@/Static'
 import React from 'react'
 import { PropsDumbSearch } from '@/globalTypes'
 import MainLoader from '@/re-usible/Loaders/MainLoader'
-import { GroupName, LoaderWrapper, ReviewItem, ReviewName, SingleReview, StyleSearch, Title, TitleWrapper } from '@/re-usible/Search/style.search'
+import {
+    GroupName, Image,
+    LoaderWrapper,
+    ReviewItem,
+    ReviewName,
+    SearchHeader,
+    SingleReview,
+    StyleSearch,
+    Title,
+    TitleWrapper
+} from '@/re-usible/Search/style.search'
 import { highlightSearchTerm } from '@/re-usible/highlighting'
 
 const DumbSearch: React.FC<PropsDumbSearch> = ({active, makeActive, inputValue, searchData, handleDirect}) => (
@@ -13,9 +23,12 @@ const DumbSearch: React.FC<PropsDumbSearch> = ({active, makeActive, inputValue, 
             ) : null}
         </TitleWrapper>
         <SingleReview>
-            {searchData || searchData !== null ? searchData.length ? searchData?.map(({id, name, groupName}: any) =>
+            {searchData || searchData !== null ? searchData.length ? searchData?.map(({id, name, groupName, imageUrl}: any) =>
                     <ReviewItem key={id} onClick={() => handleDirect(id)}>
-                        <ReviewName>{highlightSearchTerm(inputValue, name.substring(0, 60))}...</ReviewName>
+                        <SearchHeader>
+                            <Image src={imageUrl} alt={imageUrl}/>
+                            <ReviewName>{highlightSearchTerm(inputValue, name.substring(0, 60))}...</ReviewName>
+                        </SearchHeader>
                         <GroupName>{groupName}</GroupName>
                     </ReviewItem>) : <p style={{margin: "20px", textAlign: "center"}}>No option</p>
                 :

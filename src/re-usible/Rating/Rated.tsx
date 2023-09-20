@@ -13,10 +13,9 @@ export default function BasicRating({reviewId, grade}: number | any) {
         setValue(rating);
         const payload = { reviewId, rating}
         api.PostAuth('api/grade-rate', payload).then((res) => {
-            console.log(res)
             if(res.error === userValidation.validation) throw new Error
                 alert.info(res.message)
-            }).catch(() => alert.info("Please login"))
+            }).catch(() => alert.error("Please login"))
     }
 
     return (

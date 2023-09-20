@@ -3,7 +3,7 @@ import { FileWrapper } from '@/re-usible/ImageForm/style.foms'
 import { InputWrapper } from '@/components/Edits/style.edit'
 import { CssTextField } from '@/re-usible/form-style'
 import { REVIEW_FORM } from '@/components/ReviewForm/config'
-import { Center, ListItem, ListWrapper, TagsSuggested } from '@/components/ReviewForm/style.review'
+import { Center, GroupList, ListWrapper, Span, TagsSuggested, UserImage, UserInfo } from '@/components/ReviewForm/style.review'
 import MainLoader from '@/re-usible/Loaders/MainLoader'
 import { usersType } from '@/globalTypes'
 
@@ -22,9 +22,13 @@ const DumbUserLists: React.FC<any> = ({open, handleInputFocus, handleInputBlur, 
             {open && (
                 <ListWrapper>
                     {users !== null ? users.map((user: usersType) => (
-                        <ListItem onMouseDown={() => handleTagSelect(user?.username)} key={user.id}>{user.username}
-                            <span>{user.userType === "ADMIN"? "it's you": null}</span>
-                        </ListItem>
+                        <GroupList onMouseDown={() => handleTagSelect(user?.username)} key={user.id}>
+                            <UserInfo>
+                                <UserImage src={user.imageUrl} alt={user.imageUrl}/>
+                                <p>{user.username}</p>
+                            </UserInfo>
+                            <Span>{user.userType === 'ADMIN' ? 'it\'s you' : null}</Span>
+                        </GroupList>
                     )) : <Center><MainLoader/></Center>}
                 </ListWrapper>
             )}

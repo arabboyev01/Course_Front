@@ -8,18 +8,19 @@ import {
 import Dropdown from '@/re-usible/Dropdown'
 import React from 'react'
 import { Options } from '@/globalTypes'
+import { filters, options } from '@/Static'
 
-const DumbSorting: React.FC<Options> = ({options, filters, totalReview}) => (
+const DumbSorting: React.FC<Options|any> = ({totalReview, handleSort, handleFilter}) => (
     <StyleSorting>
         <LeftSide>
             <SubText>{totalReview} Total reviews</SubText>
         </LeftSide>
         <RightSide>
             <Times>
-                <Dropdown options={options} firstOption="Types"/>
+                <Dropdown options={options} firstOption="Sort" handleOptionClick={handleSort}/>
             </Times>
             <Times>
-                <Dropdown options={filters} firstOption="Filters"/>
+                <Dropdown options={filters} firstOption="Filter" handleOptionClick={handleFilter}/>
             </Times>
         </RightSide>
     </StyleSorting>

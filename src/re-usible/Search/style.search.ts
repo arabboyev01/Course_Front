@@ -14,6 +14,8 @@ export const StyleSearch = styled.div`
   top: 80px;
   border: 1px solid rgba(0,0,0, 0.3);
   z-index: 100;
+  border-radius: 8px;
+  overflow: hidden;
 `
 
 export const TitleWrapper = styled.div`
@@ -23,6 +25,8 @@ export const TitleWrapper = styled.div`
   gap: 20px;
   padding-left: 10px;
   border-bottom: .5px solid rgba(0, 0, 0, 0.3);
+  background: rgb(62, 40, 222);
+  color: #fff;
 `
 
 export const Title: any = styled.p`
@@ -54,7 +58,22 @@ export const ReviewItem = styled.div`
   &:hover{
     background: #ddd;
     cursor: pointer;
+    border-radius: 3px;
   }
+`
+
+export const SearchHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+`
+
+export const Image = styled.img`
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 30px;
 `
 
 export const ReviewName = styled.h3`
@@ -63,7 +82,7 @@ export const ReviewName = styled.h3`
 `
 
 export const GroupName = styled.p`
-
+  font-weight: 500;
 `
 
 export const LoaderWrapper = styled.div`

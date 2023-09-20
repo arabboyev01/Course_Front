@@ -23,8 +23,7 @@ const Comments: React.FC<any> = ({reviewId}) => {
         const text = values.text
         const payload = {reviewId, text}
         api.PostAuth('api/comments', payload).then((data) => {
-            console.log(data)
-            if (data?.name === userValidation.prsimaValidationError) throw new Error
+            if (data?.error === userValidation.validation) throw new Error
             if (!isObjectEmpty(data) && data?.id) {
                 alert.success('You have commented')
                 setLoad(!load)

@@ -6,9 +6,7 @@ import { useEffect } from 'react'
 import { api } from '@/config'
 import { singleUser } from '@/store/reducerSlice'
 
-
 const Header = () => {
-
     const router = useRouter();
     const Auth = useSelector(Authorized);
     const dispatch = useDispatch()
@@ -16,8 +14,8 @@ const Header = () => {
     const handleMain = () => router.push("/")
 
     useEffect(() => {
-        api.SingleUser("api/single-user").then((data) => dispatch(singleUser(data)))
-            .catch(err => console.log(err))
+        api.SingleUser("api/single-user")
+            .then((data) => dispatch(singleUser(data))).catch(err => console.log(err))
     }, [dispatch]);
 
     return <DumbHeader handleRouter={handleRouter} Auth={Auth} handleMain={handleMain} />

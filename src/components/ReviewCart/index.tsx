@@ -3,38 +3,39 @@ import { useCallback, useEffect, useState } from 'react'
 import { api } from '@/config'
 import { ReviewType } from '@/globalTypes'
 import { useDispatch, useSelector } from 'react-redux'
-import { filterGroup, selectTags } from '@/store/Selector'
+import { selectTags, sortName, filterName } from '@/store/Selector'
 import { quantity } from '@/components/ReviewCart/utils'
 import { useRouter } from 'next/router'
 import { AppDispatch } from '@/store'
 import { reviewDataLength } from '@/store/reducerSlice'
 import * as React from 'react'
-import { userValidation } from '@/utils/errors'
 import { useAlert } from 'react-alert'
+import { handleLikeReq } from '@/utils/PostRequest'
 
 const ReviewCart = () => {
 
     const router = useRouter()
+    const alert = useAlert();
     const dispatch = useDispatch<AppDispatch>()
     const [reviews, setReviews] = useState<ReviewType | null>(null)
     const [loading, setLoading] = useState(false)
     const selectedTags = useSelector(selectTags)
-    const filteredGroup = useSelector(filterGroup);
-    const alert = useAlert();
+    const FilterName = useSelector(filterName);
+    const SortName = useSelector(sortName)
 
     const selectedTagsString = JSON.stringify(selectedTags)
 
     const fetchReviews = useCallback(async () => {
         setLoading(true)
         try {
-            const fetchedUsers = await api.getUsers(`api/all-reviews?selectedTags=${selectedTagsString}&groupName=${filteredGroup}`);
+            const fetchedUsers = await api.getUsers(`api/all-reviews?selectedTags=${selectedTagsString}&filterName=${FilterName}&&sortName=${SortName}`);
             setReviews(fetchedUsers);
             setLoading(false)
             dispatch(reviewDataLength(fetchedUsers?.length))
         } catch (error) {
             throw error;
         }
-    }, [selectedTagsString, dispatch, filteredGroup])
+    }, [selectedTagsString, dispatch, FilterName, SortName])
 
     useEffect(() => {
         fetchReviews().then(console.log).catch(err => console.log(err))
@@ -49,14 +50,7 @@ const ReviewCart = () => {
     const slicedReview = Array.isArray(reviews) ? reviews.slice(indexOfFirstPost, indexOfLastPost) : null
     const handlePaginateData = (number: any) => setCurrentPage(number)
     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
-
-    const handleLikeReq = (reviewId: number ) => {
-        const payload = {reviewId}
-        api.PostAuth("api/likes", payload).then((res) => {
-            console.log(res)
-            if(res === userValidation.validationUserId) throw new Error
-        }).catch(() => alert.info("Please login"))
-    }
+    const likeReq = (reviewId: number) => handleLikeReq(reviewId, alert)
 
     return <DumbReview
         ReviewsData={slicedReview}
@@ -64,7 +58,7 @@ const ReviewCart = () => {
         count={count}
         handlePaginateData={handlePaginateData}
         navigateSinglePage={navigateSinglePage}
-        handleLikeReq={handleLikeReq}
+        handleLikeReq={likeReq}
     />
 }
 

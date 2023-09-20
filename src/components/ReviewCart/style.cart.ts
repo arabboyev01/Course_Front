@@ -65,7 +65,7 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   @media(max-width: 650px){
-    margin-right: 20px;
+    margin-right: 10px;
   }
 `
 export const CartWrapper: any = styled.div`
@@ -73,7 +73,7 @@ export const CartWrapper: any = styled.div`
   color: #333;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   @media (max-width: 650px) {
-    padding: 8px;
+    padding: 8px 0;
   }
 `
 export const CartHeader = styled.div`

@@ -22,7 +22,7 @@ const UserAvatar = () => {
     return (
         <Stack direction="row" spacing={2} style={{position: 'relative', cursor: 'pointer'}}>
             <AddReviewButton onClick={handleRoute}>Create Review</AddReviewButton>
-            <Avatar src={user?.imageUrl || "/broken-image.jpg"} onClick={handleProfile}/>
+            <Avatar src={user?.imageUrl || '/broken-image.jpg'} onClick={handleProfile}/>
         </Stack>
     );
 }

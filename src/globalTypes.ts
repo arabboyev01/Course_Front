@@ -1,17 +1,16 @@
 import React, { ReactNode } from 'react'
 
 export interface DropdownProps {
-    options: string[] | undefined
-    selectedOption: string | undefined | any
+    options: any
     handleOptionClick: (e: string) => void
     firstOption: any
 }
 
 export interface Options {
-    options: string[] | undefined
-    firstOption?: string | undefined
-    filters?: string[] | undefined
+    firstOption?: string
     totalReview?: number
+    options: any
+    handleOptionClick: (e: any) => void
 }
 
 export interface ReviewType {
@@ -36,7 +35,7 @@ export interface usersType {
     id: number
     lastName: string
     username: string
-    imageUrl?: null| string
+    imageUrl?: null | string
     userType: string
 }
 
@@ -76,9 +75,10 @@ export interface CounterState {
     groupName: string
     reviewLength: number
     selectedTags: string[] | null
-    filterGroup: string | null
     singleUser: usersType | null
     userId: null | number
+    filterName: string
+    sortName: string
 }
 
 export interface HandleLoginType {
@@ -130,7 +130,7 @@ export interface SideBarNavType {
 }
 
 export interface SidebarProps {
-    pathname: string ,
+    pathname: string,
     handleActive: (router: string) => void
     handleOpen: () => void
     handleClose: () => void
@@ -144,20 +144,20 @@ export interface TagsType {
 }
 
 export type GoogleLoginResponse = {
-  credential: {
-    googleId: string;
-    imageUrl: string;
-    email: string;
-    familyName: string;
-    givenName: string;
-    name: string;
-  };
-  tokenId: string;
-  accessToken: string;
-  googleAccessToken: string;
-  googleIdToken: string;
-  error: any;
-  onSuccess: any
+    credential: {
+        googleId: string;
+        imageUrl: string;
+        email: string;
+        familyName: string;
+        givenName: string;
+        name: string;
+    };
+    tokenId: string;
+    accessToken: string;
+    googleAccessToken: string;
+    googleIdToken: string;
+    error: any;
+    onSuccess: any
 };
 
 export interface CommentsType {
@@ -165,7 +165,7 @@ export interface CommentsType {
     comments: any
 }
 
-export interface PropsSearch  {
+export interface PropsSearch {
     inputValue: string
     handleDirect: (id: number) => void
 }
@@ -177,19 +177,21 @@ export interface PropsDumbSearch {
     searchData: ReviewType[] | null
     handleDirect: (id: number) => void
 }
+
 export interface HeroProps {
     handleDirect: (id: number) => void,
     reviews: ReviewType[] | null
 }
 
 export interface FadeProps {
-  children: React.ReactElement;
-  in?: boolean;
-  onClick?: any;
-  onEnter?: (node: HTMLElement, isAppearing: boolean) => void;
-  onExited?: (node: HTMLElement, isAppearing: boolean) => void;
-  ownerState?: any;
+    children: React.ReactElement;
+    in?: boolean;
+    onClick?: any;
+    onEnter?: (node: HTMLElement, isAppearing: boolean) => void;
+    onExited?: (node: HTMLElement, isAppearing: boolean) => void;
+    ownerState?: any;
 }
+
 export interface ModalProps {
     handleClose: () => void,
     open: boolean
@@ -203,4 +205,15 @@ export interface PopoverProp {
     anchorEl: any,
     setAnchorEl: any
     setId: (id: number) => void
+}
+
+export type selectedObjectsTypes = {
+    index: number
+    label: string
+    value: string
+}
+
+export type SortObjects = {
+    filter: string
+    sort: string
 }

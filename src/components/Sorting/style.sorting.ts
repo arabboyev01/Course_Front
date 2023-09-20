@@ -11,6 +11,11 @@ export const StyleSorting = styled.div`
   @media(max-width: 1330px){
     margin: 80px 20px 0 20px;
   }
+  @media(max-width: 650px){
+    margin: 80px 20px 0 20px;
+    flex-direction: column;
+    align-items: start;
+  }
 `
 export const LeftSide = styled.div`
   display: flex;
@@ -21,6 +26,9 @@ export const RightSide = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  @media (max-width: 650px) {
+    margin-top: 12px;
+  }
 `
 
 export const Times = styled.div`

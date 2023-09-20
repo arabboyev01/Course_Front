@@ -66,6 +66,11 @@ export const ListItem = styled.li`
     border-radius: 8px;
   }
 `
+export const Span = styled.span`
+ font-style: italic;
+  font-weight: 600;
+  font-size: 14px;
+`
 export const GroupList = styled.li`
   cursor: pointer;
   padding: 15px;
@@ -77,6 +82,17 @@ export const GroupList = styled.li`
     background: #ddd;
     border-radius: 8px;
   }
+`
+export const UserInfo = styled.div`
+  display: flex;
+  align-items: center;
+`
+export const UserImage: any = styled.img`
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  object-fit: cover;
+  margin-right: 15px;
 `
 export const ButtonWrapper = styled.div`
   display: flex;

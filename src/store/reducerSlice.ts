@@ -37,19 +37,22 @@ const reducerSlice = createSlice({
             }
         },
         handleGroupName: (state: any, action: PayloadAction): void => {
-                state.groupName = action.payload
+            state.groupName = action.payload
         },
         handleSelectedTags: (state, action: PayloadAction | any): void => {
             state.selectedTags = action.payload
         },
-        handleFilterGroup: (state: any, action:PayloadAction): void => {
-            state.filterGroup = action.payload
-        },
-        singleUser: (state: any, action:PayloadAction): void => {
+        singleUser: (state: any, action: PayloadAction): void => {
             state.singleUser = action.payload
         },
-        getUserId: (state: any, action: PayloadAction|any): void => {
-             state.userId = action.payload
+        getUserId: (state: any, action: PayloadAction | any): void => {
+            state.userId = action.payload
+        },
+        filterName: (state: any, action: PayloadAction) => {
+            state.filterName = action.payload
+        },
+        sortName: (state: any, action: PayloadAction) => {
+            state.sortName = action.payload
         }
     },
 });
@@ -57,15 +60,16 @@ const reducerSlice = createSlice({
 export const {
     setToken,
     verifyUser,
-    logOut,
     handleTags,
     handleImage,
     reviewDataLength,
     handleGroupName,
     handleSelectedTags,
-    handleFilterGroup,
     singleUser,
-    getUserId
+    getUserId,
+    filterName,
+    sortName,
+    logOut
 } = reducerSlice.actions;
 
 
