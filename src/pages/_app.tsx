@@ -6,6 +6,8 @@ import store from '@/store'
 import '@/main.css'
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Layout from '@/components/Layout'
+import React from 'react'
+import Head from 'next/head'
 
 const options = {
     timeout: 5000,
@@ -24,6 +26,9 @@ export default function App({Component, pageProps}: AppProps) {
             <ReduxProvider store={store}>
                 <AlertProvider template={AlertTemplate} {...options}>
                     <Layout>
+                        <Head>
+                            <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
+                        </Head>
                         <Component {...pageProps} />
                     </Layout>
                 </AlertProvider>

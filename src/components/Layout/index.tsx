@@ -6,7 +6,7 @@ import { AppDispatch } from '@/store'
 import { verifyUser } from '@/store/reducerSlice'
 import Footer from '@/re-usible/Footer'
 
-const Layout:React.FC<ChildrenProps> = ({children}) => {
+const Layout: React.FC<ChildrenProps> = ({children}) => {
 
     const dispatch = useDispatch<AppDispatch>()
 
@@ -16,9 +16,9 @@ const Layout:React.FC<ChildrenProps> = ({children}) => {
 
     return (
         <React.Fragment>
-            <Header />
+            <Header/>
             {children}
-            <Footer />
+            <Footer/>
         </React.Fragment>
     )
 }
