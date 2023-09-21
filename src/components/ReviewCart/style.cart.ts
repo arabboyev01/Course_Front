@@ -125,11 +125,12 @@ export const RatingText = styled.p`
 export const Images = styled.img`
   object-fit: cover;
   margin: 20px 0;
-  border: .5px solid #333;
+  //border: .5px solid #333;
   max-width: 880px;
   width: 100%;
   height: 400px;
   border-radius: 8px;
+  border: none;
 `
 
 export const CartFooter = styled.div`

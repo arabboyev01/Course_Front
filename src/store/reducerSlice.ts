@@ -15,7 +15,7 @@ const reducerSlice = createSlice({
         },
         verifyUser: (state) => {
             const verify = getCookie('authToken')
-            if (verify) state.isAuthorized = !state.isAuthorized;
+            if (verify) state.isAuthorized = true;
         },
         logOut: (state) => {
             removeTokenFromCookie();

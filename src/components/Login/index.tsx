@@ -4,7 +4,7 @@ import { api } from '@/config'
 import { LoginUsersType } from '@/globalTypes'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/store'
-import { setToken } from '@/store/reducerSlice'
+import { setToken, verifyUser } from '@/store/reducerSlice'
 import { useState } from 'react'
 import { useAlert } from 'react-alert';
 
@@ -22,6 +22,7 @@ const LoginComponent = () => {
             if (data?.error) throw new Error
             if (data) alert.success('Logged In!');
             dispatch(setToken(data.token));
+            dispatch(verifyUser())
             router.push('/');
         }).catch(() => {
             alert.error('username or password is wrong!')

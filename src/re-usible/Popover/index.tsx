@@ -18,7 +18,6 @@ const BasicPopover: React.FC<PopoverProp> = ({anchorEl, setAnchorEl, setId}) => 
         const payload = {id: parseInt(id)}
         api.DeleteMethod('api/delete-review', payload).then(() => {
             alert.info("Review deleted")
-            location.reload()
         }).catch(err => console.log(err))
     }
 
