@@ -28,6 +28,7 @@
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.19",
     "final-form": "^4.20.10",
+    "isomorphic-unfetch": "^4.0.2",
     "jsonwebtoken": "^9.0.1",
     "jwt-decode": "^3.1.2",
     "lottie-web": "^5.12.2",

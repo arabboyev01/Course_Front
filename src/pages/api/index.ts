@@ -1,5 +1,6 @@
 import { getCookie } from '@/utils/setCookie'
 import { usersType } from '@/globalTypes'
+import fetch from 'isomorphic-unfetch';
 
 export class ApiService {
     baseUrl: string
