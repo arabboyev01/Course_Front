@@ -3,21 +3,14 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { AddReviewButton } from '@/re-usible/Avatar/style.avatar'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import { usersType } from '@/globalTypes'
-import { api } from '@/config'
+import { useSelector } from 'react-redux'
+import { SingleUser } from '@/store/Selector'
 
 const UserAvatar = () => {
     const router = useRouter();
     const handleRoute = () => router.push('/review-creation/1')
     const handleProfile = () => router.push('/profile')
-    const [user, setUser] = useState<usersType | null>(null);
-
-    useEffect(() => {
-        api.SingleUser('api/single-user').then((data) => setUser(data))
-            .catch(err => console.log(err))
-    }, []);
-
+    const user = useSelector(SingleUser)
 
     return (
         <Stack direction="row" spacing={2} style={{position: 'relative', cursor: 'pointer'}}>

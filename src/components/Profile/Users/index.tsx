@@ -1,34 +1,41 @@
 import { useEffect, useState } from 'react'
 import { api } from '@/config'
 import { usersType } from '@/globalTypes'
-import DumbUsers from '@/components/Profile/Users/DumbUsers'
+import EditableDataGrid from '@/components/Profile/Users/EditableDataGrid'
+import { useAlert } from 'react-alert'
 
 const Users = () => {
-    const [users, setUsers] = useState<usersType[] | []>([])
+    const [users, setUsers] = useState<usersType[] | null | { error: string }>(null)
+    const [tableData, setTableData] = useState<usersType[] | null | { error: string } | any>(users)
+    const alert = useAlert();
+
 
     useEffect(() => {
         api.SingleUser('api/users').then(data => setUsers(data))
             .catch(err => console.log(err))
     }, [])
 
-    const handleCellValueChange = (params: any) => {
-    const { id, value } = params;
-    const field = params.field;
+    useEffect(() => {
+        setTableData(users)
+    }, [users])
 
-    const rowIndex = users.findIndex((row) => row.id === id);
+    const [editableIndex, setEditableIndex] = useState(null);
+    const [editedValue, setEditedValue] = useState('');
 
-    if (rowIndex !== -1) {
-      let newRows: any = [...users];
+    const handleUpdate = (index: number) => {
+        const payload = {userId: index, updatedStatus: editedValue}
+        api.PostAuth('api/update-user-status', payload).then(() => {
+            alert.success("User data updated")
+        }).catch(err => console.log(err))
+    };
 
-      newRows[rowIndex][field] = value;
-
-      setUsers(newRows);
-      console.log(`Changed ID: ${id}, Field: ${field}, New Value: ${value}`);
-    }
-  };
-    console.log(users)
-
-    return <DumbUsers rows={users} handleSelectionChange={handleCellValueChange} />
+    return <EditableDataGrid
+        users={tableData}
+        handleUpdate={handleUpdate}
+        editableIndex={editableIndex}
+        setEditedValue={setEditedValue}
+        setEditableIndex={setEditableIndex}
+    />
 }
 
 export default Users

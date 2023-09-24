@@ -37,6 +37,7 @@ export interface usersType {
     username: string
     imageUrl?: null | string
     userType: string
+    status: string
 }
 
 export interface ReviewPropsType {
@@ -213,7 +214,10 @@ export type selectedObjectsTypes = {
     value: string
 }
 
-export type SortObjects = {
-    filter: string
-    sort: string
+export interface EditableDataGridProps {
+    users: usersType[] | null | {error: string} | any
+    handleUpdate: (index: number, newValue: string) => void
+    editableIndex: null
+    setEditedValue: (value: string) => void
+    setEditableIndex: (value: any) => void
 }

@@ -8,8 +8,6 @@ import InstagramIcon from '@mui/icons-material/Instagram'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import GroupIcon from '@mui/icons-material/Group';
-import { GridColDef } from '@mui/x-data-grid'
-import { renderImageCell } from '@/components/Profile/Users/TableImage'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 export function generateSidebarNavItems(userRole: string | null) {
@@ -100,23 +98,15 @@ export const steps = ['About', 'Photo', 'Tags'];
 
 export const groups: string[] = ['Movie', 'Book', 'Games']
 
-export const usersTableColumns: GridColDef[] = [
-    {field: 'id', headerName: 'ID', width: 70},
-    {field: 'imageUrl', headerName: 'Image', width: 150, renderCell: renderImageCell},
-    {field: 'firstName', headerName: 'First name', width: 130},
-    {field: 'lastName', headerName: 'Last name', width: 130},
-    {field: 'username', headerName: 'Username', width: 180},
-    {field: 'userType', headerName: 'User Type', width: 180, editable: true}
-];
-
 export const options = [
-    {label: "Default", value: ""},
-    {label: 'A->Z', value: "asc"},
-    {label: 'Z->A', value: "desc"},
+    {label: 'Default', value: ''},
+    {label: 'A->Z', value: 'asc'},
+    {label: 'Z->A', value: 'desc'},
 ];
 export const filters = [
-    {label: "Default", value: ""},
-    {label: 'Today', value: "today"},
-    {label: 'Week', value: "week"},
-    {label: 'Month', value: "month"}
+    {label: 'Default', value: ''},
+    {label: 'Today', value: 'today'},
+    {label: 'Week', value: 'week'},
+    {label: 'Month', value: 'month'}
 ];
+

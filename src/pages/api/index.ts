@@ -1,6 +1,5 @@
 import { getCookie } from '@/utils/setCookie'
 import { usersType } from '@/globalTypes'
-import fetch from 'isomorphic-unfetch';
 
 export class ApiService {
     baseUrl: string
@@ -113,12 +112,11 @@ export class ApiService {
     }
 
     async PostAuth(endpoint: string, payload: object): Promise<any> {
-        const token = getCookie('authToken')
         try {
             const response = await fetch(`${this.baseUrl}/${endpoint}`, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `${token}`,
+                    'Authorization': `${getCookie('authToken')}`,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(payload),

@@ -7,6 +7,7 @@ import { setToken } from '@/store/reducerSlice'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/store'
 import MainLoader from '@/re-usible/Loaders/MainLoader'
+import { CustomError, userValidation } from '@/utils/errors'
 
 export default function AccessTokenComponent() {
 
@@ -42,14 +43,14 @@ export default function AccessTokenComponent() {
             };
 
             api.Users('api/get-auth', extractedInfo).then(data => {
-                console.log("sign", data.token)
-                if (data.message === 'Internal server error') throw new Error
+                if(data === userValidation.blockedUser) throw new CustomError("CustomError")
+                if (data.message === userValidation.internalServer) throw new Error
                 dispatch(setToken(data.token))
                 if (data) alert.success('Logged In!');
                 router.push('/');
-            }).catch(() => {
-                alert.error('something went wrong!')
-                router.push('/login');
+            }).catch((err) => {
+                router.push('/');
+                if(err.name === "CustomError") alert.info(userValidation.blockedUser)
             })
         }
     }, [githubData, alert, router, dispatch])

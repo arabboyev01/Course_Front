@@ -7,7 +7,7 @@ import { formatted } from '@/re-usible/FormattedDate'
 
 const DumbSlicer: React.FC<ReviewType[] | null | any> = ({reviews, handleDirect}) => (
     <SliderStyled>
-        {reviews || reviews !== null ? reviews?.map(({id, name, imageUrl, grade, createdAt}: ReviewType) =>
+        {reviews || typeof reviews !== null ? reviews?.map(({id, name, imageUrl, grade, createdAt}: ReviewType) =>
             <SliderCart key={id} onClick={() => handleDirect(id)}>
                 <Images src={imageUrl} alt="images"/>
                 <Content>

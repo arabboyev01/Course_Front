@@ -16,7 +16,7 @@ const Header = () => {
     useEffect(() => {
         api.SingleUser("api/single-user")
             .then((data) => dispatch(singleUser(data))).catch(err => console.log(err))
-    }, [dispatch]);
+    }, [dispatch, router.pathname]);
 
     return <DumbHeader handleRouter={handleRouter} Auth={Auth} handleMain={handleMain} />
 }

@@ -24,13 +24,12 @@ import {
     StyleCart,
     Tags,
     Text,
-    Time, TotalLike,
+    Time,
     User,
     UserName
 } from '@/components/ReviewCart/style.cart'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import BasicPopover from '@/re-usible/Popover'
-import { handleLikes } from '@/utils/handleLikes'
 
 const DumbReview: React.FC<ReviewPropsType | any> =
     ({
@@ -46,7 +45,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
          setId, checkId, edit
      }) => (
         <StyleCart>
-            {!ReviewsData || loading ? (<Center><MainLoader/></Center>) :
+            {typeof ReviewsData === null|| loading ? (<Center><MainLoader/></Center>) :
                 <MainCartWrapper>
                     {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, createdAt, isLiked}: ReviewType) =>
                         <CartWrapper key={id}>

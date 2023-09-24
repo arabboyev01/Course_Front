@@ -4,7 +4,6 @@ import { api } from '@/config'
 import { ReviewType } from '@/globalTypes'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectTags, sortName, filterName } from '@/store/Selector'
-import { quantity } from '@/components/ReviewCart/utils'
 import { useRouter } from 'next/router'
 import { AppDispatch } from '@/store'
 import { reviewDataLength } from '@/store/reducerSlice'
@@ -17,8 +16,12 @@ const ReviewCart = () => {
     const router = useRouter()
     const alert = useAlert();
     const dispatch = useDispatch<AppDispatch>()
+
     const [reviews, setReviews] = useState<ReviewType | null>(null)
+    const [count, setCount] = useState(0)
+    const [page, setPage] = useState(1)
     const [loading, setLoading] = useState(false)
+
     const selectedTags = useSelector(selectTags)
     const FilterName = useSelector(filterName);
     const SortName = useSelector(sortName)
@@ -28,32 +31,26 @@ const ReviewCart = () => {
     const fetchReviews = useCallback(async () => {
         setLoading(true)
         try {
-            const fetchedUsers = await api.getUsers(`api/all-reviews?selectedTags=${selectedTagsString}&filterName=${FilterName}&&sortName=${SortName}`);
-            setReviews(fetchedUsers);
+            const fetchedUsers = await api.getUsers(`api/all-reviews?selectedTags=${selectedTagsString}&filterName=${FilterName}&&sortName=${SortName}&page=${page}&pageSize=${5}`);
+            setReviews(fetchedUsers.reviews);
             setLoading(false)
-            dispatch(reviewDataLength(fetchedUsers?.length))
+            dispatch(reviewDataLength(fetchedUsers.currentPage))
+            setCount(fetchedUsers.totalPages)
         } catch (error) {
             throw error;
         }
-    }, [selectedTagsString, dispatch, FilterName, SortName])
+    }, [selectedTagsString, dispatch, FilterName, SortName, page])
 
     useEffect(() => {
         fetchReviews().then(console.log).catch(err => console.log(err))
     }, [fetchReviews]);
 
-    const count = quantity(reviews)
-    const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(5);
-
-    const indexOfLastPost = currentPage * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const slicedReview = Array.isArray(reviews) ? reviews.slice(indexOfFirstPost, indexOfLastPost) : null
-    const handlePaginateData = (number: any) => setCurrentPage(number)
+    const handlePaginateData = (number: any) => setPage(number)
     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
     const likeReq = (reviewId: number) => handleLikeReq(reviewId, alert)
 
     return <DumbReview
-        ReviewsData={slicedReview}
+        ReviewsData={reviews}
         loading={loading}
         count={count}
         handlePaginateData={handlePaginateData}

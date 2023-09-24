@@ -7,6 +7,7 @@ import { AppDispatch } from '@/store'
 import { setToken, verifyUser } from '@/store/reducerSlice'
 import { useState } from 'react'
 import { useAlert } from 'react-alert';
+import { CustomError, userValidation } from '@/utils/errors'
 
 const LoginComponent = () => {
 
@@ -19,13 +20,15 @@ const LoginComponent = () => {
     const handleLogin = (values: LoginUsersType) => {
         setLoader(true)
         api.Users('api/login', values).then(data => {
-            if (data?.error) throw new Error
+            if(data === userValidation.blockedUser) throw new CustomError("CustomError")
+            if (data?.error) throw new Error("Login error")
             if (data) alert.success('Logged In!');
             dispatch(setToken(data.token));
             dispatch(verifyUser())
             router.push('/');
-        }).catch(() => {
-            alert.error('username or password is wrong!')
+        }).catch((err) => {
+            if(err.name === "CustomError") alert.info(userValidation.blockedUser)
+            else alert.error('username or password is wrong!')
         }).finally(() => setLoader(false))
     }
 
