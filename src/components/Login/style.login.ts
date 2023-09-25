@@ -107,7 +107,7 @@ export const SignUpWrapper = styled.div`
   align-items: center;
   margin-top: 40px;
   gap: 10px;
-  padding-left: 20px;
+  padding-left: 10px;
 `
 export const SignUp = styled.p`
   color: #565454;

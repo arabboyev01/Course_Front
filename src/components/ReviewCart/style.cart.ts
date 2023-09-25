@@ -124,8 +124,7 @@ export const RatingText = styled.p`
 
 export const Images = styled.img`
   object-fit: cover;
-  margin: 20px 0;
-  //border: .5px solid #333;
+  margin: 10px 0;
   max-width: 880px;
   width: 100%;
   height: 400px;

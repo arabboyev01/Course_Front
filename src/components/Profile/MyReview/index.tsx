@@ -8,7 +8,8 @@ import { StyleReview } from '@/components/Profile/MyReview/style.review'
 import Sorting from '@/components/Sorting'
 import { useDispatch, useSelector } from 'react-redux'
 import { reviewDataLength } from '@/store/reducerSlice'
-import { filterName, sortName } from '@/store/Selector'
+import { filterName, sortName, userReviewId } from '@/store/Selector'
+import { handleLikeReq } from '@/utils/PostRequest'
 
 const MyReview = () => {
 
@@ -23,15 +24,15 @@ const MyReview = () => {
 
     const FilterName = useSelector(filterName);
     const SortName = useSelector(sortName)
+    const UserReviewId = useSelector(userReviewId)
 
     useEffect(() => {
         setLoading(true)
         api.SingleUser(`api/user-review?selectedTags=${null}&filterName=${FilterName}&&sortName=${SortName}&page=${page}&pageSize=${5}`)
             .then((data) => {
-                console.log(data)
                 setReview(data.results);
                 dispatch(reviewDataLength(data.results.length))
-                setCount(Math.ceil(data.results.length/5))
+                setCount(Math.ceil(data.results.length / 5))
             }).catch(err => console.log(err)).finally(() => setLoading(false))
     }, [dispatch, FilterName, SortName, page]);
 
@@ -43,6 +44,9 @@ const MyReview = () => {
         setAnchorEl(event.currentTarget);
     };
     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
+    const likeReq = (reviewId: number) => {
+        handleLikeReq(reviewId, alert, dispatch)
+    }
 
     return (
         <StyleReview>
@@ -59,6 +63,8 @@ const MyReview = () => {
                 navigateSinglePage={navigateSinglePage}
                 count={count}
                 handlePaginateData={handlePaginateData}
+                handleLikeReq={likeReq}
+                UserReviewId={UserReviewId}
             />
         </StyleReview>
     )

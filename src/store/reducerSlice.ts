@@ -61,8 +61,10 @@ const reducerSlice = createSlice({
         },
         handleLiked: (state) => {
             state.isLiked = !state.isLiked
+        },
+        setTotalLike:(state: any, action:PayloadAction) => {
+            state.totalLike = action.payload
         }
-
     },
 });
 
@@ -80,7 +82,8 @@ export const {
     sortName,
     logOut,
     setUserReviewId,
-    handleLiked
+    handleLiked,
+    setTotalLike
 } = reducerSlice.actions;
 
 

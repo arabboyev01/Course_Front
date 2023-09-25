@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Authorized, isLiked } from '@/store/Selector'
 import { useEffect, useState } from 'react'
 import { api } from '@/config'
-import { singleUser, setUserReviewId } from '@/store/reducerSlice'
+import { singleUser, setUserReviewId, setTotalLike } from '@/store/reducerSlice'
 import { usersType } from '@/globalTypes'
 
 const Header = () => {

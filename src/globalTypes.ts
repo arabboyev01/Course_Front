@@ -82,6 +82,7 @@ export interface CounterState {
     sortName: string
     userReviewId: null | number[]
     isLiked: boolean
+    totalLike: null|number
 }
 
 export interface HandleLoginType {

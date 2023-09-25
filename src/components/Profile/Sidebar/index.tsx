@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { generateSidebarNavItems } from '@/Static'
 import { SingleUser } from '@/store/Selector'
 import { AppDispatch } from '@/store'
-import { logOut } from '@/store/reducerSlice'
+import { logOut, handleLiked } from '@/store/reducerSlice'
 
 const Sidebar = () => {
 
@@ -19,6 +19,7 @@ const Sidebar = () => {
 
     const handleActive = (route: string) => {
         if (route === '/') {
+            dispatch(handleLiked())
             dispatch(logOut())
             alert.info('Logged out')
         }

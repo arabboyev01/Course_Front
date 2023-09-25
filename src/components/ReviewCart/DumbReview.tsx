@@ -5,7 +5,6 @@ import MainLoader from '@/re-usible/Loaders/MainLoader'
 import Avatar from '@mui/material/Avatar'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import PaginationRounded from '@/re-usible/Pagination'
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { formatted } from '@/re-usible/FormattedDate'
 import {
     CartDetail,
@@ -30,6 +29,7 @@ import {
 } from '@/components/ReviewCart/style.cart'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import BasicPopover from '@/re-usible/Popover'
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const DumbReview: React.FC<ReviewPropsType | any> =
     ({
@@ -45,7 +45,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
          setId, checkId, edit, UserReviewId
      }) => (
         <StyleCart>
-            {typeof ReviewsData === null|| loading ? (<Center><MainLoader/></Center>) :
+            {ReviewsData === null|| loading ? (<Center><MainLoader/></Center>) :
                 <MainCartWrapper>
                     {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, createdAt}: ReviewType) =>
                         <CartWrapper key={id}>
@@ -54,13 +54,13 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                 <ControlButton>
                                     <Likes onClick={() => handleLikeReq(id)}>
                                         {/*<TotalLike>{likes?.likes?.length}</TotalLike>*/}
-                                        <ThumbUpIcon style={{color: UserReviewId?.includes(id) ? 'blue' : '#8f8f8f'}}/>
+                                        <FavoriteIcon style={{color: UserReviewId?.includes(id) ? '#bf0000' : '#8f8f8f', fontSize: '1.7rem'}}/>
                                     </Likes>
                                     {edit ?
-                                    <Dots onClick={() => checkId(id)}>
+                                     <Dots onClick={() => checkId(id)}>
                                         <MoreVertIcon onClick={handleClick}/>
                                         <BasicPopover anchorEl={anchorEl} setAnchorEl={setAnchorEl} setId={setId}/>
-                                    </Dots> : null
+                                     </Dots> : null
                                     }
                                 </ControlButton>
                             </HeaderWrapper>

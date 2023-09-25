@@ -10,7 +10,7 @@ const DumbHeader: React.FC<RoutingType> = ({handleRouter, Auth, handleMain}) => 
             <LogoImage src={Logo.src} alt="logo" onClick={handleMain}/>
             <Aligned>
                 {!Auth ?
-                    <LoginButton onClick={handleRouter}>Login</LoginButton> :
+                    <LoginButton onClick={handleRouter}>Sign in</LoginButton> :
                     <UserAvatar/>
                 }
             </Aligned>

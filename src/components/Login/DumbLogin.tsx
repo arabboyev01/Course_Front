@@ -33,11 +33,11 @@ const DumbLogin: React.FC<HandleLoginType> = ({handleLogin, loginRoute, loader, 
                             <CssTextField {...FOUNDATION_FORM_VALUES.username}/>
                         </InputWrapper>
                         <InputWrapper>
-                            <CssTextField {...FOUNDATION_FORM_VALUES.password}/>
+                            <CssTextField {...FOUNDATION_FORM_VALUES.password} type='password'/>
                         </InputWrapper>
                         <SignUpWrapper>
                             <SignUp>Do not have an account ?</SignUp>
-                            <SignUpLinks onClick={loginRoute}>Signup</SignUpLinks>
+                            <SignUpLinks onClick={loginRoute}>Sig-nup</SignUpLinks>
                         </SignUpWrapper>
                         <InputWrapper>
                             <SubmitButton type="submit">

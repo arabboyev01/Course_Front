@@ -20,9 +20,7 @@ const Favorites = () => {
     }, [liked])
 
      const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
-    const likeReq = (reviewId: number) => {
-        handleLikeReq(reviewId, alert, dispatch)
-    }
+    const likeReq = (reviewId: number) => handleLikeReq(reviewId, alert, dispatch)
 
     return <DumbFavorite ReviewsData={data} navigateSinglePage={navigateSinglePage} likeReq={likeReq} UserReviewId={UserReviewId}/>
 }
