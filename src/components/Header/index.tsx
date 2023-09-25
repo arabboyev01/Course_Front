@@ -1,24 +1,38 @@
 import DumbHeader from '@/components/Header/DumbHeader'
 import { useRouter } from 'next/router'
 import { useDispatch, useSelector } from 'react-redux'
-import { Authorized } from '@/store/Selector'
-import { useEffect } from 'react'
+import { Authorized, isLiked } from '@/store/Selector'
+import { useEffect, useState } from 'react'
 import { api } from '@/config'
-import { singleUser } from '@/store/reducerSlice'
+import { singleUser, setUserReviewId } from '@/store/reducerSlice'
+import { usersType } from '@/globalTypes'
 
 const Header = () => {
     const router = useRouter();
     const Auth = useSelector(Authorized);
+    const liked = useSelector(isLiked)
     const dispatch = useDispatch()
-    const handleRouter = () => router.push("/login");
-    const handleMain = () => router.push("/")
+    const [single, setSingle] = useState<usersType | null>(null)
+    const handleRouter = () => router.push('/login');
+    const handleMain = () => router.push('/')
 
     useEffect(() => {
-        api.SingleUser("api/single-user")
-            .then((data) => dispatch(singleUser(data))).catch(err => console.log(err))
+        api.SingleUser('api/single-user')
+            .then((data) => {
+                setSingle(data)
+                dispatch(singleUser(data))
+            }).catch(err => console.log(err))
     }, [dispatch, router.pathname]);
 
-    return <DumbHeader handleRouter={handleRouter} Auth={Auth} handleMain={handleMain} />
+    useEffect(() => {
+        if (single !== null) {
+            api.getUsers(`api/user-like-reviewid?userId=${single.id}`).then(data => {
+                dispatch(setUserReviewId(data))
+            }).catch(err => console.log(err))
+        }
+    }, [dispatch, router.pathname, single, liked])
+
+    return <DumbHeader handleRouter={handleRouter} Auth={Auth} handleMain={handleMain}/>
 }
 
 export default Header;

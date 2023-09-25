@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { api } from '@/config'
 import { ReviewType } from '@/globalTypes'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectTags, sortName, filterName } from '@/store/Selector'
+import { selectTags, sortName, filterName, userReviewId } from '@/store/Selector'
 import { useRouter } from 'next/router'
 import { AppDispatch } from '@/store'
 import { reviewDataLength } from '@/store/reducerSlice'
@@ -25,6 +25,7 @@ const ReviewCart = () => {
     const selectedTags = useSelector(selectTags)
     const FilterName = useSelector(filterName);
     const SortName = useSelector(sortName)
+    const UserReviewId = useSelector(userReviewId)
 
     const selectedTagsString = JSON.stringify(selectedTags)
 
@@ -47,7 +48,9 @@ const ReviewCart = () => {
 
     const handlePaginateData = (number: any) => setPage(number)
     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
-    const likeReq = (reviewId: number) => handleLikeReq(reviewId, alert)
+    const likeReq = (reviewId: number) => {
+        handleLikeReq(reviewId, alert, dispatch)
+    }
 
     return <DumbReview
         ReviewsData={reviews}
@@ -56,6 +59,7 @@ const ReviewCart = () => {
         handlePaginateData={handlePaginateData}
         navigateSinglePage={navigateSinglePage}
         handleLikeReq={likeReq}
+        UserReviewId={UserReviewId}
     />
 }
 

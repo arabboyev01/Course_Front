@@ -11,5 +11,7 @@ export const initialState: CounterState = {
   singleUser: null,
   userId: null,
   filterName: "",
-  sortName: ""
+  sortName: "",
+  userReviewId: null,
+  isLiked: false
 };

@@ -10,9 +10,7 @@ export class ApiService {
 
     async getUsers(endpoint: string): Promise<any> {
         try {
-            const response = await fetch(`${this.baseUrl}/${endpoint}`, {
-                method: 'GET'
-            });
+            const response = await fetch(`${this.baseUrl}/${endpoint}`, {method: 'GET'});
 
             return await response.json();
         } catch (error) {
@@ -24,9 +22,7 @@ export class ApiService {
         try {
             const response = await fetch(`${this.baseUrl}/${endpoint}`, {
                 method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                }
+                headers: {'Authorization': `Bearer ${localStorage.getItem('accessToken')}`}
             });
             return response.json();
         } catch (err) {
@@ -38,9 +34,7 @@ export class ApiService {
         try {
             const response = await fetch(`${this.baseUrl}/${endpoint}`, {
                 method: 'GET',
-                headers: {
-                    'Authorization': `${getCookie('authToken')}`
-                }
+                headers: {'Authorization': `${getCookie('authToken')}`}
             });
             return response.json();
         } catch (err) {

@@ -53,7 +53,16 @@ const reducerSlice = createSlice({
         },
         sortName: (state: any, action: PayloadAction) => {
             state.sortName = action.payload
+        },
+        setUserReviewId: (state: any, action: PayloadAction|any) => {
+            if(action.payload.length){
+                state.userReviewId = action.payload
+            }
+        },
+        handleLiked: (state) => {
+            state.isLiked = !state.isLiked
         }
+
     },
 });
 
@@ -69,7 +78,9 @@ export const {
     getUserId,
     filterName,
     sortName,
-    logOut
+    logOut,
+    setUserReviewId,
+    handleLiked
 } = reducerSlice.actions;
 
 

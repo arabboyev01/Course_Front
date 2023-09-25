@@ -10,3 +10,5 @@ export const SingleUser = (state: RootState) => state.counter.singleUser
 export const adminUserId = (state: RootState) => state.counter.userId
 export const sortName = (state: RootState) => state.counter.sortName
 export const filterName = (state: RootState) => state.counter.filterName
+export const userReviewId = (state: RootState) => state.counter.userReviewId
+export const isLiked = (state: RootState) => state.counter.isLiked

@@ -80,6 +80,8 @@ export interface CounterState {
     userId: null | number
     filterName: string
     sortName: string
+    userReviewId: null | number[]
+    isLiked: boolean
 }
 
 export interface HandleLoginType {

@@ -42,19 +42,19 @@ const DumbReview: React.FC<ReviewPropsType | any> =
          anchorEl,
          handleClick,
          setAnchorEl,
-         setId, checkId, edit
+         setId, checkId, edit, UserReviewId
      }) => (
         <StyleCart>
             {typeof ReviewsData === null|| loading ? (<Center><MainLoader/></Center>) :
                 <MainCartWrapper>
-                    {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, createdAt, isLiked}: ReviewType) =>
+                    {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, createdAt}: ReviewType) =>
                         <CartWrapper key={id}>
                             <HeaderWrapper>
                                 <div></div>
                                 <ControlButton>
                                     <Likes onClick={() => handleLikeReq(id)}>
                                         {/*<TotalLike>{likes?.likes?.length}</TotalLike>*/}
-                                        <ThumbUpIcon style={{color: isLiked ? 'blue' : '#8f8f8f'}}/>
+                                        <ThumbUpIcon style={{color: UserReviewId?.includes(id) ? 'blue' : '#8f8f8f'}}/>
                                     </Likes>
                                     {edit ?
                                     <Dots onClick={() => checkId(id)}>
