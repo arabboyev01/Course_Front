@@ -17,11 +17,10 @@ const Header = () => {
     const handleMain = () => router.push('/')
 
     useEffect(() => {
-        api.SingleUser('api/single-user')
-            .then((data) => {
-                setSingle(data)
-                dispatch(singleUser(data))
-            }).catch(err => console.log(err))
+        api.SingleUser('api/single-user').then((data) => {
+            setSingle(data)
+            dispatch(singleUser(data))
+        }).catch(err => console.log(err))
     }, [dispatch, router.pathname]);
 
     useEffect(() => {
@@ -31,6 +30,11 @@ const Header = () => {
             }).catch(err => console.log(err))
         }
     }, [dispatch, router.pathname, single, liked])
+
+    useEffect(() => {
+        api.getUsers(`api/like-sum`).then(data => dispatch(setTotalLike(data)))
+            .catch(err => console.log(err))
+    }, [dispatch, router.pathname, liked])
 
     return <DumbHeader handleRouter={handleRouter} Auth={Auth} handleMain={handleMain}/>
 }

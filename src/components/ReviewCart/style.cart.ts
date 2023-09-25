@@ -28,6 +28,11 @@ export const ControlButton = styled.div`
   align-items: center;
   gap: 20px;
 `
+export const MainLike = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2px;
+`
 export const Likes = styled.div`
   width: 40px;
   height: 40px;
@@ -35,7 +40,7 @@ export const Likes = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+
   &:hover {
     background: #ddd;
     border-radius: 50px;
@@ -44,7 +49,8 @@ export const Likes = styled.div`
 `
 
 export const TotalLike = styled.p`
-
+  font-size: 18px;
+  font-weight: 600;
 `
 export const Dots: any = styled.div`
   width: 35px;
@@ -53,7 +59,7 @@ export const Dots: any = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+
   &:hover {
     background: #ddd;
     border-radius: 30px;
@@ -64,7 +70,7 @@ export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media(max-width: 650px){
+  @media (max-width: 650px) {
     margin-right: 10px;
   }
 `
@@ -162,7 +168,7 @@ export const ReadMoreButton = styled.button`
   &:hover {
     gap: 5px;
   }
-  
+
   @media (max-width: 650px) {
     margin-bottom: 10px;
   }

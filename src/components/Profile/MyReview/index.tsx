@@ -8,7 +8,7 @@ import { StyleReview } from '@/components/Profile/MyReview/style.review'
 import Sorting from '@/components/Sorting'
 import { useDispatch, useSelector } from 'react-redux'
 import { reviewDataLength } from '@/store/reducerSlice'
-import { filterName, sortName, userReviewId } from '@/store/Selector'
+import { filterName, sortName, totalLike, userReviewId } from '@/store/Selector'
 import { handleLikeReq } from '@/utils/PostRequest'
 
 const MyReview = () => {
@@ -25,6 +25,7 @@ const MyReview = () => {
     const FilterName = useSelector(filterName);
     const SortName = useSelector(sortName)
     const UserReviewId = useSelector(userReviewId)
+    const TotalLike = useSelector(totalLike)
 
     useEffect(() => {
         setLoading(true)
@@ -65,6 +66,7 @@ const MyReview = () => {
                 handlePaginateData={handlePaginateData}
                 handleLikeReq={likeReq}
                 UserReviewId={UserReviewId}
+                totalLike={TotalLike}
             />
         </StyleReview>
     )

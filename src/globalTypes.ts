@@ -67,6 +67,10 @@ export type LoginUsersType = {
     username: string
     password: string
 }
+export type totalLikeType = {
+    reviewId: number
+    likeCount: number
+}
 
 export interface CounterState {
     isAuthorized: boolean
@@ -82,7 +86,7 @@ export interface CounterState {
     sortName: string
     userReviewId: null | number[]
     isLiked: boolean
-    totalLike: null|number
+    totalLike: null|totalLikeType[]
 }
 
 export interface HandleLoginType {

@@ -4,7 +4,7 @@ import { api } from '@/config'
 import { useRouter } from 'next/router'
 import { handleLikeReq } from '@/utils/PostRequest'
 import { useDispatch, useSelector } from 'react-redux'
-import { isLiked, userReviewId } from '@/store/Selector'
+import { isLiked, totalLike, userReviewId } from '@/store/Selector'
 import { AppDispatch } from '@/store'
 
 const Favorites = () => {
@@ -12,17 +12,24 @@ const Favorites = () => {
     const router = useRouter();
     const UserReviewId = useSelector(userReviewId)
     const liked = useSelector(isLiked)
-     const dispatch = useDispatch<AppDispatch>()
+    const TotalLike = useSelector(totalLike)
+    const dispatch = useDispatch<AppDispatch>()
 
     useEffect(() => {
-        api.SingleUser("api/single-user-like").then(data => setData(data))
+        api.SingleUser('api/single-user-like').then(data => setData(data))
             .catch(err => console.log(err))
     }, [liked])
 
-     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
+    const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
     const likeReq = (reviewId: number) => handleLikeReq(reviewId, alert, dispatch)
 
-    return <DumbFavorite ReviewsData={data} navigateSinglePage={navigateSinglePage} likeReq={likeReq} UserReviewId={UserReviewId}/>
+    return <DumbFavorite
+        ReviewsData={data}
+        navigateSinglePage={navigateSinglePage}
+        likeReq={likeReq}
+        UserReviewId={UserReviewId}
+        totalLike={TotalLike}
+    />
 }
 
 export default Favorites

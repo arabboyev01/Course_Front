@@ -16,14 +16,14 @@ import {
     Dots,
     HeaderWrapper,
     Images, Likes,
-    MainCartWrapper,
+    MainCartWrapper, MainLike,
     RatingText,
     ReadMoreButton,
     ReviewName,
     StyleCart,
     Tags,
     Text,
-    Time,
+    Time, TotalLike,
     User,
     UserName
 } from '@/components/ReviewCart/style.cart'
@@ -42,25 +42,31 @@ const DumbReview: React.FC<ReviewPropsType | any> =
          anchorEl,
          handleClick,
          setAnchorEl,
-         setId, checkId, edit, UserReviewId
+         setId, checkId, edit, UserReviewId, totalLike
      }) => (
         <StyleCart>
-            {ReviewsData === null|| loading ? (<Center><MainLoader/></Center>) :
+            {ReviewsData === null || loading || !totalLike ? (<Center><MainLoader/></Center>) :
                 <MainCartWrapper>
-                    {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, createdAt}: ReviewType) =>
+                    {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, createdAt
+                                       }: ReviewType, index: number) =>
                         <CartWrapper key={id}>
                             <HeaderWrapper>
                                 <div></div>
                                 <ControlButton>
-                                    <Likes onClick={() => handleLikeReq(id)}>
-                                        {/*<TotalLike>{likes?.likes?.length}</TotalLike>*/}
-                                        <FavoriteIcon style={{color: UserReviewId?.includes(id) ? '#bf0000' : '#8f8f8f', fontSize: '1.7rem'}}/>
-                                    </Likes>
+                                    <MainLike>
+                                        <Likes onClick={() => handleLikeReq(id)}>
+                                            <FavoriteIcon style={{
+                                                color: UserReviewId?.includes(id) ? '#bf0000' : '#8f8f8f',
+                                                fontSize: '1.7rem'
+                                            }}/>
+                                        </Likes>
+                                        <TotalLike>{totalLike[index].likeCount}</TotalLike>
+                                    </MainLike>
                                     {edit ?
-                                     <Dots onClick={() => checkId(id)}>
-                                        <MoreVertIcon onClick={handleClick}/>
-                                        <BasicPopover anchorEl={anchorEl} setAnchorEl={setAnchorEl} setId={setId}/>
-                                     </Dots> : null
+                                        <Dots onClick={() => checkId(id)}>
+                                            <MoreVertIcon onClick={handleClick}/>
+                                            <BasicPopover anchorEl={anchorEl} setAnchorEl={setAnchorEl} setId={setId}/>
+                                        </Dots> : null
                                     }
                                 </ControlButton>
                             </HeaderWrapper>

@@ -12,3 +12,4 @@ export const sortName = (state: RootState) => state.counter.sortName
 export const filterName = (state: RootState) => state.counter.filterName
 export const userReviewId = (state: RootState) => state.counter.userReviewId
 export const isLiked = (state: RootState) => state.counter.isLiked
+export const totalLike = (state: RootState) => state.counter.totalLike
