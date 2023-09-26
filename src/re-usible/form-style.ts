@@ -4,28 +4,28 @@ export const CssTextField: any = styled(TextField)(({}) => ({
     width: 'cal(100%-10px)',
     height: '35px',
     '& label.Mui-focused': {
-        color: 'rgba(0, 0, 0, 0.4)',
+        color: '#8f8f8f',
     },
     '& input.MuiOutlinedInput-input': {
-        color: 'rgba(0, 0, 0, 0.4)',
+        color: '#8f8f8f',
     },
     '& .MuiInput-underline:after': {
-        borderBottomColor: 'rgba(0, 0, 0, 0.4)',
+        borderBottomColor: '#8f8f8f',
     },
     '& .MuiInputLabel-root': {
-        color: 'rgba(0, 0, 0, 0.4)',
+        color: '#8f8f8f',
     },
     '& .MuiOutlinedInput-root': {
-        borderRadius: '8px',
-        color: 'rgba(0, 0, 0, 0.4)',
+        borderRadius: '5px',
+        color: '#8f8f8f',
         '& fieldset': {
-            borderColor: 'rgba(0, 0, 0, 0.4)',
+            borderColor: '#8f8f8f',
         },
         '&:hover fieldset': {
-            borderColor: 'rgba(0, 0, 0, 0.4)',
+            borderColor: '#8f8f8f',
         },
         '&.Mui-focused fieldset': {
-            borderColor: 'rgba(0, 0, 0, 0.4)',
+            borderColor: '#8f8f8f',
         },
     },
     'input[type=number]::-webkit-inner-spin-button': {'-webkit-appearance: none;margin': 0},

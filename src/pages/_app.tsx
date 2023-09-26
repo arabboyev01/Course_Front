@@ -18,7 +18,7 @@ const options = {
     },
     zIndex: 1001
 };
-
+const clientId = "915688630240-ncpe3p2ifr0uirapiige1406j3lp0g5b.apps.googleusercontent.com"
 
 export default function App({Component, pageProps}: AppProps) {
 
@@ -26,7 +26,7 @@ export default function App({Component, pageProps}: AppProps) {
         <ReduxProvider store={store}>
             <ThemeProviderValue>
                 <GoogleOAuthProvider
-                    clientId="915688630240-ncpe3p2ifr0uirapiige1406j3lp0g5b.apps.googleusercontent.com">
+                    clientId={clientId}>
                     <AlertProvider template={AlertTemplate} {...options}>
                         <Layout>
                             <Component {...pageProps} />

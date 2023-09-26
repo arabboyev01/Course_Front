@@ -22,20 +22,20 @@ export const TableContainer = styled.div`
 `;
 
 export const TableHeader = styled.th`
-  background-color: #f2f2f2;
-  border: 1px solid #dddddd;
+  background-color: ${({theme}) => theme.body};
+  border: ${({theme}) => theme.borderTheme};
   text-align: left;
   padding: 10px;
 `;
 
 export const TableRow = styled.tr`
   &:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: ${({theme}) => theme.body};
   }
 `;
 
 export const TableCell = styled.td`
-  border: 1px solid #dddddd;
+  border: ${({theme}) => theme.borderTheme};
   text-align: left;
   padding: 10px;
 `;
