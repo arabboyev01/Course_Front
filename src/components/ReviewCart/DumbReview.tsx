@@ -60,7 +60,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                                 fontSize: '1.7rem'
                                             }}/>
                                         </Likes>
-                                        <TotalLike>{totalLike[index].likeCount}</TotalLike>
+                                        <TotalLike>{totalLike[index]?.reviewId === id && totalLike[index]?.likeCount}</TotalLike>
                                     </MainLike>
                                     {edit ?
                                         <Dots onClick={() => checkId(id)}>

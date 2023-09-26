@@ -49,7 +49,7 @@ export const Likes = styled.div`
 `
 
 export const TotalLike = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 `
 export const Dots: any = styled.div`
