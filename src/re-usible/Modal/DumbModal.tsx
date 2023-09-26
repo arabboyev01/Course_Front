@@ -1,9 +1,8 @@
 import Modal from '@mui/material/Modal'
-import Box from '@mui/material/Box'
 import * as React from 'react'
 import Backdrop from '@mui/material/Backdrop'
 import Fade from './Fade'
-import { style, UploadContainer, FileInput, UploadButton, FileName } from './style.modal'
+import { UploadContainer, FileInput, UploadButton, FileName, ContentWrapper } from './style.modal'
 import { ModalProps } from '@/globalTypes'
 import ButtonLoader from '@/re-usible/Loaders/ButtonLoader'
 
@@ -31,8 +30,8 @@ const DumbModal: React.FC<ModalProps> =
                 }}
             >
                 <Fade in={open}>
-                    <Box sx={style}>
-                        <UploadContainer>
+                    <ContentWrapper>
+                        <UploadContainer style={{ backgroundImage: `url(${selectedFile})` }}>
                             <FileInput type="file" id="file" accept="image/*" onChange={handleFileChange}/>
                             {selectedFile ?
                                 <UploadButton onClick={handleUploadImage}>
@@ -42,7 +41,7 @@ const DumbModal: React.FC<ModalProps> =
                             }
                             {selectedFile && <FileName>Selected File: {selectedFile.name}</FileName>}
                         </UploadContainer>
-                    </Box>
+                    </ContentWrapper>
                 </Fade>
             </Modal>
         </div>

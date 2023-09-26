@@ -1,26 +1,30 @@
 import styled from "styled-components"
-export const style = {
-  position: 'absolute' as 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '.2px solid rgba(0, 0, 0, 0.3)',
-  boxShadow: 24,
-  p: 4,
-  borderRadius: "12px",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center"
-};
+
+export const ContentWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  border:${({theme}) => theme.borderTheme};
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: ${({theme}) => theme.body};
+`
 
 export const UploadContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 30px 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
 `;
 
 export const FileInput = styled.input`
