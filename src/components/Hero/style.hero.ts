@@ -2,7 +2,10 @@ import styled from 'styled-components'
 
 export const StyleHero = styled.div`
   width: 100%;
-  background-image: url("https://landingfoliocom.imgix.net/store/collection/clarity-blog/images/hero/5/grid-pattern.png");
+  background-image: ${({ theme }) =>
+    theme.name === 'light'
+      ? 'url("https://landingfoliocom.imgix.net/store/collection/clarity-blog/images/hero/5/grid-pattern.png")'
+      : 'none'};
   background-size: contain;
   background-position: center;
   overflow: hidden;

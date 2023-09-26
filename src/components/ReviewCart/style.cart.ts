@@ -42,7 +42,7 @@ export const Likes = styled.div`
   justify-content: center;
 
   &:hover {
-    background: #ddd;
+    background: ${({theme}) => theme.iconHover};
     border-radius: 50px;
     cursor: pointer;
   }
@@ -77,7 +77,7 @@ export const HeaderWrapper = styled.div`
 export const CartWrapper: any = styled.div`
   padding: 20px;
   color: #333;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: ${({theme}) => theme.borderTheme};
   @media (max-width: 650px) {
     padding: 8px 0;
   }
@@ -99,7 +99,7 @@ export const UserName = styled.p`
   font-size: 14px;
   font-weight: 600;
   font-style: oblique;
-  color: #000;
+  color: ${({theme}) => theme.text};
 `
 
 export const CartDetail = styled.div`
@@ -112,7 +112,7 @@ export const Time = styled.p`
 `
 export const ReviewName = styled.h2`
   font-weight: 500;
-  color: #000;
+  color: ${({theme}) => theme.text};
   margin: 12px 0;
 `
 
@@ -146,7 +146,7 @@ export const CartFooter = styled.div`
 
 export const Tags = styled.p`
   font-size: 15px;
-  color: rgb(39, 39, 225);
+  color: ${({theme}) => theme.tags};
   margin: 15px 0;
   font-style: italic;
   font-weight: 600;

@@ -11,6 +11,7 @@ const Header = () => {
     const router = useRouter();
     const Auth = useSelector(Authorized);
     const liked = useSelector(isLiked)
+
     const dispatch = useDispatch()
     const [single, setSingle] = useState<usersType | null>(null)
     const handleRouter = () => router.push('/login');

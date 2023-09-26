@@ -6,7 +6,7 @@ export const Sidebar: any = styled.div`
   left: 0;
   height: 100vh;
   width: ${(props: any) => (props.open ? '300px' : '0')};
-  background-color: #fff;
+  background-color: ${({theme}) => theme.body};
   overflow-y: auto;
   z-index: 100;
   transition: left 0.3s ease, right 0.3s ease; 
@@ -36,7 +36,7 @@ export const ItemText: any = styled.p`
   align-items: center;
   padding: 1rem;
   font-weight: 700;
-  color: #555555;
+  color: ${({theme}) => theme.text};
   color: ${(props: any) => (props.active ? '#fff' : props.logout && '#bf0000')};
   transition: color 0.3s ease-in-out;
   font-size: 17px;
@@ -51,8 +51,8 @@ export const SidebarMenuItem: any = styled.div`
   background-color: ${(props: any) => (props.active ? 'rgb(62, 40, 222)' : 'transparent')};
 
   &:hover {
-    background: #ddd;
-    color: #000;
+    background: ${({theme}) => theme.mainHover};
+    color: ${({theme}) => theme.text};
   }
 `;
 
@@ -73,7 +73,7 @@ export const IconHover = styled.div`
   top: 40px;
 
   &:hover {
-    background: #ddd;
+    background: ${({theme}) => theme.iconHover};
     border-radius: 50px;
     cursor: pointer;
   }

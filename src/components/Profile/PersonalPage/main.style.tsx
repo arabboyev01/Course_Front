@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const MainWrapper = styled.div`
   padding: 30px 40px 50px 40px;
-  background: #fff;
+  background: ${({theme}) => theme.body};
   border-radius: 10px;
   margin: 50px 0 0 20px;
   max-width: 800px;
   width: 100%;
-  border: .1px solid rgba(0, 0, 0, 0.2);
+  border: ${({theme}) => theme.borderTheme};
   @media (max-width: 650px) {
     margin: 20px auto 0 auto;
     padding: 30px 0 0 10px;
@@ -43,7 +43,7 @@ export const Sub = styled.p`
   font-size: 16px;
   line-height: 18.8px;
   font-weight: 500;
-  color: #455262;
+  color: ${({theme}) => theme.subtitle};
   padding-bottom: 5px;
   padding-left: 5px;
 `;

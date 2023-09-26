@@ -34,7 +34,7 @@ export const SliderCart = styled.div`
   display: flex;
   width: 400px;
   height: 150px;
-  border: .5px solid rgba(0, 0, 0, 0.3);
+  border: ${({theme}) => theme.borderTheme};
   padding: 20px;
   border-radius: 8px;
   flex-direction: row;
@@ -44,7 +44,7 @@ export const SliderCart = styled.div`
   cursor: pointer;
   
   &:hover{
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: ${({theme}) => theme.borderTheme};
   }
   
   @media(max-width: 650px){

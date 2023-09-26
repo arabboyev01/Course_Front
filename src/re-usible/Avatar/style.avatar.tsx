@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const AddReviewButton = styled.button`
-  background: rgb(62, 40, 222);
+  background: ${({theme}) => theme.primary};
   border: none;
   border-radius: 3px;
   color: #fff;

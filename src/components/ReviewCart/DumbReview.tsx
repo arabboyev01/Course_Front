@@ -64,7 +64,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                     </MainLike>
                                     {edit ?
                                         <Dots onClick={() => checkId(id)}>
-                                            <MoreVertIcon onClick={handleClick}/>
+                                            <MoreVertIcon onClick={handleClick} sx={{color: "#8f8f8f"}} />
                                             <BasicPopover anchorEl={anchorEl} setAnchorEl={setAnchorEl} setId={setId}/>
                                         </Dots> : null
                                     }

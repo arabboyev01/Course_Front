@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-export const StyleHeader = styled.div`
+export const StyleHeader: any = styled.div`
   width: 100%;
   height: 80px;
   position: fixed;
   top: 0;
   z-index: 1000;
-  border: .1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: ${({theme}) => theme.borderTheme};
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-  background: #fff;
+  background: ${({theme}) => theme.body}
 `
 
 export const HeaderContent = styled.div`
@@ -30,7 +30,7 @@ export const Aligned = styled.div`
 export const LoginButton = styled.button`
   width: 150px;
   height: 40px;
-  background: rgb(62, 40, 222);
+  background: ${({theme}) => theme.primary};
   border: none;
   color: #fff;
   font-size: 15px;

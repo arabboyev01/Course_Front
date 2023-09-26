@@ -1,6 +1,7 @@
 import { CounterState } from '@/globalTypes'
 
 export const initialState: CounterState = {
+  mode: 'light',
   isAuthorized: false,
   tags: null,
   image: null,

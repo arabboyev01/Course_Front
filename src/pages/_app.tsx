@@ -7,6 +7,7 @@ import '@/main.css'
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Layout from '@/components/Layout'
 import React from 'react'
+import ThemeProviderValue from '@/Theme/Provider'
 
 const options = {
     timeout: 5000,
@@ -18,17 +19,22 @@ const options = {
     zIndex: 1001
 };
 
+
 export default function App({Component, pageProps}: AppProps) {
 
     return (
-        <GoogleOAuthProvider clientId="915688630240-ncpe3p2ifr0uirapiige1406j3lp0g5b.apps.googleusercontent.com">
-            <ReduxProvider store={store}>
-                <AlertProvider template={AlertTemplate} {...options}>
-                    <Layout>
-                        <Component {...pageProps} />
-                    </Layout>
-                </AlertProvider>
-            </ReduxProvider>
-        </GoogleOAuthProvider>
+        <ReduxProvider store={store}>
+            <ThemeProviderValue>
+                <GoogleOAuthProvider
+                    clientId="915688630240-ncpe3p2ifr0uirapiige1406j3lp0g5b.apps.googleusercontent.com">
+                    <AlertProvider template={AlertTemplate} {...options}>
+                        <Layout>
+                            <Component {...pageProps} />
+                        </Layout>
+                    </AlertProvider>
+                </GoogleOAuthProvider>
+            </ThemeProviderValue>
+        </ReduxProvider>
+
     )
 }

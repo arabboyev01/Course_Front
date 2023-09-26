@@ -4,7 +4,7 @@ export const StyleFooter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: .5px solid rgba(0, 0, 0, 0.3);
+  border-top: ${({theme}) => theme.borderTheme};
   padding: 10px 0;
 `
 

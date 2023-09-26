@@ -73,6 +73,7 @@ export type totalLikeType = {
 }
 
 export interface CounterState {
+    mode: string
     isAuthorized: boolean
     tags: null | string[]
     image: any

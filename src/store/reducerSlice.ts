@@ -13,6 +13,9 @@ const reducerSlice = createSlice({
                 state.isAuthorized = true;
             }
         },
+        toggleMode: (state: any, action: PayloadAction | any) => {
+            state.mode = action.payload;
+        },
         verifyUser: (state) => {
             const verify = getCookie('authToken')
             if (verify) state.isAuthorized = true;
@@ -54,15 +57,15 @@ const reducerSlice = createSlice({
         sortName: (state: any, action: PayloadAction) => {
             state.sortName = action.payload
         },
-        setUserReviewId: (state: any, action: PayloadAction|any) => {
-            if(action.payload.length){
+        setUserReviewId: (state: any, action: PayloadAction | any) => {
+            if (action.payload.length) {
                 state.userReviewId = action.payload
             }
         },
         handleLiked: (state) => {
             state.isLiked = !state.isLiked
         },
-        setTotalLike:(state: any, action:PayloadAction) => {
+        setTotalLike: (state: any, action: PayloadAction) => {
             state.totalLike = action.payload
         }
     },
@@ -83,7 +86,8 @@ export const {
     logOut,
     setUserReviewId,
     handleLiked,
-    setTotalLike
+    setTotalLike,
+    toggleMode
 } = reducerSlice.actions;
 
 

@@ -1,5 +1,6 @@
 import { RootState } from '@/store/index'
 
+export const mode = (state: RootState) => state.counter.mode
 export const Authorized = (state: RootState) => state.counter.isAuthorized
 export const tags = (state: RootState) => state.counter.tags
 export const image = (state: RootState) => state.counter.image
