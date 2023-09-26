@@ -2,7 +2,7 @@ import SearchImage from '../../../public/search.svg'
 import Image from 'next/image'
 import SearchSuggested from '@/re-usible/Search/SearchSuggested'
 import React from 'react';
-import { SearchWrapper } from '@/re-usible/Search/style.search'
+import { SearchInput, SearchWrapper } from '@/re-usible/Search/style.search'
 import { useRouter } from 'next/router'
 
 const Search = () => {
@@ -19,7 +19,7 @@ const Search = () => {
                 <button className="btn-search">
                     <Image className="search-icon" src={SearchImage.src} alt="search" width={22} height={22}/>
                 </button>
-                <input type="text" value={inputValue} className="input-search" placeholder="Type to Search Review" onChange={(e) => setInputValue(e.target.value)}/>
+                <SearchInput type="text" value={inputValue} placeholder="Type to Search Review" onChange={(e) => setInputValue(e.target.value)}/>
             </div>
             {inputValue ? <SearchSuggested inputValue={inputValue} handleDirect={handleDirect} /> : null}
         </SearchWrapper>

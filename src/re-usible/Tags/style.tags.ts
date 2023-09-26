@@ -9,8 +9,8 @@ export const StyleTags = styled.div`
 `
 export const Subtitle = styled.h5`
   font-size: 1.1rem;
-  font-weight: 800;
-  color: #000;
+  font-weight: 600;
+  color: ${({theme}) => theme.text};
 `
 
 export const Text = styled.p`
@@ -35,7 +35,8 @@ export const TagsText: any = styled.p`
   font-size: 15px;
   font-weight: 400;
   color: #8f8f8f;
-  border: 0.2px solid rgba(0, 0, 0, 0.3);
+  border: ${({theme}) => theme.borderTheme};
+  border-radius: 5px;
 
   ${({active}: any) =>
       active &&
@@ -51,6 +52,6 @@ export const TagsText: any = styled.p`
   padding: 5px;
   
   &:hover {
-    border: 0.2px solid #333;
+    border: 0.2px solid #8f8f8f;
   }
 `

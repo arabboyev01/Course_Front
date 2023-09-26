@@ -3,16 +3,19 @@ import styled from "styled-components"
 export const SearchWrapper = styled.div`
  position: relative;
 `
+export const SearchInput = styled.input`
+ border: ${({theme}) => theme.borderTheme}
+`
 export const StyleSearch = styled.div`
   max-width: 350px;
   width: 100%;
   max-height: 250px;
   min-height: 100px;
-  background: #fff;
+  background: ${({theme}) => theme.body};
   position: absolute;
   left: 20px;
   top: 80px;
-  border: 1px solid rgba(0,0,0, 0.3);
+  border: ${({theme}) => theme.borderTheme};
   z-index: 100;
   border-radius: 8px;
   overflow: hidden;
@@ -26,15 +29,15 @@ export const TitleWrapper = styled.div`
   padding-left: 10px;
   border-bottom: .5px solid rgba(0, 0, 0, 0.3);
   background: rgb(62, 40, 222);
-  color: #fff;
 `
 
 export const Title: any = styled.p`
   padding: 10px 20px;
   font-weight: ${(props: any) => props.active ? 900 : 400};
+  font-style: ${(props: any) => props.active ? "italic" : 'normal'};
   cursor: pointer;
   text-transform: capitalize;
-
+  color: #fff;
 `
 
 export const SingleReview = styled.div`
@@ -56,7 +59,7 @@ export const ReviewItem = styled.div`
   border-bottom: .2px solid rgba(0, 0 0, 0.2);
   padding: 5px 2px;
   &:hover{
-    background: #ddd;
+    background: ${({theme}) => theme.iconHover};
     cursor: pointer;
     border-radius: 3px;
   }
