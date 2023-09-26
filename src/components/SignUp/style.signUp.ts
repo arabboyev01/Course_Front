@@ -8,7 +8,7 @@ export const SignUpWrapper = styled.div`
   width: 450px;
   border-radius: 8px;
   border: .1px solid #575656;
-  padding: 30px 0;
+  padding: 30px 20px;
   @media(max-width: 500px){
     width: 400px;
   }
