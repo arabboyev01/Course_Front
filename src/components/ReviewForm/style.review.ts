@@ -9,7 +9,7 @@ position: relative;
 export const TagsSuggested = styled.div`
   position: absolute;
   top: 60px;
-  background: #fff;
+  background:  ${({theme}) => theme.body};
   z-index: 100;
 `
 
@@ -24,12 +24,12 @@ export const SelectedWrapper = styled.div`
   max-width: 350px;
   padding: 10px 0;
   gap: 10px;
-  background: #fff;
+  background:  ${({theme}) => theme.body};
   top: -40px;
   overflow: hidden;
 `
 export const Selected = styled.p`
-  color: #151414;
+  color:  ${({theme}) => theme.text};
   font-style: italic;
   font-size: 15px;
   font-weight: 300;
@@ -41,7 +41,7 @@ export const ListWrapper = styled.ul`
   max-height: 150px;
   list-style: none;
   padding-bottom: -10px;
-  background: #fff;
+  background:  ${({theme}) => theme.body};
   border-radius: 8px;
   overflow: hidden;
   overflow-y: scroll;
@@ -62,7 +62,7 @@ export const ListItem = styled.li`
   align-items: center;
   
   &:hover {
-    background: #ddd;
+    background:  ${({theme}) => theme.mainHover};
     border-radius: 8px;
   }
 `
@@ -79,7 +79,7 @@ export const GroupList = styled.li`
   justify-content: space-between;
 
   &:hover {
-    background: #ddd;
+    background:  ${({theme}) => theme.mainHover};
     border-radius: 8px;
   }
 `

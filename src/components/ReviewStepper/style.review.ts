@@ -32,7 +32,7 @@ export const StepsText: any = styled.div`
   border-radius: 50%;
   color: #fff;
   font-weight: 700;
-  background: rgb(62, 40, 222);
+  background:  ${({theme}) => theme.primary};
   ${(props: any) => props.currentStep <= props.index + 1  && `
     background: rgb(62, 40, 222);
   `}
@@ -49,7 +49,7 @@ export const Step = styled.div`
 export const StepName = styled.p`
   font-size: 15px;
   margin-top: 10px;
-  color: #000;
+  color: ${({theme}) => theme.text};
   font-weight: 400;
 `
 

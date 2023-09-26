@@ -12,11 +12,11 @@ export const lightTheme = {
 
 export const darkTheme = {
   name: "dark",
-  text: "#FAFAFA",
-  body: "#363537",
+  text: "#ddd",
+  body: "#121212",
   borderTheme: ".5px solid rgba(255, 255, 255, 0.3)",
   tags: "#ddd",
-  mainHover: "#454446",
+  mainHover: "#000",
   primary: "#2F58CD",
   subtitle: "#fff",
   iconHover: "#000"

@@ -10,7 +10,7 @@ const DumbImageForm: React.FC<any> = ({handleDrop, handleDragOver, handleFileInp
                 onDragOver={handleDragOver}
                 style={{backgroundImage: `url(${image})`}}
             >
-                <CloudUploadIcon style={{fontSize: '2rem', color: 'rgba(0, 0, 0, 0.4)'}}/>
+                <CloudUploadIcon style={{fontSize: '2rem', color: '#8f8f8f'}}/>
                 {imageValue}
                 <input type="file" onChange={handleFileInputChange} />
             </StyledFileInput>

@@ -7,6 +7,9 @@ export const StyleCart = styled.div`
   @media (max-width: 820px) {
     max-width: 900px;
   }
+  @media(max-width: 430px){
+    max-width: 410px;
+  }
 `
 export const Center = styled.div`
   display: flex;
@@ -61,7 +64,7 @@ export const Dots: any = styled.div`
   justify-content: center;
 
   &:hover {
-    background: #ddd;
+    background: ${({theme}) => theme.iconHover};
     border-radius: 30px;
     cursor: pointer;
   }

@@ -5,7 +5,7 @@ import styled from "styled-components";
 const ToggleContainer = styled.button`
   width: 50px;
   height: 30px;
-  border: 0.125em solid ${({ theme: { text } }) => text};
+  border: ${({theme}) => theme.borderTheme};
   border-radius: 1.5em;
   margin: 0 auto;
   overflow: hidden;

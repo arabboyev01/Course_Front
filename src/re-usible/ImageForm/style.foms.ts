@@ -8,14 +8,14 @@ export const StyledFileInput = styled.label`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: .5px solid rgba(0, 0, 0, 0.4);
+  border:  ${({theme}) => theme.borderTheme};
   border-radius: 8px;
   padding: 8px;
   cursor: pointer;
   max-width: 350px;
   height: 200px;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.4);
+  color:  ${({theme}) => theme.text};
   width: 100%;
   background-size: cover;
   background-position: center center;
@@ -26,7 +26,7 @@ export const StyledFileInput = styled.label`
 `;
 export const FileWrapper = styled.div`
   position: relative;
-  background: #fff;
+  background:  ${({theme}) => theme.body};
   width: 100%;
 `
 export const InputSpace = styled.div`
