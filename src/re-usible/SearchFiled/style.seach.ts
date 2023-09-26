@@ -19,7 +19,7 @@ export const SearchInput = styled.input`
   max-width: 450px;
   width: 100%;
   height: 50px;
-  border: .5px solid rgba(0, 0, 0, 0.5);
+  border: ${({theme}) => theme.borderTheme};
   margin-top: 20px;
   border-radius: 8px;
   padding-left: 12px;
