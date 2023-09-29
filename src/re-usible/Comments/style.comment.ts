@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const StyleComment = styled.div`
   max-width: 800px;
@@ -26,8 +26,8 @@ export const CommentButton = styled.button`
 `
 
 export const sendStyle = {
-    fontSize: "2rem",
-     color: "#499DD0",
+    fontSize: '2rem',
+    color: '#499DD0',
 }
 
 export const CommentWrapper = styled.div`
@@ -42,7 +42,7 @@ export const SingleComment = styled.div`
   gap: 25px;
   width: 50%;
   height: auto;
-  background: rgb(224, 238, 255);
+  background: ${({theme}) => theme.iconHover};
   border-radius: 8px;
 `
 export const CommentText = styled.p`
@@ -51,7 +51,7 @@ export const CommentText = styled.p`
 `
 
 export const UsernameText = styled.p`
-  color: #000;
+  color:  ${({theme}) => theme.text};
   font-weight: 900;
   font-style: italic;
   padding: 10px 0 0 10px;

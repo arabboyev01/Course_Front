@@ -13,9 +13,8 @@ const Comments: React.FC<any> = ({reviewId}) => {
 
     useEffect(() => {
         if (reviewId !== undefined) {
-            api.getUsers(`api/all-comments?reviewId=${reviewId}`).then((data) => {
-                setData(data)
-            }).catch(err => console.log(err))
+            api.getUsers(`api/all-comments?reviewId=${reviewId}`).then((data) => setData(data))
+                .catch(err => console.log(err))
         }
     }, [reviewId, load])
 
