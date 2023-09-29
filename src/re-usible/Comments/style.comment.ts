@@ -40,19 +40,20 @@ export const CommentWrapper = styled.div`
 export const SingleComment = styled.div`
   align-items: center;
   gap: 25px;
-  width: 50%;
+  width: 80%;
   height: auto;
   background: ${({theme}) => theme.iconHover};
   border-radius: 8px;
+  padding-bottom: 20px;
 `
 export const CommentText = styled.p`
-  font-weight: 700;
+  font-weight: 400;
   padding: 20px 10px 10px 10px;
 `
 
 export const UsernameText = styled.p`
   color:  ${({theme}) => theme.text};
-  font-weight: 900;
+  font-weight: 500;
   font-style: italic;
   padding: 10px 0 0 10px;
 `
@@ -60,7 +61,8 @@ export const UsernameText = styled.p`
 export const Dates = styled.p`
   font-style: italic;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
   color: #8f8f8f;
   padding-left: 10px;
+  margin-top: 5px;
 `

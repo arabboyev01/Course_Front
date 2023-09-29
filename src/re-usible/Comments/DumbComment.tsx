@@ -24,7 +24,7 @@ const DumbComment: React.FC<CommentsType> = ({postComment, comments}) => (
                         <CommentWrapper key={comment.id}>
                             <Avatar src={comment?.user?.imageUrl || '/broken-image.jpg'}/>
                             <SingleComment>
-                                <UsernameText>@{comment?.user?.username}</UsernameText>
+                                <UsernameText>{comment?.user?.username}</UsernameText>
                                 <Dates>{formatted(comment?.createdAt)}</Dates>
                                 <CommentText>{comment?.text}</CommentText>
                             </SingleComment>
