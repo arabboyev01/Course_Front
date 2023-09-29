@@ -1,4 +1,5 @@
-export const handleLikes = (data: any) => {
-    const userLikedReview = data?.map((data: any) => data.isLiked)
-    return !!userLikedReview;
+export const handleLikesCounts = (data: any, id: number) => {
+    return data?.map((data: any) => {
+        if(data.reviewId === id) return data.likeCount
+    })
 }

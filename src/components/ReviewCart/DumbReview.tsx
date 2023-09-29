@@ -30,25 +30,14 @@ import {
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import BasicPopover from '@/re-usible/Popover'
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { handleLikesCounts } from '@/utils/handleLikes'
 
 const DumbReview: React.FC<ReviewPropsType | any> =
-    ({
-         ReviewsData,
-         loading,
-         count,
-         handlePaginateData,
-         navigateSinglePage,
-         handleLikeReq,
-         anchorEl,
-         handleClick,
-         setAnchorEl,
-         setId, checkId, edit, UserReviewId, totalLike
-     }) => (
+    ({ ReviewsData, loading, count, handlePaginateData, navigateSinglePage, handleLikeReq, anchorEl, handleClick, setAnchorEl, setId, checkId, edit, UserReviewId, totalLike}) => (
         <StyleCart>
             {ReviewsData === null || loading || !totalLike ? (<Center><MainLoader/></Center>) :
                 <MainCartWrapper>
-                    {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, createdAt
-                                       }: ReviewType, index: number) =>
+                    {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, createdAt}: ReviewType) =>
                         <CartWrapper key={id}>
                             <HeaderWrapper>
                                 <div></div>
@@ -60,7 +49,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                                 fontSize: '1.7rem'
                                             }}/>
                                         </Likes>
-                                        <TotalLike>{totalLike[index]?.reviewId === id && totalLike[index]?.likeCount}</TotalLike>
+                                        <TotalLike>{handleLikesCounts(totalLike, id)}</TotalLike>
                                     </MainLike>
                                     {edit ?
                                         <Dots onClick={() => checkId(id)}>

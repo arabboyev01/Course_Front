@@ -51,6 +51,7 @@ const ReviewCart = () => {
     const handlePaginateData = (number: any) => setPage(number)
     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
     const likeReq = (reviewId: number) => handleLikeReq(reviewId, alert, dispatch)
+    console.log(TotalLike)
 
     return <DumbReview
         ReviewsData={reviews}
