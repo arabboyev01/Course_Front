@@ -16,7 +16,7 @@ const options = {
     containerStyle: {
         maxWidth: '350px'
     },
-    zIndex: 1001
+    zIndex: 1000
 };
 const clientId = "915688630240-ncpe3p2ifr0uirapiige1406j3lp0g5b.apps.googleusercontent.com"
 
