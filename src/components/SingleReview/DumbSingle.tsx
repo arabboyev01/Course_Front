@@ -1,3 +1,8 @@
+import React from 'react'
+import MainLoader from '@/re-usible/Loaders/MainLoader'
+import RatingGiven from '@/re-usible/Rating/Rated'
+import { formatted } from '@/re-usible/FormattedDate'
+import Comments from '@/re-usible/Comments'
 import {
     CenterDiv, Date,
     Description,
@@ -6,16 +11,9 @@ import {
     StyleSingle, Tags, TagsWrapper,
     Text
 } from '@/components/SingleReview/style.single'
-import React from 'react'
-import MainLoader from '@/re-usible/Loaders/MainLoader'
-import RatingGiven from '@/re-usible/Rating/Rated'
-import { formatted } from '@/re-usible/FormattedDate'
-import Comments from '@/re-usible/Comments'
-import SubHero from '@/re-usible/SubHero'
 
 const DumbSingle: React.FC<any> = ({single}) => (
     <StyleSingle>
-        {/*<SubHero />*/}
         {single === null || single === undefined ?
             <CenterDiv>
                 <MainLoader/>

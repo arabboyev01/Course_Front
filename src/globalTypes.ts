@@ -172,6 +172,8 @@ export type GoogleLoginResponse = {
 export interface CommentsType {
     postComment: (values: object, form: any) => void
     comments: any
+    setShowEmoji: (value: boolean) => void
+    showEmoji: boolean
 }
 
 export interface PropsSearch {

@@ -14,15 +14,48 @@ export const InputWrapper = styled.div`
   align-items: center;
   margin-bottom: 80px;
   gap: 25px;
+  position: relative;
 `
 
 export const CommentButton = styled.button`
   color: #499DD0;
   margin-left: -10px;
-  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: none;
   background: transparent;
   cursor: pointer;
+  width: 50px;
+  height: 45px;
+  margin-top: 40px;
+  
+  &:hover {
+    background: ${({theme}) => theme.iconHover};
+    border-radius: 30px;
+    cursor: pointer;
+  }
+`
+export const EmojiWrapper = styled.div`
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    background: ${({theme}) => theme.mainHover};
+    border-radius: 50%;
+    cursor: pointer;
+  }
+`
+export const EmojiHandlers = styled.div`
+ position: absolute;
+  z-index: 100;
+  bottom: 100px;
+  left: 20px;
 `
 
 export const sendStyle = {

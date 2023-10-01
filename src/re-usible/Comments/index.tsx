@@ -10,6 +10,7 @@ const Comments: React.FC<any> = ({reviewId}) => {
     const alert = useAlert();
     const [data, setData] = useState([])
     const [load, setLoad] = useState(false)
+    const [showEmoji, setShowEmoji] = useState(false)
 
     useEffect(() => {
         if (reviewId !== undefined) {
@@ -26,12 +27,12 @@ const Comments: React.FC<any> = ({reviewId}) => {
             if (!isObjectEmpty(data) && data?.id) {
                 alert.success('You have commented')
                 setLoad(!load)
+                form.reset();
             }
         }).catch(() => alert.error('Please sign in'))
-        form.reset();
     }
 
-    return <DumbComment postComment={postComment} comments={data}/>
+    return <DumbComment postComment={postComment} comments={data} setShowEmoji={setShowEmoji} showEmoji={showEmoji}/>
 }
 
 export default Comments

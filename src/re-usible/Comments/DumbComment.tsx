@@ -1,6 +1,6 @@
 import {
     CommentButton, CommentText,
-    CommentWrapper, Dates,
+    CommentWrapper, Dates, EmojiHandlers, EmojiWrapper,
     InputWrapper,
     sendStyle, SingleComment,
     StyleComment, UsernameText
@@ -13,8 +13,10 @@ import { CssTextField } from '@/re-usible/form-style'
 import Avatar from '@mui/material/Avatar'
 import SendIcon from '@mui/icons-material/Send';
 import { formatted } from '@/re-usible/FormattedDate'
+import DumbEmojiPicker from '@/re-usible/Emojies/DumbEmojiPicker'
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 
-const DumbComment: React.FC<CommentsType> = ({postComment, comments}) => (
+const DumbComment: React.FC<CommentsType> = ({postComment, comments, setShowEmoji, showEmoji}) => (
     <StyleComment>
         <Form
             onSubmit={postComment}
@@ -29,12 +31,16 @@ const DumbComment: React.FC<CommentsType> = ({postComment, comments}) => (
                                 <CommentText>{comment?.text}</CommentText>
                             </SingleComment>
                         </CommentWrapper>
-                    ) : "No comment"}
+                    ) : 'No comment'}
                     <InputWrapper>
+                        <EmojiWrapper onClick={() => setShowEmoji(!showEmoji)}>
+                            <EmojiEmotionsIcon/>
+                        </EmojiWrapper>
                         <CssTextField {...REVIEW_FORM.comment} multiline minRows={2} maxRows={6}/>
                         <CommentButton type="submit">
                             <SendIcon style={sendStyle}/>
                         </CommentButton>
+                        {showEmoji && <EmojiHandlers><DumbEmojiPicker/></EmojiHandlers>}
                     </InputWrapper>
                 </form>
             )}

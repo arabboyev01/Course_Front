@@ -11,7 +11,7 @@ const SingleReview = () => {
 
     useEffect(() => {
         if(!isObjectEmpty(router.query)){
-            const {id}: any = router.query;
+            const { id }: any = router.query;
             api.getUsers(`api/single-review?id=${id}`).then((data) => setSingle(data))
                 .catch(err => console.log(err))
         }
