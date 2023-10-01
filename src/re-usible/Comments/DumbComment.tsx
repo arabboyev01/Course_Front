@@ -40,7 +40,7 @@ const DumbComment: React.FC<CommentsType> = ({postComment, comments, setShowEmoj
                         <CommentButton type="submit">
                             <SendIcon style={sendStyle}/>
                         </CommentButton>
-                        {showEmoji && <EmojiHandlers><DumbEmojiPicker/></EmojiHandlers>}
+                        {showEmoji ? <EmojiHandlers><DumbEmojiPicker/></EmojiHandlers>:null}
                     </InputWrapper>
                 </form>
             )}

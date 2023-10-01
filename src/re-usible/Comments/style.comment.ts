@@ -39,7 +39,7 @@ export const CommentButton = styled.button`
 `
 export const EmojiWrapper = styled.div`
   width: 50px;
-  height: 50px;
+  height: 45px;
   display: flex;
   flex-direction: column;
   align-items: center;
