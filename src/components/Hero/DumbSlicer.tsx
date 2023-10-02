@@ -1,4 +1,13 @@
-import { Content, Time, Images, LoaderCenter, SliderCart, SliderStyled, Title } from '@/components/Hero/slider'
+import {
+    Content,
+    Time,
+    Images,
+    LoaderCenter,
+    SliderCart,
+    SliderStyled,
+    Title,
+    RatingWrapper, Grade
+} from '@/components/Hero/slider'
 import { ReviewType } from '@/globalTypes'
 import React from 'react'
 import MainLoader from '@/re-usible/Loaders/MainLoader'
@@ -13,7 +22,10 @@ const DumbSlicer: React.FC<ReviewType[] | null | any> = ({reviews, handleDirect}
                 <Images src={imageUrl} alt="images"/>
                 <Content>
                     <Time>{formatted(createdAt)}</Time>
-                    <RatingComponent value={grade} size="small"/>
+                    <RatingWrapper>
+                        <RatingComponent value={grade} size="small"/>
+                        <Grade>({grade})</Grade>
+                    </RatingWrapper>
                     <Title>{name.substring(0, 30)}</Title>
                 </Content>
             </SliderCart>

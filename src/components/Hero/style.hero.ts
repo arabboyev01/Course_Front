@@ -18,8 +18,8 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  @media(max-width: 1330px){
-    padding: 0 20px;
+  @media (max-width: 1330px) {
+    padding: 0 15px;
   }
 `
 

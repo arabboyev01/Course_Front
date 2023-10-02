@@ -1,13 +1,11 @@
 import styled from "styled-components"
 
 export const SliderStyled = styled.div`
-  width: 100%;
-  padding: 60px 40px 20px 40px;
+  margin: 60px 5px 0 5px;
   display: flex;
   justify-content: center;
-  overflow: scroll;
-  gap: 20px;
-  margin: 0 5px;
+  gap: 10px;
+  overflow-x: auto;
 
   &::-webkit-scrollbar {
     display: none;
@@ -18,8 +16,8 @@ export const SliderStyled = styled.div`
   }
   
   @media (max-width: 650px) {
-    margin: 50px 20px;
-    gap: 20px;
+    margin: 40px 0 0 0;
+    justify-content: start;
   }
 `
 
@@ -32,7 +30,7 @@ export const LoaderCenter = styled.div`
 `
 export const SliderCart = styled.div`
   display: flex;
-  width: 400px;
+  max-width: 400px;
   height: 150px;
   border: ${({theme}) => theme.borderTheme};
   padding: 20px;
@@ -49,6 +47,8 @@ export const SliderCart = styled.div`
   
   @media(max-width: 650px){
     justify-content: start;
+    width: 360px;
+    margin: 0 auto 0 5px;
   }
 `
 
@@ -65,6 +65,17 @@ export const Content = styled.div`
 
 export const Title = styled.h3`
   font-weight: 500;
+  margin-top: 5px;
+`
+export const RatingWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-style: italic;
+  margin-top: 5px;
+`
+export const Grade = styled.p`
+ font-size: 14px;
 `
 
 export const Time = styled.p`

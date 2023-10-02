@@ -14,4 +14,9 @@ export const AddReviewButton = styled.button`
     background: #000;
     color: #fff;
   }
+  
+  @media(max-width: 440px){
+    font-size: 14px;
+    padding: 0 1rem;
+  }
 `

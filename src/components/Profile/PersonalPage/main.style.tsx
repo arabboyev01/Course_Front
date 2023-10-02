@@ -8,8 +8,9 @@ export const MainWrapper = styled.div`
   max-width: 800px;
   width: 100%;
   border: ${({theme}) => theme.borderTheme};
+  
   @media (max-width: 650px) {
-    margin: 20px auto 0 auto;
+    margin: 20px auto 50px auto;
     padding: 30px 0 0 10px;
     border: none;
   }
@@ -20,6 +21,10 @@ export const Title = styled.h1`
   line-height: 32px;
   font-weight: 600;
   padding-bottom: 20px;
+  
+  @media(max-width: 430px){
+     padding: 0 10px;
+  }
 `;
 
 export const SubTitle = styled.h2`
@@ -33,9 +38,11 @@ export const MainData = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(346px, 1fr));
   grid-gap: 10px;
+  
   @media (max-width: 650px) {
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    row-gap: 20px;
+    row-gap: 30px;
+    max-width: 360px;
   }
 `;
 
@@ -51,8 +58,8 @@ export const Sub = styled.p`
 export const SingleField = styled.div`
   max-width: 346px;
   @media(max-width: 650px){
-    max-width: 400px;
-    margin: 0 15px 0 0;
+    max-width: 360px;
+    padding: 0 10px;
   }
 `;
 
@@ -62,10 +69,10 @@ export const Submit = styled.button`
   margin-left: 10px;
   width: 100%;
   height: 50px;
-  border-radius: 8px;
+  border-radius: 5px;
   border: none;
   cursor: pointer;
-  background: rgb(62, 40, 222);
+  background: ${({theme}) => theme.primary};
   color: #fff;
   font-size: 16px;
   font-weight: 500;
@@ -73,6 +80,10 @@ export const Submit = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
+  @media(max-width: 430px){
+    margin-left: 0;
+  }
 `;
 
 export const AvatarDiv = styled.div`

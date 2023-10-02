@@ -15,6 +15,7 @@ import SendIcon from '@mui/icons-material/Send';
 import { formatted } from '@/re-usible/FormattedDate'
 import DumbEmojiPicker from '@/re-usible/Emojies/DumbEmojiPicker'
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 const DumbComment: React.FC<CommentsType> = ({postComment, comments, setShowEmoji, showEmoji}) => (
     <StyleComment>
@@ -34,13 +35,13 @@ const DumbComment: React.FC<CommentsType> = ({postComment, comments, setShowEmoj
                     ) : 'No comment'}
                     <InputWrapper>
                         <EmojiWrapper onClick={() => setShowEmoji(!showEmoji)}>
-                            <EmojiEmotionsIcon/>
+                            {!showEmoji ? <EmojiEmotionsIcon/> : <CancelIcon/>}
                         </EmojiWrapper>
                         <CssTextField {...REVIEW_FORM.comment} multiline minRows={2} maxRows={6}/>
                         <CommentButton type="submit">
                             <SendIcon style={sendStyle}/>
                         </CommentButton>
-                        {showEmoji ? <EmojiHandlers><DumbEmojiPicker/></EmojiHandlers>:null}
+                        {showEmoji ? <EmojiHandlers><DumbEmojiPicker/></EmojiHandlers> : null}
                     </InputWrapper>
                 </form>
             )}

@@ -14,6 +14,10 @@ export const ContentWrapper = styled.div`
   align-items: center;
   justify-content: center;
   background: ${({theme}) => theme.body};
+  
+  @media(max-width: 440px){
+    max-width: 330px;
+  }
 `
 
 export const UploadContainer = styled.div`

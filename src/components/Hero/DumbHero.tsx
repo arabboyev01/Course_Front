@@ -2,10 +2,18 @@ import React from 'react'
 import DoneIcon from '@mui/icons-material/Done';
 import DumbSlicer from '@/components/Hero/DumbSlicer'
 import { HeroProps } from '@/globalTypes'
-import { ContentWrapper, Description, DoneIconStyle, InputWrapper, MainText, News, StyleHero, } from '@/components/Hero/style.hero'
+import {
+    ContentWrapper,
+    Description,
+    DoneIconStyle,
+    InputWrapper,
+    MainText,
+    News,
+    StyleHero,
+} from '@/components/Hero/style.hero'
 import SearchFiled from '@/re-usible/SearchFiled'
 
-const DumbHero: React.FC<HeroProps> = ({ handleDirect, reviews}) => (
+const DumbHero: React.FC<HeroProps> = ({handleDirect, reviews}) => (
     <StyleHero>
         <ContentWrapper>
             <MainText>Helping people to share their experience </MainText>
@@ -13,11 +21,15 @@ const DumbHero: React.FC<HeroProps> = ({ handleDirect, reviews}) => (
                 rate or leave a comment to the every post.
             </Description>
             <InputWrapper>
-                <SearchFiled />
+                <SearchFiled/>
             </InputWrapper>
             <News>
-                <Description><DoneIcon sx={DoneIconStyle}/> Daily new reviews</Description>
-                <Description> <DoneIcon sx={DoneIconStyle}/> Join us today</Description>
+                <Description>
+                    <DoneIcon sx={DoneIconStyle}/> Daily new reviews
+                </Description>
+                <Description>
+                    <DoneIcon sx={DoneIconStyle}/> Join us today
+                </Description>
             </News>
         </ContentWrapper>
         <DumbSlicer reviews={reviews} handleDirect={handleDirect}/>
