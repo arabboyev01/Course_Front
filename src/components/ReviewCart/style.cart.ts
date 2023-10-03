@@ -11,13 +11,6 @@ export const StyleCart = styled.div`
     max-width: 410px;
   }
 `
-export const Center = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;
-`
 export const MainCartWrapper = styled.div`
   max-width: 880px;
   width: 100%;

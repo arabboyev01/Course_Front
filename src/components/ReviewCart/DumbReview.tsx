@@ -1,7 +1,6 @@
 import React from 'react'
 import { ReviewPropsType, ReviewType } from '@/globalTypes'
 import RatingComponent from '@/re-usible/Rating'
-import MainLoader from '@/re-usible/Loaders/MainLoader'
 import Avatar from '@mui/material/Avatar'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import PaginationRounded from '@/re-usible/Pagination'
@@ -11,7 +10,6 @@ import {
     CartFooter,
     CartHeader,
     CartWrapper,
-    Center,
     ControlButton,
     Dots,
     HeaderWrapper,
@@ -31,11 +29,13 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import BasicPopover from '@/re-usible/Popover'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { handleLikesCounts } from '@/utils/handleLikes'
+import SkeletonComponent from '@/re-usible/Skeleton'
 
 const DumbReview: React.FC<ReviewPropsType | any> =
     ({ ReviewsData, loading, count, handlePaginateData, navigateSinglePage, handleLikeReq, anchorEl, handleClick, setAnchorEl, setId, checkId, edit, UserReviewId, totalLike}) => (
         <StyleCart>
-            {ReviewsData === null || loading || !totalLike ? (<Center><MainLoader/></Center>) :
+            {ReviewsData === null || loading || !totalLike ?
+                Array.from(new Array(5)).map((_, index: number) => <SkeletonComponent key={index}/>):
                 <MainCartWrapper>
                     {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, createdAt}: ReviewType) =>
                         <CartWrapper key={id}>
@@ -59,7 +59,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                     }
                                 </ControlButton>
                             </HeaderWrapper>
-                            <Images src={imageUrl} alt="images"/>
+                            <Images src={imageUrl} alt="images" onDoubleClick={() => handleLikeReq(id)}/>
                             <Time>{formatted(createdAt)}</Time>
                             <CartHeader>
                                 <User>

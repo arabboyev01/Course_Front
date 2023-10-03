@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const Editor = styled.div`
+  background: ${({theme}) => theme.body};
+  color: ${({theme}) => theme.text};
 `
 
 export const Lists: any = styled.div`
@@ -8,10 +10,11 @@ export const Lists: any = styled.div`
   align-items: center;
   font-size: 16px;
   width: 120px;
-  justify-content: space-between;
   padding: 10px 15px;
+  text-align: start;
 
   &:hover {
-    background-color: #ddd;
+    background-color: ${({theme}) => theme.mainHover};
+    cursor: pointer;
   }
 `

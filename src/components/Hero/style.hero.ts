@@ -27,8 +27,9 @@ export const MainText = styled.h1`
   text-align: center;
   font-weight: 500;
   max-width: 500px;
-  @media(max-width: 1330px){
-    font-size: 28px;
+  font-size: 32px;
+  @media(max-width: 650px){
+    font-size: 22px;
   }
 `
 

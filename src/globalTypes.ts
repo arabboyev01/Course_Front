@@ -231,3 +231,10 @@ export interface EditableDataGridProps {
     setEditedValue: (value: string) => void
     setEditableIndex: (value: any) => void
 }
+
+export interface LikeProps {
+    liked: boolean
+    handleLikeClick: (id: number) => void
+    likesAmount: string|number
+    id: number
+}

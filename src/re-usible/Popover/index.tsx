@@ -37,10 +37,10 @@ const BasicPopover: React.FC<PopoverProp> = ({anchorEl, setAnchorEl, setId}) => 
             >
                 <Editor>
                     <Lists onClick={() => setId(id)}>
-                        Edit <EditIcon/>
+                         <EditIcon/> Edit
                     </Lists>
                     <Lists onClick={handleDelete}>
-                        Delete <DeleteIcon/>
+                        <DeleteIcon/> Delete
                     </Lists>
                 </Editor>
             </Popover>
