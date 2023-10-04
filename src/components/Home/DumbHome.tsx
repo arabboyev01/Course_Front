@@ -10,7 +10,7 @@ const DumbHome:React.FC = () => (
         <Hero />
         <Sorting/>
         <BodyWrapper>
-            <ReviewCart/>
+            <ReviewCart />
             <Tags/>
         </BodyWrapper>
     </HomeStyle>

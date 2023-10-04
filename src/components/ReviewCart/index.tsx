@@ -53,7 +53,7 @@ const ReviewCart = () => {
     const likeReq = (reviewId: number) => handleLikeReq(reviewId, alert, dispatch)
 
     const handleImageModal = (imageUrl: string) => {
-        const payload = {open: true, imageUrl} //@ts-ignore
+        const payload:any = {open: true, imageUrl}
         dispatch(setImageObjects(payload))
     }
 
