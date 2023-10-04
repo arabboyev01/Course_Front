@@ -110,6 +110,10 @@ export const ReviewName = styled.h2`
   font-weight: 500;
   color: ${({theme}) => theme.text};
   margin: 12px 0;
+  
+   @media(max-width: 440px){
+    font-size: 18px;
+  }
 `
 
 export const Text = styled.p`
@@ -117,6 +121,10 @@ export const Text = styled.p`
   line-height: 1.3rem;
   font-weight: 400;
   color: #8f8f8f;
+  
+   @media(max-width: 440px){
+    font-size: 14px;
+  }
 `
 export const RatingText = styled.p`
   font-style: italic;

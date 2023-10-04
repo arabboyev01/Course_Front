@@ -19,4 +19,5 @@ const UserAvatar = () => {
         </Stack>
     );
 }
+
 export default UserAvatar

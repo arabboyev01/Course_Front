@@ -17,6 +17,6 @@ export const AddReviewButton = styled.button`
   
   @media(max-width: 440px){
     font-size: 14px;
-    padding: 0 1rem;
+    padding: 0 .7rem;
   }
 `

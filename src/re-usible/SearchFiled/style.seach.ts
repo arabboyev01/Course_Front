@@ -12,6 +12,7 @@ export const Forms = styled.div`
   gap: 25px;
   @media(max-width: 620px){
     flex-direction: column;
+    gap: 0;
   }
 `
 
@@ -35,13 +36,21 @@ export const SubmitButton = styled.button`
   font-weight: 500;
   margin-top: 20px;
   padding: 10px 5px;
-  background:  ${({theme}) => theme.primary};
+  background: ${({theme}) => theme.primary};
   color: #fff;
   width: 200px;
   border-radius: 8px;
   cursor: pointer;
-  
-  &:hover{
+
+  &:hover {
     background: #000;
+  }
+
+  @media (max-width: 620px) {
+    height: auto;
+    padding: 5px 10px;
+    width: auto;
+    border-radius: 3px;
+    font-size: 14px;
   }
 `

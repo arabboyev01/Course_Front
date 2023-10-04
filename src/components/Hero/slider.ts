@@ -66,6 +66,10 @@ export const Content = styled.div`
 export const Title = styled.h3`
   font-weight: 500;
   margin-top: 5px;
+  
+   @media(max-width: 440px){
+    font-size: 16px;
+  }
 `
 export const RatingWrapper = styled.div`
   display: flex;
@@ -75,7 +79,7 @@ export const RatingWrapper = styled.div`
   margin-top: 5px;
 `
 export const Grade = styled.p`
- font-size: 14px;
+  font-size: 14px;
 `
 
 export const Time = styled.p`
