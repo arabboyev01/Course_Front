@@ -9,7 +9,12 @@ export const Sidebar: any = styled.div`
   background-color: ${({theme}) => theme.body};
   overflow-y: auto;
   z-index: 100;
-  transition: left 0.3s ease, right 0.3s ease; 
+  transition: left 0.3s ease, right 0.3s ease;
+
+  @media (max-width: 440px) {
+    top: 50px;
+    width: ${(props: any) => (props.open ? '100%' : '0')};
+  }
 `
 
 export const SidebarLogo = styled.div`
@@ -20,11 +25,22 @@ export const SidebarLogo = styled.div`
   font-size: 1.5rem;
   font-weight: 700;
   font-family: 'Mochiy Pop P one', sans-serif;
+  
+   @media (max-width: 440px) {
+    justify-content: start;
+     margin-left: 50px;
+  }
 `
 
 export const SidebarMenu = styled.div`
   position: relative;
   padding-top: 1rem;
+  height: 500px;
+  overflow-y: scroll;
+  
+  @media(max-width: 440px){
+    height: 400px;
+  }
 `
 
 export const ItemIcon: any = styled.div`
@@ -44,7 +60,7 @@ export const ItemText: any = styled.p`
 export const SidebarMenuItem: any = styled.div`
   display: flex;
   align-items: center;
-  padding: 1rem 3rem;
+  padding: .5rem 3rem;
   font-weight: 500;
   transition: color 0.3s ease-in-out;
   cursor: pointer;
@@ -57,9 +73,10 @@ export const SidebarMenuItem: any = styled.div`
 `;
 
 export const CloseIconStyle = {
-    fontWeight: 900,
-    fontSize: "2rem"
-}
+  fontWeight: 900,
+  fontSize: "2rem"
+};
+
 
 export const IconHover = styled.div`
   width: 40px;
@@ -76,6 +93,10 @@ export const IconHover = styled.div`
     background: ${({theme}) => theme.iconHover};
     border-radius: 50px;
     cursor: pointer;
+  }
+  
+  @media(max-width: 440px){
+    left: 80%;
   }
 `
 

@@ -9,7 +9,7 @@ import TwitterIcon from '@mui/icons-material/Twitter'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import GroupIcon from '@mui/icons-material/Group';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-
+import AddBoxIcon from '@mui/icons-material/AddBox';
 export function generateSidebarNavItems(userRole: string | null) {
     const commonItems = [
         {
@@ -17,6 +17,12 @@ export function generateSidebarNavItems(userRole: string | null) {
             display: 'Profile',
             icon: <AccountCircleIcon/>,
             to: '/profile',
+        },
+        {
+            id: 5,
+            display: 'Create Review',
+            icon: <AddBoxIcon/>,
+            to: '/review-creation/1',
         },
         {
             id: 1,
@@ -41,7 +47,7 @@ export function generateSidebarNavItems(userRole: string | null) {
 
     const sidebarNavItems = [...commonItems,
         {
-            id: 4,
+            id: 6,
             display: 'Log-out',
             icon: <LogoutIcon style={{color: '#bf0000', fontWeight: 900}}/>,
             to: '/',
