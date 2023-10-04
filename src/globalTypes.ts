@@ -71,6 +71,10 @@ export type totalLikeType = {
     reviewId: number
     likeCount: number
 }
+export type ImageObjectProp = {
+    imageUrl: string
+    open: boolean
+}
 
 export interface CounterState {
     mode: string
@@ -88,6 +92,7 @@ export interface CounterState {
     userReviewId: null | number[]
     isLiked: boolean
     totalLike: null|totalLikeType[]
+    imageModal: ImageObjectProp
 }
 
 export interface HandleLoginType {
@@ -237,4 +242,10 @@ export interface LikeProps {
     handleLikeClick: (id: number) => void
     likesAmount: string|number
     id: number
+}
+
+export interface ImageModalProps {
+    open: boolean
+    setOpen: (values: boolean) => void
+    image: string
 }

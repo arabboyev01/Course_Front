@@ -67,6 +67,9 @@ const reducerSlice = createSlice({
         },
         setTotalLike: (state: any, action: PayloadAction) => {
             state.totalLike = action.payload
+        },
+        setImageObjects: (state: any, action: PayloadAction|any): void => {
+            state.imageModal = action.payload
         }
     },
 });
@@ -87,7 +90,8 @@ export const {
     setUserReviewId,
     handleLiked,
     setTotalLike,
-    toggleMode
+    toggleMode,
+    setImageObjects
 } = reducerSlice.actions;
 
 

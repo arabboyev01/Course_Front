@@ -140,6 +140,7 @@ export const Images = styled.img`
   height: 400px;
   border-radius: 8px;
   border: none;
+  cursor: pointer;
 `
 
 export const CartFooter = styled.div`

@@ -30,9 +30,10 @@ import BasicPopover from '@/re-usible/Popover'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { handleLikesCounts } from '@/utils/handleLikes'
 import SkeletonComponent from '@/re-usible/Skeleton'
+import ImageModalComponent from '@/re-usible/ImageModal'
 
 const DumbReview: React.FC<ReviewPropsType | any> =
-    ({ ReviewsData, loading, count, handlePaginateData, navigateSinglePage, handleLikeReq, anchorEl, handleClick, setAnchorEl, setId, checkId, edit, UserReviewId, totalLike}) => (
+    ({ ReviewsData, loading, count, handlePaginateData, navigateSinglePage, handleLikeReq, anchorEl, handleClick, setAnchorEl, setId, checkId, edit, UserReviewId, totalLike, handleImageModal}) => (
         <StyleCart>
             {ReviewsData === null || loading || !totalLike ?
                 Array.from(new Array(5)).map((_, index: number) => <SkeletonComponent key={index}/>):
@@ -59,7 +60,8 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                     }
                                 </ControlButton>
                             </HeaderWrapper>
-                            <Images src={imageUrl} alt="images" onDoubleClick={() => handleLikeReq(id)}/>
+                            <Images src={imageUrl} alt="images" onDoubleClick={() => handleLikeReq(id)} onClick={() => handleImageModal(imageUrl)}/>
+                            <ImageModalComponent />
                             <Time>{formatted(createdAt)}</Time>
                             <CartHeader>
                                 <User>

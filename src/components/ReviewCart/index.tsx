@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { selectTags, sortName, filterName, userReviewId, totalLike } from '@/store/Selector'
 import { useRouter } from 'next/router'
 import { AppDispatch } from '@/store'
-import { reviewDataLength } from '@/store/reducerSlice'
+import { reviewDataLength, setImageObjects } from '@/store/reducerSlice'
 import * as React from 'react'
 import { useAlert } from 'react-alert'
 import { handleLikeReq } from '@/utils/PostRequest'
@@ -52,6 +52,11 @@ const ReviewCart = () => {
     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
     const likeReq = (reviewId: number) => handleLikeReq(reviewId, alert, dispatch)
 
+    const handleImageModal = (imageUrl: string) => {
+        const payload = {open: true, imageUrl} //@ts-ignore
+        dispatch(setImageObjects(payload))
+    }
+
     return <DumbReview
         ReviewsData={reviews}
         loading={loading}
@@ -61,6 +66,7 @@ const ReviewCart = () => {
         handleLikeReq={likeReq}
         UserReviewId={UserReviewId}
         totalLike={TotalLike}
+        handleImageModal={handleImageModal}
     />
 }
 
