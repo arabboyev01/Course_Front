@@ -31,8 +31,8 @@ export const ModalImage = styled.img`
   max-width: 1300px;
   max-height: 100vh;
   object-fit: contain;
-  
-  @media(max-width: 430px){
+
+  @media (max-width: 430px) {
     width: 100%;
     height: 100%;
   }
@@ -40,4 +40,10 @@ export const ModalImage = styled.img`
 
 export const Icon = {
     color: '#fff'
+}
+
+export const modal = {
+    '&:focus': {
+        outline: 'none'
+    }
 }

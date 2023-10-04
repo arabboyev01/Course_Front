@@ -3,7 +3,7 @@ import Modal from '@mui/material/Modal'
 import { useDispatch, useSelector } from 'react-redux'
 import { ImageModal } from '@/store/Selector'
 import { setImageObjects } from '@/store/reducerSlice'
-import { CloseIcon, Icon, ModalImage, ModalWrapper } from '@/re-usible/ImageModal/style.modal'
+import { CloseIcon, Icon, modal, ModalImage, ModalWrapper } from '@/re-usible/ImageModal/style.modal'
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
 
 const ImageModalComponent: React.FC = () => {
@@ -12,7 +12,7 @@ const ImageModalComponent: React.FC = () => {
     const {open, imageUrl} = modalProp;
 
     const handleClose = () => {
-        const payload = {open: false, imageUrl: ''}//@ts-ignore
+        const payload: any = {open: false, imageUrl: ''}
         dispatch(setImageObjects(payload))
     }
 
@@ -22,6 +22,8 @@ const ImageModalComponent: React.FC = () => {
         open={open}
         onClose={handleClose}
         closeAfterTransition
+        sx={modal}
+        disableAutoFocus={true}
     >
         <ModalWrapper>
             <CloseIcon onClick={handleClose}>

@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import { StyleReview } from '@/components/Profile/MyReview/style.review'
 import Sorting from '@/components/Sorting'
 import { useDispatch, useSelector } from 'react-redux'
-import { reviewDataLength } from '@/store/reducerSlice'
+import { reviewDataLength, setImageObjects } from '@/store/reducerSlice'
 import { filterName, sortName, totalLike, userReviewId } from '@/store/Selector'
 import { handleLikeReq } from '@/utils/PostRequest'
 
@@ -48,6 +48,10 @@ const MyReview = () => {
     const likeReq = (reviewId: number) => {
         handleLikeReq(reviewId, alert, dispatch)
     }
+     const handleImageModal = (imageUrl: string) => {
+        const payload = {open: true, imageUrl} //@ts-ignore
+        dispatch(setImageObjects(payload))
+    }
 
     return (
         <StyleReview>
@@ -67,6 +71,7 @@ const MyReview = () => {
                 handleLikeReq={likeReq}
                 UserReviewId={UserReviewId}
                 totalLike={TotalLike}
+                handleImageModal={handleImageModal}
             />
         </StyleReview>
     )
