@@ -4,10 +4,14 @@ import { api } from '@/config'
 import { useRouter } from 'next/router'
 import { ReviewType } from '@/globalTypes'
 import { isObjectEmpty } from '@/utils'
+import { setImageObjects } from '@/store/reducerSlice'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '@/store'
 
 const SingleReview = () => {
     const [single, setSingle] = useState<ReviewType | null>(null)
     const router = useRouter();
+    const dispatch = useDispatch<AppDispatch>()
 
     useEffect(() => {
         if(!isObjectEmpty(router.query)){
@@ -17,7 +21,12 @@ const SingleReview = () => {
         }
     }, [router.query])
 
-    return <DumbSingle single={single}/>
+     const handleImageModal = (imageUrl: string) => {
+        const payload: any = {open: true, imageUrl}
+        dispatch(setImageObjects(payload))
+    }
+
+    return <DumbSingle single={single} handleImageModal={handleImageModal}/>
 }
 
 export default SingleReview

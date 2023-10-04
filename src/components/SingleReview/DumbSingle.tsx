@@ -1,25 +1,25 @@
 import React from 'react'
-import MainLoader from '@/re-usible/Loaders/MainLoader'
 import RatingGiven from '@/re-usible/Rating/Rated'
 import { formatted } from '@/re-usible/FormattedDate'
 import Comments from '@/re-usible/Comments'
 import {
-    CenterDiv, Date,
+    Date,
     Description,
     MainImage,
     MainWrapper, RatingText, RatingWrapper,
     StyleSingle, Tags, TagsWrapper,
     Text
 } from '@/components/SingleReview/style.single'
+import ImageModalComponent from '@/re-usible/ImageModal'
+import SkeletonComponent from '@/re-usible/Skeleton'
 
-const DumbSingle: React.FC<any> = ({single}) => (
+const DumbSingle: React.FC<any> = ({single, handleImageModal}) => (
     <StyleSingle>
         {single === null || single === undefined ?
-            <CenterDiv>
-                <MainLoader/>
-            </CenterDiv> :
+            Array.from(new Array(1)).map((_, index: number) => <SkeletonComponent key={index}/>) :
             <MainWrapper>
-                <MainImage image={single?.imageUrl}></MainImage>
+                <MainImage image={single?.imageUrl} onClick={() => handleImageModal(single?.imageUrl)}></MainImage>
+                <ImageModalComponent/>
                 <Date>{formatted(single?.createdAt)}</Date>
                 <RatingWrapper>
                     <RatingGiven reviewId={single?.id} grade={single?.grade}/>

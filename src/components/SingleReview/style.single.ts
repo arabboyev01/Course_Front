@@ -1,19 +1,12 @@
 import styled from 'styled-components';
 
 export const StyleSingle = styled.div`
-  max-width: 1330px;
+  max-width: 1100px;
+  width: 100%;
   margin: 80px auto;
   @media(max-width: 1330px){
     margin: 80px 20px;
   }
-`
-
-export const CenterDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
 `
 
 export const MainWrapper = styled.div`
@@ -21,7 +14,7 @@ export const MainWrapper = styled.div`
 `
 
 export const MainImage: any = styled.div`
-  max-width: 1050px;
+  //max-width: 1050px;
   min-height: 450px;
   max-height: 550px;
   background-image: ${(props: any) => `url(${props.image})`};
@@ -31,6 +24,7 @@ export const MainImage: any = styled.div`
   background-position: center;
   background-size: cover;
   border-radius: 8px;
+  cursor: pointer;
 `
 
 export const RatingWrapper = styled.div`
