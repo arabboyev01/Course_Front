@@ -3,8 +3,9 @@ import Modal from '@mui/material/Modal'
 import { useDispatch, useSelector } from 'react-redux'
 import { ImageModal } from '@/store/Selector'
 import { setImageObjects } from '@/store/reducerSlice'
-import { CloseIcon, Icon, modal, ModalImage, ModalWrapper } from '@/re-usible/ImageModal/style.modal'
+import { ATag, CloseIcon, Icon, IconsDev, modal, ModalImage, ModalWrapper } from '@/re-usible/ImageModal/style.modal'
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
+import DownloadIcon from '@mui/icons-material/Download';
 
 const ImageModalComponent: React.FC = () => {
     const modalProp = useSelector(ImageModal);
@@ -26,9 +27,14 @@ const ImageModalComponent: React.FC = () => {
         disableAutoFocus={true}
     >
         <ModalWrapper>
-            <CloseIcon onClick={handleClose}>
-                <CloseFullscreenIcon sx={Icon}/>
-            </CloseIcon>
+            <IconsDev>
+                <ATag href={imageUrl} download="myImage.jpg" target="_blank">
+                    <DownloadIcon sx={Icon}/>
+                </ATag>
+                <CloseIcon onClick={handleClose}>
+                    <CloseFullscreenIcon sx={Icon}/>
+                </CloseIcon>
+            </IconsDev>
             <ModalImage src={imageUrl} alt="image-url"/>
         </ModalWrapper>
     </Modal>

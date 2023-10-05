@@ -9,18 +9,37 @@ export const ModalWrapper = styled.div`
   justify-content: center;
   position: relative;
 `
-
-export const CloseIcon = styled.div`
+export const IconsDev = styled.div`
   position: absolute;
-  right: 3%;
+  right: 5%;
   top: 4%;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+`
+export const CloseIcon = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+
+  &:hover {
+    background: #333;
+    cursor: pointer;
+  }
+`
+
+export const ATag = styled.a`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 
   &:hover {
     background: #333;
