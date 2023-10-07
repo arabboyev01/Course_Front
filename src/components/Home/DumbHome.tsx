@@ -5,14 +5,14 @@ import Tags from '@/re-usible/Tags'
 import React from 'react'
 import Hero from '@/components/Hero'
 
-const DumbHome:React.FC = () => (
+const DumbHome: React.FC = () => (
     <HomeStyle>
-        <Hero />
+        <Hero/>
         <Sorting/>
         <BodyWrapper>
-            <ReviewCart />
+            <ReviewCart/>
             <Tags/>
         </BodyWrapper>
     </HomeStyle>
 )
-export default DumbHome;
+export default DumbHome
