@@ -11,7 +11,7 @@ const DumbTags: React.FC<TagsType[] | null | any> = ({existingTags, handleSelect
         <Text>{MainInformation.aboutText}</Text>
         <Subtitle>Featured tags</Subtitle>
         <TagsWrapper>
-            {existingTags === null || existingTags.error ?
+            {existingTags === null || existingTags?.error ?
                 (<LoaderCenter>
                     <MainLoader/>
                 </LoaderCenter>) :
