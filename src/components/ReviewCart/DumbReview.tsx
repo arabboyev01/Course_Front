@@ -36,7 +36,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
     ({ ReviewsData, loading, count, handlePaginateData, navigateSinglePage, handleLikeReq, anchorEl, handleClick, setAnchorEl, setId, checkId, edit, UserReviewId, totalLike, handleImageModal}) => (
         <StyleCart>
             {ReviewsData === null || loading || !totalLike ?
-                Array.from(new Array(5)).map((_, index: number) => <SkeletonComponent key={index}/>):
+                Array.from(new Array(2)).map((_, index: number) => <SkeletonComponent key={index}/>):
                 <MainCartWrapper>
                     {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, createdAt}: ReviewType) =>
                         <CartWrapper key={id}>
