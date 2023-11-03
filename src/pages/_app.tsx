@@ -8,6 +8,7 @@ import React from 'react'
 import ThemeProviderValue from '@/Theme/Provider'
 import store from '@/store'
 import '@/main.css'
+import Offline from '@/re-usible/Offline'
 
 const options = {
     timeout: 5000,
@@ -28,7 +29,9 @@ export default function App({Component, pageProps}: AppProps) {
                 <GoogleOAuthProvider clientId={clientId}>
                     <AlertProvider template={AlertTemplate} {...options}>
                         <Layout>
-                            <Component {...pageProps} />
+                            <Offline>
+                                <Component {...pageProps} />
+                            </Offline>
                         </Layout>
                     </AlertProvider>
                 </GoogleOAuthProvider>

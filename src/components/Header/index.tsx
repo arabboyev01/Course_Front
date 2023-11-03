@@ -6,16 +6,18 @@ import { useEffect, useState } from 'react'
 import { api } from '@/config'
 import { singleUser, setUserReviewId, setTotalLike } from '@/store/reducerSlice'
 import { usersType } from '@/globalTypes'
+import { Router } from '@/utils/router'
 
 const Header = () => {
     const router = useRouter();
     const Auth = useSelector(Authorized);
     const liked = useSelector(isLiked)
+    const { handleRoute } = Router()
 
     const dispatch = useDispatch()
     const [single, setSingle] = useState<usersType | null>(null)
-    const handleRouter = () => router.push('/login');
-    const handleMain = () => router.push('/')
+    const handleRouter = () => handleRoute('/login');
+    const handleMain = () => handleRoute('/');
 
     useEffect(() => {
         api.SingleUser('api/single-user').then((data) => {

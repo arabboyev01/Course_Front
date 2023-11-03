@@ -1,5 +1,4 @@
 import DumbLogin from '@/components/Login/DumbLogin'
-import { useRouter } from 'next/router'
 import { api } from '@/config'
 import { LoginUsersType } from '@/globalTypes'
 import { useDispatch } from 'react-redux'
@@ -8,15 +7,16 @@ import { setToken, verifyUser } from '@/store/reducerSlice'
 import { useState } from 'react'
 import { useAlert } from 'react-alert';
 import { CustomError, userValidation } from '@/utils/errors'
+import { Router } from '@/utils/router'
 
 const LoginComponent = () => {
 
-    const router = useRouter();
+    const { handleRoute } = Router()
     const dispatch = useDispatch<AppDispatch>()
     const [loader, setLoader] = useState(false)
     const alert = useAlert();
 
-    const loginRoute = () => router.push('/sign-up')
+    const loginRoute = () => handleRoute('/sign-up')
     const handleLogin = (values: LoginUsersType) => {
         setLoader(true)
         api.Users('api/login', values).then(data => {
@@ -25,7 +25,7 @@ const LoginComponent = () => {
             if (data) alert.success('Logged In!');
             dispatch(setToken(data.token));
             dispatch(verifyUser())
-            router.push('/');
+            handleRoute('/');
         }).catch((err) => {
             if(err.name === "CustomError") alert.info(userValidation.blockedUser)
             else alert.error('username or password is wrong!')
