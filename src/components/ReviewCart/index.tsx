@@ -34,7 +34,9 @@ const ReviewCart = () => {
         setLoading(true)
         try {
             const fetchedUsers =
-                await api.getUsers(`api/all-reviews?selectedTags=${selectedTagsString}&filterName=${FilterName}&&sortName=${SortName}&page=${page}&pageSize=${5}`);
+                await api.getUsers(
+                    `api/all-reviews?selectedTags=${selectedTagsString}&filterName=${FilterName}&&sortName=${SortName}&page=${page}&pageSize=${5}`
+                );
             setReviews(fetchedUsers.reviews);
             setLoading(false)
             dispatch(reviewDataLength(fetchedUsers.currentPage))
@@ -53,9 +55,10 @@ const ReviewCart = () => {
     const likeReq = (reviewId: number) => handleLikeReq(reviewId, alert, dispatch)
 
     const handleImageModal = (imageUrl: string) => {
-        const payload:any = {open: true, imageUrl}
+        const payload: any = {open: true, imageUrl}
         dispatch(setImageObjects(payload))
     }
+    console.log(reviews)
 
     return <DumbReview
         ReviewsData={reviews}

@@ -13,7 +13,7 @@ const LoginComponent = () => {
 
     const { handleRoute } = Router()
     const dispatch = useDispatch<AppDispatch>()
-    const [loader, setLoader] = useState(false)
+    const [loader, setLoader] = useState<boolean>(false)
     const alert = useAlert();
 
     const loginRoute = () => handleRoute('/sign-up')
@@ -37,6 +37,11 @@ const LoginComponent = () => {
         window.location.assign(`https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}`)
     }
 
-    return <DumbLogin handleLogin={handleLogin} loginRoute={loginRoute} loader={loader} GithubSign={GithubSign}/>
+    return <DumbLogin
+        handleLogin={handleLogin}
+        loginRoute={loginRoute}
+        loader={loader}
+        GithubSign={GithubSign}
+    />
 }
 export default LoginComponent;

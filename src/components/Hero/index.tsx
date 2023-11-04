@@ -13,7 +13,7 @@ const Hero = () => {
     }
 
     useEffect(() => {
-        api.getUsers(`api/high-rate-review`).then(data => setReviews(data))
+        api.getUsers(`api/high-rate-review`).then((data: ReviewType[]) => setReviews(data))
             .catch(err => console.log(err))
     }, [])
 

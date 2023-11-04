@@ -31,12 +31,30 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { handleLikesCounts } from '@/utils/handleLikes'
 import SkeletonComponent from '@/re-usible/Skeleton'
 import ImageModalComponent from '@/re-usible/ImageModal'
+import NoData from '@/re-usible/NoData'
 
 const DumbReview: React.FC<ReviewPropsType | any> =
-    ({ ReviewsData, loading, count, handlePaginateData, navigateSinglePage, handleLikeReq, anchorEl, handleClick, setAnchorEl, setId, checkId, edit, UserReviewId, totalLike, handleImageModal}) => (
+    ({
+         ReviewsData,
+         loading,
+         count,
+         handlePaginateData,
+         navigateSinglePage,
+         handleLikeReq,
+         anchorEl,
+         handleClick,
+         setAnchorEl,
+         setId,
+         checkId,
+         edit,
+         UserReviewId,
+         totalLike,
+         handleImageModal
+     }) => (
         <StyleCart>
+            {ReviewsData === undefined && <NoData/>}
             {ReviewsData === null || loading || !totalLike ?
-                Array.from(new Array(2)).map((_, index: number) => <SkeletonComponent key={index}/>):
+                Array.from(new Array(2)).map((_, index: number) => <SkeletonComponent key={index}/>) :
                 <MainCartWrapper>
                     {ReviewsData?.map(({id, name, reviewText, imageUrl, grade, tags, user, createdAt}: ReviewType) =>
                         <CartWrapper key={id}>
@@ -54,14 +72,15 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                     </MainLike>
                                     {edit ?
                                         <Dots onClick={() => checkId(id)}>
-                                            <MoreVertIcon onClick={handleClick} sx={{color: "#8f8f8f"}} />
+                                            <MoreVertIcon onClick={handleClick} sx={{color: '#8f8f8f'}}/>
                                             <BasicPopover anchorEl={anchorEl} setAnchorEl={setAnchorEl} setId={setId}/>
                                         </Dots> : null
                                     }
                                 </ControlButton>
                             </HeaderWrapper>
-                            <Images src={imageUrl} alt="images" onDoubleClick={() => handleLikeReq(id)} onClick={() => handleImageModal(imageUrl)}/>
-                            <ImageModalComponent />
+                            <Images src={imageUrl} alt="images" onDoubleClick={() => handleLikeReq(id)}
+                                    onClick={() => handleImageModal(imageUrl)}/>
+                            <ImageModalComponent/>
                             <Time>{formatted(createdAt)}</Time>
                             <CartHeader>
                                 <User>
@@ -89,11 +108,8 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                     )}
                 </MainCartWrapper>
             }
-            {ReviewsData === null ? null :
-                <PaginationRounded count={count} handlePaginateData={handlePaginateData}/>
-            }
+            {ReviewsData && <PaginationRounded count={count} handlePaginateData={handlePaginateData}/>}
         </StyleCart>
     );
 
 export default DumbReview
-

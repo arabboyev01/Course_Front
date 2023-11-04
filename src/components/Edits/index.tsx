@@ -2,13 +2,14 @@ import DumbEdit from '@/components/Edits/DumbEdit'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { isObjectEmpty } from '@/utils'
-import { ReviewType } from '@/globalTypes'
+import { EditInputTypes, ReviewType } from '@/globalTypes'
 import { api } from '@/config'
 import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { groupName, tags } from '@/store/Selector'
 import { handleChanges } from '@/components/Edits/utils'
 import { useAlert } from 'react-alert'
+import { ParsedUrlQuery } from 'querystring'
 
 const Edits = () => {
 
@@ -22,13 +23,13 @@ const Edits = () => {
 
     useEffect(() => {
         if (!isObjectEmpty(router.query)) {
-            const {id}: any = router.query;
+            const { id }: ParsedUrlQuery = router.query;
             api.getUsers(`api/single-review?id=${id}`).then((data) => setSingleReview(data))
                 .catch(err => console.log(err))
         }
     }, [router.query])
 
-    const handleReviewChanges = (values: object|any) => {
+    const handleReviewChanges = (values: EditInputTypes) => {
         handleChanges(values, setLoader, singleReview, group_name, tag, alert)
     }
 

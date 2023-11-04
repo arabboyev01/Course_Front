@@ -96,7 +96,7 @@ export interface CounterState {
 }
 
 export interface HandleLoginType {
-    handleLogin: (e: LoginUsersType) => any
+    handleLogin: (e: LoginUsersType) => void
     loginRoute: () => void
     loader: boolean
     GithubSign: () => void
@@ -244,8 +244,9 @@ export interface LikeProps {
     id: number
 }
 
-export interface ImageModalProps {
-    open: boolean
-    setOpen: (values: boolean) => void
-    image: string
+export interface EditInputTypes {
+    name: string
+    reviewText: string
+    group: string
+    tags: string
 }
