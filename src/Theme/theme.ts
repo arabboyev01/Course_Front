@@ -7,7 +7,8 @@ export const lightTheme = {
   mainHover: "#ddd",
   primary: "rgb(62, 40, 222)",
   subtitle: "#455262",
-  iconHover: "#ddd"
+  iconHover: "#ddd",
+  negativeColor: "#ddd"
 };
 
 export const darkTheme = {
@@ -19,5 +20,6 @@ export const darkTheme = {
   mainHover: "#000",
   primary: "#2F58CD",
   subtitle: "#fff",
-  iconHover: "#000"
+  iconHover: "#000",
+  negativeColor: "#8f8f8f"
 };

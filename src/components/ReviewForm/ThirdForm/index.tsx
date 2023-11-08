@@ -14,11 +14,10 @@ const ThirdForm: React.FC = () => {
 
     const dispatch = useDispatch<AppDispatch>()
     const [inputValue, setInputValue] = useState<string>('');
-    const [suggestedTags, setSuggestedTags] = useState<any>(existingTags);
+    const [suggestedTags, setSuggestedTags] = useState<TagsType[] | undefined| null>(existingTags);
     const [values, setValues] = useState<any>([])
     const [open, setOpen] = useState(false);
     const singleUser = useSelector(SingleUser)
-
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;

@@ -6,7 +6,7 @@ import { Router } from '@/utils/router'
 
 const Hero = () => {
     const [reviews, setReviews] = useState<ReviewType[] | null>(null)
-    const { handleRoute } = Router()
+    const {handleRoute} = Router()
 
     const handleDirect = (id: number) => {
         handleRoute(`/single-review/${id}`)

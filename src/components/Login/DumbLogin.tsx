@@ -3,7 +3,7 @@ import {
     InputWrapper,
     Line,
     Lines, LoginButton,
-    LoginWrapper, Paragraph, SignUp, SignUpLinks, SignUpWrapper, SocialMediaWrapper,
+    LoginWrapper, Paragraph, ShowPassword, SignUp, SignUpLinks, SignUpWrapper, SocialMediaWrapper,
     StyleLogin,
     SubmitButton,
     Title
@@ -20,7 +20,7 @@ import GoogleButton from '@/re-usible/GoogleButton'
 
 const validate: any = makeValidate(schema);
 
-const DumbLogin: React.FC<HandleLoginType> = ({handleLogin, loginRoute, loader, GithubSign}) => (
+const DumbLogin: React.FC<HandleLoginType> = ({handleLogin, loginRoute, loader, GithubSign, showPassword ,togglePassword}) => (
     <StyleLogin>
         <LoginWrapper>
             <Title>Login into account</Title>
@@ -33,7 +33,10 @@ const DumbLogin: React.FC<HandleLoginType> = ({handleLogin, loginRoute, loader, 
                             <CssTextField {...FOUNDATION_FORM_VALUES.username}/>
                         </InputWrapper>
                         <InputWrapper>
-                            <CssTextField {...FOUNDATION_FORM_VALUES.password} type='password'/>
+                            <ShowPassword onClick={togglePassword}>
+                                {showPassword ? 'Hide' : 'Show'}
+                            </ShowPassword>
+                            <CssTextField {...FOUNDATION_FORM_VALUES.password} type={showPassword ? 'text' : 'password'}/>
                         </InputWrapper>
                         <SignUpWrapper>
                             <SignUp>Do not have an account ?</SignUp>

@@ -4,7 +4,7 @@ const NoData = () => (
     <StyleNoData>
         <Data>
             <DataImage src={EmptyImage.src} alt='no-data'/>
-            <Paragraph>No data </Paragraph>
+            <Paragraph>No data created yet! </Paragraph>
         </Data>
     </StyleNoData>
 )

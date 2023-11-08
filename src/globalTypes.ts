@@ -100,6 +100,8 @@ export interface HandleLoginType {
     loginRoute: () => void
     loader: boolean
     GithubSign: () => void
+    showPassword: boolean
+    togglePassword: () => void
 }
 
 export interface HandleSignUpTypes {
@@ -122,7 +124,7 @@ export interface ThirdFormTypes {
     values: string[],
     inputValue: string,
     handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void,
-    suggestedTags: any
+    suggestedTags: TagsType[] | null | undefined
     handleTagSelect: (tag: string) => void
     open: boolean
     handleInputFocus: () => void

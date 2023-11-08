@@ -12,6 +12,8 @@ export const StyleNoData =  styled.div`
 export const Data = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
 `
 
 export const DataImage = styled.img`
@@ -21,6 +23,6 @@ export const DataImage = styled.img`
 `
 
 export const Paragraph = styled.p`
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 400;
 `

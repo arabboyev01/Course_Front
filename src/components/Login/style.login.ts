@@ -35,10 +35,34 @@ export const InputWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
+  position: relative;
   @media (max-width: 400px) {
     width: 320px;
   }
 `
+
+export const ShowPassword = styled.div`
+ position: absolute;
+  background: ${({theme}) => theme.negativeColor};
+  color: #000;
+  right: 15px;
+  top: 40%;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 500;
+  z-index: 1;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover{
+    opacity: .8;
+  }
+`
+
 export const SubmitButton = styled.button`
   width: 100%;
   height: 40px;
