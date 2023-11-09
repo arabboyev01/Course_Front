@@ -29,6 +29,7 @@ const Favorites = () => {
         dispatch(setImageObjects(payload))
     }
 
+
     return <DumbFavorite
         ReviewsData={data}
         navigateSinglePage={navigateSinglePage}

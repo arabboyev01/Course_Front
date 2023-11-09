@@ -16,7 +16,7 @@ export const Subtitle = styled.h5`
 export const Text = styled.p`
   margin: 12px 0;
   font-size: 15px;
-  line-height: 16px;
+  line-height: 18px;
   font-weight: 400;
   color: #8f8f8f;
   width: 95%;

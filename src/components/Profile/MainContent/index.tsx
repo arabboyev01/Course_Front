@@ -21,7 +21,7 @@ const MainContent = () => {
                 {pathname === Routes.main && <PersonalData/>}
                 {pathname === Routes.review && <MyReview/>}
                 {pathname === Routes.users && <Users/>}
-                {pathname === Routes.favorites && <Favorites />}
+                {pathname === Routes.favorites && <Favorites/>}
             </Right>
         </ProfileLayout>
     )

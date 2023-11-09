@@ -26,8 +26,8 @@ export const ContentWrapper = styled.div`
 export const MainText = styled.h1`
   text-align: center;
   font-weight: 500;
-  max-width: 500px;
-  font-size: 32px;
+  max-width: 800px;
+  font-size: 52px;
   @media(max-width: 650px){
     font-size: 22px;
   }
@@ -40,6 +40,7 @@ export const Description = styled.p`
   align-items: center;
   gap: 10px;
   text-align: center;
+  margin-top: 20px;
 `
 
 export const DoneIconStyle = {

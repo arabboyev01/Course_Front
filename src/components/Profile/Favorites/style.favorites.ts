@@ -7,6 +7,10 @@ export const StyleFavorites = styled.div`
   height: 70vh;
 `
 
-export const NoDataMessage = styled.h3`
-  margin-top: 50px;
+export const NoDataMessage = styled.div`
+  margin-top: 150px;
+  
+  @media(max-width: 430px){
+    margin-top: 50px;
+  }
 `
