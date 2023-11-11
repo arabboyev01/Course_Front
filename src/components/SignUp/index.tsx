@@ -14,7 +14,7 @@ const SignUpComponent = () => {
     const dispatch = useDispatch<AppDispatch>()
     const [loader, setLoader] = useState(false)
     const alert = useAlert()
-    const signUpRoute = () => router.push('/login');
+    const signUpRoute = () => router.push('/login')
     const handleSignUp = (values: SignUpUsersTypes) => {
         setLoader(true)
         api.Users('api/register', values).then(data => {
