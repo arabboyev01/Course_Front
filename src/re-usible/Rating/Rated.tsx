@@ -4,6 +4,7 @@ import Rating from '@mui/material/Rating';
 import { api } from '@/config'
 import { useAlert } from 'react-alert'
 import { userValidation } from '@/utils/errors'
+import { RatingText } from '@/components/SingleReview/style.single'
 
 export default function BasicRating({reviewId, grade}: number | any) {
     const [value, setValue] = React.useState<number | any>(grade);
@@ -19,13 +20,14 @@ export default function BasicRating({reviewId, grade}: number | any) {
     }
 
     return (
-        <Box sx={{'& > legend': {mt: 2}}}>
+        <Box style={{marginTop: '2px', display: "flex", alignItems: 'center', gap: '10px'}}>
             <Rating
                 name="simple-controlled"
                 value={value}
                 size="large"
-                onChange={(event, newValue) => handleRating(newValue)}
+                onChange={(_, newValue) => handleRating(newValue)}
             />
+            <RatingText>({value})</RatingText>
         </Box>
     );
 }

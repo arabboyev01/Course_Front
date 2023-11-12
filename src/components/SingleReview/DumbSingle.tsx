@@ -6,7 +6,7 @@ import {
     Date,
     Description,
     MainImage,
-    MainWrapper, RatingText, RatingWrapper,
+    MainWrapper, RatingWrapper,
     StyleSingle, Tags, TagsWrapper,
     Text
 } from '@/components/SingleReview/style.single'
@@ -23,7 +23,6 @@ const DumbSingle: React.FC<any> = ({single, handleImageModal}) => (
                 <Date>{formatted(single?.createdAt)}</Date>
                 <RatingWrapper>
                     <RatingGiven reviewId={single?.id} grade={single?.grade}/>
-                    <RatingText>({single?.grade})</RatingText>
                 </RatingWrapper>
                 <Text>{single?.name}</Text>
                 <Description>{single?.reviewText}</Description>
