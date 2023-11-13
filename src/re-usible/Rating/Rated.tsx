@@ -6,8 +6,8 @@ import { useAlert } from 'react-alert'
 import { userValidation } from '@/utils/errors'
 import { RatingText } from '@/components/SingleReview/style.single'
 
-export default function BasicRating({reviewId, grade}: number | any) {
-    const [value, setValue] = React.useState<number | any>(grade);
+export default function BasicRating({reviewId, grade}: {reviewId: number, grade: number}) {
+    const [value, setValue] = React.useState<number>(grade);
 
     const alert = useAlert();
     const handleRating = (rating: any) => {
