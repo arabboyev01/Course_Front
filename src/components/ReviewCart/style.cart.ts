@@ -3,7 +3,9 @@ import styled from 'styled-components'
 export const StyleCart = styled.div`
   max-width: 880px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 50px auto;
+  height: 90%;
+  overflow-y: scroll;
   @media (max-width: 820px) {
     max-width: 900px;
   }

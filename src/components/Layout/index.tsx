@@ -18,7 +18,7 @@ const Layout: React.FC<ChildrenProps> = ({children}) => {
         <React.Fragment>
             <Header/>
             {children}
-            <Footer/>
+            {/*<Footer/>*/}
         </React.Fragment>
     )
 }

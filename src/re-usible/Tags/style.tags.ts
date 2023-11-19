@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 export const StyleTags = styled.div`
-  max-width: 450px;
+  max-width: 350px;
   margin: 0 auto;
   @media(max-width: 820px){
     max-width: 400px;

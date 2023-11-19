@@ -10,6 +10,11 @@ import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import GroupIcon from '@mui/icons-material/Group';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import { MainNavigatorTypes } from '@/globalTypes'
+import HomeIcon from '@mui/icons-material/Home';
+import SearchIcon from '@mui/icons-material/Search';
+import EmailIcon from '@mui/icons-material/Email';
+import Person3Icon from '@mui/icons-material/Person3';
 export function generateSidebarNavItems(userRole: string | null) {
     const commonItems = [
         {
@@ -115,4 +120,31 @@ export const filters = [
     {label: 'Week', value: 'week'},
     {label: 'Month', value: 'month'}
 ];
+
+export const MainNavigator: MainNavigatorTypes[] = [
+    {
+        id: 0,
+        name: "Home",
+        icon: <HomeIcon />,
+        route: "/"
+    },
+    {
+        id: 0,
+        name: "Explore",
+        icon: <SearchIcon />,
+        route: "/explore"
+    },
+    {
+        id: 0,
+        name: "Message",
+        icon: <EmailIcon />,
+        route: "/messages"
+    },
+    {
+        id: 0,
+        name: "Profile",
+        icon: <Person3Icon />,
+        route: "/profile"
+    }
+]
 

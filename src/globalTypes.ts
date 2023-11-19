@@ -252,3 +252,10 @@ export interface EditInputTypes {
     group: string
     tags: string
 }
+
+export interface MainNavigatorTypes {
+    id: number
+    name: string
+    icon: any
+    route: string
+}
