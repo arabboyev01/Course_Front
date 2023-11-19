@@ -18,7 +18,7 @@ const DumbSingle: React.FC<any> = ({single, handleImageModal}) => (
         {single === null || single === undefined ?
             Array.from(new Array(1)).map((_, index: number) => <SkeletonComponent key={index}/>) :
             <MainWrapper>
-                <MainImage image={single?.imageUrl} onClick={() => handleImageModal(single?.imageUrl)}></MainImage>
+                <MainImage src={single.imageUrl} onClick={() => handleImageModal(single?.imageUrl)} alt={`${single.id} image`}/>
                 <ImageModalComponent/>
                 <Date>{formatted(single?.createdAt)}</Date>
                 <RatingWrapper>

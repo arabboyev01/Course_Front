@@ -13,18 +13,21 @@ export const MainWrapper = styled.div`
   margin: 120px 0 20px 0;
 `
 
-export const MainImage: any = styled.div`
-  //max-width: 1050px;
+export const MainImage: any = styled.img`
+  max-width: 1050px;
+  width: 100%;
   min-height: 450px;
   max-height: 550px;
-  background-image: ${(props: any) => `url(${props.image})`};
   border: .1px solid rgba(0, 0, 0, 0.3);
   object-fit: cover;
   margin: 12px 0;
-  background-position: center;
-  background-size: cover;
   border-radius: 8px;
   cursor: pointer;
+  
+  @media(max-width: 430px){
+    max-width: 400px;
+    margin-right: 15px;
+  }
 `
 
 export const RatingWrapper = styled.div`

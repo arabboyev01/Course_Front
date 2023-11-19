@@ -58,7 +58,6 @@ const ReviewCart = () => {
         const payload: any = {open: true, imageUrl}
         dispatch(setImageObjects(payload))
     }
-    console.log(reviews)
 
     return <DumbReview
         ReviewsData={reviews}

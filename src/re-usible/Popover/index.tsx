@@ -13,11 +13,13 @@ const BasicPopover: React.FC<PopoverProp> = ({anchorEl, setAnchorEl, setId}) => 
         setAnchorEl(null);
     };
     const alert = useAlert();
-    const id: any = typeof window !== "undefined" ? window.localStorage.getItem('reviewId') : null
+    const id: any = typeof window !== 'undefined' ? window.localStorage.getItem('reviewId') : null
+
     const handleDelete = () => {
         const payload = {id: parseInt(id)}
-        api.DeleteMethod('api/delete-review', payload).then(() => {
-            alert.info("Review deleted")
+        api.DeleteMethod('api/delete-review', payload).then((data) => {
+            console.log(data)
+            alert.info('Review deleted')
         }).catch(err => console.log(err))
     }
 
@@ -37,7 +39,7 @@ const BasicPopover: React.FC<PopoverProp> = ({anchorEl, setAnchorEl, setId}) => 
             >
                 <Editor>
                     <Lists onClick={() => setId(id)}>
-                         <EditIcon/> Edit
+                        <EditIcon/> Edit
                     </Lists>
                     <Lists onClick={handleDelete}>
                         <DeleteIcon/> Delete
