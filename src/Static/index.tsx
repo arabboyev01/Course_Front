@@ -136,7 +136,7 @@ export const MainNavigator: MainNavigatorTypes[] = [
     },
     {
         id: 0,
-        name: "Message",
+        name: "Messages",
         icon: <EmailIcon />,
         route: "/messages"
     },
@@ -147,4 +147,3 @@ export const MainNavigator: MainNavigatorTypes[] = [
         route: "/profile"
     }
 ]
-

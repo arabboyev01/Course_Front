@@ -1,14 +1,13 @@
 import React from 'react'
-import { StyleTags, Subtitle, TagsText, TagsWrapper, Text } from '@/re-usible/Tags/style.tags'
+import { StyleTags, Subtitle, TagsText, TagsWrapper } from '@/re-usible/Tags/style.tags'
 import { TagsType } from '@/globalTypes'
-import { MainInformation } from '@/utils/errors'
 import { LoaderCenter } from '@/components/Hero/slider'
 import MainLoader from '@/re-usible/Loaders/MainLoader'
+import UsersCart from '@/re-usible/UsersCart'
 
-const DumbTags: React.FC<TagsType[] | null | any> = ({existingTags, handleSelectedTags, selectedTags}) => (
+const DumbTags: React.FC<TagsType[] | null | any> = ({existingTags, handleSelectedTags, selectedTags, singleUser}) => (
     <StyleTags>
-        <Subtitle>About</Subtitle>
-        <Text>{MainInformation.aboutText}</Text>
+        <UsersCart userData={singleUser}/>
         <Subtitle>Featured tags</Subtitle>
         <TagsWrapper>
             {existingTags === null || existingTags?.error ?

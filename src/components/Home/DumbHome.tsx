@@ -9,7 +9,7 @@ import Navigator from '@/components/Navigator'
 const DumbHome: React.FC = () => (
     <HomeStyle>
         {/*<Hero/>*/}
-        <Sorting/>
+        {/*<Sorting/>*/}
         <BodyWrapper>
             <Navigator />
             <ReviewCart/>

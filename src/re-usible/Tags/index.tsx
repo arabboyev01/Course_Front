@@ -2,14 +2,16 @@ import DumbTags from '@/re-usible/Tags/Dumbtags'
 import { useEffect, useState } from 'react'
 import { TagsType } from '@/globalTypes'
 import { api } from '@/config'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from '@/store'
 import { handleSelectedTags } from '@/store/reducerSlice'
+import { SingleUser } from '@/store/Selector'
 
 const Tags = () => {
     const [existingTags, setExistingTags] = useState<TagsType[] | null>(null);
     const [selectedTags, setSelectedTags] = useState<string[] | any>([])
     const dispatch = useDispatch<AppDispatch>()
+    const singleUser = useSelector(SingleUser)
 
     useEffect(() => {
         api.getUsers('api/tags').then(data => {
@@ -23,11 +25,13 @@ const Tags = () => {
         }
         setSelectedTags([...selectedTags, value])
     }
+
     useEffect(() => {
         dispatch(handleSelectedTags(selectedTags))
     }, [dispatch, selectedTags])
+    console.log(singleUser)
 
-    return <DumbTags existingTags={existingTags} handleSelectedTags={handleSelect} selectedTags={selectedTags}/>
+    return <DumbTags existingTags={existingTags} handleSelectedTags={handleSelect} selectedTags={selectedTags} singleUser={singleUser}/>
 }
 
 export default Tags

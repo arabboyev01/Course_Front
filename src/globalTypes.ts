@@ -259,3 +259,19 @@ export interface MainNavigatorTypes {
     icon: any
     route: string
 }
+
+export interface User {
+  email: string;
+  firstName: string;
+  hashPassword: string;
+  id: number;
+  imageUrl: string;
+  lastName: string;
+  status: string;
+  userType: string;
+  username: string;
+}
+
+export interface userCartProp {
+    userData: User
+}

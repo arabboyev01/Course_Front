@@ -1,5 +1,5 @@
 import DumbFavorite from '@/components/Profile/Favorites/DumbFavorite'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { api } from '@/config'
 import { useRouter } from 'next/router'
 import { handleLikeReq } from '@/utils/PostRequest'
@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { isLiked, totalLike, userReviewId } from '@/store/Selector'
 import { AppDispatch } from '@/store'
 import { setImageObjects } from '@/store/reducerSlice'
+import { StyleReview } from '@/components/Profile/MyReview/style.review'
+import Sorting from '@/components/Sorting'
 
 const Favorites = () => {
     const [data, setData] = useState(null)
@@ -24,20 +26,25 @@ const Favorites = () => {
     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
     const likeReq = (reviewId: number) => handleLikeReq(reviewId, alert, dispatch)
 
-     const handleImageModal = (imageUrl: string) => {
+    const handleImageModal = (imageUrl: string) => {
         const payload = {open: true, imageUrl} //@ts-ignore
         dispatch(setImageObjects(payload))
     }
 
 
-    return <DumbFavorite
-        ReviewsData={data}
-        navigateSinglePage={navigateSinglePage}
-        likeReq={likeReq}
-        UserReviewId={UserReviewId}
-        totalLike={TotalLike}
-        handleImageModal={handleImageModal}
-    />
+    return (
+        <StyleReview>
+            <Sorting/>
+            <DumbFavorite
+                ReviewsData={data}
+                navigateSinglePage={navigateSinglePage}
+                likeReq={likeReq}
+                UserReviewId={UserReviewId}
+                totalLike={TotalLike}
+                handleImageModal={handleImageModal}
+            />
+        </StyleReview>
+    )
 }
 
 export default Favorites

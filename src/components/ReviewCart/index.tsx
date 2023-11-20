@@ -10,6 +10,8 @@ import { reviewDataLength, setImageObjects } from '@/store/reducerSlice'
 import * as React from 'react'
 import { useAlert } from 'react-alert'
 import { handleLikeReq } from '@/utils/PostRequest'
+import Sorting from '@/components/Sorting'
+import { ReviewCartComponent } from '@/components/ReviewCart/style.cart'
 
 const ReviewCart = () => {
 
@@ -59,17 +61,22 @@ const ReviewCart = () => {
         dispatch(setImageObjects(payload))
     }
 
-    return <DumbReview
-        ReviewsData={reviews}
-        loading={loading}
-        count={count}
-        handlePaginateData={handlePaginateData}
-        navigateSinglePage={navigateSinglePage}
-        handleLikeReq={likeReq}
-        UserReviewId={UserReviewId}
-        totalLike={TotalLike}
-        handleImageModal={handleImageModal}
-    />
+    return (
+        <ReviewCartComponent>
+            <Sorting/>
+            <DumbReview
+                ReviewsData={reviews}
+                loading={loading}
+                count={count}
+                handlePaginateData={handlePaginateData}
+                navigateSinglePage={navigateSinglePage}
+                handleLikeReq={likeReq}
+                UserReviewId={UserReviewId}
+                totalLike={TotalLike}
+                handleImageModal={handleImageModal}
+            />
+        </ReviewCartComponent>
+    )
 }
 
 export default ReviewCart;

@@ -1,10 +1,17 @@
 import styled from 'styled-components'
 
+export const ReviewCartComponent = styled.div`
+  max-width: 800px;
+  width: 100%;
+  @media (max-width: 430px) {
+    padding: 0 10px;
+  }
+`
 export const StyleCart = styled.div`
   max-width: 880px;
   width: 100%;
   margin: 0 auto 50px auto;
-  height: 90%;
+  height: 100%;
   overflow-y: scroll;
   @media (max-width: 820px) {
     max-width: 900px;

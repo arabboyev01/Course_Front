@@ -11,15 +11,7 @@ export const Subtitle = styled.h5`
   font-size: 1.1rem;
   font-weight: 600;
   color: ${({theme}) => theme.text};
-`
-
-export const Text = styled.p`
-  margin: 12px 0;
-  font-size: 15px;
-  line-height: 18px;
-  font-weight: 400;
-  color: #8f8f8f;
-  width: 95%;
+  margin-top: 20px;
 `
 
 export const TagsWrapper = styled.div`
@@ -54,4 +46,8 @@ export const TagsText: any = styled.p`
   &:hover {
     border: 0.2px solid #8f8f8f;
   }
+`
+
+export const StyleUserInfo = styled.div`
+  max-width: 400px;
 `
