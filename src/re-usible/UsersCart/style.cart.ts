@@ -6,15 +6,10 @@ export const StyleCart = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+  margin-top: 30px;
 `
 export const ContentWrapper = styled.div`
   align-items: start;
-`
-export const MainWrapper = styled.img`
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 50%;
 `
 
 export const Username = styled.p`

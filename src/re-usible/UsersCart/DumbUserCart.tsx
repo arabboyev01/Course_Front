@@ -1,10 +1,11 @@
-import { ContentWrapper, FullName, MainWrapper, StyleCart, Username } from '@/re-usible/UsersCart/style.cart'
+import { ContentWrapper, FullName, StyleCart, Username } from '@/re-usible/UsersCart/style.cart'
 import { FC } from 'react'
 import { userCartProp } from '@/globalTypes'
+import UserAvatar from '@/re-usible/Avatar'
 
 const DumbUserCart: FC<userCartProp> = ({userData}) => (
     <StyleCart>
-        <MainWrapper src={userData?.imageUrl}  />
+        <UserAvatar/>
         <ContentWrapper>
             <Username>{userData?.username}</Username>
             <FullName>{userData?.firstName} {userData?.lastName}</FullName>

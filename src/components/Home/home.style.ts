@@ -3,7 +3,9 @@ import styled from 'styled-components';
 export const HomeStyle = styled.div`
   width: 100%;
   position: fixed;
-  margin-top: 100px;
+  padding-top: 100px;
+  top: -20px;
+  
 `
 export const BodyWrapper = styled.div`
   display: flex;

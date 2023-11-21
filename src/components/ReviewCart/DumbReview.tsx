@@ -1,7 +1,6 @@
 import React from 'react'
 import { ReviewPropsType, ReviewType } from '@/globalTypes'
 import RatingComponent from '@/re-usible/Rating'
-import Avatar from '@mui/material/Avatar'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import PaginationRounded from '@/re-usible/Pagination'
 import { formatted } from '@/re-usible/FormattedDate'
@@ -32,6 +31,7 @@ import { handleLikesCounts } from '@/utils/handleLikes'
 import SkeletonComponent from '@/re-usible/Skeleton'
 import ImageModalComponent from '@/re-usible/ImageModal'
 import NoData from '@/re-usible/NoData'
+import UserAvatar from '@/re-usible/Avatar'
 
 const DumbReview: React.FC<ReviewPropsType | any> =
     ({
@@ -84,7 +84,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                             <Time>{formatted(createdAt)}</Time>
                             <CartHeader>
                                 <User>
-                                    <Avatar src={user?.imageUrl || '/broken-image.jpg'}/>
+                                    <UserAvatar/>
                                     <UserName>@{user?.username}</UserName>
                                 </User>
                                 <User>
