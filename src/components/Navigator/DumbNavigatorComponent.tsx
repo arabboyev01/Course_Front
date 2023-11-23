@@ -1,9 +1,16 @@
-import { IconImage, NavigateWrapper, SingleRoute, StyleNavigator, Title } from '@/components/Navigator/style.navigator'
 import { MainNavigator } from '@/Static'
 import { MainNavigatorTypes } from '@/globalTypes'
 import { FC } from 'react'
+import {
+    IconImage,
+    NavigateWrapper,
+    NewPostButton,
+    SingleRoute,
+    StyleNavigator,
+    Title
+} from '@/components/Navigator/style.navigator'
 
-const DumbNavigatorComponent: FC<any> = ({pathname, handleRoute}) => (
+const DumbNavigatorComponent: FC<any> = ({pathname, handleRoute, singleUser}) => (
     <StyleNavigator>
         <NavigateWrapper>
             {MainNavigator.map(({id, name, icon, route}: MainNavigatorTypes) =>
@@ -12,6 +19,7 @@ const DumbNavigatorComponent: FC<any> = ({pathname, handleRoute}) => (
                     <Title active={pathname === route}>{name}</Title>
                 </SingleRoute>
             )}
+            {!singleUser?.error && <NewPostButton onClick={() => handleRoute('/review-creation/1')}>+ New Post</NewPostButton>}
         </NavigateWrapper>
     </StyleNavigator>
 )

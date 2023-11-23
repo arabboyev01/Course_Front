@@ -9,11 +9,10 @@ export const SearchInput = styled.input`
 export const StyleSearch = styled.div`
   max-width: 350px;
   width: 100%;
-  max-height: 250px;
-  min-height: 100px;
+  height: auto;
   background: ${({theme}) => theme.body};
   position: absolute;
-  left: 20px;
+  left: -10px;
   top: 80px;
   border: ${({theme}) => theme.borderTheme};
   z-index: 100;
@@ -33,8 +32,7 @@ export const TitleWrapper = styled.div`
 
 export const Title: any = styled.p`
   padding: 10px 20px;
-  font-weight: ${(props: any) => props.active ? 900 : 400};
-  font-style: ${(props: any) => props.active ? "italic" : 'normal'};
+  font-weight: ${(props: any) => props.active ? 700 : 400};
   cursor: pointer;
   text-transform: capitalize;
   color: #fff;
@@ -44,7 +42,7 @@ export const SingleReview = styled.div`
   padding: 12px;
   width: 100%;
   min-height: 100px;
-  max-height: 200px;
+  height: auto;
   overflow-y: scroll;
   &::-webkit-scrollbar{
     display: none;

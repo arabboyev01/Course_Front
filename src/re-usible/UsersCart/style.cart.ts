@@ -13,12 +13,16 @@ export const ContentWrapper = styled.div`
 `
 
 export const Username = styled.p`
-  font-size: 18px;
-  font-weight: 500;
+  color: #565555;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
   font-style: italic;
 `
 
 export const FullName = styled.p`
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 `

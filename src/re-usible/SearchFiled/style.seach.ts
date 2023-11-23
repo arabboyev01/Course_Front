@@ -3,6 +3,8 @@ import styled from "styled-components"
 export const StyleSearch = styled.div`
   width: 100%;
   padding: 0 25px;
+  position: relative;
+  //margin-top: 20px;
 `
 
 export const Forms = styled.div`
@@ -17,7 +19,7 @@ export const Forms = styled.div`
 `
 
 export const SearchInput = styled.input`
-  max-width: 450px;
+  //max-width: 450px;
   width: 100%;
   height: 50px;
   border: ${({theme}) => theme.borderTheme};
@@ -27,30 +29,5 @@ export const SearchInput = styled.input`
   font-size: 16px;
   color: #8f8f8f;
   background: transparent;
-`
-
-export const SubmitButton = styled.button`
-  height: 50px;
-  border: none;
-  font-size: 16px;
-  font-weight: 500;
-  margin-top: 20px;
-  padding: 10px 5px;
-  background: ${({theme}) => theme.primary};
-  color: #fff;
-  width: 200px;
-  border-radius: 8px;
-  cursor: pointer;
-
-  &:hover {
-    background: #000;
-  }
-
-  @media (max-width: 620px) {
-    height: auto;
-    padding: 5px 10px;
-    width: auto;
-    border-radius: 3px;
-    font-size: 14px;
-  }
+  margin-left: -24px;
 `

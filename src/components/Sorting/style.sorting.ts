@@ -7,7 +7,6 @@ export const StyleSorting = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
-  border-bottom: ${({theme}) => theme.borderTheme};
   @media(max-width: 1330px){
     margin: 80px 20px 0 20px;
   }

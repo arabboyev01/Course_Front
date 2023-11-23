@@ -98,13 +98,21 @@ export const User = styled.div`
   align-items: center;
   gap: 10px;
 `
-
-
-export const UserName = styled.p`
+export const UserInfo = styled.div`
+ 
+`
+export const Name = styled.p`
   font-size: 14px;
-  font-weight: 600;
-  font-style: oblique;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`
+export const UserName = styled.p`
   color: ${({theme}) => theme.text};
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: normal;
 `
 
 export const CartDetail = styled.div`

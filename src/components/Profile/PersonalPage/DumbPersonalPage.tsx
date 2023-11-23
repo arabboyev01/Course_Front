@@ -41,22 +41,22 @@ const DumbPersonalPage = ({handleChange, user, loading, open, setOpen}: any) => 
                     <MainData>
                         <SingleField>
                             <Sub>{PERSONAL_DATA.firstName.header}</Sub>
-                            <CssTextField {...PERSONAL_DATA.firstName} value={user?.firstName}/>
+                            <CssTextField {...PERSONAL_DATA.firstName} placeholder={user?.firstName}/>
                         </SingleField>
                         <SingleField>
                             <Sub>{PERSONAL_DATA.lastName.header}</Sub>
-                            <CssTextField {...PERSONAL_DATA.lastName} value={user?.lastName}/>
+                            <CssTextField {...PERSONAL_DATA.lastName} placeholder={user?.lastName}/>
                         </SingleField>
                     </MainData>
                     <SubTitle>Required fields *</SubTitle>
                     <MainData>
                         <SingleField>
                             <Sub>{PERSONAL_DATA.email.header}</Sub>
-                            <CssTextField {...PERSONAL_DATA.email} value={user?.email} type="text"/>
+                            <CssTextField {...PERSONAL_DATA.email} placeholder={user?.email} type="text"/>
                         </SingleField>
                         <SingleField>
                             <Sub>{PERSONAL_DATA.username.header}</Sub>
-                            <CssTextField {...PERSONAL_DATA.username} value={user?.username} type="text"/>
+                            <CssTextField {...PERSONAL_DATA.username} placeholder={user?.username} type="text"/>
                         </SingleField>
                     </MainData>
                     <MainData>

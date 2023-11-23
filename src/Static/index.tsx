@@ -68,11 +68,12 @@ export function generateSidebarNavItems(userRole: string | null) {
     return sidebarNavItems;
 }
 
-import HomeIconPng from '../../public/home.png'
-import ExploreIcon from '../../public/explore.png'
-import MessageIcon from '../../public/email.png'
-import ProfileIcon from '../../public/user.png'
-import SearchIconPng from '../../public/search.png'
+import HomeIconPng from '../../public/home.svg'
+import ExploreIcon from '../../public/explore.svg'
+import MessageIcon from '../../public/email.svg'
+import ProfileIcon from '../../public/users.svg'
+import BookmarkSvg from '../../public/bookmark.svg'
+import NotificationIcon from '../../public/notification.svg'
 
 
 export const searchTitles = [
@@ -81,8 +82,8 @@ export const searchTitles = [
         value: 'name',
     },
     {
-        name: 'groupname',
-        value: 'groupName',
+        name: 'users',
+        value: 'users',
     },
     {
         name: 'latest',
@@ -133,10 +134,10 @@ export const MainNavigator: MainNavigatorTypes[] = [
         route: '/'
     },
     {
-        id: 1,
-        name: 'Search',
-        icon: SearchIconPng,
-        route: '/search'
+        id: 6,
+        name: 'Notification',
+        icon: NotificationIcon,
+        route: '/notification'
     },
     {
         id: 2,
@@ -149,6 +150,12 @@ export const MainNavigator: MainNavigatorTypes[] = [
         name: 'Messages',
         icon: MessageIcon,
         route: '/messages'
+    },
+    {
+        id: 1,
+        name: 'Bookmark',
+        icon: BookmarkSvg,
+        route: '/bookmark'
     },
     {
         id: 4,

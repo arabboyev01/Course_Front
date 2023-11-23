@@ -8,7 +8,7 @@ const DumbUserCart: FC<userCartProp> = ({userData}) => (
         <UserAvatar/>
         <ContentWrapper>
             <Username>{userData?.username}</Username>
-            <FullName>{userData?.firstName} {userData?.lastName}</FullName>
+            <FullName>{userData?.firstName}</FullName>
         </ContentWrapper>
     </StyleCart>
 )

@@ -13,7 +13,7 @@ import {
     Dots,
     HeaderWrapper,
     Images, Likes,
-    MainCartWrapper, MainLike,
+    MainCartWrapper, MainLike, Name,
     RatingText,
     ReadMoreButton,
     ReviewName,
@@ -21,7 +21,7 @@ import {
     Tags,
     Text,
     Time, TotalLike,
-    User,
+    User, UserInfo,
     UserName
 } from '@/components/ReviewCart/style.cart'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -31,7 +31,7 @@ import { handleLikesCounts } from '@/utils/handleLikes'
 import SkeletonComponent from '@/re-usible/Skeleton'
 import ImageModalComponent from '@/re-usible/ImageModal'
 import NoData from '@/re-usible/NoData'
-import UserAvatar from '@/re-usible/Avatar'
+import Avatar from '@mui/material/Avatar'
 
 const DumbReview: React.FC<ReviewPropsType | any> =
     ({
@@ -84,8 +84,11 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                             <Time>{formatted(createdAt)}</Time>
                             <CartHeader>
                                 <User>
-                                    <UserAvatar/>
-                                    <UserName>@{user?.username}</UserName>
+                                    <Avatar src={user?.imageUrl || '/broken-image.jpg'} />
+                                    <UserInfo>
+                                        <Name>{user?.firstName}</Name>
+                                        <UserName>@{user?.username}</UserName>
+                                    </UserInfo>
                                 </User>
                                 <User>
                                     <RatingComponent value={grade} size="small"/>

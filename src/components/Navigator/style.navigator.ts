@@ -27,6 +27,7 @@ export const SingleRoute = styled.div`
   &:hover {
     background-color: ${({theme}) => theme.mainHover};
     cursor: pointer;
+    color: #5b5b5b;
   }
 `
 
@@ -45,5 +46,22 @@ export const Title = styled.p<TitleProp>`
   font-weight: ${(props) => (props.active ? 700 : 500)};
   font-style: normal;
   line-height: normal;
-  color: ${({theme}) => theme.navigatorColor};;
+  color: ${({theme}) => theme.navigatorColor};
+  color: ${(props) => (props.active && '#5b5b5b')};
+`
+
+export const NewPostButton = styled.button`
+  width: 102px;
+  height: 35px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: ${({theme}) => theme.primary};
+  border: none;
+  color: #fff;
+  margin-left: 20px;
+  cursor: pointer;
+  
+  &:hover{
+    opacity: 0.8;
+  }
 `

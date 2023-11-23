@@ -160,6 +160,7 @@ export interface SidebarProps {
 export interface TagsType {
     id: number
     name: string
+    reviews: ReviewType[]
 }
 
 export type GoogleLoginResponse = {

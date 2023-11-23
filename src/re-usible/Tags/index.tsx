@@ -29,9 +29,16 @@ const Tags = () => {
     useEffect(() => {
         dispatch(handleSelectedTags(selectedTags))
     }, [dispatch, selectedTags])
-    console.log(singleUser)
+    console.log(existingTags)
 
-    return <DumbTags existingTags={existingTags} handleSelectedTags={handleSelect} selectedTags={selectedTags} singleUser={singleUser}/>
+    return (
+        <DumbTags
+            existingTags={existingTags}
+            handleSelectedTags={handleSelect}
+            selectedTags={selectedTags}
+            singleUser={singleUser}
+        />
+    )
 }
 
 export default Tags

@@ -1,25 +1,27 @@
 import React from 'react'
-import { StyleTags, Subtitle, TagsText, TagsWrapper } from '@/re-usible/Tags/style.tags'
+import { StyleTags, Subtitle, SumPost, TagsText, TagsTitle, TagsWrapper } from '@/re-usible/Tags/style.tags'
 import { TagsType } from '@/globalTypes'
 import { LoaderCenter } from '@/components/Hero/slider'
 import MainLoader from '@/re-usible/Loaders/MainLoader'
 import UsersCart from '@/re-usible/UsersCart'
+import SearchFiled from '@/re-usible/SearchFiled'
 
 const DumbTags: React.FC<TagsType[] | null | any> = ({existingTags, handleSelectedTags, selectedTags, singleUser}) => (
     <StyleTags>
-        <UsersCart userData={singleUser}/>
+        {!singleUser?.error && <UsersCart userData={singleUser}/>}
+        <Subtitle>Search</Subtitle>
+        <SearchFiled/>
         <Subtitle>Featured tags</Subtitle>
         <TagsWrapper>
             {existingTags === null || existingTags?.error ?
-                (<LoaderCenter>
-                    <MainLoader/>
-                </LoaderCenter>) :
-                (existingTags?.map(({name, id}: TagsType) =>
-                        <TagsText active={selectedTags.includes(name)}
-                                  key={id}
-                                  onClick={() => handleSelectedTags(name)}>
-                            #{name.substring(0, 10)}
-                        </TagsText>)
+                <LoaderCenter> <MainLoader/></LoaderCenter> :
+                existingTags?.map(({name, id, reviews}: TagsType) =>
+                        <TagsText active={selectedTags.includes(name)} key={id}
+                                  onClick={() => handleSelectedTags(name)}
+                        >
+                           <TagsTitle>#{name}</TagsTitle>
+                            <SumPost>{reviews.length}posts</SumPost>
+                        </TagsText>
                 )}
         </TagsWrapper>
     </StyleTags>
