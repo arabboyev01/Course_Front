@@ -11,10 +11,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import { MainNavigatorTypes } from '@/globalTypes'
-import HomeIcon from '@mui/icons-material/Home';
-import SearchIcon from '@mui/icons-material/Search';
-import EmailIcon from '@mui/icons-material/Email';
-import Person3Icon from '@mui/icons-material/Person3';
+
 export function generateSidebarNavItems(userRole: string | null) {
     const commonItems = [
         {
@@ -71,6 +68,13 @@ export function generateSidebarNavItems(userRole: string | null) {
     return sidebarNavItems;
 }
 
+import HomeIconPng from '../../public/home.png'
+import ExploreIcon from '../../public/explore.png'
+import MessageIcon from '../../public/email.png'
+import ProfileIcon from '../../public/user.png'
+import SearchIconPng from '../../public/search.png'
+
+
 export const searchTitles = [
     {
         name: 'name',
@@ -124,26 +128,32 @@ export const filters = [
 export const MainNavigator: MainNavigatorTypes[] = [
     {
         id: 0,
-        name: "Home",
-        icon: <HomeIcon />,
-        route: "/"
+        name: 'Home',
+        icon: HomeIconPng,
+        route: '/'
     },
     {
-        id: 0,
-        name: "Explore",
-        icon: <SearchIcon />,
-        route: "/explore"
+        id: 1,
+        name: 'Search',
+        icon: SearchIconPng,
+        route: '/search'
     },
     {
-        id: 0,
-        name: "Messages",
-        icon: <EmailIcon />,
-        route: "/messages"
+        id: 2,
+        name: 'Explore',
+        icon: ExploreIcon,
+        route: '/explore'
     },
     {
-        id: 0,
-        name: "Profile",
-        icon: <Person3Icon />,
-        route: "/profile"
+        id: 3,
+        name: 'Messages',
+        icon: MessageIcon,
+        route: '/messages'
+    },
+    {
+        id: 4,
+        name: 'Profile',
+        icon: ProfileIcon,
+        route: '/profile'
     }
 ]

@@ -28,6 +28,9 @@ export interface ReviewType {
     isLiked: boolean
 }
 
+export interface ExploreProp {
+    reviews: ReviewType[]|null
+}
 export interface usersType {
     email: string
     firstName: string
@@ -239,12 +242,6 @@ export interface EditableDataGridProps {
     setEditableIndex: (value: any) => void
 }
 
-export interface LikeProps {
-    liked: boolean
-    handleLikeClick: (id: number) => void
-    likesAmount: string|number
-    id: number
-}
 
 export interface EditInputTypes {
     name: string

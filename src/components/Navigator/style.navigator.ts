@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const StyleNavigator = styled.div`
-  width: 350px;
+  max-width: 200px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -13,19 +14,25 @@ export const StyleNavigator = styled.div`
 export const NavigateWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 `
 export const SingleRoute = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 8px;
   gap: 10px;
   &:hover {
     background-color: ${({theme}) => theme.mainHover};
     cursor: pointer;
   }
+`
+
+export const IconImage = styled.img`
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 `
 interface TitleProp {
     active: boolean
