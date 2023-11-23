@@ -8,7 +8,8 @@ export const lightTheme = {
   primary: "rgb(62, 40, 222)",
   subtitle: "#455262",
   iconHover: "#ddd",
-  negativeColor: "#ddd"
+  negativeColor: "#ddd",
+  navigatorColor: '#686868'
 };
 
 export const darkTheme = {
@@ -21,5 +22,6 @@ export const darkTheme = {
   primary: "#2F58CD",
   subtitle: "#fff",
   iconHover: "#000",
-  negativeColor: "#8f8f8f"
+  negativeColor: "#8f8f8f",
+  navigatorColor: '#fff'
 };

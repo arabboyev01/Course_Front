@@ -8,13 +8,13 @@ export const StyleNavigator = styled.div`
   align-items: start;
   justify-content: space-between;
   height: 100vh;
-  border-right:  ${({theme}) => theme.borderTheme};
+  border-right: ${({theme}) => theme.borderTheme};
   padding-top: 30px;
 `
 export const NavigateWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 `
 export const SingleRoute = styled.div`
   display: flex;
@@ -23,6 +23,7 @@ export const SingleRoute = styled.div`
   padding: 12px 20px;
   border-radius: 8px;
   gap: 10px;
+
   &:hover {
     background-color: ${({theme}) => theme.mainHover};
     cursor: pointer;
@@ -34,11 +35,15 @@ export const IconImage = styled.img`
   height: 20px;
   object-fit: contain;
 `
+
 interface TitleProp {
     active: boolean
 }
-export const Title = styled.p<TitleProp>`
-  font-size: 22px;
-  font-weight: ${(props) => (props.active ? 700 : 500)};
 
+export const Title = styled.p<TitleProp>`
+  font-size: 16px;
+  font-weight: ${(props) => (props.active ? 700 : 500)};
+  font-style: normal;
+  line-height: normal;
+  color: ${({theme}) => theme.navigatorColor};;
 `
