@@ -19,7 +19,7 @@ const DumbBookmark: FC<bookmarkProp> =
          count,
          TotalLike,
          UserReviewId,
-         alert
+         bookmarkId, handleBookmark
      }) => (
         <BookmarkWrapper>
             <BodyBookmark>
@@ -39,6 +39,8 @@ const DumbBookmark: FC<bookmarkProp> =
                                 totalLike={TotalLike}
                                 handleImageModal={handleImageModal}
                                 alert={alert}
+                                bookmarkId={bookmarkId}
+                                handleBookmark={handleBookmark}
                             />
                         </>
                     }

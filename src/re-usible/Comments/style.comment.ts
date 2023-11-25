@@ -74,7 +74,7 @@ export const CommentWrapper = styled.div`
 export const SingleComment = styled.div`
   align-items: center;
   gap: 25px;
-  width: 80%;
+  min-width: 200px;
   height: auto;
   background: ${({theme}) => theme.iconHover};
   border-radius: 8px;

@@ -52,11 +52,6 @@ export const Likes = styled.div`
     cursor: pointer;
   }
 `
-export const BookmarkIcon = styled.img`
-  width: 20px;
-  height: 25px;
-  object-fit: contain;
-`
 export const TotalLike = styled.p`
   font-size: 16px;
   font-weight: 600;

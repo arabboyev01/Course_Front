@@ -3,13 +3,13 @@ import { useCallback, useEffect, useState } from 'react'
 import { api } from '@/config'
 import { ReviewType } from '@/globalTypes'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectTags, sortName, filterName, userReviewId, totalLike } from '@/store/Selector'
+import { selectTags, sortName, filterName, userReviewId, totalLike, bookmarkReviewId } from '@/store/Selector'
 import { useRouter } from 'next/router'
 import { AppDispatch } from '@/store'
 import { reviewDataLength, setImageObjects } from '@/store/reducerSlice'
 import * as React from 'react'
 import { useAlert } from 'react-alert'
-import { handleLikeReq } from '@/utils/PostRequest'
+import { handleLikeReq, PostBookmarks } from '@/utils/PostRequest'
 import Sorting from '@/components/Sorting'
 import { ReviewCartComponent } from '@/components/ReviewCart/style.cart'
 
@@ -29,6 +29,7 @@ const ReviewCart = () => {
     const SortName = useSelector(sortName)
     const UserReviewId = useSelector(userReviewId)
     const TotalLike = useSelector(totalLike)
+    const bookmarkId = useSelector(bookmarkReviewId)
 
     const selectedTagsString = JSON.stringify(selectedTags)
 
@@ -61,6 +62,8 @@ const ReviewCart = () => {
         dispatch(setImageObjects(payload))
     }
 
+    const handleBookmark = (id: number) => PostBookmarks(id, alert, dispatch)
+
     return (
         <ReviewCartComponent>
             <Sorting/>
@@ -74,7 +77,8 @@ const ReviewCart = () => {
                 UserReviewId={UserReviewId}
                 totalLike={TotalLike}
                 handleImageModal={handleImageModal}
-                alert={alert}
+                bookmarkId={bookmarkId}
+                handleBookmark={handleBookmark}
             />
         </ReviewCartComponent>
     )

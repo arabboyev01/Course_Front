@@ -16,5 +16,6 @@ export const initialState: CounterState = {
     userReviewId: null,
     isLiked: false,
     totalLike: null,
-    imageModal: {open: false, imageUrl: ''}
+    imageModal: {open: false, imageUrl: ''},
+    bookmarkReviewId: null
 };

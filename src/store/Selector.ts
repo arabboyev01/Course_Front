@@ -15,3 +15,4 @@ export const userReviewId = (state: RootState) => state.counter.userReviewId
 export const isLiked = (state: RootState) => state.counter.isLiked
 export const totalLike = (state: RootState) => state.counter.totalLike
 export const ImageModal = (state: RootState) => state.counter.imageModal
+export const bookmarkReviewId = (state: RootState) => state.counter.bookmarkReviewId

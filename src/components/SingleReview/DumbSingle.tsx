@@ -16,9 +16,12 @@ import SkeletonComponent from '@/re-usible/Skeleton'
 const DumbSingle: React.FC<any> = ({single, handleImageModal}) => (
     <StyleSingle>
         {single === null || single === undefined ?
-            Array.from(new Array(1)).map((_, index: number) => <SkeletonComponent key={index}/>) :
             <MainWrapper>
-                <MainImage src={single.imageUrl} onClick={() => handleImageModal(single?.imageUrl)} alt={`${single.id} image`}/>
+                {Array.from(new Array(1)).map((_, index: number) => <SkeletonComponent key={index}/>)}
+            </MainWrapper> :
+            <MainWrapper>
+                <MainImage src={single.imageUrl} onClick={() => handleImageModal(single?.imageUrl)}
+                           alt={`${single.id} image`}/>
                 <ImageModalComponent/>
                 <Date>{formatted(single?.createdAt)}</Date>
                 <RatingWrapper>

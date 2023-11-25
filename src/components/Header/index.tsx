@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Authorized, isLiked } from '@/store/Selector'
 import { useEffect, useState } from 'react'
 import { api } from '@/config'
-import { singleUser, setUserReviewId, setTotalLike } from '@/store/reducerSlice'
+import { singleUser, setUserReviewId, setTotalLike, setBookmarkReviewId } from '@/store/reducerSlice'
 import { usersType } from '@/globalTypes'
 import { Router } from '@/utils/router'
 
@@ -30,6 +30,14 @@ const Header = () => {
         if (single !== null) {
             api.getUsers(`api/user-like-reviewid?userId=${single.id}`).then(data => {
                 dispatch(setUserReviewId(data))
+            }).catch(err => console.log(err))
+        }
+    }, [dispatch, router.pathname, single, liked])
+
+     useEffect(() => {
+        if (single !== null) {
+            api.getUsers(`api/get-bookmarkId?userId=${single.id}`).then(data => {
+                dispatch(setBookmarkReviewId(data))
             }).catch(err => console.log(err))
         }
     }, [dispatch, router.pathname, single, liked])

@@ -70,6 +70,11 @@ const reducerSlice = createSlice({
         },
         setImageObjects: (state: any, action: PayloadAction|any): void => {
             state.imageModal = action.payload
+        },
+         setBookmarkReviewId: (state: any, action: PayloadAction | any) => {
+            if (action.payload.length) {
+                state.bookmarkReviewId = action.payload
+            }
         }
     },
 });
@@ -91,7 +96,8 @@ export const {
     handleLiked,
     setTotalLike,
     toggleMode,
-    setImageObjects
+    setImageObjects,
+    setBookmarkReviewId
 } = reducerSlice.actions;
 
 

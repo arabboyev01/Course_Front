@@ -5,7 +5,6 @@ import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArro
 import PaginationRounded from '@/re-usible/Pagination'
 import { formatted } from '@/re-usible/FormattedDate'
 import {
-    BookmarkIcon,
     CartDetail,
     CartFooter,
     CartHeader,
@@ -33,8 +32,8 @@ import SkeletonComponent from '@/re-usible/Skeleton'
 import ImageModalComponent from '@/re-usible/ImageModal'
 import NoData from '@/re-usible/NoData'
 import Avatar from '@mui/material/Avatar'
-import Bookmark from '../../../public/bookmark.svg'
-import { PostBookmarks } from '@/utils/PostRequest'
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 
 const DumbReview: React.FC<ReviewPropsType | any> =
     ({
@@ -53,7 +52,8 @@ const DumbReview: React.FC<ReviewPropsType | any> =
          UserReviewId,
          totalLike,
          handleImageModal,
-        alert
+         bookmarkId,
+        handleBookmark
      }) => (
         <StyleCart>
             {ReviewsData === undefined && <NoData/>}
@@ -66,15 +66,15 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                 <div></div>
                                 <ControlButton>
                                     <MainLike>
-                                         <TotalLike>{handleLikesCounts(totalLike, id)}</TotalLike>
+                                        <TotalLike>{handleLikesCounts(totalLike, id)}</TotalLike>
                                         <Likes onClick={() => handleLikeReq(id)}>
                                             <FavoriteIcon style={{
                                                 color: UserReviewId?.includes(id) ? '#bf0000' : '#8f8f8f',
                                                 fontSize: '1.7rem'
                                             }}/>
                                         </Likes>
-                                        <Likes onClick={() => PostBookmarks(id, alert)}>
-                                            <BookmarkIcon src={Bookmark.src} alt={Bookmark.src}/>
+                                        <Likes onClick={() => handleBookmark(id)}>
+                                            {bookmarkId?.includes(id) ? <BookmarkIcon style={{color: "#5b5b5b"}}/> : <BookmarkBorderIcon style={{color: "#5b5b5b"}}/>}
                                         </Likes>
                                     </MainLike>
                                     {edit &&

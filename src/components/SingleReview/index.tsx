@@ -25,7 +25,6 @@ const SingleReview = () => {
         const payload: any = {open: true, imageUrl}
         dispatch(setImageObjects(payload))
     }
-    console.log(single)
 
     return <DumbSingle single={single} handleImageModal={handleImageModal}/>
 }

@@ -96,6 +96,7 @@ export interface CounterState {
     isLiked: boolean
     totalLike: null|totalLikeType[]
     imageModal: ImageObjectProp
+    bookmarkReviewId: null | number[]
 }
 
 export interface HandleLoginType {
@@ -284,5 +285,6 @@ export interface bookmarkProp {
     count: number
     TotalLike: totalLikeType[] | null
     UserReviewId: number[] | null
-    alert: any
+    bookmarkId: null|number[]
+    handleBookmark: (id: number) => void
 }

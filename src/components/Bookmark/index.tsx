@@ -2,9 +2,9 @@ import DumbBookmark from '@/components/Bookmark/DumbBookmark'
 import { useEffect, useState } from 'react'
 import { api } from '@/config'
 import { useDispatch, useSelector } from 'react-redux'
-import { SingleUser, totalLike, userReviewId } from '@/store/Selector'
+import { bookmarkReviewId, isLiked, SingleUser, totalLike, userReviewId } from '@/store/Selector'
 import { setImageObjects } from '@/store/reducerSlice'
-import { handleLikeReq } from '@/utils/PostRequest'
+import { handleLikeReq, PostBookmarks } from '@/utils/PostRequest'
 import { useRouter } from 'next/router'
 import { useAlert } from 'react-alert'
 
@@ -18,6 +18,8 @@ const BookmarkComponent = () => {
     const singleUser = useSelector(SingleUser)
     const TotalLike = useSelector(totalLike)
     const UserReviewId = useSelector(userReviewId)
+    const bookmarkId = useSelector(bookmarkReviewId)
+    const bookmarked = useSelector(isLiked)
     const dispatch = useDispatch()
     const router = useRouter()
     const alert = useAlert();
@@ -29,7 +31,7 @@ const BookmarkComponent = () => {
             setCount(data.length)
         })
             .catch(err => console.log(err)).then(() => setLoader(false))
-    }, [singleUser, page])
+    }, [singleUser, page, bookmarked])
 
     const handleImageModal = (imageUrl: string) => {
         const payload: any = {open: true, imageUrl}
@@ -39,6 +41,7 @@ const BookmarkComponent = () => {
     const handlePaginateData = (number: any) => setPage(number)
     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
     const likeReq = (reviewId: number) => handleLikeReq(reviewId, alert, dispatch)
+    const handleBookmark = (id: number) => PostBookmarks(id, alert, dispatch)
 
     return (
         <DumbBookmark
@@ -51,7 +54,8 @@ const BookmarkComponent = () => {
             count={count}
             TotalLike={TotalLike}
             UserReviewId={UserReviewId}
-            alert={alert}
+            bookmarkId={bookmarkId}
+            handleBookmark={handleBookmark}
         />
     )
 }
