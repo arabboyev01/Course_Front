@@ -9,3 +9,9 @@ export const handleLikeReq = (reviewId: number, alert: any, dispatch: any) => {
         if (res) dispatch(handleLiked())
     }).catch(() => alert.error('Please sign in'))
 }
+
+export const PostBookmarks = (reviewId: number, alert: any) => {
+    const payload = {reviewId}
+    api.PostAuth('api/post-bookmark', payload).then(() => alert.success('Bookmark changed'))
+        .catch(err => console.log(err))
+}

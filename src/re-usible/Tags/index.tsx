@@ -29,7 +29,6 @@ const Tags = () => {
     useEffect(() => {
         dispatch(handleSelectedTags(selectedTags))
     }, [dispatch, selectedTags])
-    console.log(existingTags)
 
     return (
         <DumbTags

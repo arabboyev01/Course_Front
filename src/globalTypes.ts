@@ -273,3 +273,16 @@ export interface User {
 export interface userCartProp {
     userData: User
 }
+
+export interface bookmarkProp {
+    bookmark:  ReviewType[] | any
+    loader: boolean
+    handleImageModal: (value: string) => void
+    navigateSinglePage: (id: number) => void
+    handlePaginateData: (id: any) => void
+    likeReq: (number: number) => void
+    count: number
+    TotalLike: totalLikeType[] | null
+    UserReviewId: number[] | null
+    alert: any
+}

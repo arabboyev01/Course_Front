@@ -5,6 +5,7 @@ import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArro
 import PaginationRounded from '@/re-usible/Pagination'
 import { formatted } from '@/re-usible/FormattedDate'
 import {
+    BookmarkIcon,
     CartDetail,
     CartFooter,
     CartHeader,
@@ -32,6 +33,8 @@ import SkeletonComponent from '@/re-usible/Skeleton'
 import ImageModalComponent from '@/re-usible/ImageModal'
 import NoData from '@/re-usible/NoData'
 import Avatar from '@mui/material/Avatar'
+import Bookmark from '../../../public/bookmark.svg'
+import { PostBookmarks } from '@/utils/PostRequest'
 
 const DumbReview: React.FC<ReviewPropsType | any> =
     ({
@@ -49,7 +52,8 @@ const DumbReview: React.FC<ReviewPropsType | any> =
          edit,
          UserReviewId,
          totalLike,
-         handleImageModal
+         handleImageModal,
+        alert
      }) => (
         <StyleCart>
             {ReviewsData === undefined && <NoData/>}
@@ -62,19 +66,22 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                 <div></div>
                                 <ControlButton>
                                     <MainLike>
+                                         <TotalLike>{handleLikesCounts(totalLike, id)}</TotalLike>
                                         <Likes onClick={() => handleLikeReq(id)}>
                                             <FavoriteIcon style={{
                                                 color: UserReviewId?.includes(id) ? '#bf0000' : '#8f8f8f',
                                                 fontSize: '1.7rem'
                                             }}/>
                                         </Likes>
-                                        <TotalLike>{handleLikesCounts(totalLike, id)}</TotalLike>
+                                        <Likes onClick={() => PostBookmarks(id, alert)}>
+                                            <BookmarkIcon src={Bookmark.src} alt={Bookmark.src}/>
+                                        </Likes>
                                     </MainLike>
-                                    {edit ?
+                                    {edit &&
                                         <Dots onClick={() => checkId(id)}>
                                             <MoreVertIcon onClick={handleClick} sx={{color: '#8f8f8f'}}/>
                                             <BasicPopover anchorEl={anchorEl} setAnchorEl={setAnchorEl} setId={setId}/>
-                                        </Dots> : null
+                                        </Dots>
                                     }
                                 </ControlButton>
                             </HeaderWrapper>
@@ -84,7 +91,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                             <Time>{formatted(createdAt)}</Time>
                             <CartHeader>
                                 <User>
-                                    <Avatar src={user?.imageUrl || '/broken-image.jpg'} />
+                                    <Avatar src={user?.imageUrl || '/broken-image.jpg'}/>
                                     <UserInfo>
                                         <Name>{user?.firstName}</Name>
                                         <UserName>@{user?.username}</UserName>

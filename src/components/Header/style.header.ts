@@ -7,7 +7,6 @@ export const StyleHeader: any = styled.div`
   top: 0;
   z-index: 1000;
   border-bottom: ${({theme}) => theme.borderTheme};
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   background: ${({theme}) => theme.body}
 `
 

@@ -5,7 +5,8 @@ export const userValidation = {
     validation: "Unauthorized",
     blockedUser: "user is blocked",
     internalServer: "Internal server error",
-    emptyData: "no data"
+    emptyData: "no data",
+    emptyBookmark: "empty bookmark"
 }
 
 export const user = {
