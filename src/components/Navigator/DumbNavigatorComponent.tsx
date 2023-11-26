@@ -1,5 +1,5 @@
-import { MainNavigator } from '@/Static'
-import { MainNavigatorTypes } from '@/globalTypes'
+import {  Navigator } from '@/Static'
+import { MainNavigatorTypes, NavigatorComponentProp } from '@/globalTypes'
 import { FC } from 'react'
 import {
     IconImage,
@@ -10,10 +10,10 @@ import {
     Title
 } from '@/components/Navigator/style.navigator'
 
-const DumbNavigatorComponent: FC<any> = ({pathname, handleRoute, singleUser}) => (
+const DumbNavigatorComponent: FC<NavigatorComponentProp> = ({pathname, handleRoute, singleUser}) => (
     <StyleNavigator>
         <NavigateWrapper>
-            {MainNavigator.map(({id, name, icon, route}: MainNavigatorTypes) =>
+            {Navigator(singleUser?.username).map(({id, name, icon, route}: MainNavigatorTypes) =>
                 <SingleRoute key={id} onClick={() => handleRoute(route)}>
                     <IconImage src={icon.src} alt={icon} />
                     <Title active={pathname === route}>{name}</Title>

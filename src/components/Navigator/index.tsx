@@ -9,7 +9,11 @@ const Navigator = () => {
     const { handleRoute } = Router()
     const singleUser = useSelector(SingleUser)
 
-    return <DumbNavigatorComponent pathname={router.pathname} handleRoute={handleRoute} singleUser={singleUser}/>
+    return <DumbNavigatorComponent
+        pathname={router.pathname}
+        handleRoute={handleRoute}
+        singleUser={singleUser}
+    />
 }
 
 export default Navigator

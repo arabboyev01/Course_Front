@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { api } from '@/config'
 import { ReviewType } from '@/globalTypes'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectTags, sortName, filterName, userReviewId, totalLike, bookmarkReviewId } from '@/store/Selector'
+import { selectTags, sortName, filterName, userReviewId, totalLike, bookmarkReviewId, mode } from '@/store/Selector'
 import { useRouter } from 'next/router'
 import { AppDispatch } from '@/store'
 import { reviewDataLength, setImageObjects } from '@/store/reducerSlice'
@@ -30,6 +30,7 @@ const ReviewCart = () => {
     const UserReviewId = useSelector(userReviewId)
     const TotalLike = useSelector(totalLike)
     const bookmarkId = useSelector(bookmarkReviewId)
+    const theme = useSelector(mode)
 
     const selectedTagsString = JSON.stringify(selectedTags)
 
@@ -56,13 +57,11 @@ const ReviewCart = () => {
     const handlePaginateData = (number: any) => setPage(number)
     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
     const likeReq = (reviewId: number) => handleLikeReq(reviewId, alert, dispatch)
-
+     const handleBookmark = (id: number) => PostBookmarks(id, dispatch, theme)
     const handleImageModal = (imageUrl: string) => {
         const payload: any = {open: true, imageUrl}
         dispatch(setImageObjects(payload))
     }
-
-    const handleBookmark = (id: number) => PostBookmarks(id, alert, dispatch)
 
     return (
         <ReviewCartComponent>

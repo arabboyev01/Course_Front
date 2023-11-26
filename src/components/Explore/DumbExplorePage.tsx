@@ -15,10 +15,10 @@ const DumbExplorePage: FC<ExploreProp> = ({reviews}) => (
         <ExploreBody>
             <Navigator/>
             <ExploreContent>
-                {reviews === null ? <LoaderContent><MainLoader/></LoaderContent> :
-                    reviews?.map(({imageUrl, id}) =>
-                        <ExploreItem src={imageUrl} key={id} alt={imageUrl}/>
-                    )}
+                {reviews === null ?
+                    <LoaderContent> <MainLoader/> </LoaderContent> :
+                    reviews?.map(({imageUrl, id}) => <ExploreItem src={imageUrl} key={id} alt={imageUrl}/>)
+                }
             </ExploreContent>
         </ExploreBody>
     </StyleExplore>

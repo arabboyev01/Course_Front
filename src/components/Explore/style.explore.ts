@@ -5,7 +5,6 @@ export const StyleExplore = styled.div`
   position: fixed;
   padding-top: 100px;
   top: -20px;
-  height: 100%;
 `
 export const ExploreBody = styled.div`
   display: flex;
@@ -13,8 +12,6 @@ export const ExploreBody = styled.div`
   margin: 0 auto;
   width: 100%;
   height: 80vh;
-  column-gap: 30px;
-  justify-content: space-between;
   @media (max-width: 820px) {
     margin: 50px 10px;
   }
@@ -26,12 +23,13 @@ export const ExploreBody = styled.div`
 `
 
 export const ExploreContent = styled.div`
-  width: 80%;
+  width: auto;
   height: 90vh;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 8px;
   padding-top: 30px;
+  overflow-y: scroll;
 `
 export const LoaderContent = styled.div`
   width: 1000px;

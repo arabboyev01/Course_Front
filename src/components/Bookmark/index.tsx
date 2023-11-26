@@ -2,7 +2,7 @@ import DumbBookmark from '@/components/Bookmark/DumbBookmark'
 import { useEffect, useState } from 'react'
 import { api } from '@/config'
 import { useDispatch, useSelector } from 'react-redux'
-import { bookmarkReviewId, isLiked, SingleUser, totalLike, userReviewId } from '@/store/Selector'
+import { bookmarkReviewId, isLiked, mode, SingleUser, totalLike, userReviewId } from '@/store/Selector'
 import { setImageObjects } from '@/store/reducerSlice'
 import { handleLikeReq, PostBookmarks } from '@/utils/PostRequest'
 import { useRouter } from 'next/router'
@@ -20,6 +20,7 @@ const BookmarkComponent = () => {
     const UserReviewId = useSelector(userReviewId)
     const bookmarkId = useSelector(bookmarkReviewId)
     const bookmarked = useSelector(isLiked)
+    const theme = useSelector(mode)
     const dispatch = useDispatch()
     const router = useRouter()
     const alert = useAlert();
@@ -41,7 +42,7 @@ const BookmarkComponent = () => {
     const handlePaginateData = (number: any) => setPage(number)
     const navigateSinglePage = (id: number) => router.push(`/single-review/${id}`)
     const likeReq = (reviewId: number) => handleLikeReq(reviewId, alert, dispatch)
-    const handleBookmark = (id: number) => PostBookmarks(id, alert, dispatch)
+    const handleBookmark = (id: number) => PostBookmarks(id, dispatch, theme)
 
     return (
         <DumbBookmark

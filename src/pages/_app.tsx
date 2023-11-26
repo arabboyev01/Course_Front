@@ -9,6 +9,7 @@ import ThemeProviderValue from '@/Theme/Provider'
 import store from '@/store'
 import '@/main.css'
 import Offline from '@/re-usible/Offline'
+import { AnimatePresence } from 'framer-motion';
 
 const options = {
     timeout: 5000,
@@ -19,8 +20,8 @@ const options = {
     },
     zIndex: 1000
 };
-const clientId = "915688630240-ncpe3p2ifr0uirapiige1406j3lp0g5b.apps.googleusercontent.com"
-
+const clientId = '915688630240-ncpe3p2ifr0uirapiige1406j3lp0g5b.apps.googleusercontent.com'
+import { ToastContainer } from 'react-toastify';
 export default function App({Component, pageProps}: AppProps) {
 
     return (
@@ -30,7 +31,10 @@ export default function App({Component, pageProps}: AppProps) {
                     <AlertProvider template={AlertTemplate} {...options}>
                         <Layout>
                             <Offline>
-                                <Component {...pageProps} />
+                                <AnimatePresence>
+                                    <Component {...pageProps} />
+                                    <ToastContainer autoClose={5000}/>
+                                </AnimatePresence>
                             </Offline>
                         </Layout>
                     </AlertProvider>

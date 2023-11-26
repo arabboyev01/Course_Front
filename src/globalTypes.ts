@@ -29,8 +29,9 @@ export interface ReviewType {
 }
 
 export interface ExploreProp {
-    reviews: ReviewType[]|null
+    reviews: ReviewType[] | null
 }
+
 export interface usersType {
     email: string
     firstName: string
@@ -41,6 +42,7 @@ export interface usersType {
     imageUrl?: null | string
     userType: string
     status: string
+    error?: string
 }
 
 export interface ReviewPropsType {
@@ -94,7 +96,7 @@ export interface CounterState {
     sortName: string
     userReviewId: null | number[]
     isLiked: boolean
-    totalLike: null|totalLikeType[]
+    totalLike: null | totalLikeType[]
     imageModal: ImageObjectProp
     bookmarkReviewId: null | number[]
 }
@@ -237,7 +239,7 @@ export type selectedObjectsTypes = {
 }
 
 export interface EditableDataGridProps {
-    users: usersType[] | null | {error: string} | any
+    users: usersType[] | null | { error: string } | any
     handleUpdate: (index: number, newValue: string) => void
     editableIndex: null
     setEditedValue: (value: string) => void
@@ -260,15 +262,15 @@ export interface MainNavigatorTypes {
 }
 
 export interface User {
-  email: string;
-  firstName: string;
-  hashPassword: string;
-  id: number;
-  imageUrl: string;
-  lastName: string;
-  status: string;
-  userType: string;
-  username: string;
+    email: string;
+    firstName: string;
+    hashPassword: string;
+    id: number;
+    imageUrl: string;
+    lastName: string;
+    status: string;
+    userType: string;
+    username: string;
 }
 
 export interface userCartProp {
@@ -276,7 +278,7 @@ export interface userCartProp {
 }
 
 export interface bookmarkProp {
-    bookmark:  ReviewType[] | any
+    bookmark: ReviewType[] | any
     loader: boolean
     handleImageModal: (value: string) => void
     navigateSinglePage: (id: number) => void
@@ -285,6 +287,56 @@ export interface bookmarkProp {
     count: number
     TotalLike: totalLikeType[] | null
     UserReviewId: number[] | null
-    bookmarkId: null|number[]
+    bookmarkId: null | number[]
     handleBookmark: (id: number) => void
+}
+
+export interface NavigatorComponentProp {
+    pathname: string
+    handleRoute: (route: string) => void
+    singleUser: usersType | null
+}
+
+export interface UserProfileProp {
+    username: string | string[] | undefined
+    userData: UserProfile|null
+}
+
+interface UserProfile {
+    id: number;
+    username: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+    imageUrl: string;
+    bookmarks: Bookmark[] | []
+    comments: Comment[] | []
+    likedBy: LikedBy[] | []
+    reviews: ReviewType[] | []
+    status: string;
+    userType: string;
+}
+
+interface Bookmark {
+    id: number;
+    userId: number;
+    reviewId: number;
+    createdAt: string;
+}
+
+interface Comment {
+    id: number;
+    text: string;
+    userId: number;
+    reviewId: number;
+    createdAt: Date;
+    user: User;
+    review: ReviewType[];
+
+}
+
+interface LikedBy {
+    id: number;
+    userId: number;
+    reviewId: number;
 }

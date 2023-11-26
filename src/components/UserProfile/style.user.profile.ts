@@ -1,12 +1,12 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const HomeStyle = styled.div`
+export const StyleUserProfile = styled.div`
   width: 100%;
+  height: 90vh;
   position: fixed;
   padding-top: 80px;
-  
 `
-export const BodyWrapper = styled.div`
+export const ProfileContent = styled.div`
   display: flex;
   max-width: 1330px;
   margin: 0 auto;

@@ -38,7 +38,6 @@ const DumbBookmark: FC<bookmarkProp> =
                                 UserReviewId={UserReviewId}
                                 totalLike={TotalLike}
                                 handleImageModal={handleImageModal}
-                                alert={alert}
                                 bookmarkId={bookmarkId}
                                 handleBookmark={handleBookmark}
                             />

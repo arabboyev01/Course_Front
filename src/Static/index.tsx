@@ -126,7 +126,8 @@ export const filters = [
     {label: 'Month', value: 'month'}
 ];
 
-export const MainNavigator: MainNavigatorTypes[] = [
+export const Navigator = (username: string|undefined) => {
+   const MainNavigator: MainNavigatorTypes[] = [
     {
         id: 0,
         name: 'Home',
@@ -161,6 +162,9 @@ export const MainNavigator: MainNavigatorTypes[] = [
         id: 4,
         name: 'Profile',
         icon: ProfileIcon,
-        route: '/profile'
+        route: `/${username}`
     }
 ]
+
+    return MainNavigator
+}

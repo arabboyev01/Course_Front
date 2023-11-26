@@ -1,22 +1,22 @@
 import DumbPersonalPage from './DumbPersonalPage'
 import { api } from '@/config'
 import { useState } from 'react'
-import { useAlert } from 'react-alert'
 import { useSelector } from 'react-redux'
-import { SingleUser } from '@/store/Selector'
+import { mode, SingleUser } from '@/store/Selector'
+import { Toaster } from '@/re-usible/Toaster'
 
 const PersonalPage = () => {
 
     const [loading, setLoading] = useState(false)
     const [open, setOpen] = useState(false)
-    const alert = useAlert();
     const singleUser = useSelector(SingleUser)
+     const theme = useSelector(mode)
 
     const handleChange = (values: any) => {
         setLoading(true)
         api.UpdateUser('api/update-user', values, singleUser).then(() => {
-            alert.success('Data updated')
-        }).catch(() => alert.error('Something went wrong')).finally(() => setLoading(false))
+            Toaster('Data updated!', 'success', 'top-center', theme)
+        }).catch(() => Toaster('Something went wrong', 'error', 'top-center', theme)).finally(() => setLoading(false))
     }
 
     return (

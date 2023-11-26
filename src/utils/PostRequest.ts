@@ -1,6 +1,7 @@
 import { api } from '@/config'
 import { userValidation } from '@/utils/errors'
 import { handleLiked } from '@/store/reducerSlice'
+import { Toaster } from '@/re-usible/Toaster'
 
 export const handleLikeReq = (reviewId: number, alert: any, dispatch: any) => {
     const payload = {reviewId}
@@ -10,10 +11,10 @@ export const handleLikeReq = (reviewId: number, alert: any, dispatch: any) => {
     }).catch(() => alert.error('Please sign in'))
 }
 
-export const PostBookmarks = (reviewId: number, alert: any, dispatch: any) => {
+export const PostBookmarks = (reviewId: number, dispatch: any, theme: string) => {
     const payload = {reviewId}
     api.PostAuth('api/post-bookmark', payload).then((res) => {
-        alert.success('Bookmark changed')
         if (res) dispatch(handleLiked())
+        if(res) Toaster(res, 'info', 'bottom-center', theme)
     }).catch(err => console.log(err))
 }

@@ -1,13 +1,14 @@
 import DumbLogin from '@/components/Login/DumbLogin'
 import { api } from '@/config'
 import { LoginUsersType } from '@/globalTypes'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from '@/store'
 import { setToken, verifyUser } from '@/store/reducerSlice'
 import { useState } from 'react'
-import { useAlert } from 'react-alert';
 import { CustomError, userValidation } from '@/utils/errors'
 import { Router } from '@/utils/router'
+import { Toaster } from '@/re-usible/Toaster'
+import { mode } from '@/store/Selector'
 
 const LoginComponent = () => {
 
@@ -15,7 +16,7 @@ const LoginComponent = () => {
     const dispatch = useDispatch<AppDispatch>()
     const [loader, setLoader] = useState<boolean>(false)
     const [showPassword, setShowPassword] = useState(false)
-    const alert = useAlert();
+    const theme = useSelector(mode)
 
     const loginRoute = () => handleRoute('/sign-up')
     const handleLogin = (values: LoginUsersType) => {
@@ -23,13 +24,13 @@ const LoginComponent = () => {
         api.Users('api/login', values).then(data => {
             if(data === userValidation.blockedUser) throw new CustomError("CustomError")
             if (data?.error) throw new Error("Login error")
-            if (data) alert.success('Logged In!');
+            if(data) Toaster('Logged in!', 'success', 'top-center', theme)
             dispatch(setToken(data.token));
             dispatch(verifyUser())
             handleRoute('/');
         }).catch((err) => {
-            if(err.name === "CustomError") alert.info(userValidation.blockedUser)
-            else alert.error('username or password is wrong!')
+            if(err.name === "CustomError") Toaster(userValidation.blockedUser, 'info', 'top-center', theme)
+            else Toaster('username or password is wrong!!', 'success', 'top-center', theme)
         }).finally(() => setLoader(false))
     }
 
