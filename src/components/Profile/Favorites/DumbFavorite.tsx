@@ -4,7 +4,7 @@ import React from 'react'
 import { userValidation } from '@/utils/errors'
 import NoData from '@/re-usible/NoData'
 
-const DumbFavorite: React.FC<any> = ({ReviewsData, navigateSinglePage, likeReq, UserReviewId, totalLike, handleImageModal}) => (
+const DumbFavorite: React.FC<any> = ({ReviewsData, navigateSinglePage, likeReq, UserReviewId, totalLike, handleImageModal, bookmarkId, handleBookmark}) => (
     <StyleFavorites>
         {ReviewsData === userValidation.emptyData ?
             <NoDataMessage>
@@ -18,6 +18,8 @@ const DumbFavorite: React.FC<any> = ({ReviewsData, navigateSinglePage, likeReq, 
              UserReviewId={UserReviewId}
              totalLike={totalLike}
              handleImageModal={handleImageModal}
+             bookmarkId={bookmarkId}
+             handleBookmark={handleBookmark}
          />
         }
     </StyleFavorites>

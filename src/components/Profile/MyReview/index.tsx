@@ -8,8 +8,8 @@ import { StyleReview } from '@/components/Profile/MyReview/style.review'
 import Sorting from '@/components/Sorting'
 import { useDispatch, useSelector } from 'react-redux'
 import { reviewDataLength, setImageObjects } from '@/store/reducerSlice'
-import { filterName, sortName, totalLike, userReviewId } from '@/store/Selector'
-import { handleLikeReq } from '@/utils/PostRequest'
+import { bookmarkReviewId, filterName, mode, sortName, totalLike, userReviewId } from '@/store/Selector'
+import { handleLikeReq, PostBookmarks } from '@/utils/PostRequest'
 
 const MyReview = () => {
 
@@ -26,6 +26,8 @@ const MyReview = () => {
     const SortName = useSelector(sortName)
     const UserReviewId = useSelector(userReviewId)
     const TotalLike = useSelector(totalLike)
+    const theme = useSelector(mode)
+    const bookmarkId = useSelector(bookmarkReviewId)
 
     useEffect(() => {
         setLoading(true)
@@ -48,6 +50,7 @@ const MyReview = () => {
     const likeReq = (reviewId: number) => {
         handleLikeReq(reviewId, alert, dispatch)
     }
+    const handleBookmark = (id: number) => PostBookmarks(id, dispatch, theme)
      const handleImageModal = (imageUrl: string) => {
         const payload = {open: true, imageUrl} //@ts-ignore
         dispatch(setImageObjects(payload))
@@ -72,6 +75,8 @@ const MyReview = () => {
                 UserReviewId={UserReviewId}
                 totalLike={TotalLike}
                 handleImageModal={handleImageModal}
+                bookmarkId={bookmarkId}
+                handleBookmark={handleBookmark}
             />
         </StyleReview>
     )

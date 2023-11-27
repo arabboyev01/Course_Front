@@ -9,7 +9,10 @@ export const StyleNavigator = styled.div`
   justify-content: space-between;
   height: 100vh;
   border-right: ${({theme}) => theme.borderTheme};
-  padding-top: 30px;
+  padding-top: 20px;
+  @media(max-width: 1200px){
+    max-width: 60px;
+  }
 `
 export const NavigateWrapper = styled.div`
   display: flex;
@@ -28,6 +31,12 @@ export const SingleRoute = styled.div`
     background-color: ${({theme}) => theme.mainHover};
     cursor: pointer;
     color: #5b5b5b;
+  }
+  
+  @media(max-width: 1200px){
+    max-width: 50px;
+    padding: 12px 14px;
+    margin-left: 3px;
   }
 `
 
@@ -48,6 +57,10 @@ export const Title = styled.p<TitleProp>`
   line-height: normal;
   color: ${({theme}) => theme.navigatorColor};
   color: ${(props) => (props.active && '#5b5b5b')};
+  
+  @media(max-width: 1200px){
+    display: none;
+  }
 `
 
 export const NewPostButton = styled.button`

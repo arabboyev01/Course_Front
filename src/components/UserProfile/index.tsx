@@ -16,8 +16,6 @@ const UserProfile = () => {
         fetchUserData()
     }, [fetchUserData])
 
-    console.log(data)
-
     return <DumbUserProfile username={username} userData={data}/>
 }
 

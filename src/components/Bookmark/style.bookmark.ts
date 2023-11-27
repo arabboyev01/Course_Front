@@ -16,7 +16,7 @@ export const BookmarkWrapper = styled.div`
 export const BodyBookmark = styled.div`
   display: flex;
   max-width: 1330px;
-  margin: 80px auto 0 auto;
+  margin: 60px auto 0 auto;
   column-gap: 30px;
   justify-content: space-between;
   height: 80vh;

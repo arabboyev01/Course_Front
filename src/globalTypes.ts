@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 
 export interface DropdownProps {
     options: any
@@ -119,6 +119,11 @@ export interface HandleSignUpTypes {
 
 export interface ChildrenProps {
     children: ReactNode
+}
+
+export interface TooltipProp{
+    children?: ReactNode| ReactElement
+    title: string
 }
 
 export interface ReviewFormTypes {
@@ -302,6 +307,17 @@ export interface UserProfileProp {
     userData: UserProfile|null
 }
 
+export interface UserHeaderProp {
+    userData: UserProfile|null
+}
+
+export interface UserHeaderDumbProp {
+    userData: UserProfile|null
+    handleImageModal: (imageUrl: string|undefined) => void
+    handleRoute: (route: string) => void
+    route: string | string[] | undefined
+    singleUser: usersType|null
+}
 interface UserProfile {
     id: number;
     username: string;

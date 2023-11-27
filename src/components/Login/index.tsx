@@ -24,13 +24,13 @@ const LoginComponent = () => {
         api.Users('api/login', values).then(data => {
             if(data === userValidation.blockedUser) throw new CustomError("CustomError")
             if (data?.error) throw new Error("Login error")
-            if(data) Toaster('Logged in!', 'success', 'top-center', theme)
+            if(data) Toaster('Logged in!', 'success', 'bottom-center', theme)
             dispatch(setToken(data.token));
             dispatch(verifyUser())
             handleRoute('/');
         }).catch((err) => {
-            if(err.name === "CustomError") Toaster(userValidation.blockedUser, 'info', 'top-center', theme)
-            else Toaster('username or password is wrong!!', 'success', 'top-center', theme)
+            if(err.name === "CustomError") Toaster(userValidation.blockedUser, 'info', 'bottom-center', theme)
+            else Toaster('username or password is wrong!!', 'error', 'bottom-center', theme)
         }).finally(() => setLoader(false))
     }
 

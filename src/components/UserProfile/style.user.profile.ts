@@ -4,7 +4,7 @@ export const StyleUserProfile = styled.div`
   width: 100%;
   height: 90vh;
   position: fixed;
-  padding-top: 80px;
+  padding-top: 60px;
 `
 export const ProfileContent = styled.div`
   display: flex;
@@ -13,7 +13,8 @@ export const ProfileContent = styled.div`
   width: 100%;
   height: 80vh;
   column-gap: 30px;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 30px;
   @media (max-width: 820px) {
     margin: 50px 10px;
   }
