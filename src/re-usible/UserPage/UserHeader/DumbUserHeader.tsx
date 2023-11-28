@@ -1,5 +1,6 @@
 import {
-    MessageBtn, PostNumber,
+    FullName,
+    MessageBtn, Name, PostNumber,
     Posts,
     UserDetail,
     UserHeaderStyle,
@@ -33,6 +34,9 @@ const DumbUserHeader: FC<UserHeaderDumbProp> = ({userData, handleImageModal, han
                 <PostNumber>0 followers</PostNumber>
                 <PostNumber>0 following</PostNumber>
             </Posts>
+            <FullName>
+                <Name>{userData?.firstName} {userData?.lastName}</Name>
+            </FullName>
         </UserWrapper>
     </UserHeaderStyle>
 )

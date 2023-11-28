@@ -16,17 +16,22 @@ export const UserImage = styled.img`
   cursor: pointer;
 `
 export const UserWrapper = styled.div`
- display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: end;
   gap: 20px;
+
+  &:nth-child(even) {
+    justify-content: start;
+    align-items: start;
+  }
+
 `
 export const UserDetail = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
 `
 export const Username = styled.h2`
@@ -57,4 +62,8 @@ export const Posts = styled.div`
 export const PostNumber = styled.h4`
  color: ${({theme}) => theme.navigatorColor};
   font-weight: 500;
+`
+export const FullName = styled.div``
+export const Name = styled.h3`
+  font-weight: 600;
 `
