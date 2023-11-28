@@ -7,6 +7,7 @@ export const StyleEdit = styled.div`
   overflow-y: scroll;
   @media(max-width: 1330px){
     margin: 100px 20px 0 20px;
+    height: 90vh;
   }
 `
 
@@ -31,12 +32,15 @@ export const ImageWrapper = styled.div`
   width: 100%;
   margin-top: 50px;
 `
-export const ImageSec = styled.div`
+export const ImageSec = styled.img`
   width: 100%;
-  height: 100%;
-  background-position: center center;
-  background-size: cover;
+  height: 400px;
+  object-fit: cover;
   border-radius: 8px;
+  
+  @media(max-width: 1000px){
+    height: 100%;
+  }
 `
 export const Inputs = styled.div`
  margin: 30px 0;
@@ -66,6 +70,10 @@ export const EditDiv = styled.div`
   justify-content: center;
   cursor: pointer;
   position: absolute;
-  bottom: 0;
+  bottom: -50px;
   right: 0;
+  
+  @media(max-width: 1000px){
+    bottom: 0;
+  }
 `

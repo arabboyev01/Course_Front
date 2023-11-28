@@ -65,11 +65,11 @@ export const ShowPassword = styled.div`
 
 export const SubmitButton = styled.button`
   width: 100%;
-  height: 40px;
+  height: 50px;
   background: rgb(62, 40, 222);
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   align-items: center;

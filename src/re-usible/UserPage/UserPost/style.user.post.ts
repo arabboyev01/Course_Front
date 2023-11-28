@@ -9,7 +9,7 @@ export const StyleUserPost = styled.div`
 export const PostGrid = styled.div`
  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin-top: 50px;
+  margin-top: 20px;
   gap: 3px;
 `
 

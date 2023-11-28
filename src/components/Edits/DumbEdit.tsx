@@ -24,7 +24,7 @@ const DumbEdit: React.FC<any> = ({singleReview, setOpen, open, handleChanges, lo
         {singleReview || singleReview !== null ?
             <HeaderWrapper>
                 <ImageWrapper>
-                    <ImageSec style={{backgroundImage: `url(${singleReview.imageUrl})`}}></ImageSec>
+                    <ImageSec src={singleReview.imageUrl} alt={singleReview.imageUrl}/>
                     <EditDiv>
                         <EditIcon sx={EditIcons} onClick={() => setOpen(true)}/>
                     </EditDiv>

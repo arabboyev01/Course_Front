@@ -6,9 +6,8 @@ import { EditInputTypes, ReviewType } from '@/globalTypes'
 import { api } from '@/config'
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { groupName, tags } from '@/store/Selector'
+import { groupName, mode, tags } from '@/store/Selector'
 import { handleChanges } from '@/components/Edits/utils'
-import { useAlert } from 'react-alert'
 import { ParsedUrlQuery } from 'querystring'
 
 const Edits = () => {
@@ -19,7 +18,7 @@ const Edits = () => {
     const [loader, setLoader] = useState(false)
     const group_name = useSelector(groupName)
     const tag = useSelector(tags)
-    const alert = useAlert();
+    const theme = useSelector(mode)
 
     useEffect(() => {
         if (!isObjectEmpty(router.query)) {
@@ -30,7 +29,7 @@ const Edits = () => {
     }, [router.query])
 
     const handleReviewChanges = (values: EditInputTypes) => {
-        handleChanges(values, setLoader, singleReview, group_name, tag, alert)
+        handleChanges(values, setLoader, singleReview, group_name, tag, theme)
     }
 
     return (
