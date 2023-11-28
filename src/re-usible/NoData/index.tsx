@@ -1,10 +1,12 @@
-import { Data, DataImage, Paragraph, StyleNoData } from '@/re-usible/NoData/style.noData'
-import EmptyImage from '../../../public/no-data.png'
+import { CameraStyle, Circle, Data, DataImage, Paragraph, StyleNoData } from '@/re-usible/NoData/style.noData'
+import RateReviewIcon from '@mui/icons-material/RateReview';
 const NoData = () => (
     <StyleNoData>
         <Data>
-            <DataImage src={EmptyImage.src} alt='no-data'/>
-            <Paragraph>No data created yet! </Paragraph>
+            <Circle>
+                <RateReviewIcon style={CameraStyle}/>
+            </Circle>
+            <Paragraph> No Posts Yet! </Paragraph>
         </Data>
     </StyleNoData>
 )

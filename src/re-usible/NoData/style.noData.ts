@@ -15,7 +15,21 @@ export const Data = styled.div`
   flex-direction: column;
   justify-content: center;
 `
+export const Circle = styled.div`
+  width: 100px;
+  height: 100px;
+  border: ${({theme}) => theme.borderTheme};
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 50%;
+`
 
+export const CameraStyle = {
+    fontSize: "4rem",
+    color: '#686868'
+}
 export const DataImage = styled.img`
   width: 250px;
   height: 250px;
@@ -23,6 +37,7 @@ export const DataImage = styled.img`
 `
 
 export const Paragraph = styled.p`
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 400;
+  margin-top: 30px;
 `
