@@ -6,7 +6,7 @@ import NoData from '@/re-usible/NoData'
 const DumbUserPostComponent: FC<UserHeaderProp> = ({userData}) => (
     <StyleUserPost>
         <PostGrid>
-            {!userData?.reviews?.length && <NoData/> }
+            {!userData?.reviews?.length && <NoData  str='No reviews created yet'/> }
             {userData?.reviews?.map(({imageUrl, id}) =>
                 <GridItem src={imageUrl} key={id} alt={imageUrl}/>
             )}

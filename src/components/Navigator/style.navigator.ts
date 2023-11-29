@@ -10,9 +10,18 @@ export const StyleNavigator = styled.div`
   height: 100vh;
   border-right: ${({theme}) => theme.borderTheme};
   padding-top: 20px;
-  @media(max-width: 1200px){
+  @media (max-width: 1200px) {
     max-width: 60px;
   }
+  @media (max-width: 440px) {
+    position: fixed;
+    bottom: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
 `
 export const NavigateWrapper = styled.div`
   display: flex;

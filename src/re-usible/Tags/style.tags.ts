@@ -6,7 +6,7 @@ export const StyleTags = styled.div`
   margin: 0 auto;
   height: 100vh;
   @media (max-width: 820px) {
-    max-width: 400px;
+    max-width: 300px;
   }
   border-left: ${({theme}) => theme.borderTheme};
   padding-left: 20px;

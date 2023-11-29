@@ -56,7 +56,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
         handleBookmark
      }) => (
         <StyleCart>
-            {ReviewsData === undefined && <NoData/>}
+            {ReviewsData === undefined && <NoData str='No reviews created yet' />}
             {ReviewsData === null || loading || !totalLike ?
                 Array.from(new Array(2)).map((_, index: number) => <SkeletonComponent key={index}/>) :
                 <MainCartWrapper>
@@ -118,7 +118,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                     )}
                 </MainCartWrapper>
             }
-            {ReviewsData && <PaginationRounded count={count} handlePaginateData={handlePaginateData}/>}
+            {ReviewsData?.length > 5 && <PaginationRounded count={count} handlePaginateData={handlePaginateData}/>}
         </StyleCart>
     );
 
