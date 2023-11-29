@@ -30,11 +30,6 @@ export const CameraStyle = {
     fontSize: "4rem",
     color: '#686868'
 }
-export const DataImage = styled.img`
-  width: 250px;
-  height: 250px;
-  object-fit: contain;
-`
 
 export const Paragraph = styled.p`
   font-size: 25px;
