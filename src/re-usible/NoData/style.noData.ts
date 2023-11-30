@@ -33,6 +33,6 @@ export const CameraStyle = {
 
 export const Paragraph = styled.p`
   font-size: 25px;
-  font-weight: 400;
+  font-weight: 600;
   margin-top: 30px;
 `
