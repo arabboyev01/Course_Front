@@ -25,8 +25,7 @@ const Forms = ({handleReview, loading, setChanges, id}: any) => (
         />
         <ButtonWrapper>
             <Button onClick={() => setChanges(+id - 1)} disabled={id == 1}>Back</Button>
-            {id == 3 ?
-                <Button type="submit" form="myForm">{loading ? <ButtonLoader/> : 'Submit'}</Button> :
+            {id == 3 ? <Button type="submit" form="myForm">{loading ? <ButtonLoader/> : 'Submit'}</Button> :
                 <Button onClick={() => setChanges(+id + 1)}>Next</Button>
             }
         </ButtonWrapper>
