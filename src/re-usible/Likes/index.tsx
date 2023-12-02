@@ -16,8 +16,10 @@ const HandleLikes: FC<likeProp> = ({totalLike, id, handleLikeReq, UserReviewId, 
             }}/>
         </Likes>
         <Likes onClick={() => handleBookmark(id)}>
-            {bookmarkId?.includes(id) ? <BookmarkIcon style={{color: '#5b5b5b'}}/> :
-                <BookmarkBorderIcon style={{color: '#5b5b5b'}}/>}
+            {bookmarkId?.includes(id) ?
+                <BookmarkIcon style={{color: '#000'}}/> :
+                <BookmarkBorderIcon style={{color: '#5b5b5b'}}/>
+            }
         </Likes>
     </MainLike>
 )

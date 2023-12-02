@@ -371,3 +371,11 @@ export interface UserCartProp {
     user: usersType
     grade: number
 }
+export interface ReviewLoadsProp {
+    children: ReactNode
+    ReviewsData: ReviewType[]
+    loading: boolean
+    totalLike: number
+    count: number
+    handlePaginateData: (id: number) => void
+}
