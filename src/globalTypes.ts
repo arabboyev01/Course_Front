@@ -121,8 +121,8 @@ export interface ChildrenProps {
     children: ReactNode
 }
 
-export interface TooltipProp{
-    children?: ReactNode| ReactElement
+export interface TooltipProp {
+    children?: ReactNode | ReactElement
     title: string
 }
 
@@ -304,20 +304,21 @@ export interface NavigatorComponentProp {
 
 export interface UserProfileProp {
     username: string | string[] | undefined
-    userData: UserProfile|null
+    userData: UserProfile | null
 }
 
 export interface UserHeaderProp {
-    userData: UserProfile|null
+    userData: UserProfile | null
 }
 
 export interface UserHeaderDumbProp {
-    userData: UserProfile|null
-    handleImageModal: (imageUrl: string|undefined) => void
+    userData: UserProfile | null
+    handleImageModal: (imageUrl: string | undefined) => void
     handleRoute: (route: string) => void
     route: string | string[] | undefined
-    singleUser: usersType|null
+    singleUser: usersType | null
 }
+
 interface UserProfile {
     id: number;
     username: string;
@@ -355,4 +356,18 @@ interface LikedBy {
     id: number;
     userId: number;
     reviewId: number;
+}
+
+export interface likeProp {
+    totalLike: number
+    id: number
+    handleLikeReq: (id: number) => void
+    UserReviewId: number[]
+    handleBookmark: (id: number) => void
+    bookmarkId: number[]
+}
+
+export interface UserCartProp {
+    user: usersType
+    grade: number
 }

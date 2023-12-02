@@ -1,39 +1,31 @@
 import React from 'react'
 import { ReviewPropsType, ReviewType } from '@/globalTypes'
-import RatingComponent from '@/re-usible/Rating'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import PaginationRounded from '@/re-usible/Pagination'
 import { formatted } from '@/re-usible/FormattedDate'
 import {
     CartDetail,
     CartFooter,
-    CartHeader,
     CartWrapper,
     ControlButton,
     Dots,
     HeaderWrapper,
-    Images, Likes,
-    MainCartWrapper, MainLike, Name,
-    RatingText,
+    Images,
+    MainCartWrapper,
     ReadMoreButton,
     ReviewName,
     StyleCart,
     Tags,
     Text,
-    Time, TotalLike,
-    User, UserInfo,
-    UserName
+    Time,
 } from '@/components/ReviewCart/style.cart'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import BasicPopover from '@/re-usible/Popover'
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { handleLikesCounts } from '@/utils/handleLikes'
 import SkeletonComponent from '@/re-usible/Skeleton'
 import ImageModalComponent from '@/re-usible/ImageModal'
 import NoData from '@/re-usible/NoData'
-import Avatar from '@mui/material/Avatar'
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import HandleLikes from '@/re-usible/Likes'
+import CartUser from '@/re-usible/CartUser'
 
 const DumbReview: React.FC<ReviewPropsType | any> =
     ({
@@ -65,18 +57,13 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                             <HeaderWrapper>
                                 <div></div>
                                 <ControlButton>
-                                    <MainLike>
-                                        <TotalLike>{handleLikesCounts(totalLike, id)}</TotalLike>
-                                        <Likes onClick={() => handleLikeReq(id)}>
-                                            <FavoriteIcon style={{
-                                                color: UserReviewId?.includes(id) ? '#bf0000' : '#8f8f8f',
-                                                fontSize: '1.7rem'
-                                            }}/>
-                                        </Likes>
-                                        <Likes onClick={() => handleBookmark(id)}>
-                                            {bookmarkId?.includes(id) ? <BookmarkIcon style={{color: "#5b5b5b"}}/> : <BookmarkBorderIcon style={{color: "#5b5b5b"}}/>}
-                                        </Likes>
-                                    </MainLike>
+                                    <HandleLikes
+                                        totalLike={totalLike}
+                                        id={id} handleLikeReq={handleLikeReq}
+                                        UserReviewId={UserReviewId}
+                                        handleBookmark={handleBookmark}
+                                        bookmarkId={bookmarkId}
+                                    />
                                     {edit &&
                                         <Dots onClick={() => checkId(id)}>
                                             <MoreVertIcon onClick={handleClick} sx={{color: '#8f8f8f'}}/>
@@ -89,19 +76,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                     onClick={() => handleImageModal(imageUrl)}/>
                             <ImageModalComponent/>
                             <Time>{formatted(createdAt)}</Time>
-                            <CartHeader>
-                                <User>
-                                    <Avatar src={user?.imageUrl || '/broken-image.jpg'}/>
-                                    <UserInfo>
-                                        <Name>{user?.firstName}</Name>
-                                        <UserName>@{user?.username}</UserName>
-                                    </UserInfo>
-                                </User>
-                                <User>
-                                    <RatingComponent value={grade} size="small"/>
-                                    <RatingText>({grade})</RatingText>
-                                </User>
-                            </CartHeader>
+                            <CartUser user={user} grade={grade}/>
                             <ReviewName>{name}</ReviewName>
                             <CartDetail>
                                 <Text>{reviewText}</Text>

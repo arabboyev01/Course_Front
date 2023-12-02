@@ -25,7 +25,7 @@ const DumbBookmark: FC<bookmarkProp> =
             <BodyBookmark>
                 <Navigator/>
                 <StyleBookmark>
-                    {bookmark === userValidation.emptyBookmark ? <NoData str='No bookmark detected' /> :
+                    {bookmark === userValidation.emptyBookmark ? <NoData str="No bookmark detected"/> :
                         <>
                             <Sorting/>
                             <DumbReview
