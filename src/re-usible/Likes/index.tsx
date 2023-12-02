@@ -1,8 +1,10 @@
 import { BookmarkImage, Likes, MainLike, TotalLike } from '@/components/ReviewCart/style.cart'
 import { handleLikesCounts } from '@/utils/handleLikes'
-import FavoriteIcon from '@mui/icons-material/Favorite'
 import BookmarkBorder from '../../../public/bookmark.svg'
 import FilledBookmark from '../../../public/filled-bookmark.svg'
+import FilledLike from '../../../public/filled_like.svg'
+import BorderLike from '../../../public/like_border.svg'
+
 import React, { FC } from 'react'
 import { likeProp } from '@/globalTypes'
 
@@ -10,10 +12,10 @@ const HandleLikes: FC<likeProp> = ({totalLike, id, handleLikeReq, UserReviewId, 
     <MainLike>
         <TotalLike>{handleLikesCounts(totalLike, id)}</TotalLike>
         <Likes onClick={() => handleLikeReq(id)}>
-            <FavoriteIcon style={{
-                color: UserReviewId?.includes(id) ? '#bf0000' : '#8f8f8f',
-                fontSize: '1.7rem'
-            }}/>
+            {UserReviewId?.includes(id) ?
+                <BookmarkImage src={FilledLike.src} alt="filled_bookmark_image"/> :
+                <BookmarkImage src={BorderLike.src} alt="bookmark_image"/>
+            }
         </Likes>
         <Likes onClick={() => handleBookmark(id)}>
             {bookmarkId?.includes(id) ?

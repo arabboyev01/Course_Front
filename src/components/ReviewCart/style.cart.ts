@@ -55,6 +55,8 @@ export const Likes = styled.div`
 export const TotalLike = styled.p`
   font-size: 16px;
   font-weight: 600;
+  color: #B0B0B0;
+  margin-right: -5px;
 `
 export const Dots: any = styled.div`
   width: 35px;

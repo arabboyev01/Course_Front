@@ -1,10 +1,20 @@
 import React from 'react'
-import { StyleTags, Subtitle, SumPost, TagsText, TagsTitle, TagsWrapper } from '@/re-usible/Tags/style.tags'
+import {
+    CheckImage, Line,
+    StyleTags,
+    Subtitle,
+    SumPost,
+    TagsText,
+    TagsTitle,
+    TagsWrapper
+} from '@/re-usible/Tags/style.tags'
 import { TagsType } from '@/globalTypes'
 import { LoaderCenter } from '@/components/Hero/slider'
 import MainLoader from '@/re-usible/Loaders/MainLoader'
 import UsersCart from '@/re-usible/UsersCart'
 import SearchFiled from '@/re-usible/SearchFiled'
+import checkIcon from '../../../public/check.svg'
+import checkedIcon from '../../../public/checked.svg'
 
 const DumbTags: React.FC<TagsType[] | null | any> = ({existingTags, handleSelectedTags, selectedTags, singleUser}) => (
     <StyleTags>
@@ -16,12 +26,14 @@ const DumbTags: React.FC<TagsType[] | null | any> = ({existingTags, handleSelect
             {existingTags === null || existingTags?.error ?
                 <LoaderCenter> <MainLoader/></LoaderCenter> :
                 existingTags?.map(({name, id, reviews}: TagsType) =>
-                        <TagsText active={selectedTags.includes(name)} key={id}
-                                  onClick={() => handleSelectedTags(name)}
-                        >
-                           <TagsTitle>#{name}</TagsTitle>
-                            <SumPost>{reviews.length}posts</SumPost>
-                        </TagsText>
+                    <TagsText key={id} onClick={() => handleSelectedTags(name)}>
+                        <div>
+                            <TagsTitle active={selectedTags.includes(name)}>{name}</TagsTitle>
+                            <SumPost active={selectedTags.includes(name)}>{reviews.length}posts</SumPost>
+                        </div>
+                        <Line active={selectedTags.includes(name)}></Line>
+                        <CheckImage src={selectedTags.includes(name) ? checkedIcon.src : checkIcon.src} alt="check_icon"/>
+                    </TagsText>
                 )}
         </TagsWrapper>
     </StyleTags>

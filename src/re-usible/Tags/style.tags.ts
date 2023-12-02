@@ -22,17 +22,15 @@ export const Subtitle = styled.h5`
 export const TagsWrapper = styled.div`
   margin: 20px 0;
   max-width: 300px;
-  height: 300px;
+  min-height: 300px;
+  max-height: 450px;
   border: ${({theme}) => theme.borderTheme};
   border-radius: 8px;
   overflow: hidden;
   overflow-y: scroll;
 
 `
-interface TitleProp {
-    active: boolean
-}
-export const TagsText: any = styled.div<TitleProp>`
+export const TagsText: any = styled.div`
   width: 100%;
   height: 60px;
   display: flex;
@@ -42,30 +40,48 @@ export const TagsText: any = styled.div<TitleProp>`
   cursor: pointer;
   padding: 0 30px;
   color: #8f8f8f;
-
-  ${({active}: any) => active && css`
-    color: #308efe;
-    background-color: ${({theme}) => theme.mainHover};
-    border-bottom: ${({theme}) => theme.borderTheme};
-    border-top: ${({theme}) => theme.borderTheme};
-  `}
+  
   &:hover {
     background: ${({theme}) => theme.mainHover};
   }
 `
-export const TagsTitle = styled.p`
+
+interface TitleProp {
+    active: boolean
+}
+export const TagsTitle = styled.p<TitleProp>`
   text-transform: capitalize;
-  color: #303030;
+  color: ${({theme}) => theme.navigatorColor};;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  
+  ${({active}: any) => active && css`
+    color: #008ABF;
+  `}
 `
 
-export const SumPost = styled.p`
+export const SumPost = styled.p<TitleProp>`
   font-style: italic;
   color: #686868;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
+  
+   ${({active}: any) => active && css`
+    color: #008ABF;
+  `}
+`
+export const Line = styled.div<TitleProp>`
+  height: 0.3px;
+  width: 130px;
+  background: #686868;
+  
+   ${({active}: any) => active && css`
+    background: #008ABF;
+  `}
+`
+export const CheckImage = styled.img`
+  object-fit: contain;
 `
