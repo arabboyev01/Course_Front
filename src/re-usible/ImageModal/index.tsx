@@ -3,9 +3,9 @@ import Modal from '@mui/material/Modal'
 import { useDispatch, useSelector } from 'react-redux'
 import { ImageModal } from '@/store/Selector'
 import { setImageObjects } from '@/store/reducerSlice'
-import { ATag, CloseIcon, Icon, IconsDev, modal, ModalImage, ModalWrapper } from '@/re-usible/ImageModal/style.modal'
-import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
-import DownloadIcon from '@mui/icons-material/Download';
+import * as S from '@/re-usible/ImageModal/style.modal'
+import DownloadImage from '../../../public/download.svg'
+import closeIconPng from '../../../public/closeIcon.svg'
 
 const ImageModalComponent: React.FC = () => {
     const modalProp = useSelector(ImageModal);
@@ -23,20 +23,20 @@ const ImageModalComponent: React.FC = () => {
         open={open}
         onClose={handleClose}
         closeAfterTransition
-        sx={modal}
+        sx={S.modal}
         disableAutoFocus={true}
     >
-        <ModalWrapper>
-            <IconsDev>
-                <ATag href={imageUrl} download="myImage.jpg" target="_blank">
-                    <DownloadIcon sx={Icon}/>
-                </ATag>
-                <CloseIcon onClick={handleClose}>
-                    <CloseFullscreenIcon sx={Icon}/>
-                </CloseIcon>
-            </IconsDev>
-            <ModalImage src={imageUrl} alt="image-url"/>
-        </ModalWrapper>
+        <S.ModalWrapper>
+            <S.IconsDev>
+                <S.ATag href={imageUrl} download="myImage.jpg" target="_blank">
+                    <S.CloseIcon src={DownloadImage.src} alt="download_icon"/>
+                </S.ATag>
+                <S.ATag onClick={handleClose}>
+                    <S.CloseIcon src={closeIconPng.src} alt='close_icon'/>
+                </S.ATag>
+            </S.IconsDev>
+            <S.ModalImage src={imageUrl} alt="image-url"/>
+        </S.ModalWrapper>
     </Modal>
 }
 

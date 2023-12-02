@@ -69,11 +69,12 @@ export function generateSidebarNavItems(userRole: string | null) {
 }
 
 import HomeIconPng from '../../public/home.svg'
-import ExploreIcon from '../../public/explore.svg'
+import ExploreIcon from '../../public/compass.svg'
 import MessageIcon from '../../public/email.svg'
 import ProfileIcon from '../../public/users.svg'
 import BookmarkSvg from '../../public/bookmark.svg'
 import NotificationIcon from '../../public/notification.svg'
+import AddIcon from '../../public/add.svg'
 
 
 export const searchTitles = [
@@ -126,45 +127,51 @@ export const filters = [
     {label: 'Month', value: 'month'}
 ];
 
-export const Navigator = (username: string|undefined) => {
-   const MainNavigator: MainNavigatorTypes[] = [
-    {
-        id: 0,
-        name: 'Home',
-        icon: HomeIconPng,
-        route: '/'
-    },
-    {
-        id: 6,
-        name: 'Notification',
-        icon: NotificationIcon,
-        route: '/notification'
-    },
-    {
-        id: 2,
-        name: 'Explore',
-        icon: ExploreIcon,
-        route: '/explore'
-    },
-    {
-        id: 3,
-        name: 'Messages',
-        icon: MessageIcon,
-        route: '/messages'
-    },
-    {
-        id: 1,
-        name: 'Bookmark',
-        icon: BookmarkSvg,
-        route: '/bookmark'
-    },
-    {
-        id: 4,
-        name: 'Profile',
-        icon: ProfileIcon,
-        route: `/${username}`
-    }
-]
+export const Navigator = (username: string | undefined) => {
+    const MainNavigator: MainNavigatorTypes[] = [
+        {
+            id: 0,
+            name: 'Home',
+            icon: HomeIconPng,
+            route: '/'
+        },
+        {
+            id: 6,
+            name: 'Notification',
+            icon: NotificationIcon,
+            route: '/notification'
+        },
+        {
+            id: 2,
+            name: 'Explore',
+            icon: ExploreIcon,
+            route: '/explore'
+        },
+        {
+            id: 3,
+            name: 'Messages',
+            icon: MessageIcon,
+            route: '/messages'
+        },
+        {
+            id: 1,
+            name: 'Bookmark',
+            icon: BookmarkSvg,
+            route: '/bookmark'
+        },
+        {
+            id: 4,
+            name: 'Profile',
+            icon: ProfileIcon,
+            route: `/${username}`
+        },
+        {
+            id: 5,
+            name: 'Add Post',
+            icon: AddIcon,
+            route: '/review-creation/1'
+        }
+    ]
 
     return MainNavigator
 }

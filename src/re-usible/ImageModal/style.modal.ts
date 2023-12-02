@@ -17,15 +17,8 @@ export const IconsDev = styled.div`
   align-items: center;
   gap: 20px;
 `
-export const CloseIcon = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-
+export const CloseIcon = styled.img`
+  object-fit: contain;
   &:hover {
     background: #333;
     cursor: pointer;
@@ -46,6 +39,7 @@ export const ATag = styled.a`
     cursor: pointer;
   }
 `
+
 export const ModalImage = styled.img`
   max-width: 1300px;
   max-height: 100vh;

@@ -319,7 +319,7 @@ export interface UserHeaderDumbProp {
     singleUser: usersType | null
 }
 
-interface UserProfile {
+export interface UserProfile {
     id: number;
     username: string;
     email: string;

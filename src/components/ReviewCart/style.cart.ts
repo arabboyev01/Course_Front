@@ -195,3 +195,10 @@ export const ReadMoreButton = styled.button`
     margin-bottom: 10px;
   }
 `
+
+export const BookmarkImage = styled.img`
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  color: ${({theme}) => theme.mainHover};
+`

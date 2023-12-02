@@ -71,19 +71,3 @@ export const Title = styled.p<TitleProp>`
     display: none;
   }
 `
-
-export const NewPostButton = styled.button`
-  width: 102px;
-  height: 35px;
-  flex-shrink: 0;
-  border-radius: 4px;
-  background: ${({theme}) => theme.primary};
-  border: none;
-  color: #fff;
-  margin-left: 20px;
-  cursor: pointer;
-  
-  &:hover{
-    opacity: 0.8;
-  }
-`

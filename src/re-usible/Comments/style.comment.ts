@@ -37,6 +37,12 @@ export const CommentButton = styled.button`
     cursor: pointer;
   }
 `
+
+export const SendIconImage = styled.img`
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+`
 export const EmojiWrapper = styled.div`
   width: 50px;
   height: 45px;
@@ -58,11 +64,6 @@ export const EmojiHandlers = styled.div`
   bottom: 100px;
   left: 20px;
 `
-
-export const sendStyle = {
-    fontSize: '2rem',
-    color: '#499DD0',
-}
 
 export const CommentWrapper = styled.div`
   height: auto;
