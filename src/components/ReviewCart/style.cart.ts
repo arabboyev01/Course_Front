@@ -16,7 +16,7 @@ export const StyleCart = styled.div`
   @media (max-width: 820px) {
     max-width: 900px;
   }
-  @media(max-width: 430px){
+  @media (max-width: 430px) {
     max-width: 410px;
   }
 `
@@ -56,7 +56,7 @@ export const TotalLike = styled.p`
   font-size: 16px;
   font-weight: 600;
   color: #B0B0B0;
-  margin-right: -5px;
+  margin-right: -2px;
 `
 export const Dots: any = styled.div`
   width: 35px;
@@ -101,7 +101,7 @@ export const User = styled.div`
   gap: 10px;
 `
 export const UserInfo = styled.div`
- 
+
 `
 export const Name = styled.p`
   font-size: 14px;
@@ -129,8 +129,8 @@ export const ReviewName = styled.h2`
   font-weight: 500;
   color: ${({theme}) => theme.text};
   margin: 12px 0;
-  
-   @media(max-width: 440px){
+
+  @media (max-width: 440px) {
     font-size: 18px;
   }
 `
@@ -140,8 +140,8 @@ export const Text = styled.p`
   line-height: 1.3rem;
   font-weight: 400;
   color: #8f8f8f;
-  
-   @media(max-width: 440px){
+
+  @media (max-width: 440px) {
     font-size: 14px;
   }
 `
@@ -199,6 +199,20 @@ export const ReadMoreButton = styled.button`
 `
 
 export const BookmarkImage = styled.img`
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  color: ${({theme}) => theme.mainHover};
+`
+
+export const LikeImage = styled.img`
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  color: ${({theme}) => theme.mainHover};
+`
+
+export const BorderLikeButton = styled.img`
   width: 20px;
   height: 20px;
   object-fit: contain;

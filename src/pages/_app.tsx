@@ -10,6 +10,7 @@ import store from '@/store'
 import '@/main.css'
 import Offline from '@/re-usible/Offline'
 import { AnimatePresence } from 'framer-motion';
+import '@/re-usible/Toaster/style.css'
 
 const options = {
     timeout: 5000,
