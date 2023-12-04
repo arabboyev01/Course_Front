@@ -84,7 +84,7 @@ export const searchTitles = [
     },
     {
         name: 'users',
-        value: 'users',
+        value: 'username',
     },
     {
         name: 'latest',

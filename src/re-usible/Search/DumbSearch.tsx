@@ -2,42 +2,34 @@ import { searchTitles } from '@/Static'
 import React from 'react'
 import { PropsDumbSearch } from '@/globalTypes'
 import MainLoader from '@/re-usible/Loaders/MainLoader'
-import {
-    GroupName, Image,
-    LoaderWrapper,
-    ReviewItem,
-    ReviewName,
-    SearchHeader,
-    SingleReview,
-    StyleSearch,
-    Title,
-    TitleWrapper
-} from '@/re-usible/Search/style.search'
+import * as S from '@/re-usible/Search/style.search'
 import { highlightSearchTerm } from '@/re-usible/highlighting'
 
 const DumbSearch: React.FC<PropsDumbSearch> = ({active, makeActive, inputValue, searchData, handleDirect}) => (
-    <StyleSearch>
-        <TitleWrapper>
+    <S.StyleSearch>
+        <S.TitleWrapper>
             {searchData !== null ? searchTitles.map((res: any) =>
-                <Title key={res} active={active === res.value} onClick={() => makeActive(res.value, inputValue)}>{res.name}</Title>
+                <S.Title key={res} active={active === res.value}
+                         onClick={() => makeActive(res.value, inputValue)}>{res.name}</S.Title>
             ) : null}
-        </TitleWrapper>
-        <SingleReview>
-            {searchData || searchData !== null ? searchData.length ? searchData?.map(({id, name, groupName, imageUrl}: any) =>
-                    <ReviewItem key={id} onClick={() => handleDirect(id)}>
-                        <SearchHeader>
-                            <Image src={imageUrl} alt={imageUrl}/>
-                            <ReviewName>{highlightSearchTerm(inputValue, name.substring(0, 60))}...</ReviewName>
-                        </SearchHeader>
-                        <GroupName>{groupName}</GroupName>
-                    </ReviewItem>) : <p style={{margin: "20px", textAlign: "center"}}>No option</p>
+        </S.TitleWrapper>
+        <S.SingleReview>
+            {searchData || searchData !== null ? searchData?.length ? searchData?.map((
+                    {id, name, groupName, imageUrl}: { id: number, name: string, groupName: string, imageUrl: string }) =>
+                    <S.ReviewItem key={id} onClick={() => handleDirect(id)}>
+                        <S.SearchHeader>
+                            <S.Image src={imageUrl} alt={imageUrl}/>
+                            <S.ReviewName>{highlightSearchTerm(inputValue, name.substring(0, 60))}...</S.ReviewName>
+                        </S.SearchHeader>
+                        <S.GroupName>{groupName}</S.GroupName>
+                    </S.ReviewItem>) : <p style={{margin: '20px', textAlign: 'center'}}>No option</p>
                 :
-                (<LoaderWrapper>
+                (<S.LoaderWrapper>
                     <MainLoader/>
-                </LoaderWrapper>)
+                </S.LoaderWrapper>)
             }
-        </SingleReview>
-    </StyleSearch>
+        </S.SingleReview>
+    </S.StyleSearch>
 )
 
 export default DumbSearch
