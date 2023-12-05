@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
 export const StyleComment = styled.div`
-  max-width: 800px;
   height: auto;
   border-top: 2px solid rgba(0, 0, 0, 0.2);
   border-radius: 0;
   padding: 20px 0;
-  margin: 100px 0 25px 0;
+  margin: 100px 0 105px 30px;
+  flex: .3;
+  width: 100%;
 `
 
 export const InputWrapper = styled.div`

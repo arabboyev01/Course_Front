@@ -31,7 +31,7 @@ const DumbComment: React.FC<CommentsType> = ({postComment, comments, setShowEmoj
                         <S.EmojiWrapper onClick={() => setShowEmoji(!showEmoji)}>
                             {!showEmoji ? <EmojiEmotionsIcon/> : <CancelIcon/>}
                         </S.EmojiWrapper>
-                        <CssTextField {...REVIEW_FORM.comment} multiline minRows={2} maxRows={6}/>
+                        <CssTextField {...REVIEW_FORM.comment} multiline minRows={1} maxRows={6}/>
                         <S.CommentButton type="submit">
                             <S.SendIconImage src={sendIcon.src}/>
                         </S.CommentButton>

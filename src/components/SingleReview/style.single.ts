@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 
 export const StyleSingle = styled.div`
-  max-width: 1100px;
+  max-width: 1330px;
   width: 100%;
   margin: 80px auto;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
   @media(max-width: 1330px){
     margin: 80px 20px;
   }
 `
-
+export const ContentWrapper = styled.div`
+  flex: .7;
+`
 export const MainWrapper = styled.div`
   margin: 120px 0 20px 0;
 `
