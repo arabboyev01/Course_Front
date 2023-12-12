@@ -305,6 +305,7 @@ export interface NavigatorComponentProp {
 export interface UserProfileProp {
     username: string | string[] | undefined
     userData: UserProfile | null
+    checkUser?: boolean|null|undefined
 }
 
 export interface UserHeaderProp {

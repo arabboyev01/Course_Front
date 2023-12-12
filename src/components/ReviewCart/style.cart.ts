@@ -164,6 +164,7 @@ export const Images = styled.img`
 
 export const CartFooter = styled.div`
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 10px;
 `

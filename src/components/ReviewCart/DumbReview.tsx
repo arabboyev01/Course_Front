@@ -51,7 +51,9 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                 <S.Text>{reviewText}</S.Text>
                             </S.CartDetail>
                             <S.CartFooter>
-                                {tags?.map(({name, id}: any) => <S.Tags key={id}>#{name}</S.Tags>)}
+                                {tags?.map(({name, id}: any) =>
+                                    <S.Tags key={id}>#{name}</S.Tags>
+                                )}
                             </S.CartFooter>
                             <S.ReadMoreButton onClick={() => navigateSinglePage(id)}>
                                 Read more <KeyboardDoubleArrowRightIcon/>

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export const StyleNoData =  styled.div`
+export const NotFoundStyle = styled.div`
   width: 100%;
-  height: 40vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

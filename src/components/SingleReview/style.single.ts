@@ -4,8 +4,8 @@ export const StyleSingle = styled.div`
   max-width: 1330px;
   width: 100%;
   margin: 80px auto;
-  display: flex;
-  align-items: end;
+  //display: flex;
+  //align-items: end;
   justify-content: space-between;
   @media(max-width: 1330px){
     margin: 80px 20px;
