@@ -13,7 +13,7 @@ import ReviewLoads from '@/re-usible/ReviewLoads'
 const DumbReview: React.FC<ReviewPropsType | any> =
     ({
          ReviewsData, loading, count, handlePaginateData, navigateSinglePage, handleLikeReq, anchorEl, handleClick,
-         setAnchorEl, setId, checkId, edit, UserReviewId, totalLike, handleImageModal, bookmarkId, handleBookmark
+         setAnchorEl, setId, checkId, edit, UserReviewId, totalLike, handleImageModal, bookmarkId, handleBookmark, theme
      }) => (
         <S.StyleCart>
             <ReviewLoads ReviewsData={ReviewsData} loading={loading} totalLike={totalLike} count={count} handlePaginateData={handlePaginateData}>
@@ -29,6 +29,7 @@ const DumbReview: React.FC<ReviewPropsType | any> =
                                         UserReviewId={UserReviewId}
                                         handleBookmark={handleBookmark}
                                         bookmarkId={bookmarkId}
+                                        theme={theme}
                                     />
                                     {edit &&
                                         <S.Dots onClick={() => checkId(id)}>

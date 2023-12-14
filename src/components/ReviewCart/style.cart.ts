@@ -199,23 +199,10 @@ export const ReadMoreButton = styled.button`
   }
 `
 
-export const BookmarkImage = styled.img`
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-  color: ${({theme}) => theme.mainHover};
-`
 
 export const LikeImage = styled.img`
   width: 26px;
   height: 26px;
-  object-fit: contain;
-  color: ${({theme}) => theme.mainHover};
-`
-
-export const BorderLikeButton = styled.img`
-  width: 20px;
-  height: 20px;
   object-fit: contain;
   color: ${({theme}) => theme.mainHover};
 `

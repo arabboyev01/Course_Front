@@ -1,4 +1,5 @@
 import React, { ReactElement, ReactNode } from 'react'
+import { Themes } from '@pubnub/react-chat-components'
 
 export interface DropdownProps {
     options: any
@@ -366,6 +367,7 @@ export interface likeProp {
     UserReviewId: number[]
     handleBookmark: (id: number) => void
     bookmarkId: number[]
+    theme: Themes | undefined;
 }
 
 export interface UserCartProp {

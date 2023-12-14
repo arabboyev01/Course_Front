@@ -11,6 +11,7 @@ import { useAlert } from 'react-alert'
 import { handleLikeReq, PostBookmarks } from '@/utils/PostRequest'
 import Sorting from '@/components/Sorting'
 import { ReviewCartComponent } from '@/components/ReviewCart/style.cart'
+import { Themes } from '@pubnub/react-chat-components'
 
 const ReviewCart = () => {
 
@@ -29,8 +30,8 @@ const ReviewCart = () => {
     const UserReviewId = useSelector(userReviewId)
     const TotalLike = useSelector(totalLike)
     const bookmarkId = useSelector(bookmarkReviewId)
-    const theme = useSelector(mode)
     const selectedTagsString = JSON.stringify(selectedTags)
+    const theme: Themes | undefined = useSelector(mode) as Themes | undefined
 
     const fetchReviews = useCallback(() => {
         setLoading(true)
@@ -70,6 +71,7 @@ const ReviewCart = () => {
                 handleImageModal={handleImageModal}
                 bookmarkId={bookmarkId}
                 handleBookmark={handleBookmark}
+                theme={theme}
             />
         </ReviewCartComponent>
     )
