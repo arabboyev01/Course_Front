@@ -1,20 +1,17 @@
-import { HeaderContent, LogoImage, LoginButton, StyleHeader, Aligned } from '@/components/Header/style.header'
-import Logo from '../../../public/icon-light.svg'
+import { HeaderContent, LoginButton, StyleHeader, Aligned } from '@/components/Header/style.header'
 import React from 'react'
 import { RoutingType } from '@/globalTypes'
 import UserAvatar from '@/re-usible/Avatar'
 import ToggleButton from '@/Theme/ToggleButton'
+import { LogoIcon } from '../../../public/icons'
 
-const DumbHeader: React.FC<RoutingType> = ({handleRouter, Auth, handleMain}) => (
+const DumbHeader: React.FC<RoutingType> = ({handleRouter, auth, handleMain, theme}) => (
     <StyleHeader>
         <HeaderContent>
-            <LogoImage src={Logo.src} alt="logo" onClick={handleMain}/>
+            <LogoIcon theme={theme} onClick={handleMain}/>
             <Aligned>
-                 <ToggleButton />
-                {!Auth ?
-                    <LoginButton onClick={handleRouter}>Sign in</LoginButton> :
-                    <UserAvatar/>
-                }
+                <ToggleButton/>
+                {!auth ? <LoginButton onClick={handleRouter}>Sign in</LoginButton> : <UserAvatar/>}
             </Aligned>
         </HeaderContent>
     </StyleHeader>

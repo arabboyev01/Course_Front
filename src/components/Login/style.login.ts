@@ -106,20 +106,22 @@ export const SocialMediaWrapper = styled.div`
   margin-top: 20px;
   gap: 10px;
 `
+
 export const LoginButton = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: end;
   align-items: center;
   gap: 10px;
-  width: 240px;
+  width: 250px;
   height: 35px;
   border: .1px solid rgba(0, 0, 0, 0.4);
-  border-radius: 5px;
+  border-radius: 3px;
   cursor: pointer;
   padding-right: 8px;
   font-weight: 200;
-  background: #fff;
+  background: ${({theme}) => theme.mainHover};
+  color: ${({theme}) => theme.text};
   font-size: 15px;
   &:hover{
     border: .5px solid rgba(0, 0, 0, 0.8);

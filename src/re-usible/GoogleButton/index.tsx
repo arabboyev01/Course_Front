@@ -5,15 +5,18 @@ import jwt from 'jwt-decode'
 import { api } from '@/config'
 import { setToken } from '@/store/reducerSlice'
 import { useRouter } from 'next/router'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from '@/store'
 import { useAlert } from 'react-alert'
 import { CustomError, userValidation } from '@/utils/errors'
+import { Themes } from '@pubnub/react-chat-components'
+import { mode } from '@/store/Selector'
 
 const GoogleLoginButton = () => {
     const router = useRouter();
     const dispatch = useDispatch<AppDispatch>()
     const alert = useAlert();
+    const theme: Themes | undefined = useSelector(mode) as Themes | undefined
     const responseGoogle = (response: GoogleLoginResponse) => {
         if (response.error) {
             console.error('Google login error:', response.error);
@@ -31,19 +34,18 @@ const GoogleLoginButton = () => {
                 imageUrl: picture,
             };
             api.Users('api/get-auth', extractedData).then(data => {
-                if(data === userValidation.blockedUser) throw new CustomError("CustomError")
+                if (data === userValidation.blockedUser) throw new CustomError('CustomError')
                 if (data.message === userValidation.internalServer) throw new Error
                 if (data?.error) throw new Error
                 if (data) alert.success('Logged in')
                 dispatch(setToken(data.token))
                 router.push('/');
             }).catch((err) => {
-                if(err.name === "CustomError") alert.info(userValidation.blockedUser)
+                if (err.name === 'CustomError') alert.info(userValidation.blockedUser)
                 else alert.error('username or password is wrong!')
             })
         }
     };
-
 
     return (
         <GoogleLogin
@@ -51,6 +53,7 @@ const GoogleLoginButton = () => {
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             cookiePolicy={'single_host_origin'}
+            theme={theme === 'dark' ? 'filled_black' : 'outline'}
         />
     );
 };

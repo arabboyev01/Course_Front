@@ -25,9 +25,9 @@ const options = {
 };
 
 const pubnub = new PubNub({
-  publishKey: "pub-c-a311f985-d745-4175-b170-441491fe8cc2",
-  subscribeKey: "sub-c-6604036e-3b5d-4051-b40c-9e03d3edcb42",
-  userId: "sec-c-MTllYjdjYTctOWM0Zi00MjEwLWFkYWUtMzUyNjU5YjFjMTU0",
+    publishKey: 'pub-c-a311f985-d745-4175-b170-441491fe8cc2',
+    subscribeKey: 'sub-c-6604036e-3b5d-4051-b40c-9e03d3edcb42',
+    userId: 'sec-c-MTllYjdjYTctOWM0Zi00MjEwLWFkYWUtMzUyNjU5YjFjMTU0',
 })
 
 const clientId = '915688630240-ncpe3p2ifr0uirapiige1406j3lp0g5b.apps.googleusercontent.com'

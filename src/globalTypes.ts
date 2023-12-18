@@ -57,8 +57,9 @@ export interface ReviewPropsType {
 
 export interface RoutingType {
     handleRouter: () => void
-    Auth: boolean
+    auth: boolean
     handleMain: () => void
+    theme: Themes | undefined
 }
 
 export type SignUpUsersTypes = {
@@ -109,6 +110,7 @@ export interface HandleLoginType {
     GithubSign: () => void
     showPassword: boolean
     togglePassword: () => void
+    theme: string
 }
 
 export interface HandleSignUpTypes {
@@ -281,6 +283,7 @@ export interface User {
 
 export interface userCartProp {
     userData: User
+    handleRoute: (route: string) => Promise<boolean>|undefined
 }
 
 export interface bookmarkProp {

@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from '@/store'
 import { handleSelectedTags } from '@/store/reducerSlice'
 import { SingleUser } from '@/store/Selector'
+import { Router } from '@/utils/router'
 
 const Tags = () => {
     const [existingTags, setExistingTags] = useState<TagsType[] | null>(null);
     const [selectedTags, setSelectedTags] = useState<string[] | any>([])
     const dispatch = useDispatch<AppDispatch>()
     const singleUser = useSelector(SingleUser)
+    const { handleRoute } = Router()
 
     useEffect(() => {
         api.getUsers('api/tags').then(data => {
@@ -36,6 +38,7 @@ const Tags = () => {
             handleSelectedTags={handleSelect}
             selectedTags={selectedTags}
             singleUser={singleUser}
+            handleRoute={handleRoute}
         />
     )
 }

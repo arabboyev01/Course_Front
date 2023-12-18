@@ -136,34 +136,10 @@ export const Navigator = (username: string | undefined) => {
             route: '/'
         },
         {
-            id: 6,
-            name: 'Notification',
-            icon: NotificationIcon,
-            route: '/notification'
-        },
-        {
             id: 2,
             name: 'Explore',
             icon: ExploreIcon,
             route: '/explore'
-        },
-        {
-            id: 3,
-            name: 'Messages',
-            icon: MessageIcon,
-            route: '/messages'
-        },
-        {
-            id: 1,
-            name: 'Bookmark',
-            icon: BookmarkSvg,
-            route: '/bookmark'
-        },
-        {
-            id: 4,
-            name: 'Profile',
-            icon: ProfileIcon,
-            route: `/${username}`
         },
         {
             id: 5,
@@ -172,6 +148,39 @@ export const Navigator = (username: string | undefined) => {
             route: '/review-creation/1'
         }
     ]
+
+     if (username) {
+        const profileItem = {
+            id: 4,
+            name: 'Profile',
+            icon: ProfileIcon,
+            route: `/${username}`
+        };
+
+        const messagesItem = {
+            id: 3,
+            name: 'Messages',
+            icon: MessageIcon,
+            route: '/messages'
+        };
+        const notificationItem = {
+            id: 6,
+            name: 'Notification',
+            icon: NotificationIcon,
+            route: '/notification'
+        }
+        const bookmarkItem = {
+            id: 1,
+            name: 'Bookmark',
+            icon: BookmarkSvg,
+            route: '/bookmark'
+        }
+
+        MainNavigator.splice(5, 0, profileItem);
+        MainNavigator.splice(2, 0, messagesItem);
+        MainNavigator.splice(1, 0, notificationItem)
+        MainNavigator.splice(4, 0, bookmarkItem)
+    }
 
     return MainNavigator
 }

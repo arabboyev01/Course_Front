@@ -1,5 +1,12 @@
 import ReviewForm from '@/components/ReviewForm'
-export default function ReviewCreation() {
+import Login from '@/components/Login'
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { Authorized } from '@/store/Selector'
 
-    return <ReviewForm />
+export default function ReviewCreation() {
+    const isAuth = useSelector(Authorized)
+    if (!isAuth) return <Login/>
+
+    return <ReviewForm/>
 }

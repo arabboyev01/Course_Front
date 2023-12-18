@@ -40,7 +40,7 @@ export const TagsText: any = styled.div`
   cursor: pointer;
   padding: 0 30px;
   color: #8f8f8f;
-  
+
   &:hover {
     background: ${({theme}) => theme.mainHover};
   }
@@ -49,6 +49,7 @@ export const TagsText: any = styled.div`
 interface TitleProp {
     active: boolean
 }
+
 export const TagsTitle = styled.p<TitleProp>`
   text-transform: capitalize;
   color: ${({theme}) => theme.navigatorColor};;
@@ -56,7 +57,7 @@ export const TagsTitle = styled.p<TitleProp>`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  
+
   ${({active}: any) => active && css`
     color: #008ABF;
   `}
@@ -68,8 +69,8 @@ export const SumPost = styled.p<TitleProp>`
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  
-   ${({active}: any) => active && css`
+
+  ${({active}: any) => active && css`
     color: #008ABF;
   `}
 `
@@ -77,11 +78,21 @@ export const Line = styled.div<TitleProp>`
   height: 0.3px;
   width: 130px;
   background: #686868;
-  
-   ${({active}: any) => active && css`
+
+  ${({active}: any) => active && css`
     background: #008ABF;
   `}
 `
 export const CheckImage = styled.img`
   object-fit: contain;
 `
+
+export const user = {
+    display: 'block',
+    width: '100%',
+    padding: 'var(--mantine-spacing-md)',
+    color: 'light-dark(var(--mantine-color-black), var(--mantine-color-dark-0))',
+    '@mixin hover': {
+        backgroundColor: `light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8))`
+    }
+}

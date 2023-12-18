@@ -48,6 +48,7 @@ const LoginComponent = () => {
         GithubSign={GithubSign}
         showPassword={showPassword}
         togglePassword={togglePassword}
+        theme={theme}
     />
 }
 export default LoginComponent;

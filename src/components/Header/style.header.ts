@@ -42,10 +42,3 @@ export const LoginButton = styled.button`
     cursor: pointer;
   }
 `
-
-export const LogoImage = styled.img`
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  cursor: pointer;
-`

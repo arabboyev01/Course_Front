@@ -16,9 +16,9 @@ import SearchFiled from '@/re-usible/SearchFiled'
 import checkIcon from '../../../public/check.svg'
 import checkedIcon from '../../../public/checked.svg'
 
-const DumbTags: React.FC<TagsType[] | null | any> = ({existingTags, handleSelectedTags, selectedTags, singleUser}) => (
+const DumbTags: React.FC<TagsType[] | null | any> = ({existingTags, handleSelectedTags, selectedTags, singleUser, handleRoute}) => (
     <StyleTags>
-        {!singleUser?.error && <UsersCart userData={singleUser}/>}
+        {!singleUser?.error && <UsersCart userData={singleUser} handleRoute={handleRoute}/>}
         <Subtitle>Search</Subtitle>
         <SearchFiled/>
         <Subtitle>Featured tags</Subtitle>
