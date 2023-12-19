@@ -13,5 +13,4 @@ const DumbHome: React.FC = () => (
         </BodyWrapper>
     </HomeStyle>
 )
-
 export default DumbHome

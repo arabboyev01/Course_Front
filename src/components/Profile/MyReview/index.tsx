@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { reviewDataLength, setImageObjects } from '@/store/reducerSlice'
 import { bookmarkReviewId, filterName, mode, sortName, totalLike, userReviewId } from '@/store/Selector'
 import { handleLikeReq, PostBookmarks } from '@/utils/PostRequest'
+import { Themes } from '@pubnub/react-chat-components'
 
 const MyReview = () => {
 
@@ -26,7 +27,7 @@ const MyReview = () => {
     const SortName = useSelector(sortName)
     const UserReviewId = useSelector(userReviewId)
     const TotalLike = useSelector(totalLike)
-    const theme = useSelector(mode)
+    const theme: undefined|Themes = useSelector(mode) as undefined | Themes
     const bookmarkId = useSelector(bookmarkReviewId)
 
     useEffect(() => {
